@@ -3,87 +3,36 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#51377a">
-  <meta name="description" content="Acesso rápido a contatos de emergência e orientação para buscar proteção.">
-  <meta name="robots" content="noindex, follow">
-  <title>Preciso de apoio | LIA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergência | LIA</title>
   <link rel="stylesheet" href="lia.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <script src="lia.js" defer></script>
 </head>
 <body>
-  <div class="top-bar"><div class="container top-bar-content"><span>LIA — Local • Informação • Apoio</span><button class="btn btn-discreet" id="openAccessibility" type="button" aria-controls="accessibilityPanel" aria-expanded="false">Acessibilidade</button></div></div>
-  <header class="header"><div class="container nav-container">
-    <a class="logo" href="index.html"><span class="logo-icon">LIA</span><span class="logo-name"><strong>LIA</strong><span>Local • Informação • Apoio</span></span></a>
-    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navigation"><i class="fa-solid fa-bars"></i></button>
-    <nav class="navigation" id="navigation"><a href="index.html">Início</a><a href="projeto.html">Projeto</a><a href="violencias.html">Violências</a><a href="apoio.html">Rede de apoio</a><a href="localizacao.html">Localização</a><a href="cadastro.html">Conta</a><a href="discreto.html">Modo discreto</a></nav>
-    <div class="nav-actions"><a class="btn btn-main" href="emergencia.html" aria-current="page">Preciso de apoio</a></div>
-  </div></header>
-  <div id="accessibilityOverlay" aria-hidden="true"></div>
-  <aside id="accessibilityPanel" aria-hidden="true" aria-label="Painel de acessibilidade">
-    <button id="closeAccessibility" class="btn btn-outline" type="button">Fechar</button><h2>Acessibilidade</h2>
-    <div class="action-list"><button id="fontDecrease" type="button">A− Diminuir texto</button><button id="fontReset" type="button">Restaurar texto</button><button id="fontIncrease" type="button">A+ Aumentar texto</button><button id="contrastToggle" type="button">Alto contraste</button><button id="themeToggleAccessibility" type="button">Tema claro/escuro</button><button id="readPage" type="button">Ler página</button><button id="stopReading" type="button">Parar leitura</button></div>
-    <label for="languageSelect">Idioma</label><select id="languageSelect"><option value="pt-BR">Português</option><option value="en">English</option><option value="es">Español</option></select>
-  </aside>
-  <main>
-    <section class="page-hero"><div class="container"><span class="eyebrow">AJUDA E PROTEÇÃO</span><h1>Preciso de apoio</h1><p>Se você está em perigo, priorize sua segurança e procure ajuda assim que for possível.</p></div></section>
-    <section class="page-content"><div class="container">
-      <div class="alert"><strong>Perigo imediato: 190 — Polícia Militar.</strong> Se não for seguro usar seu aparelho, tente buscar ajuda por outro meio ou com alguém de confiança.</div>
-      <div class="content-grid">
-        <article class="content-card"><div class="feature-icon pink"><i class="fa-solid fa-phone"></i></div><h2>Polícia — 190</h2><p>Para situações de emergência e perigo imediato.</p><a class="btn btn-main" href="tel:190">Ligar para 190</a></article>
-        <article class="content-card"><div class="feature-icon"><i class="fa-solid fa-headset"></i></div><h2>Ligue 180</h2><p>Central de Atendimento à Mulher: orientação e recebimento de denúncias de violência contra a mulher, gratuitamente, 24 horas por dia.</p><a class="btn btn-outline" href="tel:180">Ligar para 180</a><p><a href="https://www.gov.br/mulheres/pt-br">Site oficial do Ministério das Mulheres</a></p></article>
-        <article class="content-card"><div class="feature-icon blue"><i class="fa-solid fa-user-group"></i></div><h2>Pessoa de confiança</h2><p>Se for seguro, entre em contato com alguém que possa acompanhar você ou ajudar a encontrar um local seguro.</p><a class="btn btn-outline" href="pessoas-confiaveis.html">Ver contatos de confiança</a></article>
-        <article class="content-card"><div class="feature-icon green"><i class="fa-solid fa-location-dot"></i></div><h2>Encontrar atendimento</h2><p>Consulte informações de localização e serviços de apoio disponíveis na sua região.</p><a class="btn btn-outline" href="localizacao.html">Abrir localização</a></article>
-      </div>
-
-      <article class="content-card" style="margin-top:24px">
-        <h2>Atalho de emergência</h2>
-        <p>Este recurso inicia uma contagem regressiva de cinco segundos antes de abrir o discador. Ele não envia sua localização e não completa uma ligação sozinho.</p>
-        <p id="emergencyCountdown" role="status" aria-live="polite">Pronto para iniciar, se você desejar.</p>
-        <button class="btn btn-main" id="startEmergency" type="button">Iniciar contagem de 5 segundos</button>
-        <button class="btn btn-outline" id="cancelEmergency" type="button" disabled>Cancelar</button>
-      </article>
-      <p class="privacy-notice">A LIA é um projeto informativo. A disponibilidade dos serviços pode variar. Use os canais oficiais e não dependa exclusivamente deste site em uma emergência.</p>
-    </div></section>
-  </main>
-  <footer><div class="container"><h3>LIA — Local • Informação • Apoio</h3><p>Desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p><p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p></div></footer>
-  <script>
-    (() => {
-      const start = document.getElementById("startEmergency");
-      const cancel = document.getElementById("cancelEmergency");
-      const output = document.getElementById("emergencyCountdown");
-      let timer = null;
-      let remaining = 5;
-
-      function reset(message) {
-        if (timer !== null) clearInterval(timer);
-        timer = null;
-        remaining = 5;
-        start.disabled = false;
-        cancel.disabled = true;
-        output.textContent = message;
-      }
-
-      start.addEventListener("click", () => {
-        if (timer !== null) return;
-        remaining = 5;
-        start.disabled = true;
-        cancel.disabled = false;
-        output.textContent = "O discador será aberto em " + remaining + " segundos. Cancele se necessário.";
-        timer = setInterval(() => {
-          remaining -= 1;
-          if (remaining > 0) {
-            output.textContent = "O discador será aberto em " + remaining + " segundos. Cancele se necessário.";
-          } else {
-            reset("Abrindo o discador. Confirme a ligação no seu dispositivo.");
-            window.location.href = "tel:190";
-          }
-        }, 1000);
-      });
-
-      cancel.addEventListener("click", () => reset("Contagem cancelada."));
-    })();
-  </script>
+<header class="topic-header">
+  <a class="topic-logo" href="index.html">LIA</a>
+  <nav><a href="index.html">Início</a><a href="violencias.html">Tipos de violência</a><a href="apoio.html">Preciso de apoio</a><a href="conta.html">Conta</a></nav>
+</header>
+<main>
+  <section class="topic-hero"><p>SEGURANÇA EM PRIMEIRO LUGAR</p><h1>Orientações de emergência</h1><p>Se você estiver em perigo, tente priorizar sua segurança e buscar ajuda imediata.</p></section>
+  <section class="topic-section">
+    <h2>Telefones importantes no Brasil</h2>
+    <div class="topic-grid">
+      <article class="topic-card"><h3>190 — Polícia Militar</h3><p>Para situações de perigo imediato ou emergência policial.</p><a href="tel:190">Ligar para 190</a></article>
+      <article class="topic-card"><h3>192 — SAMU</h3><p>Para emergências médicas.</p><a href="tel:192">Ligar para 192</a></article>
+      <article class="topic-card"><h3>180 — Central da Mulher</h3><p>Orientação e encaminhamento relacionados à violência contra mulheres.</p><a href="tel:180">Ligar para 180</a></article>
+    </div>
+  </section>
+  <section class="topic-section">
+    <h2>Se você estiver em risco neste momento</h2>
+    <ul><li>Se puder fazer isso com segurança, vá para um local protegido e com outras pessoas.</li><li>Evite discutir ou avisar sobre seus planos se isso puder aumentar o perigo.</li><li>Se não puder telefonar, tente enviar uma mensagem curta a alguém de confiança, caso isso seja seguro.</li><li>Se houver ferimentos ou necessidade médica urgente, procure atendimento de emergência.</li><li>Não se coloque em risco para buscar documentos ou objetos pessoais.</li></ul>
+    <div class="topic-alert"><strong>Importante:</strong> esta página é informativa. Ela não envia automaticamente sua localização, não aciona os serviços de emergência e não avisa seus contatos. Para pedir ajuda imediata, entre em contato diretamente com o serviço adequado.</div>
+  </section>
+  <section class="topic-section">
+    <h2>Planeje quando for seguro</h2>
+    <p>Pense em uma pessoa confiável, uma forma segura de contato e um local onde possa buscar ajuda. Se houver monitoramento do celular, use um dispositivo seguro quando possível. Um serviço especializado pode ajudar você a pensar em um plano adequado à sua situação.</p>
+    <div class="topic-nav"><a href="pessoas-confiaveis.html">Pessoas de confiança</a><a href="apoio.html">Outras formas de apoio</a><a href="violencias.html">Entender os tipos de violência</a></div>
+  </section>
+</main>
+<footer class="topic-footer"><p>LIA — informação, acolhimento e proteção.</p><a href="index.html">Voltar ao início</a></footer>
 </body>
 </html>
