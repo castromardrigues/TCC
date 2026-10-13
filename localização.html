@@ -1,740 +1,91 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Localização e Serviços de Apoio à Mulher | LIA</title>
-    <meta name="description" content="Conheça os recursos de localização da LIA para ajudar mulheres a encontrar serviços de apoio e consultar sua posição no mapa.">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Marcely Castro Rodrigues e Mikaela Castro Bonfim">
-    <meta name="theme-color" content="#7656A3">
-
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="LIA — Local de Informação e Apoio">
-    <meta property="og:title" content="Localização e Serviços de Apoio à Mulher | LIA">
-    <meta property="og:description" content="Consulte o mapa e conheça caminhos para procurar serviços de apoio à mulher.">
-    <meta property="og:locale" content="pt_BR">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Localização e Serviços de Apoio à Mulher | LIA">
-    <meta name="twitter:description" content="Recursos de localização e orientação da LIA.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="lia.css">
-
-    <style>
-        .location-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-            gap: 28px;
-            align-items: stretch;
-        }
-
-        .location-card {
-            padding: 30px;
-            border-radius: 22px;
-            background: var(--card-bg, #fff);
-            border: 1px solid var(--border-color, #e8dff3);
-            box-shadow: 0 12px 32px rgba(75, 45, 105, 0.07);
-        }
-
-        .location-card h2,
-        .location-card h3 {
-            margin-top: 0;
-        }
-
-        .location-card p {
-            line-height: 1.7;
-        }
-
-        .location-status {
-            margin: 18px 0;
-            padding: 14px 16px;
-            border-radius: 12px;
-            background: #f3eefb;
-            color: #49346a;
-            overflow-wrap: anywhere;
-        }
-
-        .location-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .location-actions .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 9px;
-        }
-
-        .map-frame {
-            min-height: 360px;
-            width: 100%;
-            overflow: hidden;
-            border-radius: 18px;
-            border: 1px solid var(--border-color, #e8dff3);
-            background: #f5f0fa;
-        }
-
-        .map-frame iframe {
-            display: block;
-            width: 100%;
-            height: 100%;
-            min-height: 360px;
-            border: 0;
-        }
-
-        .service-list {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 20px;
-        }
-
-        .service-card {
-            padding: 24px;
-            border-radius: 18px;
-            background: var(--card-bg, #fff);
-            border: 1px solid var(--border-color, #e8dff3);
-        }
-
-        .service-card .service-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            margin-bottom: 16px;
-            border-radius: 14px;
-            background: #eee5fa;
-            color: #7656a3;
-            font-size: 20px;
-        }
-
-        .service-card p {
-            line-height: 1.65;
-        }
-
-        .service-card a {
-            overflow-wrap: anywhere;
-        }
-
-        .location-note {
-            margin-top: 22px;
-            font-size: 0.92rem;
-            line-height: 1.7;
-        }
-
-        .location-coordinates {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-            margin-top: 16px;
-        }
-
-        .coordinate-item {
-            padding: 14px;
-            border-radius: 12px;
-            background: var(--surface-bg, #f8f5fc);
-            overflow-wrap: anywhere;
-        }
-
-        .coordinate-item strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .location-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 12px;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        @media (max-width: 850px) {
-            .location-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .service-list {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .location-card {
-                padding: 20px;
-            }
-
-            .location-coordinates {
-                grid-template-columns: 1fr;
-            }
-
-            .location-actions {
-                flex-direction: column;
-            }
-
-            .location-actions .btn {
-                width: 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#51377a">
+  <meta name="description" content="Consulte sua localização com autorização e encontre serviços de apoio.">
+  <meta name="robots" content="noindex, follow">
+  <title>Localização e serviços | LIA</title>
+  <link rel="stylesheet" href="lia.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="lia.js" defer></script>
 </head>
-
 <body>
-
-<div class="top-bar">
-    <div class="container top-bar-inner">
-        <span>LIA — Local • Informação • Apoio</span>
-        <button id="openAccessibility" class="accessibility-button" type="button">
-            <i class="fa-solid fa-universal-access"></i>
-            Acessibilidade
-        </button>
-    </div>
-</div>
-
-<header class="site-header">
-    <div class="container header-inner">
-
-        <a href="index.html" class="main-logo" aria-label="Página inicial da LIA">
-            <span class="logo-icon">L</span>
-            <span class="logo-name">LIA</span>
-        </a>
-
-        <nav class="main-navigation" id="mainNavigation" aria-label="Navegação principal">
-            <a href="index.html">Início</a>
-            <a href="projeto.html">Conheça a LIA</a>
-            <a href="violencias.html">Violências</a>
-            <a href="apoio.html">Rede de apoio</a>
-            <a href="localizacao.html" class="active" aria-current="page">Localização</a>
-            <a href="cadastro.html">Meu cadastro</a>
-            <a href="discreto.html" class="discreet-nav-button">
-                <i class="fa-solid fa-eye-slash"></i>
-                Modo discreto
-            </a>
-        </nav>
-
-        <div class="header-actions">
-            <button id="themeToggle" class="theme-button" type="button" aria-label="Alternar tema">
-                <i class="fa-solid fa-moon"></i>
-            </button>
-
-            <button id="mobileMenuButton" class="mobile-menu-button" type="button" aria-label="Abrir menu" aria-expanded="false">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-
-    </div>
-</header>
-
-<main>
-
-    <section class="page-hero">
-        <div class="container">
-            <span class="eyebrow">LOCALIZAÇÃO E SEGURANÇA</span>
-
-            <h1>Conhecer os caminhos também é proteção.</h1>
-
-            <p>
-                Use os recursos desta página para consultar sua localização
-                no mapa e acessar ferramentas que ajudam a procurar serviços
-                de apoio. Sua localização só será solicitada se você escolher
-                permitir o acesso.
-            </p>
-
-            <a href="#minha-localizacao" class="btn btn-main">
-                Consultar localização
-                <i class="fa-solid fa-location-dot"></i>
-            </a>
-        </div>
-    </section>
-
-
-    <section class="section" id="minha-localizacao">
-        <div class="container">
-
-            <div class="section-title">
-                <span class="eyebrow">SUA POSIÇÃO NO MAPA</span>
-                <h2>Consulte sua localização</h2>
-                <p>
-                    Autorize o navegador a acessar sua localização para
-                    visualizar as coordenadas e abrir o mapa na sua região.
-                </p>
-            </div>
-
-            <div class="location-layout">
-
-                <div class="location-card">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-location-crosshairs"></i>
-                    </div>
-
-                    <h2>Minha localização</h2>
-
-                    <p>
-                        A LIA utilizará o recurso de localização do seu
-                        dispositivo somente após você solicitar e conceder
-                        a permissão do navegador.
-                    </p>
-
-                    <div id="locationStatus" class="location-status" role="status" aria-live="polite">
-                        Você ainda não solicitou sua localização.
-                    </div>
-
-                    <div class="location-coordinates">
-                        <div class="coordinate-item">
-                            <strong>Latitude</strong>
-                            <span id="latitudeValue">Não disponível</span>
-                        </div>
-
-                        <div class="coordinate-item">
-                            <strong>Longitude</strong>
-                            <span id="longitudeValue">Não disponível</span>
-                        </div>
-                    </div>
-
-                    <div class="location-actions">
-                        <button id="getLocationButton" class="btn btn-main" type="button">
-                            <i class="fa-solid fa-location-dot"></i>
-                            Usar minha localização
-                        </button>
-
-                        <button id="openMapButton" class="btn btn-secondary" type="button" disabled>
-                            <i class="fa-solid fa-map"></i>
-                            Abrir no mapa
-                        </button>
-                    </div>
-
-                    <p class="location-note">
-                        <i class="fa-solid fa-lock"></i>
-                        Sua localização não deve ser compartilhada sem seu
-                        consentimento. Evite usar esse recurso em um dispositivo
-                        que possa estar sendo monitorado.
-                    </p>
-                </div>
-
-                <div class="location-card">
-                    <h2>Mapa da região</h2>
-                    <p>
-                        Após obter sua localização, você poderá abrir o mapa
-                        centralizado nas coordenadas fornecidas pelo dispositivo.
-                    </p>
-
-                    <div class="map-frame">
-                        <iframe
-                            id="locationMap"
-                            title="Mapa da região"
-                            src="https://www.openstreetmap.org/export/embed.html?bbox=-46.75%2C-23.65%2C-46.55%2C-23.45&layer=mapnik"
-                            loading="lazy"
-                            referrerpolicy="no-referrer"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-
-                    <a
-                        class="location-link"
-                        href="https://www.openstreetmap.org/"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        Abrir OpenStreetMap
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-
-                    <p class="location-note">
-                        O mapa inicial apresenta uma área de referência em São
-                        Paulo. Ele não representa sua localização atual até que
-                        você autorize o acesso e solicite a atualização.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-
-    <section class="section">
-        <div class="container">
-
-            <div class="section-title">
-                <span class="eyebrow">SERVIÇOS DE APOIO</span>
-                <h2>Onde procurar orientação</h2>
-                <p>
-                    Os links abaixo ajudam você a encontrar informações
-                    oficiais. A disponibilidade de cada serviço depende
-                    da sua cidade e região.
-                </p>
-            </div>
-
-            <div class="service-list">
-
-                <article class="service-card">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-phone-volume"></i>
-                    </div>
-
-                    <h3>Central de Atendimento à Mulher</h3>
-
-                    <p>
-                        O Ligue 180 oferece orientação, informações sobre
-                        direitos e encaminhamento para a rede de atendimento
-                        à mulher.
-                    </p>
-
-                    <p><strong>Telefone:</strong> 180</p>
-
-                    <a
-                        href="https://www.gov.br/mulheres/pt-br/ligue180"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="location-link">
-                        Acessar o canal oficial
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                </article>
-
-
-                <article class="service-card">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-
-                    <h3>Emergência policial</h3>
-
-                    <p>
-                        Se houver perigo imediato, violência em andamento
-                        ou risco à integridade física, acione a Polícia Militar.
-                    </p>
-
-                    <p><strong>Telefone:</strong> 190</p>
-
-                    <a href="tel:190" class="location-link">
-                        Ligar para 190
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-
-                    <p class="location-note">
-                        A ligação pode exigir confirmação no próprio dispositivo.
-                    </p>
-                </article>
-
-
-                <article class="service-card">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-scale-balanced"></i>
-                    </div>
-
-                    <h3>Orientação jurídica</h3>
-
-                    <p>
-                        Procure a Defensoria Pública do seu estado para
-                        consultar informações sobre assistência jurídica
-                        e os critérios de atendimento.
-                    </p>
-
-                    <a
-                        href="https://www.cnj.jus.br/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="location-link">
-                        Consultar informações institucionais
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                </article>
-
-
-                <article class="service-card">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-hospital"></i>
-                    </div>
-
-                    <h3>Atendimento de saúde</h3>
-
-                    <p>
-                        Unidades de saúde podem orientar sobre cuidados
-                        físicos e emocionais e encaminhar para serviços
-                        especializados quando necessário.
-                    </p>
-
-                    <a href="apoio.html" class="location-link">
-                        Conhecer a rede de apoio
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </article>
-
-            </div>
-
-        </div>
-    </section>
-
-
-    <section class="section">
-        <div class="container">
-
-            <div class="mission-box">
-                <div>
-                    <span class="eyebrow">IMPORTANTE</span>
-                    <h2>Um mapa não substitui um serviço de emergência.</h2>
-                </div>
-
-                <p>
-                    Esta página não tem acesso automático à localização de
-                    viaturas policiais, abrigos com vagas disponíveis ou
-                    serviços em tempo real. Confirme os endereços e horários
-                    diretamente com os órgãos responsáveis antes de se deslocar.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-
-    <section class="section support-section">
-        <div class="container">
-
-            <div class="support-banner">
-                <div>
-                    <span class="eyebrow">PRECISA DE AJUDA?</span>
-                    <h2>Conheça os recursos de apoio da LIA.</h2>
-                    <p>
-                        Encontre informações sobre acolhimento psicológico,
-                        orientação jurídica e assistência social.
-                    </p>
-                </div>
-
-                <a href="apoio.html" class="btn btn-light">
-                    Acessar rede de apoio
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-</main>
-
-
-<footer class="site-footer">
-    <div class="container footer-content">
-
-        <div class="footer-brand">
-            <a href="index.html" class="main-logo">
-                <span class="logo-icon">L</span>
-                <span class="logo-name">LIA</span>
-            </a>
-            <p>Local de Informação e Apoio.</p>
-            <p>Informação • Proteção • Apoio</p>
-        </div>
-
-        <div class="footer-links">
-            <h3>Navegação</h3>
-            <a href="index.html">Início</a>
-            <a href="projeto.html">Conheça a LIA</a>
-            <a href="violencias.html">Violências</a>
-            <a href="apoio.html">Rede de apoio</a>
-            <a href="localizacao.html">Localização</a>
-        </div>
-
-        <div class="footer-links">
-            <h3>Segurança</h3>
-            <a href="emergencia.html">Emergência</a>
-            <a href="palavra-seguranca.html">Palavra de segurança</a>
-            <a href="pessoas-confiaveis.html">Pessoas confiáveis</a>
-            <a href="biometria.html">Biometria</a>
-            <a href="diario.html">Diário</a>
-        </div>
-
-        <div class="footer-info">
-            <h3>Desenvolvimento</h3>
-            <p><strong>Marcely Castro Rodrigues</strong> — Desenvolvedora</p>
-            <p><strong>Mikaela Castro Bonfim</strong> — Desenvolvedora</p>
-            <p><strong>Hellen Goulart Orlandi</strong> — Assistente Social — CRESS 58321</p>
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-        <div class="container">
-            <span>© 2026 LIA — Local de Informação e Apoio.</span>
-            <span>Informação • Proteção • Apoio</span>
-        </div>
-    </div>
-</footer>
-
-
-<div id="accessibilityOverlay" class="accessibility-overlay"></div>
-
-<aside id="accessibilityPanel" class="accessibility-panel" aria-hidden="true">
-    <div class="accessibility-panel-header">
-        <div>
-            <span class="panel-eyebrow">LIA</span>
-            <h2>Acessibilidade</h2>
-        </div>
-
-        <button id="closeAccessibility" class="panel-close" type="button" aria-label="Fechar acessibilidade">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-    </div>
-
-    <div class="accessibility-group">
-        <strong>Tamanho do texto</strong>
-        <div class="accessibility-controls">
-            <button id="fontDecrease" type="button">A−</button>
-            <button id="fontNormal" type="button">A</button>
-            <button id="fontIncrease" type="button">A+</button>
-        </div>
-    </div>
-
-    <div class="accessibility-group">
-        <strong>Leitura</strong>
-        <div class="accessibility-controls">
-            <button id="readPage" type="button">🔊 Ler página</button>
-            <button id="stopReading" type="button">■ Parar</button>
-        </div>
-    </div>
-
-    <div class="accessibility-group">
-        <strong>Idioma</strong>
-        <div class="language-buttons">
-            <button class="language-button" data-language="pt-BR" type="button">Português</button>
-            <button class="language-button" data-language="en" type="button">English</button>
-            <button class="language-button" data-language="es" type="button">Español</button>
-        </div>
-    </div>
-
-    <div class="accessibility-group">
-        <strong>Visual</strong>
-        <div class="accessibility-controls">
-            <button id="contrastToggle" type="button">Contraste</button>
-            <button id="themeToggleAccessibility" type="button">Modo noturno</button>
-        </div>
-    </div>
-
-    <div class="accessibility-group">
-        <strong>VLibras</strong>
-        <button id="activateVlibras" class="accessibility-main-button" type="button">
-            Ativar VLibras
-        </button>
-    </div>
-</aside>
-
-
-<script>
-(() => {
-    const status = document.getElementById("locationStatus");
-    const latitudeValue = document.getElementById("latitudeValue");
-    const longitudeValue = document.getElementById("longitudeValue");
-    const getLocationButton = document.getElementById("getLocationButton");
-    const openMapButton = document.getElementById("openMapButton");
-    const map = document.getElementById("locationMap");
-
-    let currentLatitude = null;
-    let currentLongitude = null;
-
-    function updateStatus(message) {
-        status.textContent = message;
-    }
-
-    function showCoordinates(latitude, longitude) {
-        currentLatitude = latitude;
-        currentLongitude = longitude;
-
-        latitudeValue.textContent = latitude.toFixed(6);
-        longitudeValue.textContent = longitude.toFixed(6);
-
-        const delta = 0.01;
-        const bbox = [
-            longitude - delta,
-            latitude - delta,
-            longitude + delta,
-            latitude + delta
-        ].join("%2C");
-
-        map.src =
-            "https://www.openstreetmap.org/export/embed.html?bbox=" +
-            bbox +
-            "&layer=mapnik&marker=" +
-            latitude +
-            "%2C" +
-            longitude;
-
-        openMapButton.disabled = false;
-
-        updateStatus("Localização obtida. Confira o mapa e escolha se deseja abri-lo em uma nova página.");
-    }
-
-    getLocationButton.addEventListener("click", () => {
-        if (!("geolocation" in navigator)) {
-            updateStatus("Seu navegador não oferece suporte à geolocalização.");
-            return;
+  <div class="top-bar"><div class="container top-bar-content"><span>LIA — Local • Informação • Apoio</span><button class="btn btn-discreet" id="openAccessibility" type="button" aria-controls="accessibilityPanel" aria-expanded="false">Acessibilidade</button></div></div>
+  <header class="header"><div class="container nav-container">
+    <a class="logo" href="index.html"><span class="logo-icon">LIA</span><span class="logo-name"><strong>LIA</strong><span>Local • Informação • Apoio</span></span></a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navigation"><i class="fa-solid fa-bars"></i></button>
+    <nav class="navigation" id="navigation"><a href="index.html">Início</a><a href="projeto.html">Projeto</a><a href="violencias.html">Violências</a><a href="apoio.html">Rede de apoio</a><a href="localizacao.html" aria-current="page">Localização</a><a href="cadastro.html">Conta</a><a href="discreto.html">Modo discreto</a></nav>
+    <div class="nav-actions"><a class="btn btn-main" href="emergencia.html">Preciso de apoio</a></div>
+  </div></header>
+  <div id="accessibilityOverlay" aria-hidden="true"></div>
+  <aside id="accessibilityPanel" aria-hidden="true" aria-label="Painel de acessibilidade">
+    <button id="closeAccessibility" class="btn btn-outline" type="button">Fechar</button><h2>Acessibilidade</h2>
+    <div class="action-list"><button id="fontDecrease" type="button">A− Diminuir texto</button><button id="fontReset" type="button">Restaurar texto</button><button id="fontIncrease" type="button">A+ Aumentar texto</button><button id="contrastToggle" type="button">Alto contraste</button><button id="themeToggleAccessibility" type="button">Tema claro/escuro</button><button id="readPage" type="button">Ler página</button><button id="stopReading" type="button">Parar leitura</button></div>
+    <label for="languageSelect">Idioma</label><select id="languageSelect"><option value="pt-BR">Português</option><option value="en">English</option><option value="es">Español</option></select>
+  </aside>
+  <main>
+    <section class="page-hero"><div class="container"><span class="eyebrow">INFORMAÇÃO LOCAL</span><h1>Localização e serviços</h1><p>Use os recursos abaixo para abrir um mapa e procurar serviços de atendimento.</p></div></section>
+    <section class="page-content"><div class="container">
+      <div class="alert"><strong>Sua privacidade importa.</strong> A localização só será acessada se você autorizar. Se alguém monitora seu aparelho, pense se é seguro usar este recurso.</div>
+      <article class="content-card">
+        <div class="feature-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <h2>Minha localização</h2>
+        <p>Autorize o navegador a acessar sua localização para abrir uma busca de serviços nas proximidades.</p>
+        <button class="btn btn-main" id="getLocation" type="button">Usar minha localização</button>
+        <p id="locationStatus" role="status" aria-live="polite">Nenhuma localização solicitada.</p>
+        <p id="coordinates"></p>
+        <a id="mapLink" class="btn btn-outline" href="#" target="_blank" rel="noopener noreferrer" hidden>Abrir mapa</a>
+      </article>
+
+      <div class="content-grid" style="margin-top:24px">
+        <article class="content-card"><div class="feature-icon pink"><i class="fa-solid fa-building-shield"></i></div><h2>Delegacia de Defesa da Mulher</h2><p>Consulte os canais oficiais de segurança pública para encontrar unidades e informações atualizadas.</p><a class="btn btn-outline" href="https://www.ssp.sp.gov.br/" target="_blank" rel="noopener noreferrer">Segurança Pública de SP</a></article>
+        <article class="content-card"><div class="feature-icon blue"><i class="fa-solid fa-hands-holding-circle"></i></div><h2>Serviços sociais</h2><p>CRAS, CREAS e outros serviços municipais podem orientar conforme a situação e a disponibilidade local.</p><a class="btn btn-outline" href="serviços.html">Ver serviços públicos</a></article>
+        <article class="content-card"><div class="feature-icon green"><i class="fa-solid fa-headset"></i></div><h2>Atendimento nacional</h2><p>Ligue 180 para informações e orientação sobre violência contra a mulher. Em perigo imediato, ligue 190.</p><a class="btn btn-outline" href="emergencia.html">Ver contatos de apoio</a></article>
+      </div>
+    </div></section>
+  </main>
+  <footer><div class="container"><h3>LIA — Local • Informação • Apoio</h3><p>Desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p><p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p></div></footer>
+  <script>
+    (() => {
+      const button = document.getElementById("getLocation");
+      const status = document.getElementById("locationStatus");
+      const coords = document.getElementById("coordinates");
+      const link = document.getElementById("mapLink");
+
+      button.addEventListener("click", () => {
+        link.hidden = true;
+        coords.textContent = "";
+
+        if (!navigator.geolocation) {
+          status.textContent = "Este navegador não oferece acesso à localização.";
+          return;
         }
 
-        getLocationButton.disabled = true;
-        updateStatus("Solicitando permissão de localização ao navegador...");
+        status.textContent = "Aguardando sua autorização...";
+        button.disabled = true;
 
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                showCoordinates(
-                    position.coords.latitude,
-                    position.coords.longitude
-                );
-                getLocationButton.disabled = false;
-            },
-            (error) => {
-                getLocationButton.disabled = false;
-
-                switch (error.code) {
-                    case error.PERMISSION_DENIED:
-                        updateStatus("A permissão foi negada. Se desejar usar o recurso, habilite a localização nas configurações do navegador.");
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        updateStatus("Não foi possível determinar sua localização neste momento.");
-                        break;
-                    case error.TIMEOUT:
-                        updateStatus("A solicitação demorou demais. Tente novamente em um local com melhor sinal.");
-                        break;
-                    default:
-                        updateStatus("Ocorreu um erro ao consultar a localização.");
-                }
-            },
-            {
-                enableHighAccuracy: true,
-                timeout: 15000,
-                maximumAge: 60000
-            }
-        );
-    });
-
-    openMapButton.addEventListener("click", () => {
-        if (currentLatitude === null || currentLongitude === null) {
-            updateStatus("Primeiro, solicite sua localização.");
-            return;
-        }
-
-        const url =
-            "https://www.openstreetmap.org/?mlat=" +
-            encodeURIComponent(currentLatitude) +
-            "&mlon=" +
-            encodeURIComponent(currentLongitude) +
-            "#map=16/" +
-            encodeURIComponent(currentLatitude) +
-            "/" +
-            encodeURIComponent(currentLongitude);
-
-        window.open(url, "_blank", "noopener,noreferrer");
-    });
-})();
-</script>
-
-<script src="lia.js"></script>
-
+        navigator.geolocation.getCurrentPosition(position => {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          coords.textContent = "Latitude: " + lat.toFixed(5) + " · Longitude: " + lon.toFixed(5);
+          link.href = "https://www.google.com/maps/search/servi%C3%A7os+de+apoio+%C3%A0+mulher/@"+lat+","+lon+",14z";
+          link.hidden = false;
+          status.textContent = "Localização obtida. Abra o mapa para pesquisar serviços próximos.";
+          button.disabled = false;
+        }, error => {
+          const messages = {
+            1: "Acesso à localização negado.",
+            2: "Não foi possível determinar sua localização.",
+            3: "A solicitação demorou demais. Tente novamente."
+          };
+          status.textContent = messages[error.code] || "Não foi possível acessar a localização.";
+          button.disabled = false;
+        }, { enableHighAccuracy: true, timeout: 12000, maximumAge: 60000 });
+      });
+    })();
+  </script>
 </body>
 </html>
