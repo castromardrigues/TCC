@@ -1,1383 +1,234 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Violência física | LIA</title>
-
-    <meta
-        name="description"
-        content="Informações sobre violência física, sinais, exemplos e caminhos de apoio."
-    >
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
-
-    <link rel="stylesheet" href="lia.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#51377a">
+  <meta name="author" content="Marcely Castro Rodrigues e Mikaela Castro Bonfim">
+  <meta name="description" content="Entenda o que é violência física contra a mulher, reconheça sinais de alerta e conheça caminhos de proteção e apoio.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Violência física | LIA">
+  <meta property="og:description" content="Informação, acolhimento e orientação sobre violência física contra a mulher.">
+  <title>Violência física | LIA</title>
+  <link rel="stylesheet" href="lia.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="lia.js" defer></script>
 </head>
-
 <body>
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <span>LIA — Local • Informação • Apoio</span>
+      <button class="btn btn-discreet" id="openAccessibility" type="button" aria-controls="accessibilityPanel" aria-expanded="false">
+        <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Acessibilidade
+      </button>
+    </div>
+  </div>
 
-<!-- =========================================================
-     BARRA SUPERIOR
-========================================================= -->
-
-<div class="top-bar">
-
-    <div class="container top-bar-inner">
-
-        <span>
-            LIA — Local • Informação • Apoio
+  <header class="header">
+    <div class="container nav-container">
+      <a class="logo" href="index.html" aria-label="LIA — página inicial">
+        <span class="logo-icon">LIA</span>
+        <span class="logo-name">
+          <strong>LIA</strong>
+          <span>Local • Informação • Apoio</span>
         </span>
+      </a>
 
-        <button
-            id="openAccessibility"
-            class="accessibility-button"
-            type="button"
-        >
-            <i class="fa-solid fa-universal-access"></i>
-            Acessibilidade
-        </button>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navigation">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
 
-    </div>
+      <nav class="navigation" id="navigation" aria-label="Menu principal">
+        <a href="index.html">Início</a>
+        <a href="projeto.html">Projeto</a>
+        <a href="violencias.html">Violências</a>
+        <a href="apoio.html">Rede de apoio</a>
+        <a href="localizacao.html">Localização</a>
+        <a href="cadastro.html">Conta</a>
+        <a href="discreto.html">Modo discreto</a>
+      </nav>
 
-</div>
-
-
-<!-- =========================================================
-     HEADER
-========================================================= -->
-
-<header class="site-header">
-
-    <div class="container header-inner">
-
-        <a
-            href="index.html"
-            class="main-logo"
-            aria-label="LIA - Página inicial"
-        >
-
-            <span class="logo-icon">
-                L
-            </span>
-
-            <span class="logo-name">
-                LIA
-            </span>
-
+      <div class="nav-actions">
+        <a class="btn btn-main" href="emergencia.html">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> Preciso de apoio
         </a>
-
-
-        <nav
-            class="main-navigation"
-            id="mainNavigation"
-        >
-
-            <a href="index.html">
-                Início
-            </a>
-
-            <a href="projeto.html">
-                Conheça a LIA
-            </a>
-
-            <a
-                href="violencias.html"
-                class="active"
-            >
-                Violências
-            </a>
-
-            <a href="apoio.html">
-                Rede de apoio
-            </a>
-
-            <a href="localizacao.html">
-                Localização
-            </a>
-
-            <a href="cadastro.html">
-                Meu cadastro
-            </a>
-
-            <a href="configuracoes.html">
-                Configurações
-            </a>
-
-        </nav>
-
-
-        <div class="header-actions">
-
-            <button
-                id="themeToggle"
-                class="theme-button"
-                type="button"
-                aria-label="Alterar tema"
-            >
-                <i class="fa-solid fa-moon"></i>
-            </button>
-
-
-            <button
-                id="mobileMenuButton"
-                class="mobile-menu-button"
-                type="button"
-                aria-label="Abrir menu"
-                aria-expanded="false"
-            >
-                <i class="fa-solid fa-bars"></i>
-            </button>
-
-        </div>
-
+      </div>
     </div>
+  </header>
 
-</header>
+  <div id="accessibilityOverlay" aria-hidden="true"></div>
+  <aside id="accessibilityPanel" aria-hidden="true" aria-label="Painel de acessibilidade">
+    <button id="closeAccessibility" class="btn btn-outline" type="button">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i> Fechar
+    </button>
+    <h2>Acessibilidade</h2>
+    <p>Personalize a leitura e a aparência da página.</p>
+    <div class="action-list">
+      <button id="fontDecrease" type="button">A− Diminuir texto</button>
+      <button id="fontReset" type="button">A Restaurar texto</button>
+      <button id="fontIncrease" type="button">A+ Aumentar texto</button>
+      <button id="contrastToggle" type="button">Alternar alto contraste</button>
+      <button id="themeToggleAccessibility" type="button">Alternar tema claro/escuro</button>
+      <button id="readPage" type="button">Ler página em voz alta</button>
+      <button id="stopReading" type="button">Parar leitura</button>
+    </div>
+    <label for="languageSelect">Idioma</label>
+    <select id="languageSelect">
+      <option value="pt-BR">Português</option>
+      <option value="en">English</option>
+      <option value="es">Español</option>
+    </select>
+  </aside>
 
-
-
-<!-- =========================================================
-     CONTEÚDO
-========================================================= -->
-
-<main>
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="page-hero">
-
-    <div class="container">
-
-        <a
-            href="violencias.html"
-            class="back-link"
-        >
-            ← Voltar para tipos de violência
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i> CONHECIMENTO E PROTEÇÃO</span>
+        <h1>Violência física</h1>
+        <p>A violência física não é apenas uma agressão grave. Qualquer conduta que prejudique a integridade ou a saúde corporal da mulher merece atenção.</p>
+        <a class="btn btn-main" href="emergencia.html">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> Preciso de apoio
         </a>
+      </div>
+    </section>
 
-
-        <span class="eyebrow">
-            01 • VIOLÊNCIA FÍSICA
-        </span>
-
-
-        <h1>
-            Quando a violência
-            <br>
-            atinge o corpo.
-        </h1>
-
-
-        <p>
-            A violência física envolve ações que causam,
-            tentam causar ou podem causar danos à integridade
-            física da mulher.
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     O QUE É
-========================================================= -->
-
-<section class="information-section">
-
-    <div class="container">
-
-
-        <div class="section-title centered">
-
-            <span class="eyebrow">
-                ENTENDA
-            </span>
-
-
-            <h2>
-                O que é violência física?
-            </h2>
-
-
-            <p>
-                É uma forma de violência que utiliza força física
-                ou algum meio capaz de provocar dor, lesão,
-                sofrimento ou risco à integridade corporal.
-            </p>
-
+    <section class="page-content">
+      <div class="container">
+        <div class="alert">
+          <strong>Você não precisa esperar a situação piorar para buscar ajuda.</strong>
+          Se estiver em perigo imediato, procure um lugar seguro se puder e ligue para o 190. Para orientação e denúncias de violência contra a mulher, o Ligue 180 funciona gratuitamente, 24 horas por dia.
         </div>
 
-
-
-        <div class="about-grid">
-
-
-            <article class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-hand-fist"></i>
-                </div>
-
-
-                <h3>
-                    Agressões
-                </h3>
-
-
-                <p>
-                    Podem envolver empurrões, tapas, socos,
-                    chutes, apertões ou outras agressões físicas.
-                </p>
-
-            </article>
-
-
-
-            <article class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-person-falling"></i>
-                </div>
-
-
-                <h3>
-                    Uso da força
-                </h3>
-
-
-                <p>
-                    Também pode ocorrer quando alguém utiliza
-                    força para impedir, prender ou restringir
-                    fisicamente outra pessoa.
-                </p>
-
-            </article>
-
-
-
-            <article class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                </div>
-
-
-                <h3>
-                    Risco físico
-                </h3>
-
-
-                <p>
-                    Mesmo quando uma lesão aparente não existe,
-                    uma situação de agressão pode representar
-                    risco à integridade física.
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     EXEMPLOS
-========================================================= -->
-
-<section class="section">
-
-    <div class="container">
-
-
-        <div class="section-title">
-
-            <span class="eyebrow">
-                EXEMPLOS
-            </span>
-
-
-            <h2>
-                Como ela pode acontecer?
-            </h2>
-
-
-            <p>
-                Alguns exemplos de comportamentos que podem
-                caracterizar violência física.
-            </p>
-
-        </div>
-
-
-
-        <div class="information-grid">
-
-
-            <article class="information-card">
-
-                <span class="information-number">
-                    01
-                </span>
-
-                <i class="fa-solid fa-hand"></i>
-
-                <h3>
-                    Empurrar ou agarrar
-                </h3>
-
-                <p>
-                    Utilizar força física para empurrar,
-                    segurar ou imobilizar a mulher.
-                </p>
-
-            </article>
-
-
-
-            <article class="information-card">
-
-                <span class="information-number">
-                    02
-                </span>
-
-                <i class="fa-solid fa-hand-fist"></i>
-
-                <h3>
-                    Bater
-                </h3>
-
-                <p>
-                    Dar tapas, socos, chutes ou utilizar
-                    outros meios para provocar agressão.
-                </p>
-
-            </article>
-
-
-
-            <article class="information-card">
-
-                <span class="information-number">
-                    03
-                </span>
-
-                <i class="fa-solid fa-burst"></i>
-
-                <h3>
-                    Ferir
-                </h3>
-
-                <p>
-                    Provocar cortes, queimaduras ou outros
-                    tipos de lesões utilizando força ou objetos.
-                </p>
-
-            </article>
-
-
-
-            <article class="information-card">
-
-                <span class="information-number">
-                    04
-                </span>
-
-                <i class="fa-solid fa-person-circle-exclamation"></i>
-
-                <h3>
-                    Impedir fisicamente
-                </h3>
-
-                <p>
-                    Bloquear a saída, prender ou restringir
-                    fisicamente os movimentos de alguém.
-                </p>
-
-            </article>
-
-
-
-            <article class="information-card">
-
-                <span class="information-number">
-                    05
-                </span>
-
-                <i class="fa-solid fa-triangle-exclamation"></i>
-
-                <h3>
-                    Ameaçar com agressão
-                </h3>
-
-                <p>
-                    Situações de ameaça física também devem
-                    ser levadas a sério, especialmente quando
-                    existe risco imediato.
-                </p>
-
-            </article>
-
-
-
-            <article class="information-card">
-
-                <span class="information-number">
-                    06
-                </span>
-
-                <i class="fa-solid fa-shield"></i>
-
-                <h3>
-                    Colocar em perigo
-                </h3>
-
-                <p>
-                    Comportamentos que colocam deliberadamente
-                    a integridade física da mulher em risco.
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     SINAIS
-========================================================= -->
-
-<section class="information-section">
-
-    <div class="container">
-
-
-        <div class="section-title centered">
-
-            <span class="eyebrow">
-                FIQUE ATENTA
-            </span>
-
-
-            <h2>
-                Alguns sinais merecem atenção.
-            </h2>
-
-
-            <p>
-                A violência física pode aparecer isoladamente
-                ou junto de outras formas de violência.
-            </p>
-
-        </div>
-
-
-
-        <div class="features-grid">
-
-
-            <article class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-eye"></i>
-                </div>
-
-
-                <h3>
-                    Marcas ou lesões
-                </h3>
-
-
-                <p>
-                    Hematomas, cortes, queimaduras,
-                    inchaços ou outras lesões sem explicação
-                    segura podem ser sinais de agressão.
-                </p>
-
-            </article>
-
-
-
-            <article class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-person-running"></i>
-                </div>
-
-
-                <h3>
-                    Medo constante
-                </h3>
-
-
-                <p>
-                    Viver com medo de provocar uma reação
-                    agressiva ou sofrer uma nova agressão.
-                </p>
-
-            </article>
-
-
-
-            <article class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-lock"></i>
-                </div>
-
-
-                <h3>
-                    Restrição de liberdade
-                </h3>
-
-
-                <p>
-                    Ser impedida fisicamente de sair,
-                    pedir ajuda ou procurar atendimento.
-                </p>
-
-            </article>
-
-
-
-            <article class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-arrows-to-circle"></i>
-                </div>
-
-
-                <h3>
-                    Escalada da violência
-                </h3>
-
-
-                <p>
-                    Aumento da frequência, intensidade ou
-                    gravidade das agressões deve ser tratado
-                    com atenção.
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     NÃO É CULPA DA VÍTIMA
-========================================================= -->
-
-<section class="section">
-
-    <div class="container">
-
-        <div class="support-banner">
-
-
-            <div class="support-banner-icon">
-
-                <i class="fa-solid fa-heart"></i>
-
+        <article class="content-card">
+          <h2>O que é violência física?</h2>
+          <p>É qualquer comportamento que ofenda a integridade ou a saúde corporal da mulher. Pode acontecer dentro de casa, em relacionamentos, em espaços públicos ou em outros contextos.</p>
+          <p>A Lei Maria da Penha, Lei nº 11.340/2006, reconhece a violência física como uma das formas de violência doméstica e familiar contra a mulher.</p>
+        </article>
+
+        <div class="content-grid" style="margin-top:24px">
+          <article class="content-card">
+            <div class="feature-icon">
+              <i class="fa-solid fa-hand" aria-hidden="true"></i>
             </div>
+            <h2>Exemplos de violência física</h2>
+            <ul>
+              <li>Dar tapas, socos, chutes ou empurrões.</li>
+              <li>Puxar os cabelos ou apertar partes do corpo com força.</li>
+              <li>Queimar, ferir ou tentar sufocar.</li>
+              <li>Impedir fisicamente a mulher de sair de um lugar.</li>
+              <li>Arremessar objetos contra ela ou usar objetos para machucá-la.</li>
+              <li>Provocar lesões ou prejudicar sua saúde corporal de outras formas.</li>
+            </ul>
+          </article>
 
-
-            <div class="support-banner-content">
-
-                <span class="eyebrow">
-                    LEMBRE-SE
-                </span>
-
-
-                <h2>
-                    A responsabilidade pela violência nunca é da vítima.
-                </h2>
-
-
-                <p>
-                    Nada justifica uma agressão. Você não precisa
-                    provar que sofreu o suficiente para merecer ajuda.
-                </p>
-
+          <article class="content-card">
+            <div class="feature-icon pink">
+              <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
             </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     O QUE FAZER
-========================================================= -->
-
-<section class="information-section">
-
-    <div class="container">
-
-
-        <div class="section-title">
-
-            <span class="eyebrow">
-                BUSQUE SEGURANÇA
-            </span>
-
-
-            <h2>
-                Se isso estiver acontecendo com você.
-            </h2>
-
-
-            <p>
-                Priorize sua segurança e procure uma pessoa
-                ou serviço em que confie.
-            </p>
-
-        </div>
-
-
-
-        <div class="tutorial-grid">
-
-
-            <article class="tutorial-card">
-
-                <span class="tutorial-number">
-                    01
-                </span>
-
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-person-shelter"></i>
-                </div>
-
-
-                <h3>
-                    Vá para um local seguro
-                </h3>
-
-
-                <p>
-                    Se houver risco imediato, procure um
-                    ambiente seguro e, quando possível,
-                    fique perto de pessoas de confiança.
-                </p>
-
-            </article>
-
-
-
-            <article class="tutorial-card">
-
-                <span class="tutorial-number">
-                    02
-                </span>
-
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-user-group"></i>
-                </div>
-
-
-                <h3>
-                    Procure alguém de confiança
-                </h3>
-
-
-                <p>
-                    Conte o que está acontecendo para uma
-                    pessoa que possa ajudar você com segurança.
-                </p>
-
-            </article>
-
-
-
-            <article class="tutorial-card">
-
-                <span class="tutorial-number">
-                    03
-                </span>
-
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-hospital"></i>
-                </div>
-
-
-                <h3>
-                    Procure atendimento
-                </h3>
-
-
-                <p>
-                    Quando necessário, procure atendimento
-                    de saúde e orientação dos serviços públicos.
-                </p>
-
-            </article>
-
-
-
-            <article class="tutorial-card">
-
-                <span class="tutorial-number">
-                    04
-                </span>
-
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-scale-balanced"></i>
-                </div>
-
-
-                <h3>
-                    Conheça seus direitos
-                </h3>
-
-
-                <p>
-                    Serviços especializados podem orientar
-                    sobre medidas de proteção e caminhos jurídicos.
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     APOIO
-========================================================= -->
-
-<section class="section">
-
-    <div class="container">
-
-        <div class="emergency-support-card">
-
-
-            <div class="emergency-support-icon">
-
-                <i class="fa-solid fa-hand-holding-heart"></i>
-
+            <h2>Sinais de alerta</h2>
+            <ul>
+              <li>Você sente medo da reação da outra pessoa.</li>
+              <li>A pessoa usa força física para controlar suas decisões.</li>
+              <li>As agressões são seguidas de pedidos de desculpas e promessas, mas voltam a acontecer.</li>
+              <li>Você esconde machucados ou muda sua rotina por medo.</li>
+              <li>A pessoa ameaça machucar você, alguém próximo ou a si mesma para controlar você.</li>
+            </ul>
+            <p>Esses sinais podem indicar uma situação de risco. A ausência de marcas visíveis não significa que não houve violência.</p>
+          </article>
+
+          <article class="content-card">
+            <div class="feature-icon blue">
+              <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
             </div>
+            <h2>O que fazer depois de uma agressão?</h2>
+            <ul>
+              <li>Priorize sua segurança e tente chegar a um local seguro, se for possível.</li>
+              <li>Busque atendimento de saúde se estiver ferida ou sentir dor.</li>
+              <li>Conte o que aconteceu a alguém de confiança, se isso não aumentar o risco.</li>
+              <li>Considere procurar orientação jurídica e serviços especializados.</li>
+              <li>Se for seguro, guarde registros relevantes em um local ao qual o agressor não tenha acesso.</li>
+            </ul>
+          </article>
 
-
-            <div>
-
-                <span class="eyebrow">
-                    REDE DE APOIO
-                </span>
-
-
-                <h2>
-                    Você não precisa enfrentar isso sozinha.
-                </h2>
-
-
-                <p>
-                    Encontre informações sobre apoio psicológico,
-                    jurídico, social, saúde e serviços de proteção.
-                </p>
-
-
-                <a
-                    href="apoio.html"
-                    class="btn btn-primary"
-                >
-                    Encontrar apoio
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-
+          <article class="content-card">
+            <div class="feature-icon green">
+              <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
             </div>
-
+            <h2>Como apoiar uma mulher?</h2>
+            <ul>
+              <li>Escute sem culpar ou questionar por que ela não foi embora.</li>
+              <li>Respeite as decisões e o tempo dela.</li>
+              <li>Ajude a encontrar atendimento, se ela desejar.</li>
+              <li>Evite confrontar o agressor se isso puder aumentar o perigo.</li>
+              <li>Em uma emergência, acione os serviços competentes quando for seguro fazê-lo.</li>
+            </ul>
+          </article>
         </div>
 
-    </div>
+        <article class="content-card" style="margin-top:24px">
+          <h2>Conheça outras formas de violência</h2>
+          <p>A violência também pode acontecer por meio de ameaças, humilhações, coerção sexual, controle financeiro, exposição digital ou uso de filhos para atingir a mulher.</p>
 
-</section>
+          <div class="action-list">
+            <a href="violencia-psicologica.html">
+              <span><i class="fa-solid fa-brain" aria-hidden="true"></i> Violência psicológica</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="violencia-sexual.html">
+              <span><i class="fa-solid fa-hand" aria-hidden="true"></i> Violência sexual</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="violencia-patrimonial.html">
+              <span><i class="fa-solid fa-wallet" aria-hidden="true"></i> Violência patrimonial</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="violencia-moral.html">
+              <span><i class="fa-solid fa-comment-slash" aria-hidden="true"></i> Violência moral</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="violencia-digital.html">
+              <span><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i> Violência digital</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="violencia-vicaria.html">
+              <span><i class="fa-solid fa-people-group" aria-hidden="true"></i> Violência vicária</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </article>
 
+        <article class="content-card" style="margin-top:24px">
+          <h2>Fontes e informações oficiais</h2>
+          <p>Consulte fontes oficiais para conhecer seus direitos e encontrar orientações atualizadas.</p>
+          <div class="action-list">
+            <a href="https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11340.htm" target="_blank" rel="noopener noreferrer">
+              <span><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Lei Maria da Penha — texto legal</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.gov.br/mulheres/pt-br" target="_blank" rel="noopener noreferrer">
+              <span><i class="fa-solid fa-landmark" aria-hidden="true"></i> Ministério das Mulheres</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </div>
+        </article>
 
+        <div class="privacy-notice" style="margin-top:24px">
+          <strong>Importante:</strong> a responsabilidade pela violência é de quem a pratica. Esta página é informativa e não substitui atendimento médico, jurídico ou dos serviços de proteção.
+        </div>
+      </div>
+    </section>
+  </main>
 
-<!-- =========================================================
-     EMERGÊNCIA
-========================================================= -->
-
-<section class="information-section">
-
+  <footer>
     <div class="container">
-
-        <div class="privacy-box">
-
-
-            <div class="privacy-icon">
-
-                <i class="fa-solid fa-phone"></i>
-
-            </div>
-
-
-            <div>
-
-                <span class="eyebrow">
-                    EMERGÊNCIA
-                </span>
-
-
-                <h3>
-                    Existe perigo imediato?
-                </h3>
-
-
-                <p>
-                    Se você estiver em uma situação de risco
-                    imediato, procure um local seguro e acione
-                    os serviços de emergência apropriados.
-                </p>
-
-
-                <a
-                    href="emergencia.html"
-                    class="btn btn-primary"
-                >
-                    Abrir recurso de emergência
-                </a>
-
-            </div>
-
-        </div>
-
+      <h3>LIA — Local • Informação • Apoio</h3>
+      <p>Projeto de informação, acolhimento e orientação para mulheres.</p>
+      <p>Desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
+      <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
     </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     REFERÊNCIAS
-========================================================= -->
-
-<section class="section">
-
-    <div class="container">
-
-
-        <div class="section-title centered">
-
-            <span class="eyebrow">
-                FONTES
-            </span>
-
-
-            <h2>
-                Informação baseada em referências oficiais.
-            </h2>
-
-
-            <p>
-                Para o desenvolvimento do conteúdo, consulte
-                legislação e materiais institucionais relacionados
-                à violência contra a mulher.
-            </p>
-
-        </div>
-
-
-
-        <div class="features-grid">
-
-
-            <article class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-scale-balanced"></i>
-                </div>
-
-
-                <h3>
-                    Lei Maria da Penha
-                </h3>
-
-
-                <p>
-                    Lei nº 11.340/2006, referência brasileira
-                    para prevenção, enfrentamento e proteção
-                    em situações de violência doméstica e familiar.
-                </p>
-
-            </article>
-
-
-
-            <article class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-landmark"></i>
-                </div>
-
-
-                <h3>
-                    Políticas públicas
-                </h3>
-
-
-                <p>
-                    A rede pública de atendimento reúne serviços
-                    que podem orientar e acolher mulheres em
-                    situação de violência.
-                </p>
-
-            </article>
-
-
-
-            <article class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-book-open"></i>
-                </div>
-
-
-                <h3>
-                    Informação responsável
-                </h3>
-
-
-                <p>
-                    A página tem finalidade informativa e não
-                    substitui atendimento profissional,
-                    médico ou jurídico.
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     NAVEGAÇÃO ENTRE TIPOS
-========================================================= -->
-
-<section class="information-section">
-
-    <div class="container">
-
-
-        <div class="section-title centered">
-
-            <span class="eyebrow">
-                CONTINUE
-            </span>
-
-
-            <h2>
-                Conheça outras formas de violência.
-            </h2>
-
-        </div>
-
-
-
-        <div class="violence-grid">
-
-
-            <a
-                href="violencia-psicologica.html"
-                class="violence-card"
-            >
-
-                <div class="violence-card-icon">
-                    <i class="fa-solid fa-brain"></i>
-                </div>
-
-                <h3>
-                    Psicológica
-                </h3>
-
-                <p>
-                    Controle, humilhação, medo e sofrimento emocional.
-                </p>
-
-                <span class="violence-card-link">
-                    Próxima →
-                </span>
-
-            </a>
-
-
-
-            <a
-                href="violencia-sexual.html"
-                class="violence-card"
-            >
-
-                <div class="violence-card-icon">
-                    <i class="fa-solid fa-shield-heart"></i>
-                </div>
-
-                <h3>
-                    Sexual
-                </h3>
-
-                <p>
-                    Situações sexuais sem consentimento ou mediante coerção.
-                </p>
-
-                <span class="violence-card-link">
-                    Conhecer →
-                </span>
-
-            </a>
-
-
-
-            <a
-                href="violencias.html"
-                class="violence-card"
-            >
-
-                <div class="violence-card-icon">
-                    <i class="fa-solid fa-grid-2"></i>
-                </div>
-
-                <h3>
-                    Todas as categorias
-                </h3>
-
-                <p>
-                    Volte para a lista completa de tipos de violência.
-                </p>
-
-                <span class="violence-card-link">
-                    Ver todas →
-                </span>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer class="site-footer">
-
-    <div class="container footer-content">
-
-
-        <div class="footer-brand">
-
-            <a
-                href="index.html"
-                class="main-logo"
-            >
-
-                <span class="logo-icon">
-                    L
-                </span>
-
-                <span class="logo-name">
-                    LIA
-                </span>
-
-            </a>
-
-
-            <p>
-                Local • Informação • Apoio
-            </p>
-
-        </div>
-
-
-
-        <div class="footer-links">
-
-            <a href="index.html">
-                Início
-            </a>
-
-            <a href="projeto.html">
-                Sobre o projeto
-            </a>
-
-            <a href="violencias.html">
-                Violências
-            </a>
-
-            <a href="apoio.html">
-                Rede de apoio
-            </a>
-
-            <a href="cadastro.html">
-                Meu cadastro
-            </a>
-
-        </div>
-
-
-
-        <div class="footer-info">
-
-            <p>
-                <strong>
-                    Marcely Castro Rodrigues
-                </strong>
-                — Desenvolvedora
-            </p>
-
-
-            <p>
-                <strong>
-                    Mikaela Castro Bonfim
-                </strong>
-                — Desenvolvedora
-            </p>
-
-
-            <p>
-                © 2026 LIA — Local • Informação • Apoio
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-
-<!-- =========================================================
-     PAINEL DE ACESSIBILIDADE
-========================================================= -->
-
-<aside
-    id="accessibilityPanel"
-    class="accessibility-panel"
-    aria-hidden="true"
->
-
-    <div class="accessibility-panel-header">
-
-        <div>
-
-            <span>
-                Acessibilidade
-            </span>
-
-            <strong>
-                Personalize sua experiência
-            </strong>
-
-        </div>
-
-
-        <button
-            id="closeAccessibility"
-            type="button"
-            aria-label="Fechar acessibilidade"
-        >
-            ×
-        </button>
-
-    </div>
-
-
-
-    <div class="accessibility-group">
-
-        <h3>
-            Texto
-        </h3>
-
-
-        <div class="accessibility-buttons">
-
-            <button id="fontDecrease">
-                A−
-            </button>
-
-            <button id="fontNormal">
-                A
-            </button>
-
-            <button id="fontIncrease">
-                A+
-            </button>
-
-        </div>
-
-    </div>
-
-
-
-    <div class="accessibility-group">
-
-        <h3>
-            Leitura
-        </h3>
-
-
-        <button
-            id="readPage"
-            class="accessibility-action"
-            type="button"
-        >
-
-            <i class="fa-solid fa-volume-high"></i>
-
-            Ler página
-
-        </button>
-
-
-        <button
-            id="stopReading"
-            class="accessibility-action"
-            type="button"
-        >
-
-            <i class="fa-solid fa-stop"></i>
-
-            Parar leitura
-
-        </button>
-
-    </div>
-
-
-
-    <div class="accessibility-group">
-
-        <h3>
-            Idioma
-        </h3>
-
-
-        <div class="language-buttons">
-
-            <button
-                class="language-button"
-                data-language="pt-BR"
-                type="button"
-            >
-                Português
-            </button>
-
-
-            <button
-                class="language-button"
-                data-language="en"
-                type="button"
-            >
-                English
-            </button>
-
-
-            <button
-                class="language-button"
-                data-language="es"
-                type="button"
-            >
-                Español
-            </button>
-
-        </div>
-
-    </div>
-
-
-
-    <div class="accessibility-group">
-
-        <h3>
-            Visual
-        </h3>
-
-
-        <button
-            id="contrastToggle"
-            class="accessibility-action"
-            type="button"
-        >
-
-            <i class="fa-solid fa-circle-half-stroke"></i>
-
-            Alto contraste
-
-        </button>
-
-
-        <button
-            id="activateVlibras"
-            class="accessibility-action"
-            type="button"
-        >
-
-            <i class="fa-solid fa-hands"></i>
-
-            Ativar VLibras
-
-        </button>
-
-    </div>
-
-</aside>
-
-
-
-<script src="lia.js"></script>
-
+  </footer>
 </body>
 </html>
