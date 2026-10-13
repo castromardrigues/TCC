@@ -4,125 +4,165 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#7950b8">
-  <meta name="description" content="Cadastro para a área pessoal do LIA.">
-  <meta name="robots" content="index, follow">
-  <title>Criar Cadastro | LIA</title>
+  <meta name="description" content="Crie sua conta no LIA, Local de Informação e Apoio.">
+  <meta name="theme-color" content="#7653a6">
+  <title>Criar conta | LIA</title>
   <link rel="stylesheet" href="lia.css">
-  <script src="lia.js" defer></script>
 </head>
 <body>
-  <div class="top-bar">
-    <div class="container top-bar-content">
-      <span>LIA — Local • Informação • Apoio</span>
-      <button class="btn btn-outline" id="openAccessibility" type="button">Acessibilidade</button>
-    </div>
-  </div>
-
   <header class="header">
     <div class="container nav-container">
-      <a class="logo" href="index.html"><span class="logo-icon">L</span><span class="logo-name">LIA</span></a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <a class="logo" href="index.html" aria-label="LIA - página inicial">
+        <span class="logo-icon">L</span>
+        <span class="logo-name">LIA</span>
+      </a>
       <nav class="navigation" id="navigation">
         <a href="index.html">Início</a>
-        <a href="projeto.html">O projeto</a>
-        <a href="violencias.html">Tipos de violência</a>
-        <a href="apoio.html">Preciso de apoio</a>
-        <a href="conta.html">Conta</a>
-        <a href="discreto.html">Modo discreto</a>
+        <a href="projeto.html">Conheça o projeto</a>
+        <a href="conta.html">Entrar</a>
       </nav>
     </div>
   </header>
 
-  <main class="page-content container">
+  <main class="page-content">
     <section class="page-hero">
-      <span class="eyebrow">Área pessoal</span>
-      <h1>Crie seu cadastro</h1>
-      <p>Preencha os dados abaixo para preparar sua conta no LIA.</p>
+      <div class="container">
+        <p class="eyebrow">Sua conta LIA</p>
+        <h1>Crie sua conta</h1>
+        <p>Preencha os dados para começar.</p>
+      </div>
     </section>
 
-    <section class="content-card">
-      <form id="registerForm">
-        <div class="content-grid">
-          <div>
-            <label for="fullName">Nome completo</label>
-            <input id="fullName" name="fullName" type="text" autocomplete="name" required placeholder="Seu nome">
-          </div>
-          <div>
-            <label for="birthDate">Data de nascimento</label>
-            <input id="birthDate" name="birthDate" type="date" autocomplete="bday">
-          </div>
-          <div>
-            <label for="registerEmail">E-mail</label>
-            <input id="registerEmail" name="email" type="email" autocomplete="email" required placeholder="seuemail@exemplo.com">
-          </div>
-          <div>
-            <label for="registerPassword">Criar senha</label>
-            <input id="registerPassword" name="password" type="password" autocomplete="new-password" minlength="8" required placeholder="Mínimo de 8 caracteres">
-          </div>
-          <div>
-            <label for="confirmPassword">Confirmar senha</label>
-            <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="Digite a senha novamente">
-          </div>
-          <div>
-            <label for="phone">Telefone (opcional)</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="DDD + telefone">
-          </div>
-        </div>
+    <section class="container" style="max-width:620px;margin:32px auto;">
+      <div class="content-card">
+        <form id="signupForm">
+          <label for="fullName">Nome completo</label>
+          <input id="fullName" name="fullName" type="text"
+            autocomplete="name" required>
 
-        <div class="privacy-notice">
-          <strong>Importante:</strong> este formulário ainda não cria uma conta real nem envia os dados para um banco. Não informe dados pessoais reais até a autenticação segura estar configurada.
-        </div>
+          <label for="phone">Telefone (opcional)</label>
+          <input id="phone" name="phone" type="tel"
+            autocomplete="tel">
 
-        <label class="action-list">
-          <span><input id="privacyAgreement" type="checkbox" required> Entendi que o cadastro só será ativado após a configuração segura do sistema.</span>
-        </label>
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email"
+            autocomplete="email" required>
 
-        <button class="btn btn-main" type="submit">Validar formulário</button>
-        <p id="registerStatus" role="status" aria-live="polite"></p>
-        <p>Já tem uma conta? <a href="conta.html">Voltar para a página de conta</a>.</p>
-      </form>
+          <label for="password">Senha (mínimo de 8 caracteres)</label>
+          <input id="password" name="password" type="password"
+            autocomplete="new-password" minlength="8" required>
+
+          <label for="confirmPassword">Confirme sua senha</label>
+          <input id="confirmPassword" name="confirmPassword"
+            type="password" autocomplete="new-password"
+            minlength="8" required>
+
+          <button class="btn btn-main" id="signupButton"
+            type="submit" style="margin-top:20px;width:100%;">
+            Criar conta
+          </button>
+
+          <p id="signupMessage" role="status"
+            aria-live="polite" style="margin-top:16px;"></p>
+        </form>
+
+        <p style="margin-top:20px;">
+          Já tem uma conta?
+          <a href="conta.html">Entrar</a>
+        </p>
+
+        <p class="privacy-notice">
+          Seus dados de cadastro são enviados ao serviço de autenticação
+          do LIA. Não informe dados pessoais de outras pessoas.
+        </p>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <p><strong>LIA — Local de Informação e Apoio</strong></p>
-      <p><a href="projeto.html">Sobre o projeto</a> · <a href="apoio.html">Apoio</a> · <a href="configurações.html">Configurações</a></p>
+      <p>LIA — Local de Informação e Apoio</p>
     </div>
   </footer>
 
-  <div class="accessibility-overlay" id="accessibilityOverlay"></div>
-  <aside class="accessibility-panel" id="accessibilityPanel" aria-label="Painel de acessibilidade" aria-hidden="true">
-    <button class="btn btn-outline" id="closeAccessibility" type="button">Fechar ×</button>
-    <h2>Acessibilidade</h2>
-    <div class="action-list">
-      <button class="btn btn-outline" id="fontDecrease" type="button">Diminuir fonte A−</button>
-      <button class="btn btn-outline" id="fontReset" type="button">Fonte normal</button>
-      <button class="btn btn-outline" id="fontIncrease" type="button">Aumentar fonte A+</button>
-      <button class="btn btn-outline" id="contrastToggle" type="button">Alto contraste</button>
-      <button class="btn btn-outline" id="themeToggleAccessibility" type="button">Alternar tema</button>
-      <label for="languageSelect">Idioma</label>
-      <select id="languageSelect"><option value="pt">Português</option><option value="en">English</option><option value="es">Español</option></select>
-      <button class="btn btn-outline" id="readPage" type="button">Ler página</button>
-      <button class="btn btn-outline" id="stopReading" type="button">Parar leitura</button>
-    </div>
-  </aside>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="lia-supabase.js"></script>
 
   <script>
-    document.getElementById('registerForm').addEventListener('submit', function (event) {
+    const form = document.getElementById("signupForm");
+    const message = document.getElementById("signupMessage");
+    const button = document.getElementById("signupButton");
+
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const password = document.getElementById('registerPassword').value;
-      const confirmation = document.getElementById('confirmPassword').value;
-      const status = document.getElementById('registerStatus');
+      message.textContent = "";
+
+      const fullName = document.getElementById("fullName").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirmation =
+        document.getElementById("confirmPassword").value;
 
       if (password !== confirmation) {
-        status.textContent = 'As senhas não coincidem. Confira e tente novamente.';
-        document.getElementById('confirmPassword').focus();
+        message.textContent = "As senhas não são iguais.";
         return;
       }
 
-      status.textContent = 'Formulário validado. O cadastro real ainda precisa ser conectado ao Supabase para salvar a conta com segurança.';
+      if (password.length < 8) {
+        message.textContent = "A senha precisa ter pelo menos 8 caracteres.";
+        return;
+      }
+
+      if (
+        !window.supabase ||
+        !window.LIA_SUPABASE_URL ||
+        !window.LIA_SUPABASE_PUBLISHABLE_KEY ||
+        window.LIA_SUPABASE_PUBLISHABLE_KEY.includes("COLE_AQUI")
+      ) {
+        message.textContent =
+          "A conexão ainda não está configurada. Confira o arquivo lia-supabase.js.";
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = "Criando conta...";
+
+      try {
+        const client = window.supabase.createClient(
+          window.LIA_SUPABASE_URL,
+          window.LIA_SUPABASE_PUBLISHABLE_KEY
+        );
+
+        const { data, error } = await client.auth.signUp({
+          email,
+          password,
+          options: {
+            data: {
+              full_name: fullName,
+              phone: phone
+            }
+          }
+        });
+
+        if (error) throw error;
+
+        if (data.session) {
+          message.textContent =
+            "Conta criada! Você já pode entrar no LIA.";
+          form.reset();
+        } else {
+          message.textContent =
+            "Cadastro enviado! Confira seu e-mail para confirmar a conta antes de entrar.";
+        }
+      } catch (error) {
+        console.error("Erro no cadastro:", error);
+        message.textContent =
+          error.message || "Não foi possível criar a conta. Tente novamente.";
+      } finally {
+        button.disabled = false;
+        button.textContent = "Criar conta";
+      }
     });
   </script>
 </body>
