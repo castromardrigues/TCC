@@ -1,0 +1,2005 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LIA | Palavra de Segurança</title>
+
+    <meta
+        name="description"
+        content="Configure uma palavra de segurança para acionar rapidamente um pedido de ajuda."
+    >
+
+    <link rel="stylesheet" href="lia.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+<!-- =====================================================
+     TOPO
+===================================================== -->
+
+<div class="top-bar">
+
+    <div class="container top-bar-inner">
+
+        <span>
+            LIA — Local • Informação • Apoio
+        </span>
+
+        <button
+            class="accessibility-button"
+            id="openAccessibility"
+            type="button"
+        >
+            <i class="fa-solid fa-universal-access"></i>
+            Acessibilidade
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="site-header">
+
+    <div class="container header-inner">
+
+        <a href="index.html" class="main-logo">
+
+            <span class="logo-icon">
+                L
+            </span>
+
+            <span class="logo-name">
+                LIA
+            </span>
+
+        </a>
+
+
+        <nav
+            class="main-navigation"
+            id="mainNavigation"
+        >
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="projeto.html">
+                Conhecer a LIA
+            </a>
+
+            <a href="violencias.html">
+                Violências
+            </a>
+
+            <a href="apoio.html">
+                Apoio
+            </a>
+
+            <a href="localizacao.html">
+                Localização
+            </a>
+
+            <a href="cadastro.html">
+                Conta
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <button
+                class="theme-button"
+                id="themeToggle"
+                type="button"
+                aria-label="Alterar tema"
+            >
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+
+            <button
+                class="mobile-menu-button"
+                id="mobileMenuButton"
+                type="button"
+                aria-label="Abrir menu"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <a
+            href="index.html"
+            class="back-link"
+        >
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar para a LIA
+        </a>
+
+
+        <span class="eyebrow">
+            SEGURANÇA
+        </span>
+
+
+        <h1>
+            Palavra de segurança.
+        </h1>
+
+
+        <p>
+            Escolha uma palavra que possa ser usada como sinal
+            discreto para acionar rapidamente um pedido de ajuda.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONFIGURAÇÃO
+===================================================== -->
+
+<section class="information-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                CONFIGURE
+            </span>
+
+            <h2>
+                Escolha sua palavra.
+            </h2>
+
+            <p>
+                A palavra fica armazenada somente neste navegador.
+                Escolha algo que você consiga falar naturalmente.
+            </p>
+
+        </div>
+
+
+        <div
+            class="location-card"
+            style="
+                max-width:760px;
+                margin:0 auto;
+            "
+        >
+
+            <div
+                class="location-icon"
+                style="
+                    margin:0 auto 20px;
+                "
+            >
+                <i class="fa-solid fa-microphone"></i>
+            </div>
+
+
+            <h2
+                style="
+                    text-align:center;
+                    font-family:'Playfair Display',serif;
+                    font-size:32px;
+                    margin-bottom:10px;
+                "
+            >
+                Sua palavra de segurança
+            </h2>
+
+
+            <p
+                style="
+                    text-align:center;
+                    color:var(--gray);
+                    font-size:13px;
+                    max-width:580px;
+                    margin:0 auto 25px;
+                "
+            >
+                Pode ser uma palavra comum ou uma expressão
+                curta que faça sentido para você.
+            </p>
+
+
+            <form id="securityWordForm">
+
+                <label
+                    for="securityWord"
+                    class="form-label"
+                >
+                    Palavra de segurança
+                </label>
+
+
+                <div
+                    style="
+                        position:relative;
+                        margin-bottom:15px;
+                    "
+                >
+
+                    <input
+                        type="text"
+                        id="securityWord"
+                        class="form-input"
+                        placeholder="Digite sua palavra"
+                        autocomplete="off"
+                        maxlength="60"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-main"
+                    style="width:100%;"
+                >
+                    <i class="fa-solid fa-shield-heart"></i>
+                    Salvar palavra
+                </button>
+
+            </form>
+
+
+            <div
+                id="savedWordBox"
+                class="notice-box"
+                style="
+                    margin-top:20px;
+                    display:none;
+                "
+            >
+
+                <strong>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Palavra configurada
+                </strong>
+
+                <br>
+
+                <span id="savedWordText"></span>
+
+            </div>
+
+
+            <button
+                id="deleteWord"
+                type="button"
+                class="btn btn-discreet"
+                style="
+                    width:100%;
+                    margin-top:10px;
+                    display:none;
+                "
+            >
+                <i class="fa-solid fa-trash"></i>
+                Apagar palavra de segurança
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     COMO FUNCIONA
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-title centered">
+
+            <span class="eyebrow">
+                COMO FUNCIONA
+            </span>
+
+            <h2>
+                Um sinal discreto para situações difíceis.
+            </h2>
+
+            <p>
+                Quando ativada, a função usa o reconhecimento
+                de voz disponível no navegador.
+            </p>
+
+        </div>
+
+
+        <div class="features-grid">
+
+            <article class="feature-card">
+
+                <div class="feature-icon">
+                    <i class="fa-solid fa-1"></i>
+                </div>
+
+                <h3>
+                    Configure
+                </h3>
+
+                <p>
+                    Salve uma palavra que seja fácil para você
+                    falar naturalmente.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card">
+
+                <div class="feature-icon">
+                    <i class="fa-solid fa-2"></i>
+                </div>
+
+                <h3>
+                    Ative a escuta
+                </h3>
+
+                <p>
+                    O navegador solicitará permissão para utilizar
+                    o microfone.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card">
+
+                <div class="feature-icon">
+                    <i class="fa-solid fa-3"></i>
+                </div>
+
+                <h3>
+                    Fale a palavra
+                </h3>
+
+                <p>
+                    Quando a palavra configurada for reconhecida,
+                    a LIA apresenta a ação de emergência.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TESTE DE VOZ
+===================================================== -->
+
+<section class="information-section">
+
+    <div class="container">
+
+        <div
+            class="location-card"
+            style="
+                max-width:850px;
+                margin:0 auto;
+            "
+        >
+
+            <div class="section-title">
+
+                <span class="eyebrow">
+                    TESTE
+                </span>
+
+                <h2>
+                    Teste o reconhecimento de voz.
+                </h2>
+
+                <p>
+                    Antes de depender desse recurso, faça um teste
+                    para verificar se o navegador reconhece sua voz.
+                </p>
+
+            </div>
+
+
+            <div
+                style="
+                    display:flex;
+                    justify-content:center;
+                    flex-wrap:wrap;
+                    gap:10px;
+                "
+            >
+
+                <button
+                    id="startTest"
+                    class="btn btn-main"
+                    type="button"
+                >
+                    <i class="fa-solid fa-microphone"></i>
+                    Iniciar teste
+                </button>
+
+
+                <button
+                    id="stopTest"
+                    class="btn btn-discreet"
+                    type="button"
+                    disabled
+                >
+                    <i class="fa-solid fa-stop"></i>
+                    Parar teste
+                </button>
+
+            </div>
+
+
+            <div
+                id="voiceStatus"
+                class="notice-box"
+                style="
+                    margin-top:20px;
+                "
+            >
+
+                <strong>
+                    Microfone desligado.
+                </strong>
+
+                <br>
+
+                Clique em “Iniciar teste” para testar.
+
+            </div>
+
+
+            <div
+                id="recognizedText"
+                style="
+                    display:none;
+                    margin-top:15px;
+                "
+                class="notice-box"
+            >
+
+                <strong>
+                    O navegador ouviu:
+                </strong>
+
+                <br>
+
+                <span id="recognizedValue">
+                    —
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ESCUTA DE SEGURANÇA
+===================================================== -->
+
+<section class="support-section">
+
+    <div class="container">
+
+        <div class="support-banner">
+
+            <div>
+
+                <span class="eyebrow">
+                    PALAVRA DE SEGURANÇA
+                </span>
+
+                <h2>
+                    Ative a escuta quando precisar.
+                </h2>
+
+                <p>
+                    A escuta depende das permissões do navegador
+                    e pode ser interrompida pelo próprio dispositivo.
+                </p>
+
+            </div>
+
+
+            <button
+                id="startSecurityListening"
+                class="btn btn-light"
+                type="button"
+            >
+                <i class="fa-solid fa-microphone"></i>
+                Ativar escuta
+            </button>
+
+        </div>
+
+
+        <div
+            id="securityListeningPanel"
+            style="
+                display:none;
+                margin-top:20px;
+            "
+        >
+
+            <div
+                class="location-card"
+                style="
+                    text-align:center;
+                "
+            >
+
+                <div
+                    class="location-icon"
+                    style="
+                        margin:0 auto 15px;
+                    "
+                >
+                    <i
+                        id="listeningIcon"
+                        class="fa-solid fa-microphone-lines"
+                    ></i>
+                </div>
+
+
+                <h3>
+                    Escuta ativada
+                </h3>
+
+
+                <p
+                    id="listeningStatus"
+                    style="
+                        color:var(--gray);
+                        font-size:13px;
+                    "
+                >
+                    Aguardando sua palavra de segurança...
+                </p>
+
+
+                <button
+                    id="stopSecurityListening"
+                    class="btn btn-discreet"
+                    type="button"
+                >
+                    <i class="fa-solid fa-stop"></i>
+                    Encerrar escuta
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     AVISO IMPORTANTE
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div
+            class="notice-box"
+            style="
+                max-width:850px;
+                margin:0 auto;
+            "
+        >
+
+            <strong>
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Importante sobre o funcionamento
+            </strong>
+
+            <p
+                style="
+                    margin-top:10px;
+                    margin-bottom:0;
+                "
+            >
+                Um site aberto no navegador não consegue garantir
+                uma escuta contínua em segundo plano em todos os
+                celulares e navegadores. O sistema operacional pode
+                interromper o microfone, bloquear a página ou exigir
+                uma nova autorização.
+            </p>
+
+            <p
+                style="
+                    margin-top:10px;
+                    margin-bottom:0;
+                "
+            >
+                Quando a palavra for reconhecida, a LIA não realiza
+                uma ligação policial silenciosa. Ela apresenta uma
+                confirmação antes de tentar abrir a ligação para
+                <strong>190</strong>.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RODAPÉ
+===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container footer-content">
+
+        <div class="footer-brand">
+
+            <div class="main-logo">
+
+                <span class="logo-icon">
+                    L
+                </span>
+
+                <span
+                    class="logo-name"
+                    style="color:#fff;"
+                >
+                    LIA
+                </span>
+
+            </div>
+
+            <p>
+                Local • Informação • Apoio
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="projeto.html">
+                Conhecer a LIA
+            </a>
+
+            <a href="violencias.html">
+                Violências
+            </a>
+
+            <a href="apoio.html">
+                Apoio
+            </a>
+
+            <a href="localizacao.html">
+                Localização
+            </a>
+
+            <a href="cadastro.html">
+                Conta
+            </a>
+
+        </div>
+
+
+        <div class="footer-info">
+
+            <strong>
+                Projeto LIA
+            </strong>
+
+            <br>
+
+            Marcely Castro Rodrigues — Desenvolvedora
+
+            <br>
+
+            Mikaela Castro Bonfim — Desenvolvedora
+
+            <br>
+
+            Hellen Goulart Orlandi — Assistente Social
+            — CRESS 58321
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <span>
+                © 2026 LIA — Projeto acadêmico.
+            </span>
+
+            <span>
+                Informação também é proteção.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     ACESSIBILIDADE
+===================================================== -->
+
+<div
+    class="accessibility-overlay"
+    id="accessibilityOverlay"
+></div>
+
+
+<aside
+    class="accessibility-panel"
+    id="accessibilityPanel"
+    aria-hidden="true"
+>
+
+    <div class="accessibility-panel-header">
+
+        <div>
+
+            <span class="panel-eyebrow">
+                LIA
+            </span>
+
+            <h2>
+                Acessibilidade
+            </h2>
+
+        </div>
+
+
+        <button
+            class="panel-close"
+            id="closeAccessibility"
+            type="button"
+            aria-label="Fechar acessibilidade"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+
+    <div class="accessibility-group">
+
+        <strong>
+            Tamanho do texto
+        </strong>
+
+        <div class="accessibility-controls">
+
+            <button
+                id="fontDecrease"
+                type="button"
+            >
+                A−
+            </button>
+
+            <button
+                id="fontNormal"
+                type="button"
+            >
+                A
+            </button>
+
+            <button
+                id="fontIncrease"
+                type="button"
+            >
+                A+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="accessibility-group">
+
+        <strong>
+            Contraste
+        </strong>
+
+        <div class="accessibility-controls">
+
+            <button
+                id="contrastToggle"
+                type="button"
+            >
+                Alto contraste
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="accessibility-group">
+
+        <strong>
+            Tema
+        </strong>
+
+        <div class="accessibility-controls">
+
+            <button
+                id="themeToggleAccessibility"
+                type="button"
+            >
+                Alterar tema
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="accessibility-group">
+
+        <strong>
+            Leitura da página
+        </strong>
+
+        <div class="accessibility-controls">
+
+            <button
+                id="readPage"
+                type="button"
+            >
+                <i class="fa-solid fa-volume-high"></i>
+                Ler
+            </button>
+
+            <button
+                id="stopReading"
+                type="button"
+            >
+                Parar
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="accessibility-group">
+
+        <strong>
+            Idioma
+        </strong>
+
+        <div class="language-buttons">
+
+            <button
+                class="language-button"
+                data-language="pt-BR"
+                type="button"
+            >
+                Português
+            </button>
+
+            <button
+                class="language-button"
+                data-language="en"
+                type="button"
+            >
+                English
+            </button>
+
+            <button
+                class="language-button"
+                data-language="es"
+                type="button"
+            >
+                Español
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="accessibility-group">
+
+        <strong>
+            VLibras
+        </strong>
+
+        <p class="accessibility-description">
+            Ative o recurso quando precisar.
+        </p>
+
+        <button
+            id="activateVlibras"
+            class="accessibility-main-button"
+            type="button"
+        >
+            Ativar VLibras
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+(function () {
+
+    "use strict";
+
+
+    const STORAGE_KEY =
+        "lia_security_word";
+
+
+    const form =
+        document.getElementById(
+            "securityWordForm"
+        );
+
+
+    const input =
+        document.getElementById(
+            "securityWord"
+        );
+
+
+    const savedBox =
+        document.getElementById(
+            "savedWordBox"
+        );
+
+
+    const savedText =
+        document.getElementById(
+            "savedWordText"
+        );
+
+
+    const deleteButton =
+        document.getElementById(
+            "deleteWord"
+        );
+
+
+    const startTest =
+        document.getElementById(
+            "startTest"
+        );
+
+
+    const stopTest =
+        document.getElementById(
+            "stopTest"
+        );
+
+
+    const voiceStatus =
+        document.getElementById(
+            "voiceStatus"
+        );
+
+
+    const recognizedText =
+        document.getElementById(
+            "recognizedText"
+        );
+
+
+    const recognizedValue =
+        document.getElementById(
+            "recognizedValue"
+        );
+
+
+    const startSecurity =
+        document.getElementById(
+            "startSecurityListening"
+        );
+
+
+    const securityPanel =
+        document.getElementById(
+            "securityListeningPanel"
+        );
+
+
+    const stopSecurity =
+        document.getElementById(
+            "stopSecurityListening"
+        );
+
+
+    const listeningStatus =
+        document.getElementById(
+            "listeningStatus"
+        );
+
+
+    const listeningIcon =
+        document.getElementById(
+            "listeningIcon"
+        );
+
+
+    /* =================================================
+       RECONHECIMENTO DE VOZ
+    ================================================= */
+
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+
+    let recognition = null;
+
+    let listeningMode = null;
+
+
+    function normalize(text) {
+
+        return String(text || "")
+            .normalize("NFD")
+            .replace(
+                /[\u0300-\u036f]/g,
+                ""
+            )
+            .toLowerCase()
+            .replace(
+                /[^\p{L}\p{N}\s]/gu,
+                " "
+            )
+            .replace(
+                /\s+/g,
+                " "
+            )
+            .trim();
+
+    }
+
+
+    function getSavedWord() {
+
+        return localStorage.getItem(
+            STORAGE_KEY
+        ) || "";
+
+    }
+
+
+    function showSavedWord() {
+
+        const word =
+            getSavedWord();
+
+
+        if (!word) {
+
+            savedBox.style.display =
+                "none";
+
+            deleteButton.style.display =
+                "none";
+
+            return;
+        }
+
+
+        savedBox.style.display =
+            "block";
+
+        deleteButton.style.display =
+            "block";
+
+
+        savedText.innerHTML = `
+            Palavra configurada:
+            <strong>${escapeHTML(word)}</strong>
+        `;
+
+
+        input.value =
+            word;
+
+    }
+
+
+    function escapeHTML(text) {
+
+        const element =
+            document.createElement(
+                "div"
+            );
+
+        element.textContent =
+            text;
+
+        return element.innerHTML;
+
+    }
+
+
+    /* =================================================
+       SALVAR
+    ================================================= */
+
+    form.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            const value =
+                input.value.trim();
+
+
+            if (!value) {
+
+                input.focus();
+
+                return;
+
+            }
+
+
+            if (value.length < 2) {
+
+                alert(
+                    "Escolha uma palavra ou expressão um pouco maior."
+                );
+
+                input.focus();
+
+                return;
+
+            }
+
+
+            localStorage.setItem(
+                STORAGE_KEY,
+                value
+            );
+
+
+            showSavedWord();
+
+
+            alert(
+                "Sua palavra de segurança foi salva neste navegador."
+            );
+
+        }
+    );
+
+
+    /* =================================================
+       APAGAR
+    ================================================= */
+
+    deleteButton.addEventListener(
+        "click",
+        function () {
+
+            const confirmed =
+                confirm(
+                    "Deseja realmente apagar sua palavra de segurança?"
+                );
+
+
+            if (!confirmed) {
+
+                return;
+
+            }
+
+
+            localStorage.removeItem(
+                STORAGE_KEY
+            );
+
+
+            input.value =
+                "";
+
+
+            showSavedWord();
+
+        }
+    );
+
+
+    /* =================================================
+       CRIAR RECONHECEDOR
+    ================================================= */
+
+    function createRecognition() {
+
+        if (!SpeechRecognition) {
+
+            return null;
+
+        }
+
+
+        const instance =
+            new SpeechRecognition();
+
+
+        instance.lang =
+            "pt-BR";
+
+
+        instance.continuous =
+            true;
+
+
+        instance.interimResults =
+            true;
+
+
+        instance.maxAlternatives =
+            3;
+
+
+        return instance;
+
+    }
+
+
+    /* =================================================
+       PALAVRA DETECTADA
+    ================================================= */
+
+    function processSpeech(text) {
+
+        const saved =
+            getSavedWord();
+
+
+        if (!saved) {
+
+            return false;
+
+        }
+
+
+        const spoken =
+            normalize(text);
+
+
+        const target =
+            normalize(saved);
+
+
+        if (!spoken || !target) {
+
+            return false;
+
+        }
+
+
+        /*
+         * Primeiro procura a expressão inteira.
+         */
+
+        if (
+            spoken === target ||
+            spoken.includes(target)
+        ) {
+
+            triggerSecurityAction();
+
+            return true;
+
+        }
+
+
+        /*
+         * Se a palavra configurada tiver
+         * apenas uma palavra, compara
+         * também cada termo reconhecido.
+         */
+
+        const targetWords =
+            target.split(" ");
+
+
+        if (
+            targetWords.length === 1 &&
+            spoken
+                .split(" ")
+                .includes(target)
+        ) {
+
+            triggerSecurityAction();
+
+            return true;
+
+        }
+
+
+        return false;
+
+    }
+
+
+    /* =================================================
+       AÇÃO DE SEGURANÇA
+    ================================================= */
+
+    function triggerSecurityAction() {
+
+        if (
+            listeningMode ===
+            "triggered"
+        ) {
+
+            return;
+
+        }
+
+
+        listeningMode =
+            "triggered";
+
+
+        if (recognition) {
+
+            try {
+
+                recognition.stop();
+
+            } catch (error) {}
+
+        }
+
+
+        securityPanel.style.display =
+            "block";
+
+
+        listeningIcon.className =
+            "fa-solid fa-triangle-exclamation";
+
+
+        listeningStatus.innerHTML = `
+            <strong>
+                Palavra de segurança reconhecida.
+            </strong>
+
+            <br>
+
+            Verifique a confirmação abaixo.
+        `;
+
+
+        const confirmed =
+            confirm(
+                "A palavra de segurança foi reconhecida. Deseja ligar para o 190?"
+            );
+
+
+        if (confirmed) {
+
+            window.location.href =
+                "tel:190";
+
+        } else {
+
+            listeningMode =
+                null;
+
+
+            listeningStatus.innerHTML =
+                "A ação foi cancelada. A escuta está encerrada.";
+
+        }
+
+    }
+
+
+    /* =================================================
+       TESTE
+    ================================================= */
+
+    startTest.addEventListener(
+        "click",
+        function () {
+
+            if (!SpeechRecognition) {
+
+                voiceStatus.innerHTML = `
+                    <strong>
+                        Seu navegador não oferece reconhecimento de voz.
+                    </strong>
+
+                    <br>
+
+                    Tente utilizar uma versão atualizada do Chrome ou Edge.
+                `;
+
+                return;
+
+            }
+
+
+            if (recognition) {
+
+                try {
+
+                    recognition.stop();
+
+                } catch (error) {}
+
+            }
+
+
+            recognition =
+                createRecognition();
+
+
+            listeningMode =
+                "test";
+
+
+            recognizedText.style.display =
+                "none";
+
+
+            startTest.disabled =
+                true;
+
+            stopTest.disabled =
+                false;
+
+
+            voiceStatus.innerHTML = `
+                <strong>
+                    <i class="fa-solid fa-microphone"></i>
+                    Microfone ativo.
+                </strong>
+
+                <br>
+
+                Fale alguma coisa para testar.
+            `;
+
+
+            recognition.onstart =
+                function () {
+
+                    voiceStatus.innerHTML = `
+                        <strong>
+                            <i class="fa-solid fa-circle-dot"></i>
+                            Ouvindo...
+                        </strong>
+
+                        <br>
+
+                        Fale normalmente.
+                    `;
+
+                };
+
+
+            recognition.onresult =
+                function (event) {
+
+                    let transcript =
+                        "";
+
+
+                    for (
+                        let i = event.resultIndex;
+                        i < event.results.length;
+                        i++
+                    ) {
+
+                        transcript +=
+                            event.results[i][0].transcript
+                            + " ";
+
+                    }
+
+
+                    transcript =
+                        transcript.trim();
+
+
+                    if (transcript) {
+
+                        recognizedText.style.display =
+                            "block";
+
+
+                        recognizedValue.textContent =
+                            transcript;
+
+
+                        const target =
+                            getSavedWord();
+
+
+                        if (
+                            target &&
+                            normalize(transcript)
+                                .includes(
+                                    normalize(target)
+                                )
+                        ) {
+
+                            voiceStatus.innerHTML = `
+                                <strong>
+                                    Palavra reconhecida durante o teste.
+                                </strong>
+
+                                <br>
+
+                                O teste não fará nenhuma ligação.
+                            `;
+
+                        }
+
+                    }
+
+                };
+
+
+            recognition.onerror =
+                function (event) {
+
+                    voiceStatus.innerHTML = `
+                        <strong>
+                            Não foi possível continuar a escuta.
+                        </strong>
+
+                        <br>
+
+                        Código:
+                        ${escapeHTML(event.error || "desconhecido")}
+                    `;
+
+                };
+
+
+            recognition.onend =
+                function () {
+
+                    if (
+                        listeningMode ===
+                        "test"
+                    ) {
+
+                        startTest.disabled =
+                            false;
+
+                        stopTest.disabled =
+                            true;
+
+                        voiceStatus.innerHTML += `
+                            <br>
+                            A escuta foi encerrada pelo navegador.
+                        `;
+
+                    }
+
+                };
+
+
+            try {
+
+                recognition.start();
+
+            } catch (error) {
+
+                startTest.disabled =
+                    false;
+
+                stopTest.disabled =
+                    true;
+
+                voiceStatus.innerHTML = `
+                    <strong>
+                        Não foi possível iniciar o microfone.
+                    </strong>
+
+                    <br>
+
+                    Verifique a permissão do navegador.
+                `;
+
+            }
+
+        }
+    );
+
+
+    /* =================================================
+       PARAR TESTE
+    ================================================= */
+
+    stopTest.addEventListener(
+        "click",
+        function () {
+
+            listeningMode =
+                null;
+
+
+            if (recognition) {
+
+                try {
+
+                    recognition.stop();
+
+                } catch (error) {}
+
+            }
+
+
+            startTest.disabled =
+                false;
+
+            stopTest.disabled =
+                true;
+
+
+            voiceStatus.innerHTML = `
+                <strong>
+                    Microfone desligado.
+                </strong>
+
+                <br>
+
+                O teste foi encerrado.
+            `;
+
+        }
+    );
+
+
+    /* =================================================
+       ATIVAR SEGURANÇA
+    ================================================= */
+
+    startSecurity.addEventListener(
+        "click",
+        function () {
+
+            const saved =
+                getSavedWord();
+
+
+            if (!saved) {
+
+                alert(
+                    "Primeiro configure uma palavra de segurança."
+                );
+
+
+                input.focus();
+
+                return;
+
+            }
+
+
+            if (!SpeechRecognition) {
+
+                alert(
+                    "Este navegador não oferece reconhecimento de voz."
+                );
+
+                return;
+
+            }
+
+
+            if (recognition) {
+
+                try {
+
+                    recognition.stop();
+
+                } catch (error) {}
+
+            }
+
+
+            recognition =
+                createRecognition();
+
+
+            listeningMode =
+                "security";
+
+
+            securityPanel.style.display =
+                "block";
+
+
+            startSecurity.style.display =
+                "none";
+
+
+            listeningIcon.className =
+                "fa-solid fa-microphone-lines";
+
+
+            listeningStatus.innerHTML = `
+                Aguardando a palavra de segurança...
+            `;
+
+
+            recognition.onstart =
+                function () {
+
+                    listeningStatus.innerHTML = `
+                        <strong>
+                            Escuta ativada.
+                        </strong>
+
+                        <br>
+
+                        Aguardando sua palavra de segurança...
+                    `;
+
+                };
+
+
+            recognition.onresult =
+                function (event) {
+
+                    let transcript =
+                        "";
+
+
+                    for (
+                        let i = event.resultIndex;
+                        i < event.results.length;
+                        i++
+                    ) {
+
+                        transcript +=
+                            event.results[i][0].transcript
+                            + " ";
+
+                    }
+
+
+                    transcript =
+                        transcript.trim();
+
+
+                    if (transcript) {
+
+                        listeningStatus.innerHTML = `
+                            Ouvindo...
+                        `;
+
+                        processSpeech(
+                            transcript
+                        );
+
+                    }
+
+                };
+
+
+            recognition.onerror =
+                function (event) {
+
+                    if (
+                        listeningMode !==
+                        "security"
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    listeningStatus.innerHTML = `
+                        <strong>
+                            A escuta foi interrompida.
+                        </strong>
+
+                        <br>
+
+                        O navegador informou:
+                        ${escapeHTML(event.error || "erro desconhecido")}
+                    `;
+
+                };
+
+
+            recognition.onend =
+                function () {
+
+                    /*
+                     * Alguns navegadores encerram
+                     * a sessão automaticamente.
+                     *
+                     * Tentamos continuar somente
+                     * enquanto o usuário deixou
+                     * explicitamente a escuta ativa.
+                     */
+
+                    if (
+                        listeningMode ===
+                        "security"
+                    ) {
+
+                        try {
+
+                            recognition.start();
+
+                        } catch (error) {}
+
+                    }
+
+                };
+
+
+            try {
+
+                recognition.start();
+
+            } catch (error) {
+
+                listeningMode =
+                    null;
+
+
+                securityPanel.style.display =
+                    "none";
+
+
+                startSecurity.style.display =
+                    "inline-flex";
+
+
+                alert(
+                    "Não foi possível ativar o microfone. Verifique a permissão do navegador."
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =================================================
+       ENCERRAR SEGURANÇA
+    ================================================= */
+
+    stopSecurity.addEventListener(
+        "click",
+        function () {
+
+            listeningMode =
+                null;
+
+
+            if (recognition) {
+
+                try {
+
+                    recognition.stop();
+
+                } catch (error) {}
+
+            }
+
+
+            securityPanel.style.display =
+                "none";
+
+
+            startSecurity.style.display =
+                "inline-flex";
+
+
+            listeningStatus.textContent =
+                "Escuta encerrada.";
+
+        }
+    );
+
+
+    /* =================================================
+       CARREGAR PALAVRA EXISTENTE
+    ================================================= */
+
+    showSavedWord();
+
+
+})();
+
+</script>
+
+
+<!-- =====================================================
+     LIA.JS
+===================================================== -->
+
+<script src="lia.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Configurações | LIA</title>
+
+    <meta
+        name="description"
+        content="Configurações de acessibilidade, privacidade e segurança da LIA."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="lia.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     BARRA SUPERIOR
+========================================================= -->
+
+<div class="top-bar">
+
+    <div class="container top-bar-inner">
+
+        <span>
+            LIA — Local • Informação • Apoio
+        </span>
+
+        <button
+            id="openAccessibility"
+            class="accessibility-button"
+            type="button"
+        >
+            <i class="fa-solid fa-universal-access"></i>
+            Acessibilidade
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="site-header">
+
+    <div class="container header-inner">
+
+        <a
+            href="index.html"
+            class="main-logo"
+            aria-label="LIA - Página inicial"
+        >
+
+            <span class="logo-icon">
+                L
+            </span>
+
+            <span class="logo-name">
+                LIA
+            </span>
+
+        </a>
+
+
+        <nav
+            class="main-navigation"
+            id="mainNavigation"
+        >
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="projeto.html">
+                Conheça a LIA
+            </a>
+
+            <a href="violencias.html">
+                Violências
+            </a>
+
+            <a href="apoio.html">
+                Rede de apoio
+            </a>
+
+            <a href="localizacao.html">
+                Localização
+            </a>
+
+            <a href="cadastro.html">
+                Meu cadastro
+            </a>
+
+            <a
+                href="configuracoes.html"
+                class="active"
+            >
+                Configurações
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <button
+                id="themeToggle"
+                class="theme-button"
+                type="button"
+                aria-label="Alterar tema"
+            >
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+
+            <button
+                id="mobileMenuButton"
+                class="mobile-menu-button"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     CONTEÚDO
+========================================================= -->
+
+<main>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <a
+            href="index.html"
+            class="back-link"
+        >
+            ← Voltar para LIA
+        </a>
+
+
+        <span class="eyebrow">
+            CONFIGURAÇÕES
+        </span>
+
+
+        <h1>
+            Deixe a LIA
+            <br>
+            do seu jeito.
+        </h1>
+
+
+        <p>
+            Controle aparência, acessibilidade, privacidade
+            e recursos de segurança da sua experiência.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONFIGURAÇÕES VISUAIS
+========================================================= -->
+
+<section class="information-section">
+
+    <div class="container">
+
+
+        <div class="section-title centered">
+
+            <span class="eyebrow">
+                PERSONALIZAÇÃO
+            </span>
+
+            <h2>
+                Aparência e leitura
+            </h2>
+
+            <p>
+                Escolha as opções que deixam o conteúdo
+                mais confortável para você.
+            </p>
+
+        </div>
+
+
+
+        <!-- TEMA -->
+
+        <div class="account-card">
+
+            <div class="card-heading">
+
+                <div class="heading-icon">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </div>
+
+                <div>
+
+                    <h2>
+                        Tema
+                    </h2>
+
+                    <p>
+                        Escolha entre modo claro e escuro.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-choice-grid">
+
+                <button
+                    type="button"
+                    class="settings-choice"
+                    id="lightThemeButton"
+                >
+
+                    <i class="fa-solid fa-sun"></i>
+
+                    <strong>
+                        Modo claro
+                    </strong>
+
+                    <span>
+                        Visual claro e suave.
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="settings-choice"
+                    id="darkThemeButton"
+                >
+
+                    <i class="fa-solid fa-moon"></i>
+
+                    <strong>
+                        Modo escuro
+                    </strong>
+
+                    <span>
+                        Menos luminosidade na tela.
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TAMANHO -->
+
+        <div class="account-card">
+
+            <div class="card-heading">
+
+                <div class="heading-icon">
+                    <i class="fa-solid fa-text-height"></i>
+                </div>
+
+                <div>
+
+                    <h2>
+                        Tamanho do texto
+                    </h2>
+
+                    <p>
+                        Ajuste o tamanho das letras.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-choice-grid three">
+
+                <button
+                    type="button"
+                    class="settings-choice"
+                    id="smallTextButton"
+                >
+
+                    <strong>
+                        A−
+                    </strong>
+
+                    <span>
+                        Texto menor
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="settings-choice"
+                    id="normalTextButton"
+                >
+
+                    <strong>
+                        A
+                    </strong>
+
+                    <span>
+                        Texto normal
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="settings-choice"
+                    id="largeTextButton"
+                >
+
+                    <strong>
+                        A+
+                    </strong>
+
+                    <span>
+                        Texto maior
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CONTRASTE -->
+
+        <div class="account-card">
+
+            <div class="card-heading">
+
+                <div class="heading-icon">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+
+                <div>
+
+                    <h2>
+                        Contraste
+                    </h2>
+
+                    <p>
+                        Aumente o contraste para facilitar a leitura.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="contrastSettingsButton"
+                class="wide-setting-button"
+            >
+
+                <span>
+
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+
+                    Alto contraste
+
+                </span>
+
+
+                <span
+                    id="contrastStatus"
+                    class="setting-status"
+                >
+                    Desativado
+                </span>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- LEITURA -->
+
+        <div class="account-card">
+
+            <div class="card-heading">
+
+                <div class="heading-icon">
+                    <i class="fa-solid fa-volume-high"></i>
+                </div>
+
+                <div>
+
+                    <h2>
+                        Leitura da página
+                    </h2>
+
+                    <p>
+                        Ouça o conteúdo da página usando a voz do dispositivo.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-action-row">
+
+                <button
+                    type="button"
+                    id="readPageSettings"
+                    class="btn btn-primary"
+                >
+
+                    <i class="fa-solid fa-play"></i>
+
+                    Ler página
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="stopReadingSettings"
+                    class="btn btn-secondary"
+                >
+
+                    <i class="fa-solid fa-stop"></i>
+
+                    Parar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     IDIOMAS
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-title centered">
+
+            <span class="eyebrow">
+                IDIOMA
+            </span>
+
+            <h2>
+                Escolha seu idioma.
+            </h2>
+
+            <p>
+                A preferência fica salva neste dispositivo.
+            </p>
+
+        </div>
+
+
+        <div class="account-card">
+
+            <div class="language-settings-grid">
+
+
+                <button
+                    type="button"
+                    class="language-setting"
+                    data-language="pt-BR"
+                >
+
+                    <span class="language-flag">
+                        🇧🇷
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Português
+                        </strong>
+
+                        <small>
+                            Brasil
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="language-setting"
+                    data-language="en"
+                >
+
+                    <span class="language-flag">
+                        🇺🇸
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            English
+                        </strong>
+
+                        <small>
+                            United States
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="language-setting"
+                    data-language="es"
+                >
+
+                    <span class="language-flag">
+                        🇪🇸
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Español
+                        </strong>
+
+                        <small>
+                            Internacional
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ACESSIBILIDADE
+========================================================= -->
+
+<section class="information-section">
+
+    <div class="container">
+
+
+        <div class="section-title centered">
+
+            <span class="eyebrow">
+                ACESSIBILIDADE
+            </span>
+
+            <h2>
+                Recursos para facilitar o acesso.
+            </h2>
+
+            <p>
+                Utilize as ferramentas de acessibilidade
+                disponíveis na LIA.
+            </p>
+
+        </div>
+
+
+        <div class="account-card">
+
+
+            <div class="accessibility-setting-list">
+
+
+                <div class="accessibility-setting-item">
+
+                    <div class="setting-item-icon">
+                        <i class="fa-solid fa-universal-access"></i>
+                    </div>
+
+                    <div class="setting-item-content">
+
+                        <strong>
+                            Painel de acessibilidade
+                        </strong>
+
+                        <span>
+                            Acesse fonte, contraste, leitura,
+                            idiomas e VLibras.
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="openAccessibilitySettings"
+                        class="small-setting-button"
+                    >
+                        Abrir
+                    </button>
+
+                </div>
+
+
+
+                <div class="accessibility-setting-item">
+
+                    <div class="setting-item-icon">
+                        <i class="fa-solid fa-hands"></i>
+                    </div>
+
+                    <div class="setting-item-content">
+
+                        <strong>
+                            VLibras
+                        </strong>
+
+                        <span>
+                            O recurso é carregado somente quando
+                            você solicitar.
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="activateVlibrasSettings"
+                        class="small-setting-button"
+                    >
+                        Ativar
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SEGURANÇA
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-title centered">
+
+            <span class="eyebrow">
+                SEGURANÇA
+            </span>
+
+            <h2>
+                Seus recursos de proteção.
+            </h2>
+
+            <p>
+                Configure cada ferramenta separadamente.
+            </p>
+
+        </div>
+
+
+
+        <div class="security-options">
+
+
+            <a
+                href="palavra-seguranca.html"
+                class="security-option"
+            >
+
+                <div class="security-option-icon">
+                    <i class="fa-solid fa-key"></i>
+                </div>
+
+                <div>
+
+                    <strong>
+                        Palavra de segurança
+                    </strong>
+
+                    <span>
+                        Configure o acionamento por voz.
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+
+            <a
+                href="pessoas-confiaveis.html"
+                class="security-option"
+            >
+
+                <div class="security-option-icon">
+                    <i class="fa-solid fa-user-group"></i>
+                </div>
+
+                <div>
+
+                    <strong>
+                        Pessoas confiáveis
+                    </strong>
+
+                    <span>
+                        Organize seus contatos de confiança.
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+
+            <a
+                href="biometria.html"
+                class="security-option"
+            >
+
+                <div class="security-option-icon">
+                    <i class="fa-solid fa-fingerprint"></i>
+                </div>
+
+                <div>
+
+                    <strong>
+                        Biometria
+                    </strong>
+
+                    <span>
+                        Gerencie o acesso protegido do dispositivo.
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+
+            <a
+                href="localizacao.html"
+                class="security-option"
+            >
+
+                <div class="security-option-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <div>
+
+                    <strong>
+                        Localização
+                    </strong>
+
+                    <span>
+                        Utilize sua localização quando necessário.
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+
+            <a
+                href="emergencia.html"
+                class="security-option emergency-option"
+            >
+
+                <div class="security-option-icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+
+                <div>
+
+                    <strong>
+                        Emergência
+                    </strong>
+
+                    <span>
+                        Acesso rápido ao recurso de emergência.
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PRIVACIDADE
+========================================================= -->
+
+<section class="information-section">
+
+    <div class="container">
+
+
+        <div class="privacy-box">
+
+            <div class="privacy-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+
+            <div>
+
+                <span class="eyebrow">
+                    PRIVACIDADE
+                </span>
+
+                <h3>
+                    Você decide o que registrar.
+                </h3>
+
+                <p>
+                    Nesta versão da LIA, preferências e
+                    informações cadastradas são armazenadas
+                    localmente no navegador.
+                </p>
+
+                <p>
+                    A LIA não afirma armazenar dados biométricos
+                    nem enviar automaticamente suas informações
+                    para autoridades.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     DADOS LOCAIS
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-title centered">
+
+            <span class="eyebrow">
+                DADOS NESTE DISPOSITIVO
+            </span>
+
+            <h2>
+                Controle suas informações.
+            </h2>
+
+            <p>
+                Você pode apagar os dados locais utilizados
+                pela LIA neste navegador.
+            </p>
+
+        </div>
+
+
+        <div class="account-card data-management-card">
+
+
+            <div class="data-warning">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <div>
+
+                    <strong>
+                        Antes de apagar
+                    </strong>
+
+                    <p>
+                        Esta ação remove preferências,
+                        cadastro e informações salvas localmente
+                        neste navegador. Não será possível
+                        recuperar esses dados pela LIA.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="clearLiaData"
+                class="btn btn-danger"
+            >
+
+                <i class="fa-solid fa-trash"></i>
+
+                Apagar dados locais da LIA
+
+            </button>
+
+
+            <div
+                id="settingsStatus"
+                class="account-status"
+                aria-live="polite"
+            ></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CRÉDITOS
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="mission-box">
+
+            <div>
+
+                <span class="eyebrow">
+                    LIA
+                </span>
+
+                <h3>
+                    Local • Informação • Apoio
+                </h3>
+
+            </div>
+
+
+            <p>
+
+                Desenvolvido por
+                <strong>Marcely Castro Rodrigues</strong>
+                e
+                <strong>Mikaela Cardoso Bonfim</strong>.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="site-footer">
+
+    <div class="container footer-content">
+
+
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="main-logo"
+            >
+
+                <span class="logo-icon">
+                    L
+                </span>
+
+                <span class="logo-name">
+                    LIA
+                </span>
+
+            </a>
+
+            <p>
+                Local • Informação • Apoio
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="projeto.html">
+                Sobre o projeto
+            </a>
+
+            <a href="violencias.html">
+                Violências
+            </a>
+
+            <a href="apoio.html">
+                Rede de apoio
+            </a>
+
+            <a href="cadastro.html">
+                Meu cadastro
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-info">
+
+            <p>
+                <strong>
+                    Marcely Castro Rodrigues
+                </strong>
+                — Desenvolvedora
+            </p>
+
+            <p>
+                <strong>
+                    Mikaela Cardoso Bonfim
+                </strong>
+                — Desenvolvedora
+            </p>
+
+            <p>
+                © 2026 LIA — Local • Informação • Apoio
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     PAINEL DE ACESSIBILIDADE
+========================================================= -->
+
+<aside
+    id="accessibilityPanel"
+    class="accessibility-panel"
+    aria-hidden="true"
+>
+
+
+    <div class="accessibility-panel-header">
+
+        <div>
+
+            <span>
+                Acessibilidade
+            </span>
+
+            <strong>
+                Personalize sua experiência
+            </strong>
+
+        </div>
+
+
+        <button
+            id="closeAccessibility"
+            type="button"
+            aria-label="Fechar acessibilidade"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+
+    <div class="accessibility-group">
+
+        <h3>
+            Texto
+        </h3>
+
+
+        <div class="accessibility-buttons">
+
+            <button id="fontDecrease">
+                A−
+            </button>
+
+            <button id="fontNormal">
+                A
+            </button>
+
+            <button id="fontIncrease">
+                A+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="accessibility-group">
+
+        <h3>
+            Leitura
+        </h3>
+
+
+        <button
+            id="readPage"
+            class="accessibility-action"
+            type="button"
+        >
+
+            <i class="fa-solid fa-volume-high"></i>
+
+            Ler página
+
+        </button>
+
+
+        <button
+            id="stopReading"
+            class="accessibility-action"
+            type="button"
+        >
+
+            <i class="fa-solid fa-stop"></i>
+
+            Parar leitura
+
+        </button>
+
+    </div>
+
+
+
+    <div class="accessibility-group">
+
+        <h3>
+            Idioma
+        </h3>
+
+
+        <div class="language-buttons">
+
+            <button
+                class="language-button"
+                data-language="pt-BR"
+                type="button"
+            >
+                Português
+            </button>
+
+
+            <button
+                class="language-button"
+                data-language="en"
+                type="button"
+            >
+                English
+            </button>
+
+
+            <button
+                class="language-button"
+                data-language="es"
+                type="button"
+            >
+                Español
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="accessibility-group">
+
+        <h3>
+            Visual
+        </h3>
+
+
+        <button
+            id="contrastToggle"
+            class="accessibility-action"
+            type="button"
+        >
+
+            <i class="fa-solid fa-circle-half-stroke"></i>
+
+            Alto contraste
+
+        </button>
+
+
+        <button
+            id="activateVlibras"
+            class="accessibility-action"
+            type="button"
+        >
+
+            <i class="fa-solid fa-hands"></i>
+
+            Ativar VLibras
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="lia.js"></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        /* =====================================================
+           TEMA
+        ===================================================== */
+
+        const lightButton =
+            document.getElementById(
+                "lightThemeButton"
+            );
+
+        const darkButton =
+            document.getElementById(
+                "darkThemeButton"
+            );
+
+
+        lightButton?.addEventListener(
+            "click",
+            function () {
+
+                localStorage.setItem(
+                    "lia_theme",
+                    "light"
+                );
+
+                document.body.classList.remove(
+                    "dark-mode"
+                );
+
+                document.documentElement.classList.remove(
+                    "dark-mode"
+                );
+
+                document.documentElement.setAttribute(
+                    "data-theme",
+                    "light"
+                );
+
+            }
+        );
+
+
+        darkButton?.addEventListener(
+            "click",
+            function () {
+
+                localStorage.setItem(
+                    "lia_theme",
+                    "dark"
+                );
+
+                document.body.classList.add(
+                    "dark-mode"
+                );
+
+                document.documentElement.classList.add(
+                    "dark-mode"
+                );
+
+                document.documentElement.setAttribute(
+                    "data-theme",
+                    "dark"
+                );
+
+            }
+        );
+
+
+
+        /* =====================================================
+           TEXTO
+        ===================================================== */
+
+        const smallText =
+            document.getElementById(
+                "smallTextButton"
+            );
+
+        const normalText =
+            document.getElementById(
+                "normalTextButton"
+            );
+
+        const largeText =
+            document.getElementById(
+                "largeTextButton"
+            );
+
+
+        smallText?.addEventListener(
+            "click",
+            function () {
+
+                localStorage.setItem(
+                    "lia_font_size",
+                    "small"
+                );
+
+                document.documentElement.style
+                    .setProperty(
+                        "--lia-font-scale",
+                        "0.92"
+                    );
+
+                document.body.classList.remove(
+                    "font-large",
+                    "font-normal"
+                );
+
+                document.body.classList.add(
+                    "font-small"
+                );
+
+            }
+        );
+
+
+        normalText?.addEventListener(
+            "click",
+            function () {
+
+                localStorage.setItem(
+                    "lia_font_size",
+                    "normal"
+                );
+
+                document.documentElement.style
+                    .setProperty(
+                        "--lia-font-scale",
+                        "1"
+                    );
+
+                document.body.classList.remove(
+                    "font-small",
+                    "font-large"
+                );
+
+                document.body.classList.add(
+                    "font-normal"
+                );
+
+            }
+        );
+
+
+        largeText?.addEventListener(
+            "click",
+            function () {
+
+                localStorage.setItem(
+                    "lia_font_size",
+                    "large"
+                );
+
+                document.documentElement.style
+                    .setProperty(
+                        "--lia-font-scale",
+                        "1.10"
+                    );
+
+                document.body.classList.remove(
+                    "font-small",
+                    "font-normal"
+                );
+
+                document.body.classList.add(
+                    "font-large"
+                );
+
+            }
+        );
+
+
+
+        /* =====================================================
+           CONTRASTE
+        ===================================================== */
+
+        const contrastButton =
+            document.getElementById(
+                "contrastSettingsButton"
+            );
+
+        const contrastStatus =
+            document.getElementById(
+                "contrastStatus"
+            );
+
+
+        function updateContrastStatus() {
+
+            const active =
+                localStorage.getItem(
+                    "lia_contrast"
+                ) === "high";
+
+
+            if (active) {
+
+                contrastStatus.textContent =
+                    "Ativado";
+
+            } else {
+
+                contrastStatus.textContent =
+                    "Desativado";
+
+            }
+
+        }
+
+
+        contrastButton?.addEventListener(
+            "click",
+            function () {
+
+                const active =
+                    localStorage.getItem(
+                        "lia_contrast"
+                    ) === "high";
+
+
+                if (active) {
+
+                    localStorage.setItem(
+                        "lia_contrast",
+                        "normal"
+                    );
+
+                    document.body.classList.remove(
+                        "high-contrast"
+                    );
+
+                    document.documentElement.classList.remove(
+                        "high-contrast"
+                    );
+
+                } else {
+
+                    localStorage.setItem(
+                        "lia_contrast",
+                        "high"
+                    );
+
+                    document.body.classList.add(
+                        "high-contrast"
+                    );
+
+                    document.documentElement.classList.add(
+                        "high-contrast"
+                    );
+
+                }
+
+
+                updateContrastStatus();
+
+            }
+        );
+
+
+        updateContrastStatus();
+
+
+
+        /* =====================================================
+           LEITURA
+        ===================================================== */
+
+        const readButton =
+            document.getElementById(
+                "readPageSettings"
+            );
+
+        const stopButton =
+            document.getElementById(
+                "stopReadingSettings"
+            );
+
+
+        readButton?.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    typeof window.speechSynthesis ===
+                    "undefined"
+                ) {
+
+                    return;
+
+                }
+
+
+                window.speechSynthesis.cancel();
+
+
+                const clone =
+                    document.querySelector(
+                        "main"
+                    )?.cloneNode(true);
+
+
+                if (!clone) return;
+
+
+                clone
+                    .querySelectorAll(
+                        "button, script, style"
+                    )
+                    .forEach(
+                        element =>
+                            element.remove()
+                    );
+
+
+                const text =
+                    clone.innerText.trim();
+
+
+                const speech =
+                    new SpeechSynthesisUtterance(
+                        text
+                    );
+
+
+                speech.lang =
+                    localStorage.getItem(
+                        "lia_language"
+                    ) || "pt-BR";
+
+
+                speech.rate =
+                    0.9;
+
+
+                window.speechSynthesis.speak(
+                    speech
+                );
+
+            }
+        );
+
+
+        stopButton?.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    typeof window.speechSynthesis !==
+                    "undefined"
+                ) {
+
+                    window.speechSynthesis.cancel();
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           PAINEL DE ACESSIBILIDADE
+        ===================================================== */
+
+        const accessibilityButton =
+            document.getElementById(
+                "openAccessibilitySettings"
+            );
+
+
+        accessibilityButton?.addEventListener(
+            "click",
+            function () {
+
+                document
+                    .getElementById(
+                        "openAccessibility"
+                    )
+                    ?.click();
+
+            }
+        );
+
+
+
+        /* =====================================================
+           VLibras
+        ===================================================== */
+
+        const vlibrasButton =
+            document.getElementById(
+                "activateVlibrasSettings"
+            );
+
+
+        vlibrasButton?.addEventListener(
+            "click",
+            function () {
+
+                document
+                    .getElementById(
+                        "activateVlibras"
+                    )
+                    ?.click();
+
+            }
+        );
+
+
+
+        /* =====================================================
+           APAGAR DADOS
+        ===================================================== */
+
+        const clearDataButton =
+            document.getElementById(
+                "clearLiaData"
+            );
+
+        const status =
+            document.getElementById(
+                "settingsStatus"
+            );
+
+
+        clearDataButton?.addEventListener(
+            "click",
+            function () {
+
+
+                const confirmed =
+                    window.confirm(
+                        "Tem certeza que deseja apagar os dados locais da LIA neste dispositivo?"
+                    );
+
+
+                if (!confirmed) {
+                    return;
+                }
+
+
+                /*
+                 * Remove apenas os dados
+                 * utilizados pela aplicação.
+                 */
+
+                const liaKeys = [
+
+                    "lia_account",
+                    "lia_account_name",
+                    "lia_account_photo",
+                    "lia_cadastro",
+
+                    "lia_theme",
+                    "lia_contrast",
+                    "lia_font_size",
+                    "lia_language",
+
+                    "lia_latitude",
+                    "lia_longitude",
+
+                    "lia_security_word",
+                    "lia_trusted_people",
+
+                    "lia_biometric_enabled",
+
+                    "lia_diary",
+                    "lia_diary_entries"
+
+                ];
+
+
+                liaKeys.forEach(
+                    function (key) {
+
+                        localStorage.removeItem(
+                            key
+                        );
+
+                    }
+                );
+
+
+                status.textContent =
+                    "Os dados locais da LIA foram apagados deste navegador.";
+
+
+                status.className =
+                    "account-status success";
+
+
+                setTimeout(
+                    function () {
+
+                        window.location.reload();
+
+                    },
+                    1800
+                );
+
+            }
+        );
+
+
+    }
+
+);
+
+</script>
+
+</body>
+</html>

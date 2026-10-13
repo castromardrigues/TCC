@@ -1,0 +1,2902 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Diário Seguro | LIA</title>
+
+    <meta
+        name="description"
+        content="Diário pessoal da LIA para registrar textos, fotos, vídeos e áudios de forma local."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="lia.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     BARRA SUPERIOR
+===================================================== -->
+
+<div class="top-bar">
+
+    <div class="container top-bar-inner">
+
+        <span>
+            LIA — Local • Informação • Apoio
+        </span>
+
+        <button
+            id="openAccessibility"
+            class="accessibility-button"
+            type="button"
+        >
+            <i class="fa-solid fa-universal-access"></i>
+            Acessibilidade
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="site-header">
+
+    <div class="container header-inner">
+
+        <a
+            href="index.html"
+            class="main-logo"
+            aria-label="LIA - Página inicial"
+        >
+
+            <span class="logo-icon">
+                L
+            </span>
+
+            <span class="logo-name">
+                LIA
+            </span>
+
+        </a>
+
+
+        <nav
+            class="main-navigation"
+            id="mainNavigation"
+        >
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="projeto.html">
+                Conheça a LIA
+            </a>
+
+            <a href="violencias.html">
+                Violências
+            </a>
+
+            <a href="apoio.html">
+                Rede de apoio
+            </a>
+
+            <a href="localizacao.html">
+                Localização
+            </a>
+
+            <a href="cadastro.html">
+                Meu cadastro
+            </a>
+
+            <a href="configuracoes.html">
+                Configurações
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <button
+                id="themeToggle"
+                class="theme-button"
+                type="button"
+                aria-label="Alterar tema"
+            >
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+
+            <button
+                id="mobileMenuButton"
+                class="mobile-menu-button"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <span class="eyebrow">
+            DIÁRIO SEGURO
+        </span>
+
+
+        <h1>
+            Um espaço para
+            <br>
+            registrar o que aconteceu.
+        </h1>
+
+
+        <p>
+            Escreva, fotografe, grave ou organize informações
+            importantes em um espaço pessoal do seu navegador.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ALERTA DE PRIVACIDADE
+===================================================== -->
+
+<section class="information-section">
+
+    <div class="container">
+
+        <div class="privacy-box">
+
+            <div class="privacy-icon">
+
+                <i class="fa-solid fa-lock"></i>
+
+            </div>
+
+
+            <div>
+
+                <span class="eyebrow">
+                    PRIVACIDADE
+                </span>
+
+
+                <h3>
+                    Seus registros ficam neste navegador.
+                </h3>
+
+
+                <p>
+                    Nesta versão da LIA, os registros são armazenados
+                    localmente no dispositivo por meio do armazenamento
+                    do navegador.
+                </p>
+
+
+                <p>
+                    Eles não são enviados automaticamente para a polícia,
+                    para contatos confiáveis ou para qualquer outra pessoa.
+                </p>
+
+
+                <p>
+                    Se você estiver usando um aparelho compartilhado,
+                    considere proteger o dispositivo com senha ou biometria.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NOVO REGISTRO
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                NOVO REGISTRO
+            </span>
+
+
+            <h2>
+                Registre uma lembrança ou acontecimento.
+            </h2>
+
+
+            <p>
+                Você pode escrever primeiro e adicionar arquivos
+                quando estiver em um ambiente seguro.
+            </p>
+
+        </div>
+
+
+
+        <div class="diary-editor-card">
+
+
+            <form id="diaryForm">
+
+
+                <div class="form-group">
+
+                    <label for="entryTitle">
+                        Título
+                    </label>
+
+
+                    <input
+                        id="entryTitle"
+                        name="title"
+                        type="text"
+                        maxlength="120"
+                        placeholder="Ex.: O que aconteceu hoje"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="entryDate">
+                        Data
+                    </label>
+
+
+                    <input
+                        id="entryDate"
+                        name="date"
+                        type="date"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="entryTime">
+                        Horário
+                    </label>
+
+
+                    <input
+                        id="entryTime"
+                        name="time"
+                        type="time"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="entryLocation">
+                        Local aproximado
+                    </label>
+
+
+                    <input
+                        id="entryLocation"
+                        name="location"
+                        type="text"
+                        maxlength="150"
+                        placeholder="Ex.: casa, trabalho, escola..."
+                    >
+
+                </div>
+
+
+
+                <div class="form-group full-width">
+
+                    <label for="entryText">
+                        O que aconteceu?
+                    </label>
+
+
+                    <textarea
+                        id="entryText"
+                        name="text"
+                        rows="8"
+                        maxlength="5000"
+                        placeholder="Escreva o que você considera importante registrar..."
+                        required
+                    ></textarea>
+
+
+                    <small id="characterCount">
+                        0 / 5000
+                    </small>
+
+                </div>
+
+
+
+                <div class="form-group full-width">
+
+                    <label>
+                        Adicionar arquivos
+                    </label>
+
+
+                    <p class="form-help">
+                        Você pode adicionar fotos, vídeos ou outros
+                        arquivos importantes para o seu registro.
+                    </p>
+
+
+                    <input
+                        id="entryFiles"
+                        type="file"
+                        accept="image/*,video/*,audio/*,.pdf,.doc,.docx"
+                        multiple
+                    >
+
+                </div>
+
+
+
+                <div
+                    id="selectedFiles"
+                    class="selected-files"
+                ></div>
+
+
+
+                <div class="button-group">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        <i class="fa-solid fa-book"></i>
+                        Salvar registro
+                    </button>
+
+
+                    <button
+                        id="clearDiaryForm"
+                        type="button"
+                        class="btn btn-secondary"
+                    >
+                        Limpar
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="diaryMessage"
+                    class="security-message"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GRAVAÇÃO DE ÁUDIO
+===================================================== -->
+
+<section class="information-section">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                ÁUDIO
+            </span>
+
+
+            <h2>
+                Se escrever não for confortável, grave.
+            </h2>
+
+
+            <p>
+                O navegador pode gravar um áudio diretamente pelo
+                microfone do dispositivo.
+            </p>
+
+        </div>
+
+
+
+        <div class="audio-recorder-card">
+
+
+            <div class="audio-recorder-icon">
+
+                <i
+                    id="recordIcon"
+                    class="fa-solid fa-microphone"
+                ></i>
+
+            </div>
+
+
+            <div class="audio-recorder-content">
+
+                <h3 id="recordStatus">
+                    Pronto para gravar
+                </h3>
+
+
+                <p id="recordTimer">
+                    00:00
+                </p>
+
+
+                <div class="button-group">
+
+                    <button
+                        id="startRecording"
+                        class="btn btn-primary"
+                        type="button"
+                    >
+                        <i class="fa-solid fa-microphone"></i>
+                        Iniciar gravação
+                    </button>
+
+
+                    <button
+                        id="stopRecording"
+                        class="btn btn-secondary"
+                        type="button"
+                        disabled
+                    >
+                        <i class="fa-solid fa-stop"></i>
+                        Parar
+                    </button>
+
+                </div>
+
+
+                <audio
+                    id="audioPreview"
+                    controls
+                    style="display:none;"
+                ></audio>
+
+
+                <button
+                    id="saveAudio"
+                    class="btn btn-secondary"
+                    type="button"
+                    style="display:none;"
+                >
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Adicionar ao registro
+                </button>
+
+
+                <div
+                    id="audioMessage"
+                    class="security-message"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     REGISTROS SALVOS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                MEUS REGISTROS
+            </span>
+
+
+            <h2>
+                Seu histórico pessoal.
+            </h2>
+
+
+            <p>
+                Os registros salvos neste navegador aparecem aqui.
+            </p>
+
+        </div>
+
+
+
+        <div
+            id="diaryList"
+            class="diary-list"
+        ></div>
+
+
+        <div
+            id="emptyDiary"
+            class="empty-diary"
+        >
+
+            <div class="empty-diary-icon">
+
+                <i class="fa-solid fa-book-open"></i>
+
+            </div>
+
+
+            <h3>
+                Nenhum registro ainda.
+            </h3>
+
+
+            <p>
+                Quando você salvar um registro, ele aparecerá nesta área.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ORIENTAÇÕES
+===================================================== -->
+
+<section class="information-section">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                CUIDADOS
+            </span>
+
+
+            <h2>
+                Antes de registrar qualquer coisa.
+            </h2>
+
+        </div>
+
+
+
+        <div class="information-grid">
+
+
+            <article class="information-card">
+
+                <span class="information-number">
+                    01
+                </span>
+
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+
+                <h3>
+                    Priorize sua segurança
+                </h3>
+
+
+                <p>
+                    Não permaneça em uma situação de risco apenas
+                    para conseguir fazer um registro.
+                </p>
+
+            </article>
+
+
+
+            <article class="information-card">
+
+                <span class="information-number">
+                    02
+                </span>
+
+
+                <i class="fa-solid fa-camera"></i>
+
+
+                <h3>
+                    Preserve arquivos com cuidado
+                </h3>
+
+
+                <p>
+                    Fotos, vídeos e áudios podem ser importantes,
+                    mas não existe garantia de validade jurídica.
+                </p>
+
+            </article>
+
+
+
+            <article class="information-card">
+
+                <span class="information-number">
+                    03
+                </span>
+
+
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+
+                <h3>
+                    Pense em uma cópia segura
+                </h3>
+
+
+                <p>
+                    Como os dados ficam neste navegador, apagar
+                    os dados do dispositivo pode fazer os registros desaparecerem.
+                </p>
+
+            </article>
+
+
+
+            <article class="information-card">
+
+                <span class="information-number">
+                    04
+                </span>
+
+
+                <i class="fa-solid fa-user-shield"></i>
+
+
+                <h3>
+                    Proteja seu dispositivo
+                </h3>
+
+
+                <p>
+                    Em aparelhos compartilhados, outras pessoas
+                    podem conseguir acessar os dados armazenados localmente.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RECURSOS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-title centered">
+
+            <span class="eyebrow">
+                OUTROS RECURSOS
+            </span>
+
+
+            <h2>
+                A LIA pode ajudar de outras formas.
+            </h2>
+
+        </div>
+
+
+
+        <div class="information-grid">
+
+
+            <a
+                href="pessoas-confiaveis.html"
+                class="information-card"
+            >
+
+                <span class="information-number">
+                    01
+                </span>
+
+
+                <i class="fa-solid fa-user-group"></i>
+
+
+                <h3>
+                    Pessoas confiáveis
+                </h3>
+
+
+                <p>
+                    Organize contatos importantes.
+                </p>
+
+            </a>
+
+
+
+            <a
+                href="localizacao.html"
+                class="information-card"
+            >
+
+                <span class="information-number">
+                    02
+                </span>
+
+
+                <i class="fa-solid fa-location-dot"></i>
+
+
+                <h3>
+                    Localização
+                </h3>
+
+
+                <p>
+                    Consulte sua localização quando necessário.
+                </p>
+
+            </a>
+
+
+
+            <a
+                href="palavra-seguranca.html"
+                class="information-card"
+            >
+
+                <span class="information-number">
+                    03
+                </span>
+
+
+                <i class="fa-solid fa-key"></i>
+
+
+                <h3>
+                    Palavra de segurança
+                </h3>
+
+
+                <p>
+                    Configure seu recurso de voz.
+                </p>
+
+            </a>
+
+
+
+            <a
+                href="emergencia.html"
+                class="information-card"
+            >
+
+                <span class="information-number">
+                    04
+                </span>
+
+
+                <i class="fa-solid fa-phone-volume"></i>
+
+
+                <h3>
+                    Emergência
+                </h3>
+
+
+                <p>
+                    Acesse rapidamente os recursos de emergência.
+                </p>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     AVISO FINAL
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="support-banner">
+
+
+            <div>
+
+                <span class="eyebrow">
+                    IMPORTANTE
+                </span>
+
+
+                <h2>
+                    O diário não substitui ajuda profissional.
+                </h2>
+
+
+                <p>
+                    Se você estiver em perigo imediato, procure um
+                    local seguro e acione os serviços de emergência.
+                </p>
+
+            </div>
+
+
+            <a
+                href="emergencia.html"
+                class="btn btn-primary"
+            >
+                Emergência
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container footer-content">
+
+
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="main-logo"
+            >
+
+                <span class="logo-icon">
+                    L
+                </span>
+
+                <span class="logo-name">
+                    LIA
+                </span>
+
+            </a>
+
+
+            <p>
+                Local • Informação • Apoio
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="projeto.html">
+                Sobre o projeto
+            </a>
+
+            <a href="violencias.html">
+                Violências
+            </a>
+
+            <a href="apoio.html">
+                Rede de apoio
+            </a>
+
+            <a href="cadastro.html">
+                Meu cadastro
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-info">
+
+            <p>
+                <strong>
+                    Marcely Castro Rodrigues
+                </strong>
+                — Desenvolvedora
+            </p>
+
+
+            <p>
+                <strong>
+                    Mikaela Cardoso Bonfim
+                </strong>
+                — Desenvolvedora
+            </p>
+
+
+            <p>
+                <strong>
+                    Hellen Goulart Orlandi
+                </strong>
+                — Assistente Social • CRESS 58321
+            </p>
+
+
+            <p>
+                © 2026 LIA — Local • Informação • Apoio
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     ACESSIBILIDADE
+===================================================== -->
+
+<aside
+    id="accessibilityPanel"
+    class="accessibility-panel"
+    aria-hidden="true"
+>
+
+    <div class="accessibility-panel-header">
+
+        <div>
+
+            <span>
+                Acessibilidade
+            </span>
+
+            <strong>
+                Personalize sua experiência
+            </strong>
+
+        </div>
+
+
+        <button
+            id="closeAccessibility"
+            type="button"
+            aria-label="Fechar acessibilidade"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+
+    <div class="accessibility-group">
+
+        <h3>
+            Texto
+        </h3>
+
+
+        <div class="accessibility-buttons">
+
+            <button
+                id="fontDecrease"
+                type="button"
+            >
+                A−
+            </button>
+
+
+            <button
+                id="fontNormal"
+                type="button"
+            >
+                A
+            </button>
+
+
+            <button
+                id="fontIncrease"
+                type="button"
+            >
+                A+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="accessibility-group">
+
+        <h3>
+            Leitura
+        </h3>
+
+
+        <button
+            id="readPage"
+            class="accessibility-action"
+            type="button"
+        >
+            <i class="fa-solid fa-volume-high"></i>
+            Ler página
+        </button>
+
+
+        <button
+            id="stopReading"
+            class="accessibility-action"
+            type="button"
+        >
+            <i class="fa-solid fa-stop"></i>
+            Parar leitura
+        </button>
+
+    </div>
+
+
+
+    <div class="accessibility-group">
+
+        <h3>
+            Idioma
+        </h3>
+
+
+        <div class="language-buttons">
+
+            <button
+                class="language-button"
+                data-language="pt-BR"
+                type="button"
+            >
+                Português
+            </button>
+
+
+            <button
+                class="language-button"
+                data-language="en"
+                type="button"
+            >
+                English
+            </button>
+
+
+            <button
+                class="language-button"
+                data-language="es"
+                type="button"
+            >
+                Español
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="accessibility-group">
+
+        <h3>
+            Visual
+        </h3>
+
+
+        <button
+            id="contrastToggle"
+            class="accessibility-action"
+            type="button"
+        >
+            <i class="fa-solid fa-circle-half-stroke"></i>
+            Alto contraste
+        </button>
+
+
+        <button
+            id="activateVlibras"
+            class="accessibility-action"
+            type="button"
+        >
+            <i class="fa-solid fa-hands"></i>
+            Ativar VLibras
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT DO DIÁRIO
+===================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const STORAGE_KEY =
+            "lia_diary_entries";
+
+
+        const form =
+            document.getElementById(
+                "diaryForm"
+            );
+
+
+        const titleInput =
+            document.getElementById(
+                "entryTitle"
+            );
+
+
+        const dateInput =
+            document.getElementById(
+                "entryDate"
+            );
+
+
+        const timeInput =
+            document.getElementById(
+                "entryTime"
+            );
+
+
+        const locationInput =
+            document.getElementById(
+                "entryLocation"
+            );
+
+
+        const textInput =
+            document.getElementById(
+                "entryText"
+            );
+
+
+        const filesInput =
+            document.getElementById(
+                "entryFiles"
+            );
+
+
+        const selectedFiles =
+            document.getElementById(
+                "selectedFiles"
+            );
+
+
+        const diaryList =
+            document.getElementById(
+                "diaryList"
+            );
+
+
+        const emptyDiary =
+            document.getElementById(
+                "emptyDiary"
+            );
+
+
+        const message =
+            document.getElementById(
+                "diaryMessage"
+            );
+
+
+        const characterCount =
+            document.getElementById(
+                "characterCount"
+            );
+
+
+        const clearForm =
+            document.getElementById(
+                "clearDiaryForm"
+            );
+
+
+        const startRecording =
+            document.getElementById(
+                "startRecording"
+            );
+
+
+        const stopRecording =
+            document.getElementById(
+                "stopRecording"
+            );
+
+
+        const saveAudio =
+            document.getElementById(
+                "saveAudio"
+            );
+
+
+        const audioPreview =
+            document.getElementById(
+                "audioPreview"
+            );
+
+
+        const audioMessage =
+            document.getElementById(
+                "audioMessage"
+            );
+
+
+        const recordStatus =
+            document.getElementById(
+                "recordStatus"
+            );
+
+
+        const recordTimer =
+            document.getElementById(
+                "recordTimer"
+            );
+
+
+        let selectedFileData =
+            [];
+
+
+        let audioData =
+            null;
+
+
+        let mediaRecorder =
+            null;
+
+
+        let audioChunks =
+            [];
+
+
+        let recordingStartedAt =
+            null;
+
+
+        let recordingTimer =
+            null;
+
+
+
+        /* =================================================
+           DATA ATUAL
+        ================================================= */
+
+        const now =
+            new Date();
+
+
+        const localDate =
+            now.getFullYear()
+            + "-"
+            + String(
+                now.getMonth() + 1
+            ).padStart(
+                2,
+                "0"
+            )
+            + "-"
+            + String(
+                now.getDate()
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        dateInput.value =
+            localDate;
+
+
+
+        /* =================================================
+           STORAGE
+        ================================================= */
+
+        function getEntries() {
+
+            try {
+
+                const data =
+                    localStorage.getItem(
+                        STORAGE_KEY
+                    );
+
+
+                if (!data) {
+
+                    return [];
+
+                }
+
+
+                const parsed =
+                    JSON.parse(
+                        data
+                    );
+
+
+                return Array.isArray(
+                    parsed
+                )
+                    ? parsed
+                    : [];
+
+            } catch (error) {
+
+                console.error(
+                    error
+                );
+
+
+                return [];
+
+            }
+
+        }
+
+
+        function saveEntries(
+            entries
+        ) {
+
+            try {
+
+                localStorage.setItem(
+                    STORAGE_KEY,
+                    JSON.stringify(
+                        entries
+                    )
+                );
+
+
+                return true;
+
+            } catch (error) {
+
+                console.error(
+                    error
+                );
+
+
+                showMessage(
+                    "Não foi possível salvar. O navegador pode não ter espaço suficiente.",
+                    "error"
+                );
+
+
+                return false;
+
+            }
+
+        }
+
+
+
+        /* =================================================
+           MENSAGENS
+        ================================================= */
+
+        function showMessage(
+            text,
+            type = "success"
+        ) {
+
+            message.textContent =
+                text;
+
+
+            message.className =
+                "security-message "
+                + type;
+
+        }
+
+
+
+        /* =================================================
+           CONTADOR
+        ================================================= */
+
+        function updateCharacterCount() {
+
+            characterCount.textContent =
+                textInput.value.length
+                + " / 5000";
+
+        }
+
+
+        textInput.addEventListener(
+            "input",
+            updateCharacterCount
+        );
+
+
+        updateCharacterCount();
+
+
+
+        /* =================================================
+           ARQUIVOS
+        ================================================= */
+
+        filesInput.addEventListener(
+            "change",
+            async function () {
+
+                selectedFileData =
+                    [];
+
+
+                selectedFiles.innerHTML =
+                    "";
+
+
+                const files =
+                    Array.from(
+                        filesInput.files
+                    );
+
+
+                for (
+                    const file of files
+                ) {
+
+                    try {
+
+                        const data =
+                            await fileToBase64(
+                                file
+                            );
+
+
+                        selectedFileData.push({
+
+                            name:
+                                file.name,
+
+                            type:
+                                file.type
+                                || "application/octet-stream",
+
+                            size:
+                                file.size,
+
+                            data:
+                                data
+
+                        });
+
+
+                        renderSelectedFiles();
+
+                    } catch (error) {
+
+                        console.error(
+                            error
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+
+        function fileToBase64(
+            file
+        ) {
+
+            return new Promise(
+                function (
+                    resolve,
+                    reject
+                ) {
+
+                    const reader =
+                        new FileReader();
+
+
+                    reader.onload =
+                        function () {
+
+                            resolve(
+                                reader.result
+                            );
+
+                        };
+
+
+                    reader.onerror =
+                        function () {
+
+                            reject(
+                                reader.error
+                            );
+
+                        };
+
+
+                    reader.readAsDataURL(
+                        file
+                    );
+
+                }
+            );
+
+        }
+
+
+        function renderSelectedFiles() {
+
+            selectedFiles.innerHTML =
+                "";
+
+
+            selectedFileData.forEach(
+                function (
+                    file,
+                    index
+                ) {
+
+                    const item =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    item.className =
+                        "selected-file-item";
+
+
+                    const icon =
+                        document.createElement(
+                            "i"
+                        );
+
+
+                    if (
+                        file.type.startsWith(
+                            "image/"
+                        )
+                    ) {
+
+                        icon.className =
+                            "fa-solid fa-image";
+
+                    } else if (
+                        file.type.startsWith(
+                            "video/"
+                        )
+                    ) {
+
+                        icon.className =
+                            "fa-solid fa-video";
+
+                    } else if (
+                        file.type.startsWith(
+                            "audio/"
+                        )
+                    ) {
+
+                        icon.className =
+                            "fa-solid fa-volume-high";
+
+                    } else {
+
+                        icon.className =
+                            "fa-solid fa-file";
+
+                    }
+
+
+                    const name =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    name.textContent =
+                        file.name;
+
+
+                    const remove =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    remove.type =
+                        "button";
+
+
+                    remove.innerHTML =
+                        '<i class="fa-solid fa-xmark"></i>';
+
+
+                    remove.setAttribute(
+                        "aria-label",
+                        "Remover arquivo"
+                    );
+
+
+                    remove.addEventListener(
+                        "click",
+                        function () {
+
+                            selectedFileData.splice(
+                                index,
+                                1
+                            );
+
+
+                            renderSelectedFiles();
+
+                        }
+                    );
+
+
+                    item.appendChild(
+                        icon
+                    );
+
+
+                    item.appendChild(
+                        name
+                    );
+
+
+                    item.appendChild(
+                        remove
+                    );
+
+
+                    selectedFiles.appendChild(
+                        item
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /* =================================================
+           SALVAR REGISTRO
+        ================================================= */
+
+        form.addEventListener(
+            "submit",
+            function (
+                event
+            ) {
+
+                event.preventDefault();
+
+
+                const title =
+                    titleInput.value.trim();
+
+
+                const date =
+                    dateInput.value;
+
+
+                const time =
+                    timeInput.value;
+
+
+                const location =
+                    locationInput.value.trim();
+
+
+                const text =
+                    textInput.value.trim();
+
+
+                if (
+                    !title
+                    ||
+                    !date
+                    ||
+                    !text
+                ) {
+
+                    showMessage(
+                        "Preencha o título, a data e o relato.",
+                        "error"
+                    );
+
+
+                    return;
+
+                }
+
+
+                const entry = {
+
+                    id:
+                        Date.now()
+                        + "-"
+                        + Math.random()
+                            .toString(
+                                36
+                            )
+                            .substring(
+                                2,
+                                9
+                            ),
+
+                    title:
+                        title,
+
+                    date:
+                        date,
+
+                    time:
+                        time,
+
+                    location:
+                        location,
+
+                    text:
+                        text,
+
+                    files:
+                        selectedFileData,
+
+                    audio:
+                        audioData,
+
+                    createdAt:
+                        new Date()
+                            .toISOString()
+
+                };
+
+
+                const entries =
+                    getEntries();
+
+
+                entries.unshift(
+                    entry
+                );
+
+
+                const saved =
+                    saveEntries(
+                        entries
+                    );
+
+
+                if (!saved) {
+
+                    return;
+
+                }
+
+
+                showMessage(
+                    "Registro salvo neste navegador.",
+                    "success"
+                );
+
+
+                resetEditor();
+
+
+                renderEntries();
+
+            }
+        );
+
+
+
+        /* =================================================
+           LIMPAR FORMULÁRIO
+        ================================================= */
+
+        clearForm.addEventListener(
+            "click",
+            function () {
+
+                const confirmed =
+                    window.confirm(
+                        "Deseja limpar o formulário atual?"
+                    );
+
+
+                if (!confirmed) {
+
+                    return;
+
+                }
+
+
+                resetEditor();
+
+
+                showMessage(
+                    "Formulário limpo.",
+                    "success"
+                );
+
+            }
+        );
+
+
+        function resetEditor() {
+
+            form.reset();
+
+
+            dateInput.value =
+                localDate;
+
+
+            selectedFileData =
+                [];
+
+
+            selectedFiles.innerHTML =
+                "";
+
+
+            audioData =
+                null;
+
+
+            audioPreview.src =
+                "";
+
+
+            audioPreview.style.display =
+                "none";
+
+
+            saveAudio.style.display =
+                "none";
+
+
+            updateCharacterCount();
+
+        }
+
+
+
+        /* =================================================
+           RENDERIZAR REGISTROS
+        ================================================= */
+
+        function renderEntries() {
+
+            const entries =
+                getEntries();
+
+
+            diaryList.innerHTML =
+                "";
+
+
+            if (
+                entries.length === 0
+            ) {
+
+                emptyDiary.style.display =
+                    "block";
+
+
+                return;
+
+            }
+
+
+            emptyDiary.style.display =
+                "none";
+
+
+            entries.forEach(
+                function (
+                    entry
+                ) {
+
+                    diaryList.appendChild(
+                        createEntryCard(
+                            entry
+                        )
+                    );
+
+                }
+            );
+
+        }
+
+
+        function createEntryCard(
+            entry
+        ) {
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "diary-entry-card";
+
+
+            const header =
+                document.createElement(
+                    "div"
+                );
+
+
+            header.className =
+                "diary-entry-header";
+
+
+            const title =
+                document.createElement(
+                    "h3"
+                );
+
+
+            title.textContent =
+                entry.title;
+
+
+            const date =
+                document.createElement(
+                    "span"
+                );
+
+
+            date.textContent =
+                formatDate(
+                    entry.date
+                )
+                + (
+                    entry.time
+                        ? " • "
+                            + entry.time
+                        : ""
+                );
+
+
+            header.appendChild(
+                title
+            );
+
+
+            header.appendChild(
+                date
+            );
+
+
+            const content =
+                document.createElement(
+                    "div"
+                );
+
+
+            content.className =
+                "diary-entry-content";
+
+
+            if (
+                entry.location
+            ) {
+
+                const location =
+                    document.createElement(
+                        "p"
+                    );
+
+
+                location.innerHTML =
+                    '<i class="fa-solid fa-location-dot"></i> '
+                    + escapeHTML(
+                        entry.location
+                    );
+
+
+                content.appendChild(
+                    location
+                );
+
+            }
+
+
+            const text =
+                document.createElement(
+                    "p"
+                );
+
+
+            text.className =
+                "diary-entry-text";
+
+
+            text.textContent =
+                entry.text;
+
+
+            content.appendChild(
+                text
+            );
+
+
+            if (
+                entry.files
+                &&
+                entry.files.length
+            ) {
+
+                const filesArea =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                filesArea.className =
+                    "diary-entry-files";
+
+
+                entry.files.forEach(
+                    function (
+                        file
+                    ) {
+
+                        const wrapper =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        wrapper.className =
+                            "diary-file-preview";
+
+
+                        if (
+                            file.type.startsWith(
+                                "image/"
+                            )
+                        ) {
+
+                            const image =
+                                document.createElement(
+                                    "img"
+                                );
+
+
+                            image.src =
+                                file.data;
+
+
+                            image.alt =
+                                file.name;
+
+
+                            wrapper.appendChild(
+                                image
+                            );
+
+                        } else if (
+                            file.type.startsWith(
+                                "video/"
+                            )
+                        ) {
+
+                            const video =
+                                document.createElement(
+                                    "video"
+                                );
+
+
+                            video.src =
+                                file.data;
+
+
+                            video.controls =
+                                true;
+
+
+                            wrapper.appendChild(
+                                video
+                            );
+
+                        } else if (
+                            file.type.startsWith(
+                                "audio/"
+                            )
+                        ) {
+
+                            const audio =
+                                document.createElement(
+                                    "audio"
+                                );
+
+
+                            audio.src =
+                                file.data;
+
+
+                            audio.controls =
+                                true;
+
+
+                            wrapper.appendChild(
+                                audio
+                            );
+
+                        } else {
+
+                            const fileLink =
+                                document.createElement(
+                                    "a"
+                                );
+
+
+                            fileLink.href =
+                                file.data;
+
+
+                            fileLink.download =
+                                file.name;
+
+
+                            fileLink.innerHTML =
+                                '<i class="fa-solid fa-file"></i> '
+                                + file.name;
+
+
+                            wrapper.appendChild(
+                                fileLink
+                            );
+
+                        }
+
+
+                        filesArea.appendChild(
+                            wrapper
+                        );
+
+                    }
+                );
+
+
+                content.appendChild(
+                    filesArea
+                );
+
+            }
+
+
+            if (
+                entry.audio
+            ) {
+
+                const audio =
+                    document.createElement(
+                        "audio"
+                    );
+
+
+                audio.controls =
+                    true;
+
+
+                audio.src =
+                    entry.audio;
+
+
+                audio.className =
+                    "diary-entry-audio";
+
+
+                content.appendChild(
+                    audio
+                );
+
+            }
+
+
+            const footer =
+                document.createElement(
+                    "div"
+                );
+
+
+            footer.className =
+                "diary-entry-footer";
+
+
+            const created =
+                document.createElement(
+                    "span"
+                );
+
+
+            created.textContent =
+                "Salvo em "
+                + new Date(
+                    entry.createdAt
+                ).toLocaleString(
+                    "pt-BR"
+                );
+
+
+            const deleteButton =
+                document.createElement(
+                    "button"
+                );
+
+
+            deleteButton.type =
+                "button";
+
+
+            deleteButton.className =
+                "btn btn-secondary";
+
+
+            deleteButton.innerHTML =
+                '<i class="fa-solid fa-trash"></i> Excluir';
+
+
+            deleteButton.addEventListener(
+                "click",
+                function () {
+
+                    deleteEntry(
+                        entry.id
+                    );
+
+                }
+            );
+
+
+            footer.appendChild(
+                created
+            );
+
+
+            footer.appendChild(
+                deleteButton
+            );
+
+
+            card.appendChild(
+                header
+            );
+
+
+            card.appendChild(
+                content
+            );
+
+
+            card.appendChild(
+                footer
+            );
+
+
+            return card;
+
+        }
+
+
+
+        /* =================================================
+           EXCLUIR REGISTRO
+        ================================================= */
+
+        function deleteEntry(
+            id
+        ) {
+
+            const confirmed =
+                window.confirm(
+                    "Deseja excluir este registro?"
+                );
+
+
+            if (!confirmed) {
+
+                return;
+
+            }
+
+
+            const entries =
+                getEntries()
+                    .filter(
+                        function (
+                            entry
+                        ) {
+
+                            return entry.id !== id;
+
+                        }
+                    );
+
+
+            saveEntries(
+                entries
+            );
+
+
+            renderEntries();
+
+
+            showMessage(
+                "Registro excluído.",
+                "success"
+            );
+
+        }
+
+
+
+        /* =================================================
+           DATA
+        ================================================= */
+
+        function formatDate(
+            date
+        ) {
+
+            if (!date) {
+
+                return "";
+
+            }
+
+
+            const parts =
+                date.split(
+                    "-"
+                );
+
+
+            if (
+                parts.length !== 3
+            ) {
+
+                return date;
+
+            }
+
+
+            return parts[2]
+                + "/"
+                + parts[1]
+                + "/"
+                + parts[0];
+
+        }
+
+
+
+        /* =================================================
+           SEGURANÇA CONTRA HTML
+        ================================================= */
+
+        function escapeHTML(
+            value
+        ) {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.textContent =
+                value;
+
+
+            return div.innerHTML;
+
+        }
+
+
+
+        /* =================================================
+           GRAVADOR DE ÁUDIO
+        ================================================= */
+
+        startRecording.addEventListener(
+            "click",
+            async function () {
+
+                if (
+                    !navigator.mediaDevices
+                    ||
+                    !navigator.mediaDevices.getUserMedia
+                ) {
+
+                    audioMessage.textContent =
+                        "Seu navegador não permite acesso ao microfone.";
+
+                    audioMessage.className =
+                        "security-message error";
+
+
+                    return;
+
+                }
+
+
+                try {
+
+                    const stream =
+                        await navigator
+                            .mediaDevices
+                            .getUserMedia({
+
+                                audio:
+                                    true
+
+                            });
+
+
+                    audioChunks =
+                        [];
+
+
+                    mediaRecorder =
+                        new MediaRecorder(
+                            stream
+                        );
+
+
+                    mediaRecorder.ondataavailable =
+                        function (
+                            event
+                        ) {
+
+                            if (
+                                event.data.size
+                                >
+                                0
+                            ) {
+
+                                audioChunks.push(
+                                    event.data
+                                );
+
+                            }
+
+                        };
+
+
+                    mediaRecorder.onstop =
+                        function () {
+
+                            const blob =
+                                new Blob(
+                                    audioChunks,
+                                    {
+                                        type:
+                                            "audio/webm"
+                                    }
+                                );
+
+
+                            const url =
+                                URL.createObjectURL(
+                                    blob
+                                );
+
+
+                            audioPreview.src =
+                                url;
+
+
+                            audioPreview.style.display =
+                                "block";
+
+
+                            saveAudio.style.display =
+                                "inline-flex";
+
+
+                            blobToBase64(
+                                blob
+                            )
+                            .then(
+                                function (
+                                    data
+                                ) {
+
+                                    audioData =
+                                        data;
+
+                                }
+                            );
+
+
+                            stream
+                                .getTracks()
+                                .forEach(
+                                    function (
+                                        track
+                                    ) {
+
+                                        track.stop();
+
+                                    }
+                                );
+
+                        };
+
+
+                    mediaRecorder.start();
+
+
+                    recordingStartedAt =
+                        Date.now();
+
+
+                    startRecording.disabled =
+                        true;
+
+
+                    stopRecording.disabled =
+                        false;
+
+
+                    recordStatus.textContent =
+                        "Gravando...";
+
+
+                    audioMessage.textContent =
+                        "O microfone está ativo. Fale quando estiver pronta.";
+
+                    audioMessage.className =
+                        "security-message success";
+
+
+                    recordTimer.textContent =
+                        "00:00";
+
+
+                    recordingTimer =
+                        setInterval(
+                            updateRecordTimer,
+                            1000
+                        );
+
+                } catch (error) {
+
+                    console.error(
+                        error
+                    );
+
+
+                    audioMessage.textContent =
+                        "Não foi possível acessar o microfone. Verifique a permissão do navegador.";
+
+                    audioMessage.className =
+                        "security-message error";
+
+                }
+
+            }
+        );
+
+
+        stopRecording.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    mediaRecorder
+                    &&
+                    mediaRecorder.state
+                    ===
+                    "recording"
+                ) {
+
+                    mediaRecorder.stop();
+
+                }
+
+
+                clearInterval(
+                    recordingTimer
+                );
+
+
+                startRecording.disabled =
+                    false;
+
+
+                stopRecording.disabled =
+                    true;
+
+
+                recordStatus.textContent =
+                    "Gravação concluída.";
+
+
+                recordTimer.textContent =
+                    "Pronto";
+
+            }
+        );
+
+
+        function updateRecordTimer() {
+
+            if (
+                !recordingStartedAt
+            ) {
+
+                return;
+
+            }
+
+
+            const seconds =
+                Math.floor(
+                    (
+                        Date.now()
+                        -
+                        recordingStartedAt
+                    )
+                    /
+                    1000
+                );
+
+
+            const minutes =
+                Math.floor(
+                    seconds / 60
+                );
+
+
+            const remainingSeconds =
+                seconds % 60;
+
+
+            recordTimer.textContent =
+                String(
+                    minutes
+                ).padStart(
+                    2,
+                    "0"
+                )
+                + ":"
+                + String(
+                    remainingSeconds
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+        }
+
+
+        function blobToBase64(
+            blob
+        ) {
+
+            return new Promise(
+                function (
+                    resolve,
+                    reject
+                ) {
+
+                    const reader =
+                        new FileReader();
+
+
+                    reader.onloadend =
+                        function () {
+
+                            resolve(
+                                reader.result
+                            );
+
+                        };
+
+
+                    reader.onerror =
+                        reject;
+
+
+                    reader.readAsDataURL(
+                        blob
+                    );
+
+                }
+            );
+
+        }
+
+
+        saveAudio.addEventListener(
+            "click",
+            function () {
+
+                if (!audioData) {
+
+                    audioMessage.textContent =
+                        "Nenhuma gravação disponível.";
+
+                    audioMessage.className =
+                        "security-message error";
+
+
+                    return;
+
+                }
+
+
+                audioMessage.textContent =
+                    "Áudio preparado. Salve o registro para armazená-lo junto ao diário.";
+
+                audioMessage.className =
+                    "security-message success";
+
+
+                saveAudio.style.display =
+                    "none";
+
+            }
+        );
+
+
+
+        /* =================================================
+           INICIALIZAÇÃO
+        ================================================= */
+
+        renderEntries();
+
+    });
+
+</script>
+
+
+
+<script src="lia.js"></script>
+
+</body>
+</html>

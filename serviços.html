@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Serviços de apoio — LIA</title>
+
+    <link rel="stylesheet" href="lia.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        .services-page {
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fdfbfd 0%,
+                    #f2ebf7 100%
+                );
+
+            padding: 55px 20px 80px;
+        }
+
+
+        .services-container {
+            width: min(1160px, 100%);
+            margin: 0 auto;
+        }
+
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+
+        .services-eyebrow {
+            color: #7656a3;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: .13em;
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+
+        .services-header h1 {
+            margin: 0 0 15px;
+
+            font-family: "Playfair Display", serif;
+
+            font-size:
+                clamp(
+                    2.3rem,
+                    5vw,
+                    4rem
+                );
+
+            line-height: 1.1;
+
+            color: #211e25;
+        }
+
+
+        .services-header p {
+            width: min(780px, 100%);
+
+            margin: 0 auto;
+
+            color: #77727d;
+
+            line-height: 1.7;
+        }
+
+
+        .location-box {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+
+            padding: 21px 23px;
+
+            background: #ffffff;
+
+            border:
+                1px solid #e5dcea;
+
+            border-radius: 19px;
+
+            box-shadow:
+                0 12px 35px
+                rgba(81, 55, 122, .06);
+        }
+
+
+        .location-info {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+        }
+
+
+        .location-icon {
+            flex: 0 0 47px;
+
+            width: 47px;
+            height: 47px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 14px;
+
+            background: #f0eaf7;
+
+            color: #7656a3;
+
+            font-size: 19px;
+        }
+
+
+        .location-info strong {
+            display: block;
+
+            margin-bottom: 3px;
+
+            color: #403a44;
+        }
+
+
+        .location-info span {
+            color: #85808a;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+
+        .location-button {
+            flex: 0 0 auto;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            min-height: 45px;
+
+            padding: 10px 17px;
+
+            border-radius: 12px;
+
+            background: #7656a3;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: .2s ease;
+        }
+
+
+        .location-button:hover {
+            background: #51377a;
+
+            transform: translateY(-1px);
+        }
+
+
+        .service-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 20px;
+        }
+
+
+        .service-card {
+            display: flex;
+
+            flex-direction: column;
+
+            background: #ffffff;
+
+            border:
+                1px solid #e8e1ed;
+
+            border-radius: 22px;
+
+            padding: 27px;
+
+            box-shadow:
+                0 15px 45px
+                rgba(81, 55, 122, .06);
+        }
+
+
+        .service-card.full {
+            grid-column: 1 / -1;
+        }
+
+
+        .service-top {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 15px;
+        }
+
+
+        .service-icon {
+            flex: 0 0 54px;
+
+            width: 54px;
+            height: 54px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 15px;
+
+            background: #f0eaf7;
+
+            color: #7656a3;
+
+            font-size: 21px;
+        }
+
+
+        .service-title {
+            flex: 1;
+        }
+
+
+        .service-title h2 {
+            margin: 0 0 6px;
+
+            color: #302b35;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 1.45rem;
+        }
+
+
+        .service-title p {
+            margin: 0;
+
+            color: #77727d;
+
+            font-size: 13px;
+
+            line-height: 1.55;
+        }
+
+
+        .service-body {
+            margin-top: 21px;
+        }
+
+
+        .service-list {
+            display: grid;
+
+            gap: 10px;
+
+            margin: 0;
+
+            padding: 0;
+
+            list-style: none;
+        }
+
+
+        .service-list li {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            color: #68626d;
+
+            font-size: 13px;
+
+            line-height: 1.55;
+        }
+
+
+        .service-list i {
+            color: #7656a3;
+
+            margin-top: 3px;
+        }
+
+
+        .service-links {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 9px;
+
+            margin-top: 20px;
+        }
+
+
+        .service-link {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            min-height: 43px;
+
+            padding: 9px 12px;
+
+            border-radius: 11px;
+
+            background: #f0eaf7;
+
+            color: #7656a3;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            text-align: center;
+
+            transition: .2s ease;
+        }
+
+
+        .service-link:hover {
+            background: #e4dced;
+
+            transform: translateY(-1px);
+        }
+
+
+        .service-link.primary {
+            background: #7656a3;
+
+            color: #ffffff;
+        }
+
+
+        .service-link.primary:hover {
+            background: #51377a;
+        }
+
+
+        .service-note {
+            margin-top: 15px;
+
+            padding: 13px 14px;
+
+            border-radius: 11px;
+
+            background: #faf8fb;
+
+            color: #85808a;
+
+            font-size: 11px;
+
+            line-height: 1.55;
+        }
+
+
+        .service-note strong {
+            color: #55505a;
+        }
+
+
+        .emergency-card {
+            margin-top: 20px;
+
+            padding: 27px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5eef8,
+                    #fbf9fc
+                );
+
+            border:
+                1px solid #e3d9ea;
+        }
+
+
+        .emergency-card h2 {
+            margin: 0 0 9px;
+
+            font-family: "Playfair Display", serif;
+
+            color: #403a44;
+
+            font-size: 1.7rem;
+        }
+
+
+        .emergency-card p {
+            margin: 0;
+
+            color: #77727d;
+
+            line-height: 1.65;
+
+            font-size: 14px;
+        }
+
+
+        .emergency-button {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            width: 100%;
+
+            min-height: 48px;
+
+            margin-top: 18px;
+
+            padding: 11px 17px;
+
+            border-radius: 12px;
+
+            background: #7656a3;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: .2s ease;
+        }
+
+
+        .emergency-button:hover {
+            background: #51377a;
+        }
+
+
+        .back-home {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 28px;
+
+            color: #7656a3;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            font-size: 14px;
+        }
+
+
+        .back-home:hover {
+            text-decoration: underline;
+        }
+
+
+        @media (max-width: 850px) {
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .service-card.full {
+                grid-column: auto;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .location-box {
+                align-items: stretch;
+
+                flex-direction: column;
+            }
+
+
+            .location-button {
+                width: 100%;
+
+                box-sizing: border-box;
+            }
+
+        }
+
+
+        @media (max-width: 520px) {
+
+            .services-page {
+                padding:
+                    35px
+                    14px
+                    55px;
+            }
+
+
+            .service-card {
+                padding: 21px 18px;
+
+                border-radius: 19px;
+            }
+
+
+            .service-links {
+                grid-template-columns: 1fr;
+            }
+
+
+            .service-top {
+                gap: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<main class="services-page">
+
+
+    <div class="services-container">
+
+
+        <header class="services-header">
+
+            <div class="services-eyebrow">
+                Rede de proteção
+            </div>
+
+
+            <h1>
+                Serviços de apoio
+            </h1>
+
+
+            <p>
+                Encontre informações sobre diferentes serviços
+                que podem fazer parte da rede de proteção e apoio
+                à mulher. A disponibilidade e os procedimentos
+                podem variar conforme o município.
+            </p>
+
+        </header>
+
+
+        <section class="location-box">
+
+            <div class="location-info">
+
+                <div class="location-icon">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Encontre serviços perto de você
+                    </strong>
+
+
+                    <span>
+                        Use a localização do dispositivo para
+                        pesquisar unidades e serviços na sua região.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="localizacao.html"
+                class="location-button"
+            >
+
+                <i class="fa-solid fa-location-crosshairs"></i>
+
+                Usar minha localização
+
+            </a>
+
+        </section>
+
+
+        <div class="service-grid">
+
+
+            <!-- DELEGACIA -->
+
+            <article class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-building-shield"></i>
+
+                    </div>
+
+
+                    <div class="service-title">
+
+                        <h2>
+                            Delegacias
+                        </h2>
+
+
+                        <p>
+                            Atendimento para registro de ocorrências
+                            e orientação sobre procedimentos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <ul class="service-list">
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                Delegacias da Polícia Civil podem
+                                registrar ocorrências e realizar
+                                atendimentos relacionados.
+                            </span>
+                        </li>
+
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                Delegacias Especializadas de Atendimento
+                                à Mulher (DEAMs) existem em determinadas
+                                localidades.
+                            </span>
+                        </li>
+
+                    </ul>
+
+
+                    <div class="service-links">
+
+                        <a
+                            href="https://www.google.com/maps/search/delegacia+da+mulher/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="service-link primary"
+                        >
+
+                            <i class="fa-solid fa-map-location-dot"></i>
+
+                            Encontrar delegacia
+
+                        </a>
+
+
+                        <a
+                            href="https://www.google.com/maps/search/delegacia/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="service-link"
+                        >
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Delegacias próximas
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- DEFENSORIA -->
+
+            <article class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-scale-balanced"></i>
+
+                    </div>
+
+
+                    <div class="service-title">
+
+                        <h2>
+                            Defensoria Pública
+                        </h2>
+
+
+                        <p>
+                            Orientação e assistência jurídica gratuita
+                            para pessoas que atendam aos critérios
+                            do serviço.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <ul class="service-list">
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                Pode orientar sobre direitos e
+                                procedimentos jurídicos.
+                            </span>
+                        </li>
+
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                O atendimento e os critérios podem
+                                variar conforme o estado.
+                            </span>
+                        </li>
+
+                    </ul>
+
+
+                    <div class="service-links">
+
+                        <a
+                            href="https://www.google.com/maps/search/Defensoria+P%C3%BAblica/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="service-link primary"
+                        >
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Encontrar unidade
+
+                        </a>
+
+
+                        <a
+                            href="https://www.defensoria.sp.def.br/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="service-link"
+                        >
+
+                            <i class="fa-solid fa-globe"></i>
+
+                            Defensoria SP
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- CRAS -->
+
+            <article class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-people-roof"></i>
+
+                    </div>
+
+
+                    <div class="service-title">
+
+                        <h2>
+                            CRAS
+                        </h2>
+
+
+                        <p>
+                            Centro de Referência de Assistência Social
+                            e porta de entrada da assistência social.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <ul class="service-list">
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                Pode orientar sobre benefícios,
+                                serviços e programas sociais.
+                            </span>
+                        </li>
+
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                Pode realizar encaminhamentos
+                                conforme a necessidade.
+                            </span>
+                        </li>
+
+                    </ul>
+
+
+                    <div class="service-links">
+
+                        <a
+                            href="https://www.google.com/maps/search/CRAS/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="service-link primary"
+                        >
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Encontrar CRAS
+
+                        </a>
+
+
+                        <a
+                            href="https://www.gov.br/mds/pt-br/acoes-e-programas/suas"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="service-link"
+                        >
+
+                            <i class="fa-solid fa-globe"></i>
+
+                            Rede SUAS
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- CREAS -->
+
+            <article class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+
+                    </div>
+
+
+                    <div class="service-title">
+
+                        <h2>
+                            CREAS
+                        </h2>
+
+
+                        <p>
+                            Serviço especializado da assistência
+                            social para situações de violação de direitos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <ul class="service-list">
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                Pode atender pessoas e famílias
+                                em situações de violência e outras
+                                violações de direitos.
+                            </span>
+                        </li>
+
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                Pode realizar acompanhamento e
+                                encaminhamentos dentro da rede.
+                            </span>
+                        </li>
+
+                    </ul>
+
+
+                    <div class="service-links">
+
+                        <a
+                            href="https://www.google.com/maps/search/CREAS/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="service-link primary"
+                        >
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Encontrar CREAS
+
+                        </a>
+
+
+                        <a
+                            href="https://www.gov.br/mds/pt-br/acoes-e-programas/suas"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="service-link"
+                        >
+
+                            <i class="fa-solid fa-globe"></i>
+
+                            Informações SUAS
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- SAÚDE -->
+
+            <article class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-hospital"></i>
+
+                    </div>
+
+
+                    <div class="service-title">
+
+                        <h2>
+                            Saúde
+                        </h2>
+
+
+                        <p>
+                            Unidades de saúde podem oferecer atendimento,
+                            acolhimento e encaminhamento.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <ul class="service-list">
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                UBS e outros serviços podem ser
+                                portas de entrada para atendimento.
+                            </span>
+                        </li>
+
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                Em emergências de saúde, procure
+                                atendimento imediatamente.
+                            </span>
+                        </li>
+
+                    </ul>
+
+
+                    <div class="service-links">
+
+                        <a
+                            href="https://www.google.com/maps/search/UBS/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="service-link primary"
+                        >
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Encontrar UBS
+
+                        </a>
+
+
+                        <a
+                            href="https://www.gov.br/saude/pt-br"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="service-link"
+                        >
+
+                            <i class="fa-solid fa-globe"></i>
+
+                            Ministério da Saúde
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PSICOLÓGICO -->
+
+            <article class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-user-doctor"></i>
+
+                    </div>
+
+
+                    <div class="service-title">
+
+                        <h2>
+                            Apoio psicológico
+                        </h2>
+
+
+                        <p>
+                            Atendimento voltado ao cuidado da saúde
+                            mental e ao acolhimento emocional.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <ul class="service-list">
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                A rede pública de saúde pode oferecer
+                                diferentes formas de atendimento.
+                            </span>
+                        </li>
+
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                A disponibilidade de profissionais
+                                depende do serviço e da região.
+                            </span>
+                        </li>
+
+                    </ul>
+
+
+                    <div class="service-links">
+
+                        <a
+                            href="psicologo.html"
+                            class="service-link primary"
+                        >
+
+                            <i class="fa-solid fa-heart"></i>
+
+                            Apoio psicológico
+
+                        </a>
+
+
+                        <a
+                            href="https://www.google.com/maps/search/CAPS/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="service-link"
+                        >
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Encontrar CAPS
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- MINISTÉRIO PÚBLICO -->
+
+            <article class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-building-columns"></i>
+
+                    </div>
+
+
+                    <div class="service-title">
+
+                        <h2>
+                            Ministério Público
+                        </h2>
+
+
+                        <p>
+                            Instituição que exerce funções previstas
+                            constitucionalmente na defesa da ordem jurídica
+                            e de interesses sociais.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <ul class="service-list">
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                Pode atuar em situações dentro
+                                de suas atribuições legais.
+                            </span>
+                        </li>
+
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                Possui unidades e canais próprios
+                                em cada estado.
+                            </span>
+                        </li>
+
+                    </ul>
+
+
+                    <div class="service-links">
+
+                        <a
+                            href="https://www.mpsp.mp.br/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="service-link primary"
+                        >
+
+                            <i class="fa-solid fa-globe"></i>
+
+                            Ministério Público SP
+
+                        </a>
+
+
+                        <a
+                            href="https://www.google.com/maps/search/Minist%C3%A9rio+P%C3%BAblico/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="service-link"
+                        >
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Encontrar unidade
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- CASA DA MULHER -->
+
+            <article class="service-card">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-house-chimney-user"></i>
+
+                    </div>
+
+
+                    <div class="service-title">
+
+                        <h2>
+                            Serviços especializados
+                        </h2>
+
+
+                        <p>
+                            Alguns municípios possuem centros,
+                            casas e equipamentos especializados
+                            para atendimento às mulheres.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <ul class="service-list">
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                Podem reunir diferentes formas
+                                de atendimento e orientação.
+                            </span>
+                        </li>
+
+
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+
+                            <span>
+                                Os serviços disponíveis dependem
+                                da cidade e da rede local.
+                            </span>
+                        </li>
+
+                    </ul>
+
+
+                    <div class="service-links">
+
+                        <a
+                            href="https://www.google.com/maps/search/Casa+da+Mulher/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="service-link primary"
+                        >
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Pesquisar na região
+
+                        </a>
+
+
+                        <a
+                            href="https://www.google.com/maps/search/servi%C3%A7o+para+mulheres/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="service-link"
+                        >
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            Outros serviços
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- ORIENTAÇÃO JURÍDICA -->
+
+            <article class="service-card full">
+
+                <div class="service-top">
+
+                    <div class="service-icon">
+
+                        <i class="fa-solid fa-scale-balanced"></i>
+
+                    </div>
+
+
+                    <div class="service-title">
+
+                        <h2>
+                            Precisa de orientação jurídica?
+                        </h2>
+
+
+                        <p>
+                            A LIA possui uma área específica com
+                            informações sobre orientação jurídica,
+                            direitos e caminhos de proteção.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-body">
+
+                    <div class="service-links">
+
+                        <a
+                            href="advogados.html"
+                            class="service-link primary"
+                        >
+
+                            <i class="fa-solid fa-gavel"></i>
+
+                            Apoio jurídico
+
+                        </a>
+
+
+                        <a
+                            href="violencias.html"
+                            class="service-link"
+                        >
+
+                            <i class="fa-solid fa-book-open"></i>
+
+                            Tipos de violência
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <section class="emergency-card">
+
+            <h2>
+                Se o risco for imediato
+            </h2>
+
+
+            <p>
+                Se você estiver em perigo agora, priorize sua
+                segurança e procure atendimento de emergência.
+                A LIA possui uma página específica para orientar
+                esse acesso.
+            </p>
+
+
+            <a
+                href="emergencia.html"
+                class="emergency-button"
+            >
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                Acessar emergência
+
+            </a>
+
+        </section>
+
+
+        <a
+            href="index.html"
+            class="back-home"
+        >
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Voltar para a LIA
+
+        </a>
+
+    </div>
+
+</main>
+
+
+<script src="lia.js"></script>
+
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
+    crossorigin="anonymous"
+></script>
+
+
+</body>
+
+</html>

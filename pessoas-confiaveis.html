@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pessoas Confiáveis | LIA</title>
+
+    <meta
+        name="description"
+        content="Cadastre pessoas de confiança para ter seus contatos importantes organizados na LIA."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="lia.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     BARRA SUPERIOR
+===================================================== -->
+
+<div class="top-bar">
+
+    <div class="container top-bar-inner">
+
+        <span>
+            LIA — Local • Informação • Apoio
+        </span>
+
+        <button
+            id="openAccessibility"
+            class="accessibility-button"
+            type="button"
+        >
+            <i class="fa-solid fa-universal-access"></i>
+            Acessibilidade
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="site-header">
+
+    <div class="container header-inner">
+
+        <a
+            href="index.html"
+            class="main-logo"
+            aria-label="LIA - Página inicial"
+        >
+
+            <span class="logo-icon">
+                L
+            </span>
+
+            <span class="logo-name">
+                LIA
+            </span>
+
+        </a>
+
+
+        <nav
+            class="main-navigation"
+            id="mainNavigation"
+        >
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="projeto.html">
+                Conheça a LIA
+            </a>
+
+            <a href="violencias.html">
+                Violências
+            </a>
+
+            <a href="apoio.html">
+                Rede de apoio
+            </a>
+
+            <a href="localizacao.html">
+                Localização
+            </a>
+
+            <a href="cadastro.html">
+                Meu cadastro
+            </a>
+
+            <a href="configuracoes.html">
+                Configurações
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <button
+                id="themeToggle"
+                class="theme-button"
+                type="button"
+                aria-label="Alterar tema"
+            >
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+
+            <button
+                id="mobileMenuButton"
+                class="mobile-menu-button"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     CONTEÚDO
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <span class="eyebrow">
+            PESSOAS CONFIÁVEIS
+        </span>
+
+
+        <h1>
+            Tenha pessoas seguras
+            <br>
+            por perto.
+        </h1>
+
+
+        <p>
+            Cadastre contatos importantes para deixar sua rede
+            de apoio organizada e acessível quando você precisar.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     AVISO
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="privacy-box">
+
+            <div class="privacy-icon">
+
+                <i class="fa-solid fa-shield-heart"></i>
+
+            </div>
+
+
+            <div>
+
+                <span class="eyebrow">
+                    SUA REDE DE APOIO
+                </span>
+
+
+                <h3>
+                    Escolha pessoas em quem você realmente confia.
+                </h3>
+
+
+                <p>
+                    Pode ser uma amiga, familiar, vizinha ou outra
+                    pessoa que possa ajudar em uma situação de necessidade.
+                </p>
+
+
+                <p>
+                    Cadastre apenas pessoas que sejam seguras para você.
+                    Evite compartilhar essas informações com alguém que
+                    possa colocar você em risco.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FORMULÁRIO
+===================================================== -->
+
+<section class="information-section">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                NOVO CONTATO
+            </span>
+
+
+            <h2>
+                Adicione uma pessoa confiável.
+            </h2>
+
+
+            <p>
+                As informações serão armazenadas localmente
+                neste navegador.
+            </p>
+
+        </div>
+
+
+
+        <form
+            id="trustedPersonForm"
+            class="trusted-person-form"
+        >
+
+            <div class="form-grid">
+
+
+                <!-- NOME -->
+
+                <div class="form-field">
+
+                    <label for="personName">
+                        Nome
+                    </label>
+
+
+                    <input
+                        id="personName"
+                        name="name"
+                        type="text"
+                        maxlength="80"
+                        autocomplete="name"
+                        placeholder="Nome da pessoa"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- RELAÇÃO -->
+
+                <div class="form-field">
+
+                    <label for="personRelation">
+                        Relação
+                    </label>
+
+
+                    <select
+                        id="personRelation"
+                        name="relation"
+                        required
+                    >
+
+                        <option value="">
+                            Selecione
+                        </option>
+
+                        <option value="Amiga">
+                            Amiga
+                        </option>
+
+                        <option value="Familiar">
+                            Familiar
+                        </option>
+
+                        <option value="Vizinha">
+                            Vizinha
+                        </option>
+
+                        <option value="Colega">
+                            Colega
+                        </option>
+
+                        <option value="Profissional">
+                            Profissional
+                        </option>
+
+                        <option value="Outra">
+                            Outra
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- TELEFONE -->
+
+                <div class="form-field">
+
+                    <label for="personPhone">
+                        Telefone
+                    </label>
+
+
+                    <input
+                        id="personPhone"
+                        name="phone"
+                        type="tel"
+                        maxlength="25"
+                        autocomplete="tel"
+                        placeholder="(00) 00000-0000"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="form-field">
+
+                    <label for="personEmail">
+                        E-mail
+                    </label>
+
+
+                    <input
+                        id="personEmail"
+                        name="email"
+                        type="email"
+                        maxlength="120"
+                        autocomplete="email"
+                        placeholder="email@exemplo.com"
+                    >
+
+                </div>
+
+
+
+                <!-- OBSERVAÇÃO -->
+
+                <div
+                    class="form-field form-field-full"
+                >
+
+                    <label for="personNote">
+                        Observação
+                    </label>
+
+
+                    <textarea
+                        id="personNote"
+                        name="note"
+                        maxlength="300"
+                        rows="4"
+                        placeholder="Ex.: posso ligar a qualquer hora"
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="button-group">
+
+                <button
+                    id="savePersonButton"
+                    class="btn btn-primary"
+                    type="submit"
+                >
+                    <i class="fa-solid fa-user-plus"></i>
+                    Adicionar pessoa
+                </button>
+
+
+                <button
+                    id="cancelEditButton"
+                    class="btn btn-secondary"
+                    type="button"
+                    style="display:none;"
+                >
+                    Cancelar edição
+                </button>
+
+            </div>
+
+
+            <div
+                id="formMessage"
+                class="security-message"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LISTA DE CONTATOS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                SUA REDE
+            </span>
+
+
+            <h2>
+                Pessoas cadastradas.
+            </h2>
+
+
+            <p id="peopleCounter">
+                Nenhuma pessoa cadastrada.
+            </p>
+
+        </div>
+
+
+
+        <div
+            id="trustedPeopleList"
+            class="trusted-people-list"
+        >
+        </div>
+
+
+
+        <div
+            id="emptyPeopleState"
+            class="empty-state"
+        >
+
+            <div class="empty-state-icon">
+
+                <i class="fa-solid fa-user-group"></i>
+
+            </div>
+
+
+            <h3>
+                Sua rede ainda está vazia.
+            </h3>
+
+
+            <p>
+                Cadastre uma pessoa de confiança usando o formulário acima.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COMO USAR
+===================================================== -->
+
+<section class="information-section">
+
+    <div class="container">
+
+
+        <div class="section-title centered">
+
+            <span class="eyebrow">
+                COMO UTILIZAR
+            </span>
+
+
+            <h2>
+                Deixe sua rede preparada.
+            </h2>
+
+        </div>
+
+
+
+        <div class="features-grid">
+
+
+            <article class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                </div>
+
+
+                <h3>
+                    Cadastre
+                </h3>
+
+
+                <p>
+                    Adicione pessoas que você considera seguras
+                    e que possam oferecer ajuda.
+                </p>
+
+            </article>
+
+
+
+            <article class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                </div>
+
+
+                <h3>
+                    Entre em contato
+                </h3>
+
+
+                <p>
+                    Quando o telefone estiver cadastrado,
+                    você poderá tocar no botão para iniciar
+                    uma chamada.
+                </p>
+
+            </article>
+
+
+
+            <article class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-pen"></i>
+
+                </div>
+
+
+                <h3>
+                    Mantenha atualizado
+                </h3>
+
+
+                <p>
+                    Edite ou exclua contatos quando alguma
+                    informação mudar.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRIVACIDADE
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="privacy-box">
+
+
+            <div class="privacy-icon">
+
+                <i class="fa-solid fa-lock"></i>
+
+            </div>
+
+
+            <div>
+
+                <span class="eyebrow">
+                    PRIVACIDADE
+                </span>
+
+
+                <h3>
+                    Seus contatos ficam neste navegador.
+                </h3>
+
+
+                <p>
+                    Neste projeto, os contatos são armazenados
+                    utilizando o armazenamento local do navegador
+                    por meio do localStorage.
+                </p>
+
+
+                <p>
+                    Isso significa que eles não são automaticamente
+                    enviados para a polícia, para profissionais ou
+                    para qualquer outra pessoa.
+                </p>
+
+
+                <p>
+                    Se você apagar os dados do navegador, esses
+                    contatos também poderão ser apagados.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RECURSOS RELACIONADOS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <span class="eyebrow">
+                RECURSOS DA LIA
+            </span>
+
+
+            <h2>
+                Monte sua rede de proteção.
+            </h2>
+
+
+            <p>
+                Conheça outros recursos que podem complementar
+                seu planejamento de segurança.
+            </p>
+
+        </div>
+
+
+
+        <div class="information-grid">
+
+
+            <a
+                href="palavra-seguranca.html"
+                class="information-card"
+            >
+
+                <span class="information-number">
+                    01
+                </span>
+
+                <i class="fa-solid fa-key"></i>
+
+                <h3>
+                    Palavra de segurança
+                </h3>
+
+                <p>
+                    Configure uma palavra para o recurso de voz.
+                </p>
+
+            </a>
+
+
+
+            <a
+                href="localizacao.html"
+                class="information-card"
+            >
+
+                <span class="information-number">
+                    02
+                </span>
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <h3>
+                    Localização
+                </h3>
+
+                <p>
+                    Consulte sua localização atual.
+                </p>
+
+            </a>
+
+
+
+            <a
+                href="emergencia.html"
+                class="information-card"
+            >
+
+                <span class="information-number">
+                    03
+                </span>
+
+                <i class="fa-solid fa-phone"></i>
+
+                <h3>
+                    Emergência
+                </h3>
+
+                <p>
+                    Acesse o recurso de emergência da LIA.
+                </p>
+
+            </a>
+
+
+
+            <a
+                href="diario.html"
+                class="information-card"
+            >
+
+                <span class="information-number">
+                    04
+                </span>
+
+                <i class="fa-solid fa-book"></i>
+
+                <h3>
+                    Diário
+                </h3>
+
+                <p>
+                    Registre informações importantes.
+                </p>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-title centered">
+
+            <span class="eyebrow">
+                LIA
+            </span>
+
+
+            <h2>
+                Você não precisa estar sozinha para pedir ajuda.
+            </h2>
+
+
+            <p>
+                Organize sua rede e conheça os outros recursos
+                disponíveis na LIA.
+            </p>
+
+
+            <div class="button-group">
+
+                <a
+                    href="apoio.html"
+                    class="btn btn-primary"
+                >
+                    Rede de apoio
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+
+                <a
+                    href="index.html"
+                    class="btn btn-secondary"
+                >
+                    Página inicial
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container footer-content">
+
+
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="main-logo"
+            >
+
+                <span class="logo-icon">
+                    L
+                </span>
+
+                <span class="logo-name">
+                    LIA
+                </span>
+
+            </a>
+
+
+            <p>
+                Local • Informação • Apoio
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="projeto.html">
+                Sobre o projeto
+            </a>
+
+            <a href="violencias.html">
+                Violências
+            </a>
+
+            <a href="apoio.html">
+                Rede de apoio
+            </a>
+
+            <a href="cadastro.html">
+                Meu cadastro
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-info">
+
+            <p>
+                <strong>
+                    Marcely Castro Rodrigues
+                </strong>
+                — Desenvolvedora
+            </p>
+
+
+            <p>
+                <strong>
+                    Mikaela Cardoso Bonfim
+                </strong>
+                — Desenvolvedora
+            </p>
+
+
+            <p>
+                <strong>
+                    Hellen Goulart Orlandi
+                </strong>
+                — Assistente Social • CRESS 58321
+            </p>
+
+
+            <p>
+                © 2026 LIA — Local • Informação • Apoio
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     PAINEL DE ACESSIBILIDADE
+===================================================== -->
+
+<aside
+    id="accessibilityPanel"
+    class="accessibility-panel"
+    aria-hidden="true"
+>
+
+    <div class="accessibility-panel-header">
+
+        <div>
+
+            <span>
+                Acessibilidade
+            </span>
+
+            <strong>
+                Personalize sua experiência
+            </strong>
+
+        </div>
+
+
+        <button
+            id="closeAccessibility"
+            type="button"
+            aria-label="Fechar acessibilidade"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+
+    <div class="accessibility-group">
+
+        <h3>
+            Texto
+        </h3>
+
+
+        <div class="accessibility-buttons">
+
+            <button
+                id="fontDecrease"
+                type="button"
+            >
+                A−
+            </button>
+
+
+            <button
+                id="fontNormal"
+                type="button"
+            >
+                A
+            </button>
+
+
+            <button
+                id="fontIncrease"
+                type="button"
+            >
+                A+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="accessibility-group">
+
+        <h3>
+            Leitura
+        </h3>
+
+
+        <button
+            id="readPage"
+            class="accessibility-action"
+            type="button"
+        >
+            <i class="fa-solid fa-volume-high"></i>
+            Ler página
+        </button>
+
+
+        <button
+            id="stopReading"
+            class="accessibility-action"
+            type="button"
+        >
+            <i class="fa-solid fa-stop"></i>
+            Parar leitura
+        </button>
+
+    </div>
+
+
+
+    <div class="accessibility-group">
+
+        <h3>
+            Idioma
+        </h3>
+
+
+        <div class="language-buttons">
+
+            <button
+                class="language-button"
+                data-language="pt-BR"
+                type="button"
+            >
+                Português
+            </button>
+
+
+            <button
+                class="language-button"
+                data-language="en"
+                type="button"
+            >
+                English
+            </button>
+
+
+            <button
+                class="language-button"
+                data-language="es"
+                type="button"
+            >
+                Español
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="accessibility-group">
+
+        <h3>
+            Visual
+        </h3>
+
+
+        <button
+            id="contrastToggle"
+            class="accessibility-action"
+            type="button"
+        >
+            <i class="fa-solid fa-circle-half-stroke"></i>
+            Alto contraste
+        </button>
+
+
+        <button
+            id="activateVlibras"
+            class="accessibility-action"
+            type="button"
+        >
+            <i class="fa-solid fa-hands"></i>
+            Ativar VLibras
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const STORAGE_KEY =
+            "lia_trusted_people";
+
+
+        const form =
+            document.getElementById(
+                "trustedPersonForm"
+            );
+
+
+        const nameInput =
+            document.getElementById(
+                "personName"
+            );
+
+
+        const relationInput =
+            document.getElementById(
+                "personRelation"
+            );
+
+
+        const phoneInput =
+            document.getElementById(
+                "personPhone"
+            );
+
+
+        const emailInput =
+            document.getElementById(
+                "personEmail"
+            );
+
+
+        const noteInput =
+            document.getElementById(
+                "personNote"
+            );
+
+
+        const saveButton =
+            document.getElementById(
+                "savePersonButton"
+            );
+
+
+        const cancelEditButton =
+            document.getElementById(
+                "cancelEditButton"
+            );
+
+
+        const formMessage =
+            document.getElementById(
+                "formMessage"
+            );
+
+
+        const list =
+            document.getElementById(
+                "trustedPeopleList"
+            );
+
+
+        const emptyState =
+            document.getElementById(
+                "emptyPeopleState"
+            );
+
+
+        const counter =
+            document.getElementById(
+                "peopleCounter"
+            );
+
+
+        let editingId = null;
+
+
+        /* =================================================
+           GERAR ID
+        ================================================= */
+
+        function createId() {
+
+            return Date.now().toString(36)
+                + Math.random()
+                    .toString(36)
+                    .substring(2);
+
+        }
+
+
+        /* =================================================
+           LER CONTATOS
+        ================================================= */
+
+        function getPeople() {
+
+            try {
+
+                const saved =
+                    localStorage.getItem(
+                        STORAGE_KEY
+                    );
+
+
+                if (!saved) {
+
+                    return [];
+
+                }
+
+
+                const parsed =
+                    JSON.parse(saved);
+
+
+                return Array.isArray(parsed)
+                    ? parsed
+                    : [];
+
+            } catch (error) {
+
+                console.warn(
+                    "Não foi possível carregar os contatos.",
+                    error
+                );
+
+
+                return [];
+
+            }
+
+        }
+
+
+        /* =================================================
+           SALVAR CONTATOS
+        ================================================= */
+
+        function savePeople(people) {
+
+            localStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify(people)
+            );
+
+        }
+
+
+        /* =================================================
+           ESCAPAR HTML
+        ================================================= */
+
+        function escapeHtml(value) {
+
+            return String(value || "")
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+        /* =================================================
+           FORMATAR TELEFONE
+        ================================================= */
+
+        function formatPhone(phone) {
+
+            const digits =
+                String(phone || "")
+                    .replace(
+                        /\D/g,
+                        ""
+                    );
+
+
+            if (digits.length === 11) {
+
+                return "("
+                    + digits.substring(0, 2)
+                    + ") "
+                    + digits.substring(2, 7)
+                    + "-"
+                    + digits.substring(7);
+
+            }
+
+
+            if (digits.length === 10) {
+
+                return "("
+                    + digits.substring(0, 2)
+                    + ") "
+                    + digits.substring(2, 6)
+                    + "-"
+                    + digits.substring(6);
+
+            }
+
+
+            return phone;
+
+        }
+
+
+        /* =================================================
+           MOSTRAR MENSAGEM
+        ================================================= */
+
+        function showMessage(
+            text,
+            type = "success"
+        ) {
+
+            formMessage.textContent =
+                text;
+
+
+            formMessage.className =
+                "security-message "
+                + type;
+
+        }
+
+
+        /* =================================================
+           LIMPAR FORMULÁRIO
+        ================================================= */
+
+        function clearForm() {
+
+            form.reset();
+
+            editingId = null;
+
+
+            saveButton.innerHTML =
+                '<i class="fa-solid fa-user-plus"></i> Adicionar pessoa';
+
+
+            cancelEditButton.style.display =
+                "none";
+
+
+            formMessage.textContent =
+                "";
+
+
+            formMessage.className =
+                "security-message";
+
+        }
+
+
+        /* =================================================
+           RENDERIZAR
+        ================================================= */
+
+        function renderPeople() {
+
+            const people =
+                getPeople();
+
+
+            list.innerHTML =
+                "";
+
+
+            if (!people.length) {
+
+                emptyState.style.display =
+                    "block";
+
+
+                counter.textContent =
+                    "Nenhuma pessoa cadastrada.";
+
+
+                return;
+
+            }
+
+
+            emptyState.style.display =
+                "none";
+
+
+            counter.textContent =
+                people.length === 1
+                    ? "1 pessoa cadastrada."
+                    : people.length
+                        + " pessoas cadastradas.";
+
+
+            people.forEach(
+                function (person) {
+
+                    const article =
+                        document.createElement(
+                            "article"
+                        );
+
+
+                    article.className =
+                        "trusted-person-card";
+
+
+                    const safeName =
+                        escapeHtml(
+                            person.name
+                        );
+
+
+                    const safeRelation =
+                        escapeHtml(
+                            person.relation
+                        );
+
+
+                    const safePhone =
+                        escapeHtml(
+                            formatPhone(
+                                person.phone
+                            )
+                        );
+
+
+                    const safeEmail =
+                        escapeHtml(
+                            person.email
+                        );
+
+
+                    const safeNote =
+                        escapeHtml(
+                            person.note
+                        );
+
+
+                    article.innerHTML = `
+
+                        <div class="trusted-person-avatar">
+
+                            <i class="fa-solid fa-user"></i>
+
+                        </div>
+
+
+                        <div class="trusted-person-content">
+
+                            <div class="trusted-person-heading">
+
+                                <div>
+
+                                    <h3>
+                                        ${safeName}
+                                    </h3>
+
+                                    <span class="trusted-person-relation">
+                                        ${safeRelation}
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="trusted-person-details">
+
+                                <a
+                                    href="tel:${encodeURIComponent(person.phone || "")}"
+                                    class="trusted-person-detail"
+                                >
+
+                                    <i class="fa-solid fa-phone"></i>
+
+                                    <span>
+                                        ${safePhone}
+                                    </span>
+
+                                </a>
+
+
+                                ${
+                                    person.email
+                                        ? `
+                                            <a
+                                                href="mailto:${encodeURIComponent(person.email)}"
+                                                class="trusted-person-detail"
+                                            >
+
+                                                <i class="fa-solid fa-envelope"></i>
+
+                                                <span>
+                                                    ${safeEmail}
+                                                </span>
+
+                                            </a>
+                                        `
+                                        : ""
+                                }
+
+
+                                ${
+                                    person.note
+                                        ? `
+                                            <div class="trusted-person-note">
+
+                                                <i class="fa-solid fa-note-sticky"></i>
+
+                                                <span>
+                                                    ${safeNote}
+                                                </span>
+
+                                            </div>
+                                        `
+                                        : ""
+                                }
+
+                            </div>
+
+
+                            <div class="trusted-person-actions">
+
+                                <a
+                                    href="tel:${encodeURIComponent(person.phone || "")}"
+                                    class="btn btn-primary"
+                                >
+
+                                    <i class="fa-solid fa-phone"></i>
+
+                                    Ligar
+
+                                </a>
+
+
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary edit-person"
+                                    data-id="${person.id}"
+                                >
+
+                                    <i class="fa-solid fa-pen"></i>
+
+                                    Editar
+
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary delete-person"
+                                    data-id="${person.id}"
+                                >
+
+                                    <i class="fa-solid fa-trash"></i>
+
+                                    Excluir
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+
+                    list.appendChild(
+                        article
+                    );
+
+                }
+            );
+
+
+            attachCardEvents();
+
+        }
+
+
+        /* =================================================
+           EVENTOS DOS CARDS
+        ================================================= */
+
+        function attachCardEvents() {
+
+            document
+                .querySelectorAll(
+                    ".edit-person"
+                )
+                .forEach(
+                    function (button) {
+
+                        button.addEventListener(
+                            "click",
+                            function () {
+
+                                editPerson(
+                                    this.dataset.id
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+
+            document
+                .querySelectorAll(
+                    ".delete-person"
+                )
+                .forEach(
+                    function (button) {
+
+                        button.addEventListener(
+                            "click",
+                            function () {
+
+                                deletePerson(
+                                    this.dataset.id
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+        }
+
+
+        /* =================================================
+           EDITAR
+        ================================================= */
+
+        function editPerson(id) {
+
+            const people =
+                getPeople();
+
+
+            const person =
+                people.find(
+                    function (item) {
+
+                        return String(item.id)
+                            === String(id);
+
+                    }
+                );
+
+
+            if (!person) {
+
+                return;
+
+            }
+
+
+            editingId =
+                person.id;
+
+
+            nameInput.value =
+                person.name || "";
+
+
+            relationInput.value =
+                person.relation || "";
+
+
+            phoneInput.value =
+                person.phone || "";
+
+
+            emailInput.value =
+                person.email || "";
+
+
+            noteInput.value =
+                person.note || "";
+
+
+            saveButton.innerHTML =
+                '<i class="fa-solid fa-floppy-disk"></i> Salvar alterações';
+
+
+            cancelEditButton.style.display =
+                "inline-flex";
+
+
+            showMessage(
+                "Editando este contato.",
+                "success"
+            );
+
+
+            window.scrollTo({
+
+                top:
+                    form.offsetTop - 100,
+
+                behavior:
+                    "smooth"
+
+            });
+
+        }
+
+
+        /* =================================================
+           EXCLUIR
+        ================================================= */
+
+        function deletePerson(id) {
+
+            const people =
+                getPeople();
+
+
+            const person =
+                people.find(
+                    function (item) {
+
+                        return String(item.id)
+                            === String(id);
+
+                    }
+                );
+
+
+            if (!person) {
+
+                return;
+
+            }
+
+
+            const confirmed =
+                window.confirm(
+                    "Deseja realmente excluir "
+                    + person.name
+                    + " da sua rede de pessoas confiáveis?"
+                );
+
+
+            if (!confirmed) {
+
+                return;
+
+            }
+
+
+            const updated =
+                people.filter(
+                    function (item) {
+
+                        return String(item.id)
+                            !== String(id);
+
+                    }
+                );
+
+
+            savePeople(updated);
+
+
+            renderPeople();
+
+
+            showMessage(
+                "Contato excluído.",
+                "success"
+            );
+
+        }
+
+
+        /* =================================================
+           SUBMIT
+        ================================================= */
+
+        form.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    nameInput.value.trim();
+
+
+                const relation =
+                    relationInput.value;
+
+
+                const phone =
+                    phoneInput.value.trim();
+
+
+                const email =
+                    emailInput.value.trim();
+
+
+                const note =
+                    noteInput.value.trim();
+
+
+                if (!name) {
+
+                    showMessage(
+                        "Digite o nome da pessoa.",
+                        "error"
+                    );
+
+                    nameInput.focus();
+
+                    return;
+
+                }
+
+
+                if (!relation) {
+
+                    showMessage(
+                        "Selecione a relação com essa pessoa.",
+                        "error"
+                    );
+
+                    relationInput.focus();
+
+                    return;
+
+                }
+
+
+                if (!phone) {
+
+                    showMessage(
+                        "Digite o telefone da pessoa.",
+                        "error"
+                    );
+
+                    phoneInput.focus();
+
+                    return;
+
+                }
+
+
+                const people =
+                    getPeople();
+
+
+                if (editingId) {
+
+                    const index =
+                        people.findIndex(
+                            function (item) {
+
+                                return String(item.id)
+                                    === String(editingId);
+
+                            }
+                        );
+
+
+                    if (index !== -1) {
+
+                        people[index] = {
+
+                            ...people[index],
+
+                            name:
+                                name,
+
+                            relation:
+                                relation,
+
+                            phone:
+                                phone,
+
+                            email:
+                                email,
+
+                            note:
+                                note
+
+                        };
+
+                    }
+
+
+                    savePeople(
+                        people
+                    );
+
+
+                    clearForm();
+
+
+                    showMessage(
+                        "Contato atualizado com sucesso.",
+                        "success"
+                    );
+
+                } else {
+
+                    const newPerson = {
+
+                        id:
+                            createId(),
+
+                        name:
+                            name,
+
+                        relation:
+                            relation,
+
+                        phone:
+                            phone,
+
+                        email:
+                            email,
+
+                        note:
+                            note,
+
+                        createdAt:
+                            new Date().toISOString()
+
+                    };
+
+
+                    people.push(
+                        newPerson
+                    );
+
+
+                    savePeople(
+                        people
+                    );
+
+
+                    clearForm();
+
+
+                    showMessage(
+                        "Pessoa adicionada à sua rede de confiança.",
+                        "success"
+                    );
+
+                }
+
+
+                renderPeople();
+
+            }
+        );
+
+
+        /* =================================================
+           CANCELAR EDIÇÃO
+        ================================================= */
+
+        cancelEditButton.addEventListener(
+            "click",
+            function () {
+
+                clearForm();
+
+            }
+        );
+
+
+        /* =================================================
+           MÁSCARA TELEFONE
+        ================================================= */
+
+        phoneInput.addEventListener(
+            "input",
+            function () {
+
+                let value =
+                    this.value.replace(
+                        /\D/g,
+                        ""
+                    );
+
+
+                if (value.length > 11) {
+
+                    value =
+                        value.substring(
+                            0,
+                            11
+                        );
+
+                }
+
+
+                if (value.length <= 10) {
+
+                    value =
+                        value.replace(
+                            /^(\d{2})(\d{0,4})(\d{0,4}).*/,
+                            function (
+                                match,
+                                ddd,
+                                first,
+                                second
+                            ) {
+
+                                let result =
+                                    ddd
+                                    ? "(" + ddd + ")"
+                                    : "";
+
+
+                                if (first) {
+
+                                    result +=
+                                        " " + first;
+
+                                }
+
+
+                                if (second) {
+
+                                    result +=
+                                        "-" + second;
+
+                                }
+
+
+                                return result;
+
+                            }
+                        );
+
+                } else {
+
+                    value =
+                        value.replace(
+                            /^(\d{2})(\d{5})(\d{0,4}).*/,
+                            function (
+                                match,
+                                ddd,
+                                first,
+                                second
+                            ) {
+
+                                let result =
+                                    "("
+                                    + ddd
+                                    + ") "
+                                    + first;
+
+
+                                if (second) {
+
+                                    result +=
+                                        "-"
+                                        + second;
+
+                                }
+
+
+                                return result;
+
+                            }
+                        );
+
+                }
+
+
+                this.value =
+                    value;
+
+            }
+        );
+
+
+        /* =================================================
+           INICIALIZAÇÃO
+        ================================================= */
+
+        renderPeople();
+
+    });
+
+</script>
+
+
+
+<!-- =====================================================
+     SCRIPT PRINCIPAL
+===================================================== -->
+
+<script src="lia.js"></script>
+
+</body>
+</html>
