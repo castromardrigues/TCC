@@ -1,710 +1,217 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Apoio psicológico — LIA</title>
+  <title>Apoio Psicológico | LIA — Local de Informação e Apoio</title>
+  <meta name="description" content="Conheça opções de apoio psicológico e acolhimento emocional para mulheres em situação de vulnerabilidade ou violência.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Projeto LIA">
+  <meta name="theme-color" content="#7651a8">
 
-    <link rel="stylesheet" href="lia.css">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Apoio Psicológico | LIA">
+  <meta property="og:description" content="Informações para encontrar acolhimento emocional e apoio psicológico com segurança.">
+  <meta property="og:locale" content="pt_BR">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Apoio Psicológico | LIA">
+  <meta name="twitter:description" content="Acolhimento e caminhos para buscar apoio psicológico.">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <style>
-        .support-page {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #fdfbfd 0%, #f2ebf7 100%);
-            padding: 55px 20px 80px;
-        }
-
-        .support-container {
-            width: min(1120px, 100%);
-            margin: 0 auto;
-        }
-
-        .support-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .support-eyebrow {
-            color: #7656a3;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: .13em;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .support-header h1 {
-            margin: 0 0 15px;
-            font-family: "Playfair Display", serif;
-            font-size: clamp(2.3rem, 5vw, 4rem);
-            line-height: 1.1;
-            color: #211e25;
-        }
-
-        .support-header p {
-            width: min(750px, 100%);
-            margin: 0 auto;
-            color: #77727d;
-            line-height: 1.7;
-        }
-
-        .support-alert {
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-            margin-bottom: 25px;
-            padding: 19px 21px;
-            border: 1px solid #e5dcea;
-            border-radius: 18px;
-            background: #fff;
-            box-shadow: 0 12px 35px rgba(81, 55, 122, .06);
-        }
-
-        .support-alert-icon {
-            flex: 0 0 43px;
-            width: 43px;
-            height: 43px;
-            border-radius: 13px;
-            display: grid;
-            place-items: center;
-            background: #f0eaf7;
-            color: #7656a3;
-        }
-
-        .support-alert strong {
-            display: block;
-            margin-bottom: 4px;
-            color: #403a44;
-        }
-
-        .support-alert span {
-            color: #77727d;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        .psych-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
-            gap: 24px;
-        }
-
-        .psych-card {
-            background: #fff;
-            border: 1px solid #e8e1ed;
-            border-radius: 24px;
-            padding: 30px;
-            box-shadow: 0 15px 45px rgba(81, 55, 122, .07);
-        }
-
-        .psych-card.full {
-            grid-column: 1 / -1;
-        }
-
-        .psych-icon {
-            width: 58px;
-            height: 58px;
-            border-radius: 16px;
-            display: grid;
-            place-items: center;
-            background: #f0eaf7;
-            color: #7656a3;
-            font-size: 22px;
-            margin-bottom: 18px;
-        }
-
-        .psych-card h2 {
-            margin: 0 0 11px;
-            font-family: "Playfair Display", serif;
-            font-size: 1.75rem;
-            color: #302b35;
-        }
-
-        .psych-card h3 {
-            margin: 25px 0 10px;
-            color: #403a44;
-            font-size: 1.05rem;
-        }
-
-        .psych-card p {
-            margin: 0;
-            color: #77727d;
-            line-height: 1.7;
-        }
-
-        .psych-list {
-            display: grid;
-            gap: 12px;
-            margin: 20px 0 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .psych-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 11px;
-            color: #68626d;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        .psych-list i {
-            flex: 0 0 auto;
-            margin-top: 4px;
-            color: #7656a3;
-        }
-
-        .help-options {
-            display: grid;
-            gap: 12px;
-            margin-top: 22px;
-        }
-
-        .help-option {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 15px;
-            border: 1px solid #e8e1ed;
-            border-radius: 15px;
-            background: #fcfbfd;
-        }
-
-        .help-option-icon {
-            flex: 0 0 45px;
-            width: 45px;
-            height: 45px;
-            display: grid;
-            place-items: center;
-            border-radius: 13px;
-            background: #f0eaf7;
-            color: #7656a3;
-        }
-
-        .help-option strong {
-            display: block;
-            margin-bottom: 3px;
-            color: #403a44;
-            font-size: 14px;
-        }
-
-        .help-option span {
-            color: #85808a;
-            font-size: 12px;
-            line-height: 1.5;
-        }
-
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-            margin-top: 22px;
-        }
-
-        .resource-card {
-            padding: 20px;
-            border-radius: 17px;
-            background: #faf8fb;
-            border: 1px solid #e8e1ed;
-        }
-
-        .resource-card i {
-            color: #7656a3;
-            font-size: 20px;
-            margin-bottom: 12px;
-        }
-
-        .resource-card h3 {
-            margin: 0 0 7px;
-            font-family: "DM Sans", sans-serif;
-            font-size: 15px;
-        }
-
-        .resource-card p {
-            font-size: 13px;
-            line-height: 1.55;
-        }
-
-        .psych-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 9px;
-            width: 100%;
-            min-height: 49px;
-            margin-top: 20px;
-            padding: 12px 18px;
-            border: 0;
-            border-radius: 13px;
-            background: #7656a3;
-            color: #fff;
-            text-decoration: none;
-            font: inherit;
-            font-weight: 700;
-            cursor: pointer;
-            transition: .2s ease;
-            box-sizing: border-box;
-        }
-
-        .psych-button:hover {
-            background: #51377a;
-            transform: translateY(-1px);
-        }
-
-        .psych-button.secondary {
-            background: #f0eaf7;
-            color: #7656a3;
-        }
-
-        .psych-button.secondary:hover {
-            background: #e4dced;
-        }
-
-        .professional-note {
-            margin-top: 20px;
-            padding: 17px 18px;
-            border-radius: 14px;
-            background: #faf8fb;
-            color: #77727d;
-            font-size: 13px;
-            line-height: 1.65;
-        }
-
-        .professional-note strong {
-            color: #403a44;
-        }
-
-        .emergency-box {
-            padding: 24px;
-            border-radius: 19px;
-            background: linear-gradient(135deg, #f5eef8, #fbf9fc);
-            border: 1px solid #e3d9ea;
-        }
-
-        .emergency-box h3 {
-            margin-top: 0;
-            font-family: "Playfair Display", serif;
-            color: #403a44;
-            font-size: 1.45rem;
-        }
-
-        .emergency-box p {
-            margin-bottom: 0;
-        }
-
-        .back-home {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 28px;
-            color: #7656a3;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .back-home:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 850px) {
-            .psych-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .psych-card.full {
-                grid-column: auto;
-            }
-
-            .resource-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 560px) {
-            .support-page {
-                padding: 35px 14px 55px;
-            }
-
-            .psych-card {
-                padding: 22px 18px;
-                border-radius: 19px;
-            }
-
-            .support-alert {
-                padding: 16px;
-            }
-        }
-    </style>
+  <link rel="stylesheet" href="lia.css">
+  <script src="lia.js" defer></script>
 </head>
 
 <body>
-
-<main class="support-page">
-
-    <div class="support-container">
-
-        <header class="support-header">
-
-            <div class="support-eyebrow">
-                Rede de apoio
-            </div>
-
-            <h1>
-                Apoio psicológico
-            </h1>
-
-            <p>
-                Você não precisa enfrentar sentimentos difíceis,
-                situações de violência ou momentos de medo sozinha.
-                Buscar ajuda também é uma forma de cuidado.
-            </p>
-
-        </header>
-
-
-        <section class="support-alert">
-
-            <div class="support-alert-icon">
-                <i class="fa-solid fa-heart"></i>
-            </div>
-
-            <div>
-                <strong>
-                    Pedir ajuda não é fraqueza.
-                </strong>
-
-                <span>
-                    Um profissional pode ajudar você a compreender
-                    o que está acontecendo, acolher seus sentimentos
-                    e encontrar caminhos possíveis para sua situação.
-                </span>
-            </div>
-
-        </section>
-
-
-        <div class="psych-grid">
-
-
-            <section class="psych-card">
-
-                <div class="psych-icon">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                </div>
-
-                <h2>
-                    Quando procurar apoio?
-                </h2>
-
-                <p>
-                    Não existe um momento certo ou uma intensidade
-                    mínima de sofrimento para buscar atendimento.
-                    Se algo está afetando sua segurança, sua rotina,
-                    seus relacionamentos ou seu bem-estar, conversar
-                    com um profissional pode ser importante.
-                </p>
-
-                <ul class="psych-list">
-
-                    <li>
-                        <i class="fa-solid fa-check"></i>
-                        <span>
-                            Ansiedade, medo ou sensação constante de alerta.
-                        </span>
-                    </li>
-
-                    <li>
-                        <i class="fa-solid fa-check"></i>
-                        <span>
-                            Tristeza, culpa ou sensação de isolamento.
-                        </span>
-                    </li>
-
-                    <li>
-                        <i class="fa-solid fa-check"></i>
-                        <span>
-                            Dificuldade para dormir ou manter a rotina.
-                        </span>
-                    </li>
-
-                    <li>
-                        <i class="fa-solid fa-check"></i>
-                        <span>
-                            Consequências emocionais de uma situação de violência.
-                        </span>
-                    </li>
-
-                    <li>
-                        <i class="fa-solid fa-check"></i>
-                        <span>
-                            Necessidade de conversar com alguém de forma acolhedora.
-                        </span>
-                    </li>
-
-                </ul>
-
-            </section>
-
-
-            <section class="psych-card">
-
-                <div class="psych-icon">
-                    <i class="fa-solid fa-user-doctor"></i>
-                </div>
-
-                <h2>
-                    Como encontrar atendimento?
-                </h2>
-
-                <p>
-                    Existem diferentes portas de entrada para
-                    atendimento psicológico e em saúde mental.
-                    A disponibilidade pode variar de acordo com
-                    sua cidade e sua situação.
-                </p>
-
-                <div class="help-options">
-
-                    <div class="help-option">
-
-                        <div class="help-option-icon">
-                            <i class="fa-solid fa-hospital"></i>
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                SUS
-                            </strong>
-
-                            <span>
-                                Procure uma unidade de saúde ou
-                                serviço de saúde mental da sua região.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="help-option">
-
-                        <div class="help-option-icon">
-                            <i class="fa-solid fa-people-roof"></i>
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Rede de assistência
-                            </strong>
-
-                            <span>
-                                CRAS e CREAS podem orientar sobre
-                                serviços disponíveis no município.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="help-option">
-
-                        <div class="help-option-icon">
-                            <i class="fa-solid fa-comments"></i>
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Atendimento profissional
-                            </strong>
-
-                            <span>
-                                Psicólogos podem oferecer acompanhamento
-                                individual conforme a necessidade.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <a
-                    href="servicos.html"
-                    class="psych-button"
-                >
-
-                    <i class="fa-solid fa-magnifying-glass-location"></i>
-
-                    Ver serviços de apoio
-
-                </a>
-
-            </section>
-
-
-            <section class="psych-card full">
-
-                <div class="psych-icon">
-                    <i class="fa-solid fa-shield-heart"></i>
-                </div>
-
-                <h2>
-                    Apoio depois de uma situação de violência
-                </h2>
-
-                <p>
-                    A violência pode provocar consequências emocionais
-                    mesmo depois que o acontecimento termina. Cada pessoa
-                    reage de uma maneira, e não existe uma reação única
-                    considerada correta.
-                </p>
-
-                <div class="resource-grid">
-
-                    <article class="resource-card">
-
-                        <i class="fa-solid fa-ear-listen"></i>
-
-                        <h3>
-                            Acolhimento
-                        </h3>
-
-                        <p>
-                            Ter alguém seguro para ouvir você sem
-                            julgamentos pode ser importante.
-                        </p>
-
-                    </article>
-
-
-                    <article class="resource-card">
-
-                        <i class="fa-solid fa-brain"></i>
-
-                        <h3>
-                            Saúde emocional
-                        </h3>
-
-                        <p>
-                            O acompanhamento psicológico pode ajudar
-                            no cuidado com as consequências emocionais.
-                        </p>
-
-                    </article>
-
-
-                    <article class="resource-card">
-
-                        <i class="fa-solid fa-people-arrows"></i>
-
-                        <h3>
-                            Rede de apoio
-                        </h3>
-
-                        <p>
-                            Pessoas de confiança e serviços especializados
-                            podem fazer parte do processo de proteção.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </section>
-
-
-            <section class="psych-card full">
-
-                <div class="emergency-box">
-
-                    <h3>
-                        Se você estiver em perigo agora
-                    </h3>
-
-                    <p>
-                        O apoio psicológico é importante, mas uma situação
-                        de risco imediato precisa de uma resposta de emergência.
-                        Use a área de emergência da LIA para acessar rapidamente
-                        os recursos disponíveis.
-                    </p>
-
-                    <a
-                        href="emergencia.html"
-                        class="psych-button"
-                    >
-
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-
-                        Acessar emergência
-
-                    </a>
-
-                </div>
-
-            </section>
-
-
-            <section class="psych-card full">
-
-                <div class="professional-note">
-
-                    <strong>
-                        Importante:
-                    </strong>
-
-                    a LIA é uma ferramenta de informação e apoio.
-                    Esta página não substitui avaliação, diagnóstico
-                    ou acompanhamento realizado por profissional
-                    habilitado. Em situações de risco imediato,
-                    procure um serviço de emergência.
-
-                </div>
-
-            </section>
-
+  <div class="top-bar">
+    <span>LIA — Local • Informação • Apoio</span>
+    <button type="button" id="accessibilityToggle"
+      aria-expanded="false" aria-controls="accessibilityPanel">
+      Acessibilidade
+    </button>
+  </div>
+
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="LIA — página inicial">LIA</a>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="projeto.html">O projeto</a>
+      <a href="violencias.html">Tipos de violência</a>
+      <a href="apoio.html">Preciso de apoio</a>
+      <a href="emergencia.html">Emergência</a>
+      <a href="discreto.html">Modo discreto</a>
+      <a href="cadastro.html">Conta</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">Cuidado emocional</span>
+        <h1>Apoio psicológico</h1>
+        <p>
+          Você merece ser ouvida, acolhida e respeitada. Buscar apoio
+          psicológico pode ajudar a compreender sentimentos e recuperar
+          a confiança, no seu próprio tempo.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <span class="eyebrow">Você não está sozinha</span>
+        <h2>Encontrar acolhimento</h2>
+        <p>
+          Você não precisa contar tudo de uma vez. Procure um profissional
+          ou serviço com o qual se sinta segura para conversar.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <h3>Unidade Básica de Saúde (UBS)</h3>
+          <p>
+            A UBS pode orientar sobre os serviços de saúde disponíveis
+            na sua região e os caminhos para obter atendimento psicológico.
+          </p>
+          <a class="btn btn-primary"
+             href="https://www.gov.br/saude/pt-br"
+             target="_blank" rel="noopener noreferrer">
+            Portal do Ministério da Saúde
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Rede de Atenção Psicossocial</h3>
+          <p>
+            Os serviços da rede pública de saúde mental podem oferecer
+            acolhimento e acompanhamento conforme a necessidade de cada pessoa.
+          </p>
+          <a class="btn btn-primary"
+             href="https://www.gov.br/saude/pt-br"
+             target="_blank" rel="noopener noreferrer">
+            Consultar informações oficiais
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Atendimento psicológico particular</h3>
+          <p>
+            Se essa opção estiver ao seu alcance, você pode procurar um
+            profissional de Psicologia com registro ativo no Conselho Regional
+            de Psicologia.
+          </p>
+          <a class="btn btn-primary"
+             href="https://site.cfp.org.br/"
+             target="_blank" rel="noopener noreferrer">
+            Conselho Federal de Psicologia
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>O que você pode sentir</h2>
+        <p>
+          Cada pessoa reage de uma forma às experiências difíceis.
+          Não existe uma única maneira correta de sentir.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <h3>Medo e insegurança</h3>
+          <p>
+            Sentir medo ou ficar em alerta pode acontecer depois de
+            experiências ameaçadoras. Você merece receber apoio sem julgamentos.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Confusão e culpa</h3>
+          <p>
+            Pode ser difícil compreender o que aconteceu. A responsabilidade
+            pela violência é de quem a pratica, não de quem a sofre.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Tristeza e esgotamento</h3>
+          <p>
+            Se as emoções estiverem difíceis de enfrentar, conversar com
+            um profissional pode ajudar a identificar formas de cuidado.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <span class="eyebrow">Orientação e direitos</span>
+        <h2>Você também pode buscar apoio especializado</h2>
+        <p>
+          O Ligue 180 oferece orientação e informações sobre serviços
+          disponíveis para mulheres em situação de violência no Brasil.
+        </p>
+
+        <div class="form-actions">
+          <a class="btn btn-primary" href="tel:180">
+            Ligar para 180
+          </a>
+          <a class="btn btn-secondary" href="servicos.html">
+            Conhecer serviços sociais
+          </a>
+          <a class="btn btn-secondary" href="pessoas-confiaveis.html">
+            Pessoas de confiança
+          </a>
         </div>
+      </div>
+    </section>
 
+    <section class="section">
+      <div class="notice notice-warning">
+        <strong>Se houver perigo imediato:</strong> procure um lugar seguro,
+        se possível, e ligue para 190. Se precisar de atendimento médico
+        urgente, ligue para 192.
+      </div>
+    </section>
+  </main>
 
-        <a
-            href="index.html"
-            class="back-home"
-        >
+  <footer class="site-footer">
+    <p><strong>LIA — Local de Informação e Apoio</strong></p>
+    <p>Projeto desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
+    <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
+    <p>Projeto acadêmico de informação, prevenção e apoio.</p>
+  </footer>
 
-            <i class="fa-solid fa-arrow-left"></i>
-
-            Voltar para a LIA
-
-        </a>
-
+  <aside id="accessibilityPanel" class="accessibility-panel"
+    hidden aria-label="Opções de acessibilidade">
+    <div class="panel-header">
+      <h2>Acessibilidade</h2>
+      <button type="button" id="closeAccessibility" aria-label="Fechar acessibilidade">×</button>
     </div>
 
-</main>
+    <div class="panel-content">
+      <button type="button" id="fontDecrease">Diminuir fonte</button>
+      <button type="button" id="fontIncrease">Aumentar fonte</button>
+      <button type="button" id="contrastToggle">Alto contraste</button>
+      <button type="button" id="themeToggle">Alternar tema</button>
 
+      <label for="languageSelect">Idioma</label>
+      <select id="languageSelect">
+        <option value="pt-BR">Português</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+      </select>
 
-<script src="lia.js"></script>
-
-
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
-    crossorigin="anonymous"
-></script>
-
+      <button type="button" id="readPage">Ouvir página</button>
+      <button type="button" id="stopReading">Parar leitura</button>
+      <button type="button" id="loadVlibras">Ativar VLibras</button>
+      <div id="vlibrasContainer"></div>
+    </div>
+  </aside>
 </body>
-
 </html>

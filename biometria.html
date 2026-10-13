@@ -1,2255 +1,476 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+  <title>Segurança Biométrica | LIA — Local de Informação e Apoio</title>
+  <meta name="description" content="Conheça as opções de autenticação biométrica e credenciais de segurança disponíveis no projeto LIA para dispositivos compatíveis.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Projeto LIA">
+  <meta name="theme-color" content="#7651a8">
 
-    <title>Biometria | LIA</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Segurança Biométrica | LIA">
+  <meta property="og:description" content="Veja como funciona a autenticação segura por credenciais no projeto LIA.">
+  <meta property="og:locale" content="pt_BR">
 
-    <meta
-        name="description"
-        content="Configure uma credencial de segurança do dispositivo para proteger o acesso aos recursos da LIA."
-    >
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Segurança Biométrica | LIA">
+  <meta name="twitter:description" content="Autenticação por credenciais em dispositivos compatíveis.">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
-
-    <link rel="stylesheet" href="lia.css">
+  <link rel="stylesheet" href="lia.css">
+  <script src="lia.js" defer></script>
 </head>
 
 <body>
+  <div class="top-bar">
+    <span>LIA — Local • Informação • Apoio</span>
+    <button type="button" id="accessibilityToggle"
+      aria-expanded="false" aria-controls="accessibilityPanel">
+      Acessibilidade
+    </button>
+  </div>
 
-<!-- =====================================================
-     BARRA SUPERIOR
-===================================================== -->
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="LIA — página inicial">LIA</a>
 
-<div class="top-bar">
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="projeto.html">O projeto</a>
+      <a href="violencias.html">Tipos de violência</a>
+      <a href="apoio.html">Preciso de apoio</a>
+      <a href="emergencia.html">Emergência</a>
+      <a href="discreto.html">Modo discreto</a>
+      <a href="cadastro.html">Conta</a>
+    </nav>
+  </header>
 
-    <div class="container top-bar-inner">
-
-        <span>
-            LIA — Local • Informação • Apoio
-        </span>
-
-        <button
-            id="openAccessibility"
-            class="accessibility-button"
-            type="button"
-        >
-            <i class="fa-solid fa-universal-access"></i>
-            Acessibilidade
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
-<header class="site-header">
-
-    <div class="container header-inner">
-
-        <a
-            href="index.html"
-            class="main-logo"
-            aria-label="LIA - Página inicial"
-        >
-
-            <span class="logo-icon">
-                L
-            </span>
-
-            <span class="logo-name">
-                LIA
-            </span>
-
-        </a>
-
-
-        <nav
-            class="main-navigation"
-            id="mainNavigation"
-        >
-
-            <a href="index.html">
-                Início
-            </a>
-
-            <a href="projeto.html">
-                Conheça a LIA
-            </a>
-
-            <a href="violencias.html">
-                Violências
-            </a>
-
-            <a href="apoio.html">
-                Rede de apoio
-            </a>
-
-            <a href="localizacao.html">
-                Localização
-            </a>
-
-            <a href="cadastro.html">
-                Meu cadastro
-            </a>
-
-            <a href="configuracoes.html">
-                Configurações
-            </a>
-
-        </nav>
-
-
-        <div class="header-actions">
-
-            <button
-                id="themeToggle"
-                class="theme-button"
-                type="button"
-                aria-label="Alterar tema"
-            >
-                <i class="fa-solid fa-moon"></i>
-            </button>
-
-
-            <button
-                id="mobileMenuButton"
-                class="mobile-menu-button"
-                type="button"
-                aria-label="Abrir menu"
-                aria-expanded="false"
-            >
-                <i class="fa-solid fa-bars"></i>
-            </button>
-
-        </div>
-
-    </div>
-
-</header>
-
-
-
-<!-- =====================================================
-     CONTEÚDO
-===================================================== -->
-
-<main>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section class="page-hero">
-
-    <div class="container">
-
-        <span class="eyebrow">
-            SEGURANÇA DO DISPOSITIVO
-        </span>
-
-
-        <h1>
-            Proteja o acesso à
-            <br>
-            sua LIA.
-        </h1>
-
-
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">Privacidade e proteção</span>
+        <h1>Segurança biométrica</h1>
         <p>
-            Use a segurança do próprio dispositivo, como impressão
-            digital, reconhecimento facial, PIN ou senha, quando
-            disponível.
+          Conheça uma forma de autenticação que pode usar os recursos de
+          segurança do seu celular ou computador, conforme a compatibilidade
+          do dispositivo.
         </p>
+      </div>
+    </section>
 
+    <section class="section">
+      <div class="section-heading">
+        <span class="eyebrow">Autenticação segura</span>
+        <h2>Configure uma credencial</h2>
+        <p>
+          Em dispositivos compatíveis, o WebAuthn permite criar uma credencial
+          que pode ser protegida por biometria, PIN ou outro método oferecido
+          pelo sistema operacional.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="notice notice-info">
+          <strong>Antes de começar:</strong> use esta página em uma conexão
+          segura HTTPS ou em localhost. A autenticação pode depender das
+          configurações do navegador, do dispositivo e do autenticador.
+        </div>
+
+        <div class="form-group">
+          <label for="credentialName">Nome para identificar esta credencial</label>
+          <input
+            type="text"
+            id="credentialName"
+            maxlength="60"
+            placeholder="Ex.: Meu celular"
+            autocomplete="off"
+          >
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="registerCredential" class="btn btn-primary">
+            Cadastrar credencial
+          </button>
+          <button type="button" id="checkCredential" class="btn btn-secondary">
+            Verificar credencial
+          </button>
+        </div>
+
+        <p id="credentialStatus" class="status-message" role="status" aria-live="polite">
+          Nenhuma operação realizada.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>Credenciais registradas neste navegador</h2>
+        <p>
+          Esta demonstração mantém uma lista local dos identificadores criados
+          por ela. Essa lista não substitui um sistema de autenticação com
+          servidor.
+        </p>
+      </div>
+
+      <div id="credentialList" class="card-grid" aria-live="polite">
+        <div class="card">
+          <p>Nenhuma credencial cadastrada por esta página.</p>
+        </div>
+      </div>
+
+      <div class="notice notice-warning">
+        <strong>Limitação importante:</strong> para confirmar de forma segura
+        que uma credencial pertence a uma conta, um sistema real precisa de
+        um servidor para emitir desafios, verificar assinaturas e validar a
+        credencial. Esta versão é uma demonstração local, não um sistema
+        completo de login.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>Como funciona</h2>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <h3>1. Solicitação</h3>
+          <p>O navegador solicita a criação ou utilização de uma credencial.</p>
+        </article>
+
+        <article class="card">
+          <h3>2. Verificação no dispositivo</h3>
+          <p>O sistema pode solicitar biometria, PIN ou outro método configurado.</p>
+        </article>
+
+        <article class="card">
+          <h3>3. Proteção da credencial</h3>
+          <p>O site recebe dados criptográficos, não uma cópia da sua impressão digital ou do seu rosto.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2>Outras opções de segurança</h2>
+        <p>
+          A autenticação biométrica não substitui um plano de segurança nem
+          garante proteção se outra pessoa tiver acesso ao seu dispositivo.
+        </p>
+        <div class="form-actions">
+          <a href="pessoas-confiaveis.html" class="btn btn-primary">
+            Pessoas de confiança
+          </a>
+          <a href="palavra-seguranca.html" class="btn btn-secondary">
+            Palavra de segurança
+          </a>
+          <a href="emergencia.html" class="btn btn-secondary">
+            Opções de emergência
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>LIA — Local de Informação e Apoio</strong></p>
+    <p>Projeto desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
+    <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
+    <p>Projeto acadêmico de informação, prevenção e apoio.</p>
+  </footer>
+
+  <aside id="accessibilityPanel" class="accessibility-panel"
+    hidden aria-label="Opções de acessibilidade">
+    <div class="panel-header">
+      <h2>Acessibilidade</h2>
+      <button type="button" id="closeAccessibility" aria-label="Fechar acessibilidade">×</button>
     </div>
 
-</section>
+    <div class="panel-content">
+      <button type="button" id="fontDecrease">Diminuir fonte</button>
+      <button type="button" id="fontIncrease">Aumentar fonte</button>
+      <button type="button" id="contrastToggle">Alto contraste</button>
+      <button type="button" id="themeToggle">Alternar tema</button>
 
+      <label for="languageSelect">Idioma</label>
+      <select id="languageSelect">
+        <option value="pt-BR">Português</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+      </select>
 
-
-<!-- =====================================================
-     EXPLICAÇÃO
-===================================================== -->
-
-<section class="section">
-
-    <div class="container">
-
-
-        <div class="section-title centered">
-
-            <span class="eyebrow">
-                COMO FUNCIONA
-            </span>
-
-
-            <h2>
-                A LIA não precisa conhecer sua biometria.
-            </h2>
-
-
-            <p>
-                O recurso utiliza a tecnologia de autenticação
-                do dispositivo por meio de WebAuthn/passkeys.
-            </p>
-
-        </div>
-
-
-
-        <div class="features-grid">
-
-
-            <article class="feature-card">
-
-                <div class="feature-icon">
-
-                    <i class="fa-solid fa-fingerprint"></i>
-
-                </div>
-
-
-                <h3>
-                    Sua biometria fica no dispositivo
-                </h3>
-
-
-                <p>
-                    A impressão digital ou o rosto são processados
-                    pelo sistema de segurança do aparelho.
-                </p>
-
-            </article>
-
-
-
-            <article class="feature-card">
-
-                <div class="feature-icon">
-
-                    <i class="fa-solid fa-key"></i>
-
-                </div>
-
-
-                <h3>
-                    A LIA usa uma credencial
-                </h3>
-
-
-                <p>
-                    O site utiliza uma credencial criptográfica
-                    para confirmar que o dispositivo autorizado
-                    está sendo utilizado.
-                </p>
-
-            </article>
-
-
-
-            <article class="feature-card">
-
-                <div class="feature-icon">
-
-                    <i class="fa-solid fa-lock"></i>
-
-                </div>
-
-
-                <h3>
-                    Mais uma camada de proteção
-                </h3>
-
-
-                <p>
-                    A autenticação pode complementar a senha
-                    e outros recursos de segurança.
-                </p>
-
-            </article>
-
-        </div>
-
+      <button type="button" id="readPage">Ouvir página</button>
+      <button type="button" id="stopReading">Parar leitura</button>
+      <button type="button" id="loadVlibras">Ativar VLibras</button>
+      <div id="vlibrasContainer"></div>
     </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     STATUS
-===================================================== -->
-
-<section class="information-section">
-
-    <div class="container">
-
-
-        <div class="biometric-status-card">
-
-
-            <div
-                id="biometricStatusIcon"
-                class="biometric-status-icon"
-            >
-
-                <i class="fa-solid fa-fingerprint"></i>
-
-            </div>
-
-
-            <div class="biometric-status-content">
-
-                <span class="eyebrow">
-                    STATUS
-                </span>
-
-
-                <h2 id="biometricStatusTitle">
-                    Verificando seu dispositivo...
-                </h2>
-
-
-                <p id="biometricStatusText">
-                    Aguarde enquanto verificamos se esta página
-                    pode utilizar autenticação segura.
-                </p>
-
-
-                <span
-                    id="biometricBadge"
-                    class="status-ready"
-                >
-                    Verificando
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CONFIGURAÇÃO
-===================================================== -->
-
-<section class="section">
-
-    <div class="container">
-
-
-        <div class="section-title centered">
-
-            <span class="eyebrow">
-                CONFIGURAÇÃO
-            </span>
-
-
-            <h2>
-                Configure a segurança deste dispositivo.
-            </h2>
-
-
-            <p>
-                Primeiro verifique a compatibilidade e depois
-                registre uma credencial.
-            </p>
-
-        </div>
-
-
-
-        <div class="biometric-action-card">
-
-
-            <div class="biometric-action-icon">
-
-                <i class="fa-solid fa-shield-halved"></i>
-
-            </div>
-
-
-            <div class="biometric-action-content">
-
-                <h3>
-                    Autenticação do dispositivo
-                </h3>
-
-
-                <p id="biometricActionDescription">
-                    Use o botão abaixo para iniciar a configuração.
-                </p>
-
-
-                <div class="button-group">
-
-                    <button
-                        id="checkBiometricButton"
-                        class="btn btn-secondary"
-                        type="button"
-                    >
-                        <i class="fa-solid fa-circle-check"></i>
-                        Verificar compatibilidade
-                    </button>
-
-
-                    <button
-                        id="registerBiometricButton"
-                        class="btn btn-primary"
-                        type="button"
-                        disabled
-                    >
-                        <i class="fa-solid fa-fingerprint"></i>
-                        Configurar segurança
-                    </button>
-
-                </div>
-
-
-                <div
-                    id="biometricMessage"
-                    class="security-message"
-                    role="status"
-                    aria-live="polite"
-                ></div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     AUTENTICADO
-===================================================== -->
-
-<section class="information-section">
-
-    <div class="container">
-
-
-        <div
-            id="registeredCredentialCard"
-            class="registered-credential-card"
-            style="display:none;"
-        >
-
-            <div class="registered-credential-icon">
-
-                <i class="fa-solid fa-circle-check"></i>
-
-            </div>
-
-
-            <div>
-
-                <span class="eyebrow">
-                    CONFIGURADO
-                </span>
-
-
-                <h2>
-                    Este dispositivo está autorizado.
-                </h2>
-
-
-                <p>
-                    Existe uma credencial de segurança registrada
-                    neste navegador para a LIA.
-                </p>
-
-
-                <p id="credentialDate">
-                    Credencial registrada neste dispositivo.
-                </p>
-
-
-                <button
-                    id="removeCredentialButton"
-                    class="btn btn-secondary"
-                    type="button"
-                >
-                    <i class="fa-solid fa-trash"></i>
-                    Remover credencial deste navegador
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     TESTE
-===================================================== -->
-
-<section class="section">
-
-    <div class="container">
-
-
-        <div class="section-title centered">
-
-            <span class="eyebrow">
-                TESTE
-            </span>
-
-
-            <h2>
-                Teste sua autenticação.
-            </h2>
-
-
-            <p>
-                Depois de configurar, você pode verificar se
-                o dispositivo reconhece a credencial.
-            </p>
-
-        </div>
-
-
-
-        <div class="biometric-test-card">
-
-
-            <div class="biometric-test-icon">
-
-                <i class="fa-solid fa-mobile-screen-button"></i>
-
-            </div>
-
-
-            <h3>
-                Verificação de segurança
-            </h3>
-
-
-            <p>
-                Ao iniciar o teste, o dispositivo poderá solicitar
-                sua impressão digital, rosto, PIN ou senha.
-            </p>
-
-
-            <button
-                id="authenticateButton"
-                class="btn btn-primary"
-                type="button"
-                disabled
-            >
-                <i class="fa-solid fa-fingerprint"></i>
-                Testar autenticação
-            </button>
-
-
-            <div
-                id="authenticationResult"
-                class="test-result"
-                role="status"
-                aria-live="polite"
-            ></div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     IMPORTANTE
-===================================================== -->
-
-<section class="information-section">
-
-    <div class="container">
-
-
-        <div class="privacy-box">
-
-
-            <div class="privacy-icon">
-
-                <i class="fa-solid fa-circle-info"></i>
-
-            </div>
-
-
-            <div>
-
-                <span class="eyebrow">
-                    IMPORTANTE
-                </span>
-
-
-                <h3>
-                    O site não recebe sua impressão digital ou seu rosto.
-                </h3>
-
-
-                <p>
-                    A biometria é tratada pelo sistema operacional,
-                    navegador ou dispositivo compatível.
-                </p>
-
-
-                <p>
-                    A LIA recebe apenas o resultado da autenticação
-                    criptográfica necessário para confirmar a credencial.
-                </p>
-
-
-                <p>
-                    Esta página utiliza WebAuthn quando o ambiente
-                    oferece suporte. O funcionamento pode variar
-                    conforme navegador, aparelho e configurações.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     LIMITAÇÕES
-===================================================== -->
-
-<section class="section">
-
-    <div class="container">
-
-
-        <div class="section-title">
-
-            <span class="eyebrow">
-                SEGURANÇA
-            </span>
-
-
-            <h2>
-                Algumas condições são necessárias.
-            </h2>
-
-        </div>
-
-
-
-        <div class="information-grid">
-
-
-            <article class="information-card">
-
-                <span class="information-number">
-                    01
-                </span>
-
-
-                <i class="fa-solid fa-globe"></i>
-
-
-                <h3>
-                    Ambiente seguro
-                </h3>
-
-
-                <p>
-                    WebAuthn normalmente exige HTTPS ou um ambiente
-                    local seguro, como localhost.
-                </p>
-
-            </article>
-
-
-
-            <article class="information-card">
-
-                <span class="information-number">
-                    02
-                </span>
-
-
-                <i class="fa-solid fa-mobile-screen"></i>
-
-
-                <h3>
-                    Dispositivo compatível
-                </h3>
-
-
-                <p>
-                    O aparelho e o navegador precisam oferecer
-                    suporte à autenticação utilizada.
-                </p>
-
-            </article>
-
-
-
-            <article class="information-card">
-
-                <span class="information-number">
-                    03
-                </span>
-
-
-                <i class="fa-solid fa-user-lock"></i>
-
-
-                <h3>
-                    Autenticação local
-                </h3>
-
-
-                <p>
-                    O próprio dispositivo pode solicitar biometria,
-                    PIN ou senha antes de confirmar a operação.
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     RECURSOS RELACIONADOS
-===================================================== -->
-
-<section class="information-section">
-
-    <div class="container">
-
-
-        <div class="section-title">
-
-            <span class="eyebrow">
-                PROTEÇÃO
-            </span>
-
-
-            <h2>
-                Combine a biometria com outros recursos.
-            </h2>
-
-        </div>
-
-
-
-        <div class="information-grid">
-
-
-            <a
-                href="palavra-seguranca.html"
-                class="information-card"
-            >
-
-                <span class="information-number">
-                    01
-                </span>
-
-
-                <i class="fa-solid fa-key"></i>
-
-
-                <h3>
-                    Palavra de segurança
-                </h3>
-
-
-                <p>
-                    Configure seu recurso de voz.
-                </p>
-
-            </a>
-
-
-
-            <a
-                href="pessoas-confiaveis.html"
-                class="information-card"
-            >
-
-                <span class="information-number">
-                    02
-                </span>
-
-
-                <i class="fa-solid fa-user-group"></i>
-
-
-                <h3>
-                    Pessoas confiáveis
-                </h3>
-
-
-                <p>
-                    Organize sua rede de apoio.
-                </p>
-
-            </a>
-
-
-
-            <a
-                href="cadastro.html"
-                class="information-card"
-            >
-
-                <span class="information-number">
-                    03
-                </span>
-
-
-                <i class="fa-solid fa-user"></i>
-
-
-                <h3>
-                    Meu cadastro
-                </h3>
-
-
-                <p>
-                    Mantenha suas informações organizadas.
-                </p>
-
-            </a>
-
-
-
-            <a
-                href="configuracoes.html"
-                class="information-card"
-            >
-
-                <span class="information-number">
-                    04
-                </span>
-
-
-                <i class="fa-solid fa-gear"></i>
-
-
-                <h3>
-                    Configurações
-                </h3>
-
-
-                <p>
-                    Ajuste os recursos da LIA.
-                </p>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CTA
-===================================================== -->
-
-<section class="section">
-
-    <div class="container">
-
-
-        <div class="section-title centered">
-
-            <span class="eyebrow">
-                LIA
-            </span>
-
-
-            <h2>
-                Segurança começa com informação.
-            </h2>
-
-
-            <p>
-                Configure apenas os recursos que fazem sentido
-                para sua realidade.
-            </p>
-
-
-            <div class="button-group">
-
-                <a
-                    href="configuracoes.html"
-                    class="btn btn-primary"
-                >
-                    Configurações
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-
-
-                <a
-                    href="index.html"
-                    class="btn btn-secondary"
-                >
-                    Página inicial
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer class="site-footer">
-
-    <div class="container footer-content">
-
-
-        <div class="footer-brand">
-
-            <a
-                href="index.html"
-                class="main-logo"
-            >
-
-                <span class="logo-icon">
-                    L
-                </span>
-
-                <span class="logo-name">
-                    LIA
-                </span>
-
-            </a>
-
-
-            <p>
-                Local • Informação • Apoio
-            </p>
-
-        </div>
-
-
-
-        <div class="footer-links">
-
-            <a href="index.html">
-                Início
-            </a>
-
-            <a href="projeto.html">
-                Sobre o projeto
-            </a>
-
-            <a href="violencias.html">
-                Violências
-            </a>
-
-            <a href="apoio.html">
-                Rede de apoio
-            </a>
-
-            <a href="cadastro.html">
-                Meu cadastro
-            </a>
-
-        </div>
-
-
-
-        <div class="footer-info">
-
-            <p>
-                <strong>
-                    Marcely Castro Rodrigues
-                </strong>
-                — Desenvolvedora
-            </p>
-
-
-            <p>
-                <strong>
-                    Mikaela Cardoso Bonfim
-                </strong>
-                — Desenvolvedora
-            </p>
-
-
-            <p>
-                <strong>
-                    Hellen Goulart Orlandi
-                </strong>
-                — Assistente Social • CRESS 58321
-            </p>
-
-
-            <p>
-                © 2026 LIA — Local • Informação • Apoio
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-
-<!-- =====================================================
-     PAINEL DE ACESSIBILIDADE
-===================================================== -->
-
-<aside
-    id="accessibilityPanel"
-    class="accessibility-panel"
-    aria-hidden="true"
->
-
-    <div class="accessibility-panel-header">
-
-        <div>
-
-            <span>
-                Acessibilidade
-            </span>
-
-            <strong>
-                Personalize sua experiência
-            </strong>
-
-        </div>
-
-
-        <button
-            id="closeAccessibility"
-            type="button"
-            aria-label="Fechar acessibilidade"
-        >
-            ×
-        </button>
-
-    </div>
-
-
-
-    <div class="accessibility-group">
-
-        <h3>
-            Texto
-        </h3>
-
-
-        <div class="accessibility-buttons">
-
-            <button
-                id="fontDecrease"
-                type="button"
-            >
-                A−
-            </button>
-
-
-            <button
-                id="fontNormal"
-                type="button"
-            >
-                A
-            </button>
-
-
-            <button
-                id="fontIncrease"
-                type="button"
-            >
-                A+
-            </button>
-
-        </div>
-
-    </div>
-
-
-
-    <div class="accessibility-group">
-
-        <h3>
-            Leitura
-        </h3>
-
-
-        <button
-            id="readPage"
-            class="accessibility-action"
-            type="button"
-        >
-            <i class="fa-solid fa-volume-high"></i>
-            Ler página
-        </button>
-
-
-        <button
-            id="stopReading"
-            class="accessibility-action"
-            type="button"
-        >
-            <i class="fa-solid fa-stop"></i>
-            Parar leitura
-        </button>
-
-    </div>
-
-
-
-    <div class="accessibility-group">
-
-        <h3>
-            Idioma
-        </h3>
-
-
-        <div class="language-buttons">
-
-            <button
-                class="language-button"
-                data-language="pt-BR"
-                type="button"
-            >
-                Português
-            </button>
-
-
-            <button
-                class="language-button"
-                data-language="en"
-                type="button"
-            >
-                English
-            </button>
-
-
-            <button
-                class="language-button"
-                data-language="es"
-                type="button"
-            >
-                Español
-            </button>
-
-        </div>
-
-    </div>
-
-
-
-    <div class="accessibility-group">
-
-        <h3>
-            Visual
-        </h3>
-
-
-        <button
-            id="contrastToggle"
-            class="accessibility-action"
-            type="button"
-        >
-            <i class="fa-solid fa-circle-half-stroke"></i>
-            Alto contraste
-        </button>
-
-
-        <button
-            id="activateVlibras"
-            class="accessibility-action"
-            type="button"
-        >
-            <i class="fa-solid fa-hands"></i>
-            Ativar VLibras
-        </button>
-
-    </div>
-
-</aside>
-
-
-
-<!-- =====================================================
-     WEBAUTHN / BIOMETRIA
-===================================================== -->
-
-<script>
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        const STORAGE_KEY =
-            "lia_webauthn_credential";
-
-
-        const statusTitle =
-            document.getElementById(
-                "biometricStatusTitle"
-            );
-
-
-        const statusText =
-            document.getElementById(
-                "biometricStatusText"
-            );
-
-
-        const statusIcon =
-            document.getElementById(
-                "biometricStatusIcon"
-            );
-
-
-        const badge =
-            document.getElementById(
-                "biometricBadge"
-            );
-
-
-        const checkButton =
-            document.getElementById(
-                "checkBiometricButton"
-            );
-
-
-        const registerButton =
-            document.getElementById(
-                "registerBiometricButton"
-            );
-
-
-        const authenticateButton =
-            document.getElementById(
-                "authenticateButton"
-            );
-
-
-        const removeButton =
-            document.getElementById(
-                "removeCredentialButton"
-            );
-
-
-        const message =
-            document.getElementById(
-                "biometricMessage"
-            );
-
-
-        const result =
-            document.getElementById(
-                "authenticationResult"
-            );
-
-
-        const registeredCard =
-            document.getElementById(
-                "registeredCredentialCard"
-            );
-
-
-        const credentialDate =
-            document.getElementById(
-                "credentialDate"
-            );
-
-
-        const actionDescription =
-            document.getElementById(
-                "biometricActionDescription"
-            );
-
-
-        let credentialId = null;
-
-
-        let webAuthnAvailable =
-            false;
-
-
-        /* =================================================
-           FUNÇÕES
-        ================================================= */
-
-        function showMessage(
-            text,
-            type = "success"
-        ) {
-
-            message.textContent =
-                text;
-
-
-            message.className =
-                "security-message "
-                + type;
-
+  </aside>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const STORAGE_KEY = "lia_webauthn_demo_v1";
+      const nameInput = document.getElementById("credentialName");
+      const status = document.getElementById("credentialStatus");
+      const list = document.getElementById("credentialList");
+      const registerButton = document.getElementById("registerCredential");
+      const checkButton = document.getElementById("checkCredential");
+
+      function getCredentials() {
+        try {
+          const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+          return Array.isArray(value) ? value : [];
+        } catch {
+          return [];
+        }
+      }
+
+      function saveCredentials(credentials) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(credentials));
+          return true;
+        } catch {
+          status.textContent = "Não foi possível salvar a lista local.";
+          return false;
+        }
+      }
+
+      function base64url(bytes) {
+        let binary = "";
+        for (const byte of new Uint8Array(bytes)) {
+          binary += String.fromCharCode(byte);
         }
 
+        return btoa(binary)
+          .replace(/\+/g, "-")
+          .replace(/\//g, "_")
+          .replace(/=+$/g, "");
+      }
 
-        function showResult(
-            text,
-            type = ""
-        ) {
+      function fromBase64url(value) {
+        const normalized = value.replace(/-/g, "+").replace(/_/g, "/");
+        const padded = normalized + "=".repeat((4 - normalized.length % 4) % 4);
+        const binary = atob(padded);
+        const bytes = new Uint8Array(binary.length);
 
-            result.textContent =
-                text;
-
-
-            result.className =
-                "test-result "
-                + type;
-
+        for (let i = 0; i < binary.length; i++) {
+          bytes[i] = binary.charCodeAt(i);
         }
 
+        return bytes;
+      }
 
-        function bufferToBase64Url(buffer) {
+      function randomBytes(length) {
+        const bytes = new Uint8Array(length);
+        crypto.getRandomValues(bytes);
+        return bytes;
+      }
 
-            const bytes =
-                new Uint8Array(
-                    buffer
-                );
+      function renderCredentials() {
+        const credentials = getCredentials();
+        list.replaceChildren();
 
+        if (credentials.length === 0) {
+          const card = document.createElement("div");
+          card.className = "card";
 
-            let binary = "";
+          const message = document.createElement("p");
+          message.textContent = "Nenhuma credencial cadastrada por esta página.";
 
+          card.appendChild(message);
+          list.appendChild(card);
+          return;
+        }
 
-            bytes.forEach(
-                function (byte) {
+        credentials.forEach((credential) => {
+          const card = document.createElement("article");
+          card.className = "card";
 
-                    binary +=
-                        String.fromCharCode(
-                            byte
-                        );
+          const title = document.createElement("h3");
+          title.textContent = credential.name;
 
-                }
+          const date = document.createElement("p");
+          date.textContent = "Cadastrada em: " + credential.createdAt;
+
+          const id = document.createElement("p");
+          id.textContent = "Identificador: " + credential.id.slice(0, 18) + "…";
+
+          card.append(title, date, id);
+
+          const removeButton = document.createElement("button");
+          removeButton.type = "button";
+          removeButton.className = "btn btn-secondary";
+          removeButton.textContent = "Remover da lista local";
+
+          removeButton.addEventListener("click", () => {
+            const confirmed = window.confirm(
+              "Remover esta credencial apenas da lista local desta demonstração?"
             );
 
+            if (!confirmed) return;
 
-            return btoa(binary)
-                .replace(
-                    /\+/g,
-                    "-"
-                )
-                .replace(
-                    /\//g,
-                    "_"
-                )
-                .replace(
-                    /=+$/,
-                    ""
-                );
-
-        }
-
-
-        function base64UrlToBuffer(base64url) {
-
-            const padding =
-                "=".repeat(
-                    (4 - base64url.length % 4) % 4
-                );
-
-
-            const base64 =
-                base64url
-                    .replace(
-                        /-/g,
-                        "+"
-                    )
-                    .replace(
-                        /_/g,
-                        "/"
-                    )
-                    + padding;
-
-
-            const binary =
-                atob(base64);
-
-
-            const bytes =
-                new Uint8Array(
-                    binary.length
-                );
-
-
-            for (
-                let i = 0;
-                i < binary.length;
-                i++
-            ) {
-
-                bytes[i] =
-                    binary.charCodeAt(i);
-
-            }
-
-
-            return bytes.buffer;
-
-        }
-
-
-        function randomBytes(length) {
-
-            const bytes =
-                new Uint8Array(
-                    length
-                );
-
-
-            crypto.getRandomValues(
-                bytes
+            const remaining = getCredentials().filter(
+              (item) => item.id !== credential.id
             );
 
+            if (saveCredentials(remaining)) {
+              status.textContent =
+                "Credencial removida da lista local. Isso não apaga a credencial do dispositivo.";
+              renderCredentials();
+            }
+          });
 
-            return bytes;
+          card.appendChild(removeButton);
+          list.appendChild(card);
+        });
+      }
 
+      function checkSupport() {
+        if (!window.isSecureContext) {
+          status.textContent =
+            "Abra a página em HTTPS ou localhost para testar WebAuthn.";
+          return false;
         }
 
-
-        function getStoredCredential() {
-
-            try {
-
-                const saved =
-                    localStorage.getItem(
-                        STORAGE_KEY
-                    );
-
-
-                if (!saved) {
-
-                    return null;
-
-                }
-
-
-                return JSON.parse(
-                    saved
-                );
-
-            } catch (error) {
-
-                return null;
-
-            }
-
+        if (!window.PublicKeyCredential || !navigator.credentials) {
+          status.textContent =
+            "Este navegador ou dispositivo não oferece suporte ao WebAuthn.";
+          return false;
         }
 
+        return true;
+      }
 
-        function updateRegisteredCard() {
+      registerButton.addEventListener("click", async () => {
+        if (!checkSupport()) return;
 
-            const saved =
-                getStoredCredential();
+        const name = nameInput.value.trim();
 
-
-            if (!saved) {
-
-                registeredCard.style.display =
-                    "none";
-
-
-                authenticateButton.disabled =
-                    true;
-
-
-                return;
-
-            }
-
-
-            credentialId =
-                saved.id;
-
-
-            registeredCard.style.display =
-                "flex";
-
-
-            authenticateButton.disabled =
-                !webAuthnAvailable;
-
-
-            credentialDate.textContent =
-                saved.createdAt
-                    ? "Credencial registrada em "
-                        + new Date(
-                            saved.createdAt
-                        ).toLocaleString(
-                            "pt-BR"
-                        )
-                        + "."
-                    : "Credencial registrada neste dispositivo.";
-
+        if (!name) {
+          status.textContent = "Digite um nome para identificar a credencial.";
+          nameInput.focus();
+          return;
         }
 
-
-        /* =================================================
-           VERIFICA COMPATIBILIDADE
-        ================================================= */
-
-        async function checkCompatibility() {
-
-            checkButton.disabled =
-                true;
-
-
-            statusTitle.textContent =
-                "Verificando...";
-
-
-            statusText.textContent =
-                "Analisando o suporte do navegador e do dispositivo.";
-
-
-            badge.textContent =
-                "Verificando";
-
-
-            badge.className =
-                "status-ready";
-
-
-            try {
-
-                if (
-                    !window.isSecureContext
-                ) {
-
-                    throw new Error(
-                        "Esta página precisa ser executada em HTTPS ou em um ambiente local seguro, como localhost."
-                    );
-
-                }
-
-
-                if (
-                    !window.PublicKeyCredential
-                ) {
-
-                    throw new Error(
-                        "Este navegador não oferece suporte à autenticação WebAuthn."
-                    );
-
-                }
-
-
-                if (
-                    typeof PublicKeyCredential
-                        .isUserVerifyingPlatformAuthenticatorAvailable
-                    === "function"
-                ) {
-
-                    const available =
-                        await PublicKeyCredential
-                            .isUserVerifyingPlatformAuthenticatorAvailable();
-
-
-                    if (!available) {
-
-                        throw new Error(
-                            "Não encontramos um autenticador local compatível com biometria, PIN ou senha neste ambiente."
-                        );
-
-                    }
-
-                }
-
-
-                webAuthnAvailable =
-                    true;
-
-
-                statusIcon.innerHTML =
-                    '<i class="fa-solid fa-circle-check"></i>';
-
-
-                statusTitle.textContent =
-                    "Dispositivo compatível";
-
-
-                statusText.textContent =
-                    "Este ambiente pode utilizar autenticação segura do dispositivo.";
-
-
-                badge.textContent =
-                    "Disponível";
-
-
-                badge.className =
-                    "status-on";
-
-
-                registerButton.disabled =
-                    false;
-
-
-                authenticateButton.disabled =
-                    !getStoredCredential();
-
-
-                actionDescription.textContent =
-                    "Agora você pode registrar uma credencial de segurança neste navegador.";
-
-
-                showMessage(
-                    "Compatibilidade confirmada.",
-                    "success"
-                );
-
-            } catch (error) {
-
-                webAuthnAvailable =
-                    false;
-
-
-                statusIcon.innerHTML =
-                    '<i class="fa-solid fa-circle-exclamation"></i>';
-
-
-                statusTitle.textContent =
-                    "Não foi possível utilizar este recurso";
-
-
-                statusText.textContent =
-                    error.message
-                    || "Seu navegador ou dispositivo não oferece suporte a este recurso.";
-
-
-                badge.textContent =
-                    "Indisponível";
-
-
-                badge.className =
-                    "status-off";
-
-
-                registerButton.disabled =
-                    true;
-
-
-                authenticateButton.disabled =
-                    true;
-
-
-                actionDescription.textContent =
-                    "Verifique se está usando HTTPS ou localhost e um navegador compatível.";
-
-
-                showMessage(
-                    error.message
-                    || "WebAuthn indisponível.",
-                    "error"
-                );
-
-            } finally {
-
-                checkButton.disabled =
-                    false;
-
+        registerButton.disabled = true;
+        checkButton.disabled = true;
+        status.textContent = "Solicitando criação de credencial ao dispositivo…";
+
+        try {
+          const userId = randomBytes(16);
+          const challenge = randomBytes(32);
+
+          const credential = await navigator.credentials.create({
+            publicKey: {
+              challenge,
+              rp: {
+                name: "LIA — Local de Informação e Apoio",
+                id: location.hostname
+              },
+              user: {
+                id: userId,
+                name: "usuario-lia",
+                displayName: name
+              },
+              pubKeyCredParams: [
+                { type: "public-key", alg: -7 },
+                { type: "public-key", alg: -257 }
+              ],
+              authenticatorSelection: {
+                userVerification: "preferred"
+              },
+              timeout: 60000,
+              attestation: "none"
             }
+          });
 
+          if (!credential) {
+            status.textContent = "A criação da credencial foi cancelada.";
+            return;
+          }
+
+          const credentials = getCredentials();
+          const id = base64url(credential.rawId);
+
+          if (credentials.some((item) => item.id === id)) {
+            status.textContent = "Esta credencial já consta na lista local.";
+            return;
+          }
+
+          credentials.push({
+            id,
+            name,
+            createdAt: new Date().toLocaleString("pt-BR")
+          });
+
+          if (saveCredentials(credentials)) {
+            status.textContent =
+              "Credencial criada e identificador salvo localmente. Esta demonstração ainda não valida login com um servidor.";
+            nameInput.value = "";
+            renderCredentials();
+          }
+        } catch (error) {
+          if (error && error.name === "NotAllowedError") {
+            status.textContent =
+              "A operação foi cancelada ou não foi autorizada pelo dispositivo.";
+          } else {
+            status.textContent =
+              "Não foi possível criar a credencial. Confira o suporte do navegador, a conexão segura e as configurações do dispositivo.";
+          }
+        } finally {
+          registerButton.disabled = false;
+          checkButton.disabled = false;
+        }
+      });
+
+      checkButton.addEventListener("click", async () => {
+        if (!checkSupport()) return;
+
+        const credentials = getCredentials();
+
+        if (credentials.length === 0) {
+          status.textContent =
+            "Cadastre uma credencial nesta demonstração antes de fazer o teste.";
+          return;
         }
 
+        registerButton.disabled = true;
+        checkButton.disabled = true;
+        status.textContent = "Solicitando verificação ao dispositivo…";
 
-        /* =================================================
-           REGISTRAR CREDENCIAL
-        ================================================= */
+        try {
+          const allowCredentials = credentials.map((item) => ({
+            type: "public-key",
+            id: fromBase64url(item.id)
+          }));
 
-        async function registerCredential() {
-
-            if (
-                !webAuthnAvailable
-            ) {
-
-                await checkCompatibility();
-
-                return;
-
+          const assertion = await navigator.credentials.get({
+            publicKey: {
+              challenge: randomBytes(32),
+              allowCredentials,
+              userVerification: "preferred",
+              timeout: 60000
             }
-
-
-            registerButton.disabled =
-                true;
-
-
-            showMessage(
-                "Siga a solicitação de segurança exibida pelo seu dispositivo.",
-                "success"
-            );
-
-
-            try {
-
-                const challenge =
-                    randomBytes(
-                        32
-                    );
-
-
-                const userId =
-                    randomBytes(
-                        16
-                    );
-
-
-                const credential =
-                    await navigator.credentials.create({
-
-                        publicKey: {
-
-                            challenge:
-                                challenge,
-
-                            rp: {
-
-                                name:
-                                    "LIA — Local, Informação e Apoio"
-
-                            },
-
-                            user: {
-
-                                id:
-                                    userId,
-
-                                name:
-                                    "usuario@lia.local",
-
-                                displayName:
-                                    "Usuária LIA"
-
-                            },
-
-                            pubKeyCredParams: [
-
-                                {
-                                    type:
-                                        "public-key",
-
-                                    alg:
-                                        -7
-
-                                },
-
-                                {
-                                    type:
-                                        "public-key",
-
-                                    alg:
-                                        -257
-
-                                }
-
-                            ],
-
-                            authenticatorSelection: {
-
-                                authenticatorAttachment:
-                                    "platform",
-
-                                userVerification:
-                                    "required",
-
-                                residentKey:
-                                    "preferred",
-
-                                requireResidentKey:
-                                    false
-
-                            },
-
-                            timeout:
-                                60000,
-
-                            attestation:
-                                "none"
-
-                        }
-
-                    });
-
-
-                if (!credential) {
-
-                    throw new Error(
-                        "O dispositivo não retornou uma credencial."
-                    );
-
-                }
-
-
-                credentialId =
-                    bufferToBase64Url(
-                        credential.rawId
-                    );
-
-
-                /*
-                 * IMPORTANTE:
-                 *
-                 * Em uma aplicação real com servidor,
-                 * a chave pública e os dados necessários
-                 * devem ser enviados para um backend seguro.
-                 *
-                 * Neste TCC, guardamos somente o identificador
-                 * da credencial no navegador para demonstrar
-                 * o funcionamento local.
-                 */
-
-
-                localStorage.setItem(
-                    STORAGE_KEY,
-                    JSON.stringify({
-
-                        id:
-                            credentialId,
-
-                        createdAt:
-                            new Date().toISOString(),
-
-                        type:
-                            "public-key"
-
-                    })
-                );
-
-
-                registeredCard.style.display =
-                    "flex";
-
-
-                authenticateButton.disabled =
-                    false;
-
-
-                credentialDate.textContent =
-                    "Credencial registrada em "
-                    + new Date()
-                        .toLocaleString(
-                            "pt-BR"
-                        )
-                    + ".";
-
-
-                statusTitle.textContent =
-                    "Segurança configurada";
-
-
-                statusText.textContent =
-                    "A credencial deste dispositivo foi registrada para esta página.";
-
-
-                badge.textContent =
-                    "Configurado";
-
-
-                badge.className =
-                    "status-on";
-
-
-                statusIcon.innerHTML =
-                    '<i class="fa-solid fa-shield-heart"></i>';
-
-
-                showMessage(
-                    "Segurança do dispositivo configurada com sucesso.",
-                    "success"
-                );
-
-
-                showResult(
-                    "✓ Credencial registrada.",
-                    "success"
-                );
-
-            } catch (error) {
-
-                console.error(
-                    error
-                );
-
-
-                let text =
-                    "Não foi possível concluir a configuração.";
-
-
-                if (
-                    error.name ===
-                    "NotAllowedError"
-                ) {
-
-                    text =
-                        "A autenticação foi cancelada ou não foi autorizada pelo dispositivo.";
-
-                } else if (
-                    error.name ===
-                    "InvalidStateError"
-                ) {
-
-                    text =
-                        "Este dispositivo já possui uma credencial para este site.";
-
-                } else if (
-                    error.name ===
-                    "SecurityError"
-                ) {
-
-                    text =
-                        "O navegador bloqueou a operação por motivos de segurança. Verifique HTTPS ou localhost.";
-
-                } else if (
-                    error.message
-                ) {
-
-                    text =
-                        error.message;
-
-                }
-
-
-                showMessage(
-                    text,
-                    "error"
-                );
-
-
-                showResult(
-                    text,
-                    "error"
-                );
-
-            } finally {
-
-                registerButton.disabled =
-                    false;
-
-            }
-
+          });
+
+          status.textContent = assertion
+            ? "O dispositivo retornou uma credencial. Sem um servidor, esta demonstração não consegue validar a assinatura nem confirmar a identidade."
+            : "Nenhuma credencial foi retornada.";
+        } catch (error) {
+          status.textContent =
+            error && error.name === "NotAllowedError"
+              ? "Verificação cancelada ou não autorizada."
+              : "Não foi possível verificar a credencial neste dispositivo.";
+        } finally {
+          registerButton.disabled = false;
+          checkButton.disabled = false;
         }
-
-
-        /* =================================================
-           AUTENTICAR
-        ================================================= */
-
-        async function authenticateCredential() {
-
-            const saved =
-                getStoredCredential();
-
-
-            if (!saved) {
-
-                showResult(
-                    "Nenhuma credencial está configurada.",
-                    "error"
-                );
-
-
-                return;
-
-            }
-
-
-            if (
-                !webAuthnAvailable
-            ) {
-
-                await checkCompatibility();
-
-                return;
-
-            }
-
-
-            authenticateButton.disabled =
-                true;
-
-
-            showResult(
-                "Aguardando a autenticação do dispositivo...",
-                ""
-            );
-
-
-            try {
-
-                const challenge =
-                    randomBytes(
-                        32
-                    );
-
-
-                const credential =
-                    await navigator.credentials.get({
-
-                        publicKey: {
-
-                            challenge:
-                                challenge,
-
-                            allowCredentials: [
-
-                                {
-
-                                    id:
-                                        base64UrlToBuffer(
-                                            saved.id
-                                        ),
-
-                                    type:
-                                        "public-key"
-
-                                }
-
-                            ],
-
-                            userVerification:
-                                "required",
-
-                            timeout:
-                                60000
-
-                        }
-
-                    });
-
-
-                if (!credential) {
-
-                    throw new Error(
-                        "A autenticação não retornou uma credencial."
-                    );
-
-                }
-
-
-                showResult(
-                    "✓ Autenticação confirmada pelo dispositivo.",
-                    "success"
-                );
-
-
-                showMessage(
-                    "O dispositivo confirmou a credencial de segurança.",
-                    "success"
-                );
-
-            } catch (error) {
-
-                console.error(
-                    error
-                );
-
-
-                let text =
-                    "Não foi possível confirmar a autenticação.";
-
-
-                if (
-                    error.name ===
-                    "NotAllowedError"
-                ) {
-
-                    text =
-                        "A autenticação foi cancelada, recusada ou expirou.";
-
-                } else if (
-                    error.name ===
-                    "SecurityError"
-                ) {
-
-                    text =
-                        "O navegador bloqueou a autenticação por motivos de segurança.";
-
-                } else if (
-                    error.message
-                ) {
-
-                    text =
-                        error.message;
-
-                }
-
-
-                showResult(
-                    text,
-                    "error"
-                );
-
-            } finally {
-
-                authenticateButton.disabled =
-                    false;
-
-            }
-
-        }
-
-
-        /* =================================================
-           REMOVER CREDENCIAL
-        ================================================= */
-
-        removeButton.addEventListener(
-            "click",
-            function () {
-
-                const confirmed =
-                    window.confirm(
-                        "Deseja remover o registro desta credencial da LIA neste navegador?"
-                    );
-
-
-                if (!confirmed) {
-
-                    return;
-
-                }
-
-
-                localStorage.removeItem(
-                    STORAGE_KEY
-                );
-
-
-                credentialId =
-                    null;
-
-
-                registeredCard.style.display =
-                    "none";
-
-
-                authenticateButton.disabled =
-                    true;
-
-
-                showMessage(
-                    "Registro removido deste navegador.",
-                    "success"
-                );
-
-
-                showResult(
-                    "",
-                    ""
-                );
-
-
-                updateRegisteredCard();
-
-            }
-        );
-
-
-        /* =================================================
-           EVENTOS
-        ================================================= */
-
-        checkButton.addEventListener(
-            "click",
-            checkCompatibility
-        );
-
-
-        registerButton.addEventListener(
-            "click",
-            registerCredential
-        );
-
-
-        authenticateButton.addEventListener(
-            "click",
-            authenticateCredential
-        );
-
-
-        /* =================================================
-           INICIALIZAÇÃO
-        ================================================= */
-
-        updateRegisteredCard();
-
-        checkCompatibility();
-
-    });
-
-</script>
-
-
-
-<!-- =====================================================
-     SCRIPT PRINCIPAL DA LIA
-===================================================== -->
-
-<script src="lia.js"></script>
-
+      });
+
+      renderCredentials();
+    })();
+  </script>
 </body>
-</html>
+</html> 

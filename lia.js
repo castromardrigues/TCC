@@ -1,2133 +1,541 @@
+
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* =========================================================
-       CONFIGURAÇÕES
-    ========================================================= */
-
     const STORAGE = {
         theme: "lia_theme",
         contrast: "lia_contrast",
         fontSize: "lia_font_size",
         language: "lia_language",
-        account: "lia_account"
+        securityWord: "lia_security_word",
+        latitude: "lia_latitude",
+        longitude: "lia_longitude"
     };
+
+    const $ = (selector, parent = document) =>
+        parent.querySelector(selector);
+
+    const $$ = (selector, parent = document) =>
+        [...parent.querySelectorAll(selector)];
 
     const body = document.body;
     const root = document.documentElement;
 
-    const $ = (selector) => document.querySelector(selector);
-    const $$ = (selector) => document.querySelectorAll(selector);
-
-
-    /* =========================================================
-       TEMA
-    ========================================================= */
+    /* =====================================================
+       TEMA CLARO / ESCURO
+    ===================================================== */
 
     function applyTheme(theme) {
+        const isDark = theme === "dark";
 
-        body.classList.toggle("dark", theme === "dark");
+        body.classList.toggle("dark", isDark);
+        body.classList.toggle("dark-mode", isDark);
 
-        localStorage.setItem(
-            STORAGE.theme,
-            theme
-        );
+        localStorage.setItem(STORAGE.theme, isDark ? "dark" : "light");
 
-        const mainButton =
-            $("#themeToggle");
+        const icon = isDark
+            ? '<i class="fa-solid fa-sun"></i>'
+            : '<i class="fa-solid fa-moon"></i>';
 
-        const accessButton =
-            $("#themeToggleAccessibility");
+        ["#themeToggle", "#themeToggleAccessibility"].forEach(selector => {
+            const button = $(selector);
+            if (!button) return;
 
-        if (mainButton) {
+            if (button.querySelector("i")) {
+                button.querySelector("i").outerHTML = icon;
+            } else {
+                button.innerHTML = icon;
+            }
 
-            mainButton.innerHTML =
-                theme === "dark"
-                    ? '<i class="fa-solid fa-sun"></i>'
-                    : '<i class="fa-solid fa-moon"></i>';
-
-            mainButton.setAttribute(
+            button.setAttribute(
                 "aria-label",
-                theme === "dark"
-                    ? "Ativar modo claro"
-                    : "Ativar modo noturno"
+                isDark ? "Ativar modo claro" : "Ativar modo escuro"
             );
-        }
-
-        if (accessButton) {
-
-            accessButton.innerHTML =
-                theme === "dark"
-                    ? '<i class="fa-solid fa-sun"></i> Modo claro'
-                    : '<i class="fa-solid fa-moon"></i> Modo noturno';
-        }
+        });
     }
-
 
     function toggleTheme() {
-
-        applyTheme(
-            body.classList.contains("dark")
-                ? "light"
-                : "dark"
-        );
+        const current = localStorage.getItem(STORAGE.theme) || "light";
+        applyTheme(current === "dark" ? "light" : "dark");
     }
 
+    $("#themeToggle")?.addEventListener("click", toggleTheme);
+    $("#themeToggleAccessibility")?.addEventListener("click", toggleTheme);
 
-    $("#themeToggle")?.addEventListener(
-        "click",
-        toggleTheme
-    );
+    applyTheme(localStorage.getItem(STORAGE.theme) || "light");
 
-    $("#themeToggleAccessibility")?.addEventListener(
-        "click",
-        toggleTheme
-    );
-
-
-    applyTheme(
-        localStorage.getItem(STORAGE.theme) || "light"
-    );
-
-
-    /* =========================================================
+    /* =====================================================
        CONTRASTE
-    ========================================================= */
+    ===================================================== */
 
     function applyContrast(enabled) {
+        body.classList.toggle("high-contrast", enabled);
+        body.classList.toggle("contrast-mode", enabled);
 
-        body.classList.toggle(
-            "high-contrast",
-            enabled
-        );
+        localStorage.setItem(STORAGE.contrast, enabled ? "on" : "off");
 
-        localStorage.setItem(
-            STORAGE.contrast,
-            enabled ? "on" : "off"
-        );
-    }
-
-
-    $("#contrastToggle")?.addEventListener(
-        "click",
-        () => {
-
-            applyContrast(
-                !body.classList.contains(
-                    "high-contrast"
-                )
-            );
-
+        const button = $("#contrastToggle");
+        if (button) {
+            button.setAttribute("aria-pressed", String(enabled));
         }
-    );
-
-
-    applyContrast(
-        localStorage.getItem(STORAGE.contrast) === "on"
-    );
-
-
-    /* =========================================================
-       TAMANHO DA FONTE
-    ========================================================= */
-
-    const fontScales = [
-        0.90,
-        1,
-        1.10,
-        1.20
-    ];
-
-
-    let fontIndex =
-        Number(
-            localStorage.getItem(
-                STORAGE.fontSize
-            )
-        );
-
-
-    if (
-        !Number.isInteger(fontIndex) ||
-        fontIndex < 0 ||
-        fontIndex >= fontScales.length
-    ) {
-
-        fontIndex = 1;
     }
 
+    $("#contrastToggle")?.addEventListener("click", () => {
+        applyContrast(!body.classList.contains("high-contrast"));
+    });
+
+    applyContrast(localStorage.getItem(STORAGE.contrast) === "on");
+
+    /* =====================================================
+       TAMANHO DA FONTE
+    ===================================================== */
+
+    const fontLevels = [14, 15, 16, 17, 18, 19, 20];
+    let fontIndex = Number(localStorage.getItem(STORAGE.fontSize));
+
+    if (!Number.isInteger(fontIndex) || fontIndex < 0 || fontIndex >= fontLevels.length) {
+        fontIndex = 2;
+    }
 
     function applyFont() {
+        const size = fontLevels[fontIndex];
 
-        root.style.setProperty(
-            "--lia-font-scale",
-            fontScales[fontIndex]
-        );
+        root.style.setProperty("--lia-font-scale", String(size / 16));
+        root.style.fontSize = `${size}px`;
 
-        root.style.fontSize =
-            `${16 * fontScales[fontIndex]}px`;
-
-        localStorage.setItem(
-            STORAGE.fontSize,
-            String(fontIndex)
-        );
+        localStorage.setItem(STORAGE.fontSize, String(fontIndex));
     }
 
+    function changeFont(direction) {
+        fontIndex = Math.max(0, Math.min(fontLevels.length - 1, fontIndex + direction));
+        applyFont();
+    }
 
-    $("#fontDecrease")?.addEventListener(
-        "click",
-        () => {
+    $("#fontDecrease")?.addEventListener("click", () => changeFont(-1));
+    $("#fontIncrease")?.addEventListener("click", () => changeFont(1));
 
-            fontIndex =
-                Math.max(
-                    0,
-                    fontIndex - 1
-                );
+    // O index.html atual utiliza fontReset.
+    $("#fontReset")?.addEventListener("click", () => {
+        fontIndex = 2;
+        applyFont();
+    });
 
-            applyFont();
-        }
-    );
-
-
-    $("#fontNormal")?.addEventListener(
-        "click",
-        () => {
-
-            fontIndex = 1;
-
-            applyFont();
-        }
-    );
-
-
-    $("#fontIncrease")?.addEventListener(
-        "click",
-        () => {
-
-            fontIndex =
-                Math.min(
-                    fontScales.length - 1,
-                    fontIndex + 1
-                );
-
-            applyFont();
-        }
-    );
-
+    // Compatibilidade com páginas que utilizam fontNormal.
+    $("#fontNormal")?.addEventListener("click", () => {
+        fontIndex = 2;
+        applyFont();
+    });
 
     applyFont();
 
+    /* =====================================================
+       PAINEL DE ACESSIBILIDADE
+    ===================================================== */
 
-    /* =========================================================
-       ACESSIBILIDADE
-    ========================================================= */
-
-    const panel =
-        $("#accessibilityPanel");
-
-    const overlay =
-        $("#accessibilityOverlay");
-
+    const panel = $("#accessibilityPanel");
+    const overlay = $("#accessibilityOverlay");
 
     function openAccessibility() {
-
         if (!panel) return;
 
-        panel.classList.add("open");
+        panel.classList.add("open", "active");
+        overlay?.classList.add("open", "active");
 
-        overlay?.classList.add("open");
+        panel.setAttribute("aria-hidden", "false");
+        overlay?.setAttribute("aria-hidden", "false");
 
-        panel.setAttribute(
-            "aria-hidden",
-            "false"
-        );
-
-        overlay?.setAttribute(
-            "aria-hidden",
-            "false"
-        );
+        $("#openAccessibility")?.setAttribute("aria-expanded", "true");
     }
-
 
     function closeAccessibility() {
+        panel?.classList.remove("open", "active");
+        overlay?.classList.remove("open", "active");
 
-        if (!panel) return;
+        panel?.setAttribute("aria-hidden", "true");
+        overlay?.setAttribute("aria-hidden", "true");
 
-        panel.classList.remove("open");
-
-        overlay?.classList.remove("open");
-
-        panel.setAttribute(
-            "aria-hidden",
-            "true"
-        );
-
-        overlay?.setAttribute(
-            "aria-hidden",
-            "true"
-        );
+        $("#openAccessibility")?.setAttribute("aria-expanded", "false");
     }
 
+    $("#openAccessibility")?.addEventListener("click", openAccessibility);
+    $("#closeAccessibility")?.addEventListener("click", closeAccessibility);
+    overlay?.addEventListener("click", closeAccessibility);
 
-    $("#openAccessibility")?.addEventListener(
-        "click",
-        openAccessibility
-    );
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") closeAccessibility();
 
-
-    $("#closeAccessibility")?.addEventListener(
-        "click",
-        closeAccessibility
-    );
-
-
-    overlay?.addEventListener(
-        "click",
-        closeAccessibility
-    );
-
-
-    document.addEventListener(
-        "keydown",
-        (event) => {
-
-            if (event.key === "Escape") {
-
-                closeAccessibility();
-            }
-
-            if (
-                event.altKey &&
-                event.key.toLowerCase() === "a"
-            ) {
-
-                event.preventDefault();
-
-                openAccessibility();
-            }
+        if (event.altKey && event.key.toLowerCase() === "a") {
+            event.preventDefault();
+            openAccessibility();
         }
-    );
+    });
 
+    /* =====================================================
+       MENU RESPONSIVO
+       Compatível com index.html atual e versões anteriores.
+    ===================================================== */
 
-    /* =========================================================
-       MENU MOBILE
-    ========================================================= */
+    const menuButton = $("#menuToggle") || $("#mobileMenuButton");
+    const navigation = $("#navigation") || $("#mainNavigation");
 
-    const mobileButton =
-        $("#mobileMenuButton");
+    function closeMobileMenu() {
+        navigation?.classList.remove("open", "active");
+        menuButton?.classList.remove("active");
 
-    const navigation =
-        $("#mainNavigation");
-
-
-    mobileButton?.addEventListener(
-        "click",
-        () => {
-
-            const open =
-                navigation?.classList.toggle(
-                    "open"
-                ) || false;
-
-
-            mobileButton.classList.toggle(
-                "active",
-                open
-            );
-
-
-            mobileButton.setAttribute(
-                "aria-expanded",
-                open ? "true" : "false"
-            );
-        }
-    );
-
-
-    navigation?.querySelectorAll("a")
-        .forEach((link) => {
-
-            link.addEventListener(
-                "click",
-                () => {
-
-                    navigation.classList.remove(
-                        "open"
-                    );
-
-                    mobileButton?.classList.remove(
-                        "active"
-                    );
-
-                    mobileButton?.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-                }
-            );
-
-        });
-
-
-    /* =========================================================
-       LEITURA DE PÁGINA
-    ========================================================= */
-
-    let reading = false;
-
-
-    function readableText() {
-
-        const clone =
-            document.body.cloneNode(true);
-
-
-        clone.querySelectorAll(
-            "script,style,button,input,textarea,select,svg"
-        ).forEach(
-            element => element.remove()
-        );
-
-
-        return clone.innerText
-            .replace(/\s+/g, " ")
-            .trim();
+        menuButton?.setAttribute("aria-expanded", "false");
+        menuButton?.setAttribute("aria-label", "Abrir menu");
     }
 
+    menuButton?.addEventListener("click", () => {
+        if (!navigation) return;
+
+        const isOpen = !navigation.classList.contains("open");
+
+        navigation.classList.toggle("open", isOpen);
+        navigation.classList.toggle("active", isOpen);
+        menuButton.classList.toggle("active", isOpen);
+
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute(
+            "aria-label",
+            isOpen ? "Fechar menu" : "Abrir menu"
+        );
+    });
+
+    navigation?.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", closeMobileMenu);
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 900) closeMobileMenu();
+    });
+
+    /* =====================================================
+       MODO DISCRETO
+       A navegação abre a página de agenda neutra.
+    ===================================================== */
+
+    function enterDiscreetMode() {
+        window.location.href = "discreto.html";
+    }
+
+    $("#discreetMode")?.addEventListener("click", enterDiscreetMode);
+
+    $$(".enter-discreet-mode").forEach(button => {
+        button.addEventListener("click", enterDiscreetMode);
+    });
+
+    /* =====================================================
+       LEITURA EM VOZ ALTA
+    ===================================================== */
+
+    let isReading = false;
 
     function stopReading() {
+        isReading = false;
 
-        reading = false;
-
-        window.speechSynthesis?.cancel();
+        if ("speechSynthesis" in window) {
+            window.speechSynthesis.cancel();
+        }
     }
 
-
     function readPage() {
-
-        if (
-            !("speechSynthesis" in window)
-        ) {
-
-            alert(
-                "Seu navegador não oferece leitura de voz."
-            );
-
+        if (!("speechSynthesis" in window)) {
+            alert("Seu navegador não oferece leitura em voz alta.");
             return;
         }
-
 
         stopReading();
 
-        reading = true;
+        const clone = document.body.cloneNode(true);
 
+        clone.querySelectorAll(
+            "script, style, button, input, textarea, select, svg, " +
+            "#accessibilityPanel, #accessibilityOverlay"
+        ).forEach(element => element.remove());
 
-        const text =
-            readableText();
+        const text = clone.innerText.replace(/\s+/g, " ").trim();
 
+        if (!text) return;
 
-        const chunks =
-            text.match(
-                /.{1,220}(?:\s|$)/g
-            ) || [text];
+        const language = localStorage.getItem(STORAGE.language) || "pt-BR";
+        const locale = language === "en"
+            ? "en-US"
+            : language === "es"
+                ? "es-ES"
+                : "pt-BR";
 
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = locale;
+        utterance.rate = 0.95;
 
-        let index = 0;
+        utterance.onstart = () => { isReading = true; };
+        utterance.onend = () => { isReading = false; };
+        utterance.onerror = () => { isReading = false; };
 
-
-        function speakNext() {
-
-            if (
-                !reading ||
-                index >= chunks.length
-            ) {
-
-                return;
-            }
-
-
-            const utterance =
-                new SpeechSynthesisUtterance(
-                    chunks[index]
-                );
-
-
-            const language =
-                localStorage.getItem(
-                    STORAGE.language
-                ) || "pt-BR";
-
-
-            utterance.lang =
-                language === "en"
-                    ? "en-US"
-                    : language === "es"
-                        ? "es-ES"
-                        : "pt-BR";
-
-
-            utterance.rate = 0.95;
-
-
-            utterance.onend = () => {
-
-                index++;
-
-                speakNext();
-            };
-
-
-            window.speechSynthesis.speak(
-                utterance
-            );
-        }
-
-
-        speakNext();
+        window.speechSynthesis.speak(utterance);
     }
 
+    $("#readPage")?.addEventListener("click", readPage);
+    $("#stopReading")?.addEventListener("click", stopReading);
 
-    $("#readPage")?.addEventListener(
-        "click",
-        readPage
-    );
+    /* =====================================================
+       IDIOMA
+       Importante: a tradução completa precisa de data-i18n
+       nos textos de cada página. Não substituímos frases
+       automaticamente, pois isso destrói textos e formulários.
+    ===================================================== */
 
-
-    $("#stopReading")?.addEventListener(
-        "click",
-        stopReading
-    );
-
-
-    /* =========================================================
-       IDIOMAS
-       
-       Agora o sistema aceita:
-       .language-button
-       [data-language]
-       #pt-BR
-       #en
-       #es
-    ========================================================= */
-
-
-    const translations = {
-
+    const dictionaries = {
         "pt-BR": {
-
-            "Início": "Início",
-            "Home": "Início",
-
-            "Conheça a LIA": "Conheça a LIA",
-            "Meet LIA": "Conheça a LIA",
-
-            "Violências": "Violências",
-            "Violence": "Violências",
-
-            "Rede de apoio": "Rede de apoio",
-            "Support network": "Rede de apoio",
-
-            "Localização": "Localização",
-            "Location": "Localização",
-
-            "Meu cadastro": "Meu cadastro",
-            "My registration": "Meu cadastro",
-
-            "Conta": "Conta",
-            "Account": "Conta",
-
-            "Acessibilidade": "Acessibilidade",
-            "Accessibility": "Acessibilidade",
-
-            "Início": "Início",
-
-            "Voltar para LIA": "Voltar para LIA",
-            "Back to LIA": "Voltar para LIA",
-
-            "Local • Informação • Apoio":
-                "Local • Informação • Apoio",
-
-            "LOCAL • INFORMAÇÃO • APOIO":
-                "LOCAL • INFORMAÇÃO • APOIO",
-
-            "Sobre o projeto":
-                "Sobre o projeto",
-
-            "Sobre a LIA":
-                "Sobre a LIA",
-
-            "Segurança":
-                "Segurança",
-
-            "Configuração":
-                "Configuração",
-
-            "Palavra de segurança":
-                "Palavra de segurança",
-
-            "Pessoas confiáveis":
-                "Pessoas confiáveis",
-
-            "Biometria":
-                "Biometria",
-
-            "Diário":
-                "Diário",
-
-            "Emergência":
-                "Emergência",
-
-            "Apoio":
-                "Apoio",
-
-            "Local":
-                "Local",
-
-            "Informação":
-                "Informação",
-
-            "Privacidade":
-                "Privacidade",
-
-            "Meu perfil":
-                "Meu perfil",
-
-            "Informações de emergência":
-                "Informações de emergência",
-
-            "Informações de saúde":
-                "Informações de saúde",
-
-            "Salvar informações":
-                "Salvar informações",
-
-            "Limpar dados":
-                "Limpar dados"
+            home: "Início",
+            project: "Projeto",
+            violence: "Violências",
+            support: "Rede de apoio",
+            location: "Localização",
+            account: "Conta",
+            accessibility: "Acessibilidade",
+            discreet: "Modo discreto",
+            emergency: "Emergência",
+            diary: "Diário",
+            settings: "Configurações",
+            trustedPeople: "Pessoas confiáveis",
+            securityWord: "Palavra de segurança",
+            save: "Salvar",
+            cancel: "Cancelar"
         },
-
-
-        "en": {
-
-            "Início": "Home",
-            "Home": "Home",
-
-            "Conheça a LIA": "Meet LIA",
-            "Meet LIA": "Meet LIA",
-
-            "Violências": "Violence",
-            "Violence": "Violence",
-
-            "Rede de apoio": "Support network",
-            "Support network": "Support network",
-
-            "Localização": "Location",
-            "Location": "Location",
-
-            "Meu cadastro": "My registration",
-            "My registration": "My registration",
-
-            "Conta": "Account",
-            "Account": "Account",
-
-            "Acessibilidade": "Accessibility",
-            "Accessibility": "Accessibility",
-
-            "Voltar para LIA":
-                "Back to LIA",
-
-            "Back to LIA":
-                "Back to LIA",
-
-            "Local • Informação • Apoio":
-                "Local • Information • Support",
-
-            "LOCAL • INFORMAÇÃO • APOIO":
-                "LOCAL • INFORMATION • SUPPORT",
-
-            "Sobre o projeto":
-                "About the project",
-
-            "Sobre a LIA":
-                "About LIA",
-
-            "Segurança":
-                "Security",
-
-            "Configuração":
-                "Settings",
-
-            "Palavra de segurança":
-                "Security word",
-
-            "Pessoas confiáveis":
-                "Trusted people",
-
-            "Biometria":
-                "Biometrics",
-
-            "Diário":
-                "Diary",
-
-            "Emergência":
-                "Emergency",
-
-            "Apoio":
-                "Support",
-
-            "Local":
-                "Location",
-
-            "Informação":
-                "Information",
-
-            "Privacidade":
-                "Privacy",
-
-            "Meu perfil":
-                "My profile",
-
-            "Informações de emergência":
-                "Emergency information",
-
-            "Informações de saúde":
-                "Health information",
-
-            "Salvar informações":
-                "Save information",
-
-            "Limpar dados":
-                "Clear data"
+        en: {
+            home: "Home",
+            project: "Project",
+            violence: "Violence",
+            support: "Support network",
+            location: "Location",
+            account: "Account",
+            accessibility: "Accessibility",
+            discreet: "Discreet mode",
+            emergency: "Emergency",
+            diary: "Diary",
+            settings: "Settings",
+            trustedPeople: "Trusted people",
+            securityWord: "Safety word",
+            save: "Save",
+            cancel: "Cancel"
         },
-
-
-        "es": {
-
-            "Início": "Inicio",
-            "Home": "Inicio",
-
-            "Conheça a LIA": "Conoce LIA",
-            "Meet LIA": "Conoce LIA",
-
-            "Violências": "Violencias",
-            "Violence": "Violencias",
-
-            "Rede de apoio": "Red de apoyo",
-            "Support network": "Red de apoyo",
-
-            "Localização": "Ubicación",
-            "Location": "Ubicación",
-
-            "Meu cadastro": "Mi registro",
-            "My registration": "Mi registro",
-
-            "Conta": "Cuenta",
-            "Account": "Cuenta",
-
-            "Acessibilidade": "Accesibilidad",
-            "Accessibility": "Accesibilidad",
-
-            "Voltar para LIA":
-                "Volver a LIA",
-
-            "Back to LIA":
-                "Volver a LIA",
-
-            "Local • Informação • Apoio":
-                "Local • Información • Apoyo",
-
-            "LOCAL • INFORMAÇÃO • APOIO":
-                "LOCAL • INFORMACIÓN • APOYO",
-
-            "Sobre o projeto":
-                "Sobre el proyecto",
-
-            "Sobre a LIA":
-                "Sobre LIA",
-
-            "Segurança":
-                "Seguridad",
-
-            "Configuração":
-                "Configuración",
-
-            "Palavra de segurança":
-                "Palabra de seguridad",
-
-            "Pessoas confiáveis":
-                "Personas de confianza",
-
-            "Biometria":
-                "Biometría",
-
-            "Diário":
-                "Diario",
-
-            "Emergência":
-                "Emergencia",
-
-            "Apoio":
-                "Apoyo",
-
-            "Local":
-                "Localización",
-
-            "Informação":
-                "Información",
-
-            "Privacidade":
-                "Privacidad",
-
-            "Meu perfil":
-                "Mi perfil",
-
-            "Informações de emergência":
-                "Información de emergencia",
-
-            "Informações de saúde":
-                "Información de salud",
-
-            "Salvar informações":
-                "Guardar información",
-
-            "Limpar dados":
-                "Borrar datos"
+        es: {
+            home: "Inicio",
+            project: "Proyecto",
+            violence: "Violencias",
+            support: "Red de apoyo",
+            location: "Ubicación",
+            account: "Cuenta",
+            accessibility: "Accesibilidad",
+            discreet: "Modo discreto",
+            emergency: "Emergencia",
+            diary: "Diario",
+            settings: "Configuración",
+            trustedPeople: "Personas de confianza",
+            securityWord: "Palabra de seguridad",
+            save: "Guardar",
+            cancel: "Cancelar"
         }
-
     };
 
-
-    /* =========================================================
-       TRADUZIR TEXTO
-    ========================================================= */
-
-    function translateElementText(element, language) {
-
-        if (
-            !element ||
-            element.children.length > 0
-        ) {
-            return;
-        }
-
-
-        const original =
-            element.textContent
-                .replace(/\s+/g, " ")
-                .trim();
-
-
-        if (!original) return;
-
-
-        const dictionary =
-            translations[language];
-
-
-        if (!dictionary) return;
-
-
-        if (
-            dictionary[original]
-        ) {
-
-            element.textContent =
-                dictionary[original];
-
-            return;
-        }
-
-
-        /*
-         * Também procura frases menores
-         * dentro do texto.
-         */
-
-        let translated =
-            original;
-
-
-        Object.keys(dictionary)
-            .sort(
-                (a, b) =>
-                    b.length - a.length
-            )
-            .forEach(
-                key => {
-
-                    if (
-                        translated.includes(key)
-                    ) {
-
-                        translated =
-                            translated.replace(
-                                key,
-                                dictionary[key]
-                            );
-                    }
-                }
-            );
-
-
-        if (
-            translated !== original
-        ) {
-
-            element.textContent =
-                translated;
-        }
-    }
-
-
-    /* =========================================================
-       ELEMENTOS COM data-i18n
-    ========================================================= */
-
-    function translateDataElements(language) {
-
-        const dictionary =
-            translations[language];
-
-
-        $$("[data-i18n]")
-            .forEach(element => {
-
-                const key =
-                    element.dataset.i18n;
-
-
-                if (
-                    dictionary[key]
-                ) {
-
-                    element.textContent =
-                        dictionary[key];
-                }
-            });
-    }
-
-
-    /* =========================================================
-       TRADUÇÃO DA NAVEGAÇÃO
-    ========================================================= */
-
-    function translateNavigation(language) {
-
-        const dictionary =
-            translations[language];
-
-
-        const nav =
-            $("#mainNavigation");
-
-
-        if (!nav) return;
-
-
-        nav.querySelectorAll("a")
-            .forEach(link => {
-
-                const text =
-                    link.textContent
-                        .replace(/\s+/g, " ")
-                        .trim();
-
-
-                if (
-                    dictionary[text]
-                ) {
-
-                    link.textContent =
-                        dictionary[text];
-                }
-            });
-
-
-        const accessibility =
-            $("#openAccessibility");
-
-
-        if (accessibility) {
-
-            const icon =
-                accessibility.querySelector("i");
-
-
-            if (icon) {
-
-                accessibility.innerHTML =
-                    "";
-
-                accessibility.appendChild(
-                    icon
-                );
-
-                accessibility.append(
-                    " " +
-                    dictionary[
-                        "Acessibilidade"
-                    ]
-                );
-
-            } else {
-
-                accessibility.textContent =
-                    dictionary[
-                        "Acessibilidade"
-                    ];
-            }
-        }
-    }
-
-
-    /* =========================================================
-       TRADUÇÃO GERAL DA PÁGINA
-    ========================================================= */
-
-    function translatePage(language) {
-
-        if (
-            !translations[language]
-        ) {
-
-            language = "pt-BR";
-        }
-
-
-        document.documentElement.lang =
-            language;
-
-
-        translateDataElements(
-            language
-        );
-
-
-        translateNavigation(
-            language
-        );
-
-
-        /*
-         * Traduz somente textos que possuem
-         * correspondência segura no dicionário.
-         *
-         * Não mexemos em:
-         * inputs,
-         * placeholders,
-         * valores,
-         * IDs,
-         * links,
-         * scripts.
-         */
-
-        const elements =
-            document.body.querySelectorAll(
-                "h1,h2,h3,h4,h5,h6,p,span,a,strong,small,label,button"
-            );
-
-
-        elements.forEach(
-            element => {
-
-                if (
-                    element.closest(
-                        "script,style"
-                    )
-                ) {
-
-                    return;
-                }
-
-
-                if (
-                    element.dataset.i18n
-                ) {
-
-                    return;
-                }
-
-
-                /*
-                 * Evita alterar elementos
-                 * que possuem outros elementos
-                 * importantes dentro deles.
-                 */
-
-                if (
-                    element.children.length === 0
-                ) {
-
-                    translateElementText(
-                        element,
-                        language
-                    );
-                }
-
-            }
-        );
-
-
-        /*
-         * Títulos da página.
-         */
-
-        const title =
-            document.title;
-
-
-        const titleTranslations = {
-
-            "en": {
-
-                "Conheça a LIA":
-                    "Meet LIA",
-
-                "Conheça a LIA — LIA":
-                    "Meet LIA — LIA",
-
-                "Palavra de Segurança — LIA":
-                    "Security Word — LIA",
-
-                "Localização — LIA":
-                    "Location — LIA",
-
-                "Biometria — LIA":
-                    "Biometrics — LIA",
-
-                "Emergência — LIA":
-                    "Emergency — LIA",
-
-                "Diário — LIA":
-                    "Diary — LIA",
-
-                "Pessoas Confiáveis — LIA":
-                    "Trusted People — LIA",
-
-                "Conta | LIA":
-                    "Account | LIA"
-            },
-
-            "es": {
-
-                "Conheça a LIA":
-                    "Conoce LIA",
-
-                "Palavra de Segurança — LIA":
-                    "Palabra de Seguridad — LIA",
-
-                "Localização — LIA":
-                    "Ubicación — LIA",
-
-                "Biometria — LIA":
-                    "Biometría — LIA",
-
-                "Emergência — LIA":
-                    "Emergencia — LIA",
-
-                "Diário — LIA":
-                    "Diario — LIA",
-
-                "Pessoas Confiáveis — LIA":
-                    "Personas de Confianza — LIA",
-
-                "Conta | LIA":
-                    "Cuenta | LIA"
-            }
-
-        };
-
-
-        if (
-            titleTranslations[language]?.[title]
-        ) {
-
-            document.title =
-                titleTranslations[
-                    language
-                ][title];
-        }
-    }
-
-
-    /* =========================================================
-       APLICAR IDIOMA
-    ========================================================= */
-
     function applyLanguage(language) {
+        if (!dictionaries[language]) language = "pt-BR";
 
-        if (
-            !translations[language]
-        ) {
+        localStorage.setItem(STORAGE.language, language);
+        root.lang = language;
 
-            language = "pt-BR";
-        }
+        // Traduz somente elementos marcados com data-i18n.
+        $$("[data-i18n]").forEach(element => {
+            const key = element.dataset.i18n;
+            const translated = dictionaries[language][key];
 
-
-        localStorage.setItem(
-            STORAGE.language,
-            language
-        );
-
-
-        document.documentElement.lang =
-            language;
-
-
-        translatePage(
-            language
-        );
-
-
-        /*
-         * Todos os formatos de botão
-         * agora funcionam.
-         */
-
-        $$(
-            ".language-button, [data-language]"
-        ).forEach(button => {
-
-            button.classList.toggle(
-                "active",
-                button.dataset.language === language
-            );
-
+            if (translated) element.textContent = translated;
         });
 
+        $$("[data-i18n-placeholder]").forEach(element => {
+            const key = element.dataset.i18nPlaceholder;
+            const translated = dictionaries[language][key];
 
-        /*
-         * Atualiza o texto dos botões
-         * caso estejam presentes.
-         */
-
-        const languageButtons =
-            $$(
-                ".language-button, [data-language]"
-            );
-
-
-        languageButtons.forEach(
-            button => {
-
-                const buttonLanguage =
-                    button.dataset.language;
-
-
-                if (
-                    !buttonLanguage
-                ) return;
-
-
-                if (
-                    buttonLanguage === language
-                ) {
-
-                    button.setAttribute(
-                        "aria-pressed",
-                        "true"
-                    );
-
-                } else {
-
-                    button.setAttribute(
-                        "aria-pressed",
-                        "false"
-                    );
-                }
-            }
-        );
-    }
-
-
-    /* =========================================================
-       BOTÕES DE IDIOMA
-    ========================================================= */
-
-    function bindLanguageButtons() {
-
-        $$(
-            ".language-button, [data-language]"
-        ).forEach(button => {
-
-            /*
-             * Evita adicionar o mesmo evento
-             * duas vezes.
-             */
-
-            if (
-                button.dataset.languageReady === "true"
-            ) {
-
-                return;
-            }
-
-
-            button.dataset.languageReady =
-                "true";
-
-
-            button.addEventListener(
-                "click",
-                (event) => {
-
-                    event.preventDefault();
-
-
-                    const language =
-                        button.dataset.language;
-
-
-                    if (
-                        language
-                    ) {
-
-                        applyLanguage(
-                            language
-                        );
-                    }
-                }
-            );
-
+            if (translated) element.placeholder = translated;
         });
-    }
 
-
-    bindLanguageButtons();
-
-
-    /*
-     * Também procura novamente depois que
-     * algum componente for carregado.
-     */
-
-    setTimeout(
-        bindLanguageButtons,
-        300
-    );
-
-
-    setTimeout(
-        bindLanguageButtons,
-        1000
-    );
-
-
-    /* =========================================================
-       VLIBRAS
-       Só carrega quando a pessoa pede.
-    ========================================================= */
-
-    let vlibrasLoaded = false;
-    let vlibrasLoading = false;
-
-
-    function loadVlibras() {
-
-        if (vlibrasLoaded) return;
-
-        if (vlibrasLoading) return;
-
-
-        vlibrasLoading = true;
-
-
-        const existing =
-            document.querySelector(
-                'script[src*="vlibras-plugin.js"]'
+        $$("[data-language]").forEach(button => {
+            button.setAttribute(
+                "aria-pressed",
+                String(button.dataset.language === language)
             );
+        });
 
-
-        if (existing) {
-
-            vlibrasLoaded = true;
-
-            vlibrasLoading = false;
-
-            return;
+        const selector = $("#languageSelect") || $("#language");
+        if (selector && selector.value !== language) {
+            selector.value = language;
         }
-
-
-        const script =
-            document.createElement(
-                "script"
-            );
-
-
-        script.src =
-            "https://vlibras.gov.br/app/vlibras-plugin.js";
-
-
-        script.async = true;
-
-
-        script.onload = () => {
-
-            vlibrasLoaded = true;
-
-            vlibrasLoading = false;
-
-
-            try {
-
-                new window.VLibras.Widget(
-                    "https://vlibras.gov.br/app"
-                );
-
-            } catch (error) {
-
-                console.error(
-                    "Erro ao iniciar VLibras:",
-                    error
-                );
-            }
-        };
-
-
-        script.onerror = () => {
-
-            vlibrasLoading = false;
-
-            alert(
-                "Não foi possível carregar o VLibras agora."
-            );
-        };
-
-
-        document.body.appendChild(
-            script
-        );
     }
 
+    $$("[data-language]").forEach(button => {
+        button.addEventListener("click", () => {
+            applyLanguage(button.dataset.language);
+        });
+    });
 
-    window.activateVLibras =
-        loadVlibras;
+    const languageSelect = $("#languageSelect") || $("#language");
 
+    languageSelect?.addEventListener("change", event => {
+        applyLanguage(event.target.value);
+    });
 
-    $("#activateVlibras")
-        ?.addEventListener(
-            "click",
-            loadVlibras
-        );
+    applyLanguage(localStorage.getItem(STORAGE.language) || "pt-BR");
 
-
-    /* =========================================================
+    /* =====================================================
        LOCALIZAÇÃO
-    ========================================================= */
+       Exige HTTPS ou localhost e permissão do navegador.
+    ===================================================== */
 
     function setupLocation() {
-
-        const buttons =
-            $(
-                "#locate, #getLocation, #locateMe"
-            );
-
-
-        if (!buttons) return;
-
-
-        const buttonList =
-            $$(
-                "#locate, #getLocation, #locateMe"
-            );
-
-
-        buttonList.forEach(
-            button => {
-
-                if (
-                    button.dataset.locationReady
-                ) return;
-
-
-                button.dataset.locationReady =
-                    "true";
-
-
-                button.addEventListener(
-                    "click",
-                    requestLocation
-                );
-            }
-        );
-    }
-
-
-    function requestLocation() {
+        const button =
+            $("#getLocation") ||
+            $("#findLocation") ||
+            $("#useMyLocation");
 
         const status =
-            $(
-                "#status, #locationStatus"
-            );
-
+            $("#locationStatus") ||
+            $("#locationMessage") ||
+            $("#locationResult");
 
         const coords =
-            $(
-                "#coords, #coordinates, #locationCoordinates"
-            );
-
+            $("#coords") ||
+            $("#coordinates") ||
+            $("#locationCoordinates");
 
         const map =
-            $(
-                "#mapLink, #mapsLink, #locationMap"
-            );
-
-
-        if (
-            !navigator.geolocation
-        ) {
-
-            if (status) {
-
-                status.textContent =
-                    "A geolocalização não está disponível neste navegador.";
-            }
-
-            return;
-        }
-
-
-        if (status) {
-
-            status.textContent =
-                "Solicitando sua localização...";
-        }
-
-
-        navigator.geolocation.getCurrentPosition(
-
-            position => {
-
-                const latitude =
-                    position.coords.latitude
-                        .toFixed(6);
-
-
-                const longitude =
-                    position.coords.longitude
-                        .toFixed(6);
-
-
-                const accuracy =
-                    Math.round(
-                        position.coords.accuracy
-                    );
-
-
-                localStorage.setItem(
-                    "lia_latitude",
-                    latitude
-                );
-
-
-                localStorage.setItem(
-                    "lia_longitude",
-                    longitude
-                );
-
-
-                localStorage.setItem(
-                    "lia_accuracy",
-                    accuracy
-                );
-
-
-                if (status) {
-
-                    status.textContent =
-                        "Localização encontrada.";
-                }
-
-
-                if (coords) {
-
-                    coords.textContent =
-                        `Latitude: ${latitude} • Longitude: ${longitude}`;
-                }
-
-
-                if (map) {
-
-                    map.href =
-                        `https://www.google.com/maps?q=${latitude},${longitude}`;
-
-                    map.hidden = false;
-                }
-
-            },
-
-            error => {
-
-                console.error(
-                    "Erro de localização:",
-                    error
-                );
-
-
-                if (status) {
-
-                    status.textContent =
-                        "Não foi possível obter sua localização.";
-                }
-
-
-                if (coords) {
-
-                    coords.textContent =
-                        "Verifique a permissão de localização do navegador e tente novamente.";
-                }
-
-            },
-
-            {
-                enableHighAccuracy: true,
-                timeout: 10000,
-                maximumAge: 0
-            }
-        );
-    }
-
-
-    setupLocation();
-
-
-    /* =========================================================
-       PALAVRA DE SEGURANÇA
-    ========================================================= */
-
-    function setupSecurityWord() {
-
-        const input =
-            $(
-                "#word, #securityWord, #securityWordInput"
-            );
-
-
-        const save =
-            $(
-                "#save, #saveWord"
-            );
-
-
-        const result =
-            $(
-                "#result, #securityResult, #securityStatus"
-            );
-
-
-        const saved =
-            $(
-                "#saved"
-            );
-
-
-        if (!input) return;
-
-
-        const stored =
-            localStorage.getItem(
-                "lia_security_word"
-            ) || "";
-
-
-        if (stored) {
-
-            input.value =
-                stored;
-
-
-            if (saved) {
-
-                saved.textContent =
-                    `Palavra configurada: ${stored}`;
-            }
-
-        } else {
-
-            if (saved) {
-
-                saved.textContent =
-                    "Nenhuma palavra configurada.";
-            }
-        }
-
-
-        save?.addEventListener(
-            "click",
-            () => {
-
-                const word =
-                    input.value
-                        .trim();
-
-
-                if (
-                    word.length < 2
-                ) {
-
-                    if (result) {
-
-                        result.textContent =
-                            "Digite uma palavra ou frase.";
-                    }
-
-                    return;
-                }
-
-
-                localStorage.setItem(
-                    "lia_security_word",
-                    word
-                );
-
-
-                if (saved) {
-
-                    saved.textContent =
-                        `Palavra configurada: ${word}`;
-                }
-
-
-                if (result) {
-
-                    result.textContent =
-                        "Palavra salva neste navegador.";
-                }
-            }
-        );
-
-
-        const startListening =
-            $(
-                "#startListening, #startSecurityListening, #test, #testWord"
-            );
-
-
-        const stopListening =
-            $(
-                "#stopListening, #stopSecurityListening"
-            );
-
-
-        let recognition = null;
-
-
-        function startRecognition() {
-
-            const SpeechRecognition =
-                window.SpeechRecognition ||
-                window.webkitSpeechRecognition;
-
-
-            if (!SpeechRecognition) {
-
-                if (result) {
-
-                    result.textContent =
-                        "O reconhecimento de voz não está disponível neste navegador.";
-                }
-
-                return;
-            }
-
-
-            const expected =
-                (
-                    localStorage.getItem(
-                        "lia_security_word"
-                    ) || ""
-                )
-                .toLowerCase()
-                .trim();
-
-
-            if (!expected) {
-
-                if (result) {
-
-                    result.textContent =
-                        "Configure primeiro sua palavra de segurança.";
-                }
-
-                return;
-            }
-
-
-            recognition =
-                new SpeechRecognition();
-
-
-            recognition.lang =
-                "pt-BR";
-
-
-            recognition.continuous =
-                true;
-
-
-            recognition.interimResults =
-                false;
-
-
-            recognition.onstart =
-                () => {
-
-                    if (result) {
-
-                        result.textContent =
-                            "Escutando...";
-                    }
-                };
-
-
-            recognition.onresult =
-                event => {
-
-                    let transcript =
-                        "";
-
-
-                    for (
-                        let i =
-                            event.resultIndex;
-
-                        i <
-                        event.results.length;
-
-                        i++
-                    ) {
-
-                        transcript +=
-                            event.results[i][0].transcript;
-                    }
-
-
-                    transcript =
-                        transcript
-                            .toLowerCase()
-                            .trim();
-
-
-                    if (
-                        transcript.includes(
-                            expected
-                        )
-                    ) {
-
-                        if (result) {
-
-                            result.textContent =
-                                "Palavra reconhecida. Abrindo ligação de emergência...";
-                        }
-
-
-                        recognition.stop();
-
-
-                        window.location.href =
-                            "tel:190";
-                    }
-                };
-
-
-            recognition.onerror =
-                event => {
-
-                    console.error(
-                        "Reconhecimento de voz:",
-                        event
-                    );
-
-
-                    if (result) {
-
-                        result.textContent =
-                            "Não foi possível utilizar o reconhecimento de voz.";
-                    }
-                };
-
-
-            recognition.start();
-        }
-
-
-        function stopRecognition() {
-
-            recognition?.stop();
-
-            recognition = null;
-
-
-            if (result) {
-
-                result.textContent =
-                    "Reconhecimento de voz interrompido.";
-            }
-        }
-
-
-        startListening?.addEventListener(
-            "click",
-            startRecognition
-        );
-
-
-        stopListening?.addEventListener(
-            "click",
-            stopRecognition
-        );
-    }
-
-
-    setupSecurityWord();
-
-
-    /* =========================================================
-       EMERGÊNCIA
-    ========================================================= */
-
-    function setupEmergency() {
-
-        const button =
-            $(
-                "#emergencyButton, #startEmergency"
-            );
-
+            $("#mapLink") ||
+            $("#mapsLink") ||
+            $("#locationMap");
 
         if (!button) return;
 
-
-        const countdownElement =
-            $(
-                "#countdown, #emergencyCountdown"
-            );
-
-
-        const status =
-            $(
-                "#emergencyStatus"
-            );
-
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                let seconds = 5;
-
-
-                if (countdownElement) {
-
-                    countdownElement.textContent =
-                        seconds;
-                }
-
-
-                if (status) {
-
-                    status.textContent =
-                        "Ligação de emergência iniciará em alguns segundos.";
-                }
-
-
-                const timer =
-                    setInterval(
-                        () => {
-
-                            seconds--;
-
-
-                            if (countdownElement) {
-
-                                countdownElement.textContent =
-                                    seconds;
-                            }
-
-
-                            if (
-                                seconds <= 0
-                            ) {
-
-                                clearInterval(
-                                    timer
-                                );
-
-
-                                navigator.geolocation?.getCurrentPosition(
-                                    position => {
-
-                                        localStorage.setItem(
-                                            "lia_latitude",
-                                            position.coords.latitude
-                                        );
-
-                                        localStorage.setItem(
-                                            "lia_longitude",
-                                            position.coords.longitude
-                                        );
-                                    },
-                                    () => {}
-                                );
-
-
-                                window.location.href =
-                                    "tel:190";
-                            }
-
-                        },
-                        1000
-                    );
+        button.addEventListener("click", () => {
+            if (!navigator.geolocation) {
+                if (status) status.textContent =
+                    "Este navegador não oferece geolocalização.";
+                return;
             }
-        );
+
+            if (status) status.textContent =
+                "Solicitando permissão de localização…";
+
+            navigator.geolocation.getCurrentPosition(
+                position => {
+                    const latitude = position.coords.latitude.toFixed(6);
+                    const longitude = position.coords.longitude.toFixed(6);
+
+                    localStorage.setItem(STORAGE.latitude, latitude);
+                    localStorage.setItem(STORAGE.longitude, longitude);
+
+                    if (status) status.textContent = "Localização encontrada.";
+                    if (coords) {
+                        coords.textContent =
+                            `Latitude: ${latitude} • Longitude: ${longitude}`;
+                    }
+
+                    if (map) {
+                        map.href =
+                            `https://www.google.com/maps?q=${latitude},${longitude}`;
+                        map.hidden = false;
+                    }
+                },
+                error => {
+                    let message = "Não foi possível obter sua localização.";
+
+                    if (error.code === error.PERMISSION_DENIED) {
+                        message = "A permissão foi negada. Autorize a localização no navegador.";
+                    } else if (error.code === error.TIMEOUT) {
+                        message = "A localização demorou demais. Tente novamente.";
+                    }
+
+                    if (status) status.textContent = message;
+                },
+                {
+                    enableHighAccuracy: true,
+                    timeout: 12000,
+                    maximumAge: 0
+                }
+            );
+        });
     }
 
+    setupLocation();
 
-    setupEmergency();
+    /* =====================================================
+       PALAVRA DE SEGURANÇA
+       Este recurso só funciona enquanto a página está aberta.
+       O navegador pode pedir autorização para o microfone.
+    ===================================================== */
 
+    const securityInput =
+        $("#word") ||
+        $("#securityWord") ||
+        $("#securityWordInput");
 
-    /* =========================================================
-       CONTA
-    ========================================================= */
+    const securitySave =
+        $("#saveWord") ||
+        $("#save");
 
-    function loadAccountPreview() {
+    const securityStatus =
+        $("#securityResult") ||
+        $("#securityStatus") ||
+        $("#result");
 
-        const name =
-            localStorage.getItem(
-                "lia_account_name"
-            );
+    const securitySaved = $("#saved");
 
+    if (securityInput) {
+        const storedWord = localStorage.getItem(STORAGE.securityWord) || "";
+        securityInput.value = storedWord;
 
-        const photo =
-            localStorage.getItem(
-                "lia_account_photo"
-            );
-
-
-        $$(
-            "[data-account-name]"
-        ).forEach(
-            element => {
-
-                if (name) {
-
-                    element.textContent =
-                        name;
-                }
-            }
-        );
-
-
-        $$(
-            "[data-account-photo]"
-        ).forEach(
-            element => {
-
-                if (
-                    photo &&
-                    element.tagName === "IMG"
-                ) {
-
-                    element.src =
-                        photo;
-                }
-            }
-        );
-    }
-
-
-    loadAccountPreview();
-
-
-    /* =========================================================
-       MODO DISCRETO
-    ========================================================= */
-
-    function openDiscreetMode() {
-
-        window.location.href =
-            "discreto.html";
-    }
-
-
-    $$(
-        "#openDiscreetMode, #discreetMode"
-    ).forEach(
-        button => {
-
-            button.addEventListener(
-                "click",
-                openDiscreetMode
-            );
+        if (securitySaved) {
+            securitySaved.textContent = storedWord
+                ? "Palavra configurada neste navegador."
+                : "Nenhuma palavra configurada.";
         }
-    );
+    }
 
+    securitySave?.addEventListener("click", () => {
+        const word = securityInput?.value.trim();
 
-    /* =========================================================
-       TECLA DE SAÍDA DO MODO DISCRETO
-    ========================================================= */
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (
-                event.ctrlKey &&
-                event.shiftKey &&
-                event.key.toLowerCase() === "k"
-            ) {
-
-                window.location.href =
-                    "index.html";
+        if (!word || word.length < 2) {
+            if (securityStatus) {
+                securityStatus.textContent = "Digite uma palavra ou frase com pelo menos dois caracteres.";
             }
+            return;
         }
-    );
 
+        localStorage.setItem(STORAGE.securityWord, word);
 
-    /* =========================================================
-       INICIALIZAÇÃO FINAL
-    ========================================================= */
+        if (securitySaved) {
+            securitySaved.textContent = "Palavra configurada neste navegador.";
+        }
 
-    /*
-     * IMPORTANTE:
-     *
-     * Português agora é o idioma padrão.
-     *
-     * Se a pessoa nunca escolheu idioma,
-     * o site começa em português.
-     *
-     * Se escolheu inglês ou espanhol,
-     * a preferência permanece salva.
-     */
+        if (securityStatus) {
+            securityStatus.textContent =
+                "Palavra salva neste navegador. Ela não é sincronizada com outros dispositivos.";
+        }
+    });
 
-    const savedLanguage =
-        localStorage.getItem(
-            STORAGE.language
-        );
+    /* =====================================================
+       FORMULÁRIOS: EVITA ENVIO ACIDENTAL
+       Cada formulário mantém seu próprio comportamento.
+    ===================================================== */
 
+    $$("form[data-confirm-submit]").forEach(form => {
+        form.addEventListener("submit", event => {
+            const message = form.dataset.confirmSubmit;
 
-    applyLanguage(
-        savedLanguage || "pt-BR"
-    );
-
-
-    /*
-     * Caso algum botão seja criado
-     * depois do carregamento.
-     */
-
-    setTimeout(
-        () => {
-
-            bindLanguageButtons();
-
-            applyLanguage(
-                localStorage.getItem(
-                    STORAGE.language
-                ) || "pt-BR"
-            );
-
-        },
-        500
-    );
+            if (message && !window.confirm(message)) {
+                event.preventDefault();
+            }
+        });
+    });
 
 });

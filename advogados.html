@@ -1,1046 +1,248 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Apoio jurídico — LIA</title>
-
-    <link rel="stylesheet" href="lia.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <style>
-
-        .legal-page {
-            min-height: 100vh;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #fdfbfd 0%,
-                    #f2ebf7 100%
-                );
-
-            padding: 55px 20px 80px;
-        }
-
-
-        .legal-container {
-            width: min(1120px, 100%);
-            margin: 0 auto;
-        }
-
-
-        .legal-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-
-        .legal-eyebrow {
-            color: #7656a3;
-
-            font-size: 12px;
-            font-weight: 700;
-
-            letter-spacing: .13em;
-            text-transform: uppercase;
-
-            margin-bottom: 10px;
-        }
-
-
-        .legal-header h1 {
-            margin: 0 0 15px;
-
-            font-family: "Playfair Display", serif;
-
-            font-size:
-                clamp(
-                    2.3rem,
-                    5vw,
-                    4rem
-                );
-
-            line-height: 1.1;
-
-            color: #211e25;
-        }
-
-
-        .legal-header p {
-            width: min(760px, 100%);
-
-            margin: 0 auto;
-
-            color: #77727d;
-
-            line-height: 1.7;
-        }
-
-
-        .legal-alert {
-            display: flex;
-
-            gap: 15px;
-
-            align-items: flex-start;
-
-            margin-bottom: 25px;
-
-            padding: 19px 21px;
-
-            border:
-                1px solid #e5dcea;
-
-            border-radius: 18px;
-
-            background: #ffffff;
-
-            box-shadow:
-                0 12px 35px
-                rgba(81, 55, 122, .06);
-        }
-
-
-        .legal-alert-icon {
-            flex: 0 0 43px;
-
-            width: 43px;
-            height: 43px;
-
-            border-radius: 13px;
-
-            display: grid;
-            place-items: center;
-
-            background: #f0eaf7;
-
-            color: #7656a3;
-        }
-
-
-        .legal-alert strong {
-            display: block;
-
-            margin-bottom: 4px;
-
-            color: #403a44;
-        }
-
-
-        .legal-alert span {
-            color: #77727d;
-
-            font-size: 13px;
-
-            line-height: 1.6;
-        }
-
-
-        .legal-grid {
-            display: grid;
-
-            grid-template-columns:
-                minmax(0, 1.05fr)
-                minmax(0, .95fr);
-
-            gap: 24px;
-        }
-
-
-        .legal-card {
-            background: #ffffff;
-
-            border:
-                1px solid #e8e1ed;
-
-            border-radius: 24px;
-
-            padding: 30px;
-
-            box-shadow:
-                0 15px 45px
-                rgba(81, 55, 122, .07);
-        }
-
-
-        .legal-card.full {
-            grid-column: 1 / -1;
-        }
-
-
-        .legal-icon {
-            width: 58px;
-            height: 58px;
-
-            border-radius: 16px;
-
-            display: grid;
-            place-items: center;
-
-            background: #f0eaf7;
-
-            color: #7656a3;
-
-            font-size: 22px;
-
-            margin-bottom: 18px;
-        }
-
-
-        .legal-card h2 {
-            margin: 0 0 11px;
-
-            font-family: "Playfair Display", serif;
-
-            font-size: 1.75rem;
-
-            color: #302b35;
-        }
-
-
-        .legal-card h3 {
-            margin: 25px 0 10px;
-
-            color: #403a44;
-
-            font-size: 1.05rem;
-        }
-
-
-        .legal-card p {
-            margin: 0;
-
-            color: #77727d;
-
-            line-height: 1.7;
-        }
-
-
-        .legal-list {
-            display: grid;
-
-            gap: 12px;
-
-            margin: 20px 0 0;
-
-            padding: 0;
-
-            list-style: none;
-        }
-
-
-        .legal-list li {
-            display: flex;
-
-            align-items: flex-start;
-
-            gap: 11px;
-
-            color: #68626d;
-
-            line-height: 1.6;
-
-            font-size: 14px;
-        }
-
-
-        .legal-list i {
-            flex: 0 0 auto;
-
-            margin-top: 4px;
-
-            color: #7656a3;
-        }
-
-
-        .legal-options {
-            display: grid;
-
-            gap: 12px;
-
-            margin-top: 22px;
-        }
-
-
-        .legal-option {
-            display: flex;
-
-            align-items: center;
-
-            gap: 14px;
-
-            padding: 15px;
-
-            border:
-                1px solid #e8e1ed;
-
-            border-radius: 15px;
-
-            background: #fcfbfd;
-        }
-
-
-        .legal-option-icon {
-            flex: 0 0 45px;
-
-            width: 45px;
-            height: 45px;
-
-            display: grid;
-            place-items: center;
-
-            border-radius: 13px;
-
-            background: #f0eaf7;
-
-            color: #7656a3;
-        }
-
-
-        .legal-option strong {
-            display: block;
-
-            margin-bottom: 3px;
-
-            color: #403a44;
-
-            font-size: 14px;
-        }
-
-
-        .legal-option span {
-            color: #85808a;
-
-            font-size: 12px;
-
-            line-height: 1.5;
-        }
-
-
-        .legal-resources {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-
-            gap: 14px;
-
-            margin-top: 22px;
-        }
-
-
-        .legal-resource {
-            padding: 20px;
-
-            border-radius: 17px;
-
-            background: #faf8fb;
-
-            border:
-                1px solid #e8e1ed;
-        }
-
-
-        .legal-resource i {
-            display: block;
-
-            color: #7656a3;
-
-            font-size: 20px;
-
-            margin-bottom: 12px;
-        }
-
-
-        .legal-resource h3 {
-            margin: 0 0 7px;
-
-            font-family: "DM Sans", sans-serif;
-
-            font-size: 15px;
-        }
-
-
-        .legal-resource p {
-            font-size: 13px;
-
-            line-height: 1.55;
-        }
-
-
-        .legal-button {
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 9px;
-
-            width: 100%;
-
-            min-height: 49px;
-
-            margin-top: 20px;
-
-            padding: 12px 18px;
-
-            border: 0;
-
-            border-radius: 13px;
-
-            background: #7656a3;
-
-            color: #ffffff;
-
-            text-decoration: none;
-
-            font: inherit;
-
-            font-weight: 700;
-
-            cursor: pointer;
-
-            box-sizing: border-box;
-
-            transition: .2s ease;
-        }
-
-
-        .legal-button:hover {
-            background: #51377a;
-
-            transform: translateY(-1px);
-        }
-
-
-        .legal-button.secondary {
-            background: #f0eaf7;
-
-            color: #7656a3;
-        }
-
-
-        .legal-button.secondary:hover {
-            background: #e4dced;
-        }
-
-
-        .legal-note {
-            margin-top: 20px;
-
-            padding: 17px 18px;
-
-            border-radius: 14px;
-
-            background: #faf8fb;
-
-            color: #77727d;
-
-            font-size: 13px;
-
-            line-height: 1.65;
-        }
-
-
-        .legal-note strong {
-            color: #403a44;
-        }
-
-
-        .emergency-box {
-            padding: 24px;
-
-            border-radius: 19px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #f5eef8,
-                    #fbf9fc
-                );
-
-            border:
-                1px solid #e3d9ea;
-        }
-
-
-        .emergency-box h3 {
-            margin-top: 0;
-
-            font-family: "Playfair Display", serif;
-
-            color: #403a44;
-
-            font-size: 1.45rem;
-        }
-
-
-        .emergency-box p {
-            margin-bottom: 0;
-        }
-
-
-        .back-home {
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            margin-top: 28px;
-
-            color: #7656a3;
-
-            text-decoration: none;
-
-            font-weight: 700;
-
-            font-size: 14px;
-        }
-
-
-        .back-home:hover {
-            text-decoration: underline;
-        }
-
-
-        @media (max-width: 850px) {
-
-            .legal-grid {
-                grid-template-columns: 1fr;
-            }
-
-
-            .legal-card.full {
-                grid-column: auto;
-            }
-
-
-            .legal-resources {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-
-        @media (max-width: 560px) {
-
-            .legal-page {
-                padding:
-                    35px
-                    14px
-                    55px;
-            }
-
-
-            .legal-card {
-                padding: 22px 18px;
-
-                border-radius: 19px;
-            }
-
-
-            .legal-alert {
-                padding: 16px;
-            }
-
-        }
-
-    </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Apoio Jurídico | LIA — Local de Informação e Apoio</title>
+  <meta name="description" content="Conheça opções de orientação jurídica, Defensoria Pública e informações sobre os direitos das mulheres em situação de violência.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Projeto LIA">
+  <meta name="theme-color" content="#7651a8">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Apoio Jurídico | LIA">
+  <meta property="og:description" content="Informações para encontrar orientação jurídica e conhecer os direitos das mulheres.">
+  <meta property="og:locale" content="pt_BR">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Apoio Jurídico | LIA">
+  <meta name="twitter:description" content="Orientação jurídica e informações sobre direitos.">
+
+  <link rel="stylesheet" href="lia.css">
+  <script src="lia.js" defer></script>
 </head>
 
-
 <body>
-
-
-<main class="legal-page">
-
-
-    <div class="legal-container">
-
-
-        <header class="legal-header">
-
-            <div class="legal-eyebrow">
-                Informação e direitos
-            </div>
-
-
-            <h1>
-                Apoio jurídico
-            </h1>
-
-
-            <p>
-                Conhecer seus direitos pode ajudar você a entender
-                quais caminhos de proteção e orientação jurídica
-                podem estar disponíveis para sua situação.
-            </p>
-
-        </header>
-
-
-        <section class="legal-alert">
-
-            <div class="legal-alert-icon">
-
-                <i class="fa-solid fa-scale-balanced"></i>
-
-            </div>
-
-
-            <div>
-
-                <strong>
-                    Você tem direitos.
-                </strong>
-
-
-                <span>
-                    Em uma situação de violência, informação jurídica
-                    pode ajudar a compreender medidas de proteção,
-                    serviços disponíveis e possibilidades de atendimento.
-                </span>
-
-            </div>
-
-        </section>
-
-
-        <div class="legal-grid">
-
-
-            <section class="legal-card">
-
-                <div class="legal-icon">
-
-                    <i class="fa-solid fa-gavel"></i>
-
-                </div>
-
-
-                <h2>
-                    Orientação jurídica
-                </h2>
-
-
-                <p>
-                    Um profissional da área jurídica pode explicar
-                    os caminhos existentes de acordo com as
-                    circunstâncias de cada caso.
-                </p>
-
-
-                <ul class="legal-list">
-
-                    <li>
-
-                        <i class="fa-solid fa-check"></i>
-
-                        <span>
-                            Explicação sobre direitos e procedimentos.
-                        </span>
-
-                    </li>
-
-
-                    <li>
-
-                        <i class="fa-solid fa-check"></i>
-
-                        <span>
-                            Orientação sobre documentos e registros.
-                        </span>
-
-                    </li>
-
-
-                    <li>
-
-                        <i class="fa-solid fa-check"></i>
-
-                        <span>
-                            Informações sobre medidas de proteção.
-                        </span>
-
-                    </li>
-
-
-                    <li>
-
-                        <i class="fa-solid fa-check"></i>
-
-                        <span>
-                            Encaminhamento para serviços especializados.
-                        </span>
-
-                    </li>
-
-
-                    <li>
-
-                        <i class="fa-solid fa-check"></i>
-
-                        <span>
-                            Orientação sobre acesso à Justiça.
-                        </span>
-
-                    </li>
-
-                </ul>
-
-            </section>
-
-
-            <section class="legal-card">
-
-                <div class="legal-icon">
-
-                    <i class="fa-solid fa-building-columns"></i>
-
-                </div>
-
-
-                <h2>
-                    Onde procurar ajuda?
-                </h2>
-
-
-                <p>
-                    Dependendo da situação, diferentes serviços
-                    públicos e instituições podem oferecer orientação,
-                    atendimento ou encaminhamento.
-                </p>
-
-
-                <div class="legal-options">
-
-
-                    <div class="legal-option">
-
-                        <div class="legal-option-icon">
-
-                            <i class="fa-solid fa-scale-balanced"></i>
-
-                        </div>
-
-
-                        <div>
-
-                            <strong>
-                                Defensoria Pública
-                            </strong>
-
-                            <span>
-                                Pode oferecer assistência jurídica gratuita
-                                a pessoas que atendam aos critérios do serviço.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="legal-option">
-
-                        <div class="legal-option-icon">
-
-                            <i class="fa-solid fa-landmark"></i>
-
-                        </div>
-
-
-                        <div>
-
-                            <strong>
-                                Ministério Público
-                            </strong>
-
-                            <span>
-                                Atua na defesa da ordem jurídica e de
-                                interesses sociais, conforme suas atribuições.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="legal-option">
-
-                        <div class="legal-option-icon">
-
-                            <i class="fa-solid fa-building-shield"></i>
-
-                        </div>
-
-
-                        <div>
-
-                            <strong>
-                                Delegacia
-                            </strong>
-
-                            <span>
-                                Pode receber ocorrências e orientar sobre
-                                procedimentos relacionados à situação.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="legal-option">
-
-                        <div class="legal-option-icon">
-
-                            <i class="fa-solid fa-people-roof"></i>
-
-                        </div>
-
-
-                        <div>
-
-                            <strong>
-                                Rede de assistência
-                            </strong>
-
-                            <span>
-                                CRAS, CREAS e outros serviços podem
-                                realizar orientações e encaminhamentos.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-
-                <a
-                    href="servicos.html"
-                    class="legal-button"
-                >
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    Encontrar serviços
-
-                </a>
-
-            </section>
-
-
-            <section class="legal-card full">
-
-
-                <div class="legal-icon">
-
-                    <i class="fa-solid fa-shield-halved"></i>
-
-                </div>
-
-
-                <h2>
-                    Medidas de proteção
-                </h2>
-
-
-                <p>
-                    Em determinadas situações de violência doméstica
-                    e familiar contra a mulher, a legislação brasileira
-                    prevê mecanismos de proteção. A orientação de
-                    profissionais e dos serviços competentes é importante
-                    para entender qual medida pode ser adequada ao caso.
-                </p>
-
-
-                <div class="legal-resources">
-
-
-                    <article class="legal-resource">
-
-                        <i class="fa-solid fa-person-circle-exclamation"></i>
-
-
-                        <h3>
-                            Proteção
-                        </h3>
-
-
-                        <p>
-                            Existem mecanismos legais destinados
-                            à proteção da mulher em situações previstas
-                            pela legislação.
-                        </p>
-
-                    </article>
-
-
-                    <article class="legal-resource">
-
-                        <i class="fa-solid fa-file-circle-check"></i>
-
-
-                        <h3>
-                            Registro
-                        </h3>
-
-
-                        <p>
-                            Documentos, mensagens e outros registros
-                            podem ser relevantes em determinados
-                            procedimentos, conforme orientação adequada.
-                        </p>
-
-                    </article>
-
-
-                    <article class="legal-resource">
-
-                        <i class="fa-solid fa-user-tie"></i>
-
-
-                        <h3>
-                            Orientação profissional
-                        </h3>
-
-
-                        <p>
-                            Cada situação possui características próprias.
-                            Procure orientação jurídica antes de tomar
-                            decisões que possam afetar seu caso.
-                        </p>
-
-                    </article>
-
-                </div>
-
-
-                <div class="legal-note">
-
-                    <strong>
-                        Importante:
-                    </strong>
-
-                    esta página apresenta informações gerais e não
-                    substitui orientação jurídica individualizada.
-                    As possibilidades legais dependem das circunstâncias
-                    de cada caso e da legislação aplicável.
-
-                </div>
-
-            </section>
-
-
-            <section class="legal-card full">
-
-
-                <div class="emergency-box">
-
-                    <h3>
-                        Se houver perigo imediato
-                    </h3>
-
-
-                    <p>
-                        Se você estiver em uma situação de risco agora,
-                        priorize sua segurança e procure os serviços
-                        de emergência disponíveis.
-                    </p>
-
-
-                    <a
-                        href="emergencia.html"
-                        class="legal-button"
-                    >
-
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-
-                        Acessar emergência
-
-                    </a>
-
-                </div>
-
-            </section>
-
-
-            <section class="legal-card full">
-
-
-                <div class="legal-note">
-
-                    <strong>
-                        A LIA também oferece:
-                    </strong>
-
-                    informações sobre os diferentes tipos de violência,
-                    localização de serviços, apoio psicológico,
-                    pessoas confiáveis, diário seguro e recursos
-                    de proteção.
-
-                </div>
-
-
-                <a
-                    href="violencias.html"
-                    class="legal-button secondary"
-                >
-
-                    <i class="fa-solid fa-book-open"></i>
-
-                    Conhecer os tipos de violência
-
-                </a>
-
-            </section>
-
-
-        </div>
-
-
-        <a
-            href="index.html"
-            class="back-home"
-        >
-
-            <i class="fa-solid fa-arrow-left"></i>
-
-            Voltar para a LIA
-
+  <div class="top-bar">
+    <span>LIA — Local • Informação • Apoio</span>
+    <button type="button" id="accessibilityToggle"
+      aria-expanded="false" aria-controls="accessibilityPanel">
+      Acessibilidade
+    </button>
+  </div>
+
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="LIA — página inicial">LIA</a>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="projeto.html">O projeto</a>
+      <a href="violencias.html">Tipos de violência</a>
+      <a href="apoio.html">Preciso de apoio</a>
+      <a href="emergencia.html">Emergência</a>
+      <a href="discreto.html">Modo discreto</a>
+      <a href="cadastro.html">Conta</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">Informação e direitos</span>
+        <h1>Apoio jurídico</h1>
+        <p>
+          Conhecer seus direitos é um passo importante para buscar proteção.
+          Você pode procurar orientação jurídica para compreender as opções
+          disponíveis para sua situação.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <span class="eyebrow">Onde buscar ajuda</span>
+        <h2>Serviços de orientação jurídica</h2>
+        <p>
+          Conheça instituições que podem informar sobre direitos e orientar
+          sobre os próximos passos.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <h3>Defensoria Pública</h3>
+          <p>
+            A Defensoria Pública oferece assistência jurídica gratuita
+            a pessoas que atendam aos critérios do serviço. A instituição
+            pode orientar sobre medidas protetivas, questões familiares
+            e outros assuntos jurídicos.
+          </p>
+          <a class="btn btn-primary"
+             href="https://www.defensoria.sp.def.br/"
+             target="_blank" rel="noopener noreferrer">
+            Defensoria Pública de SP
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Ministério Público</h3>
+          <p>
+            O Ministério Público atua na defesa da ordem jurídica e dos
+            direitos da população. Consulte os canais oficiais para conhecer
+            as formas de atendimento e encaminhamento.
+          </p>
+          <a class="btn btn-primary"
+             href="https://www.mpsp.mp.br/"
+             target="_blank" rel="noopener noreferrer">
+            Ministério Público de SP
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Advocacia particular</h3>
+          <p>
+            Uma advogada ou um advogado pode analisar as particularidades
+            do seu caso e explicar as alternativas jurídicas disponíveis.
+            Verifique a inscrição profissional antes de contratar.
+          </p>
+          <a class="btn btn-primary"
+             href="https://www.oabsp.org.br/"
+             target="_blank" rel="noopener noreferrer">
+            OAB São Paulo
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Central de Atendimento à Mulher</h3>
+          <p>
+            O Ligue 180 oferece informações sobre direitos das mulheres
+            e serviços da rede de atendimento à violência contra a mulher.
+          </p>
+          <a class="btn btn-primary" href="tel:180">
+            Ligar para 180
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>Alguns direitos importantes</h2>
+        <p>
+          A Lei Maria da Penha estabelece mecanismos de prevenção e
+          enfrentamento à violência doméstica e familiar contra a mulher.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <h3>Medidas protetivas</h3>
+          <p>
+            Conforme a situação e os requisitos legais, podem ser solicitadas
+            medidas protetivas de urgência para prevenir novas situações
+            de violência e proteger a mulher.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Atendimento e acolhimento</h3>
+          <p>
+            Mulheres em situação de violência podem buscar os serviços
+            competentes para receber orientação e encaminhamento conforme
+            suas necessidades.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Orientação individualizada</h3>
+          <p>
+            Um serviço jurídico pode explicar os procedimentos aplicáveis
+            ao caso concreto, inclusive quais documentos podem ser úteis
+            e quais medidas podem ser consideradas.
+          </p>
+        </article>
+      </div>
+
+      <div class="notice notice-info">
+        <strong>Fonte oficial:</strong>
+        <a href="https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11340.htm"
+           target="_blank" rel="noopener noreferrer">
+          consulte o texto da Lei Maria da Penha (Lei nº 11.340/2006).
         </a>
+      </div>
+    </section>
 
+    <section class="section">
+      <div class="card">
+        <h2>Como se preparar para pedir orientação</h2>
+        <ul>
+          <li>Explique apenas o que se sentir segura para compartilhar.</li>
+          <li>Pergunte quais opções existem para sua situação.</li>
+          <li>Confirme se o atendimento exige agendamento ou documentos.</li>
+          <li>Considere usar um dispositivo seguro se houver monitoramento.</li>
+        </ul>
 
+        <p>
+          Você não precisa reunir provas ou organizar tudo sozinha antes
+          de procurar orientação.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="notice notice-warning">
+        <strong>Em caso de perigo imediato:</strong> se for seguro fazer isso,
+        vá para um local protegido e ligue para 190. Para orientação sobre
+        violência contra a mulher, ligue para 180.
+      </div>
+
+      <div class="form-actions">
+        <a href="emergencia.html" class="btn btn-primary">
+          Opções de emergência
+        </a>
+        <a href="servicos.html" class="btn btn-secondary">
+          Serviços sociais
+        </a>
+        <a href="pessoas-confiaveis.html" class="btn btn-secondary">
+          Pessoas de confiança
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>LIA — Local de Informação e Apoio</strong></p>
+    <p>Projeto desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
+    <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
+    <p>Projeto acadêmico de informação, prevenção e apoio.</p>
+  </footer>
+
+  <aside id="accessibilityPanel" class="accessibility-panel"
+    hidden aria-label="Opções de acessibilidade">
+    <div class="panel-header">
+      <h2>Acessibilidade</h2>
+      <button type="button" id="closeAccessibility" aria-label="Fechar acessibilidade">×</button>
     </div>
 
+    <div class="panel-content">
+      <button type="button" id="fontDecrease">Diminuir fonte</button>
+      <button type="button" id="fontIncrease">Aumentar fonte</button>
+      <button type="button" id="contrastToggle">Alto contraste</button>
+      <button type="button" id="themeToggle">Alternar tema</button>
 
-</main>
+      <label for="languageSelect">Idioma</label>
+      <select id="languageSelect">
+        <option value="pt-BR">Português</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+      </select>
 
-
-<script src="lia.js"></script>
-
-
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
-    crossorigin="anonymous"
-></script>
-
-
+      <button type="button" id="readPage">Ouvir página</button>
+      <button type="button" id="stopReading">Parar leitura</button>
+      <button type="button" id="loadVlibras">Ativar VLibras</button>
+      <div id="vlibrasContainer"></div>
+    </div>
+  </aside>
 </body>
-
 </html>
