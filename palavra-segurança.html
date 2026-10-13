@@ -1,435 +1,352 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Palavra de Segurança | LIA — Local de Informação e Apoio</title>
-  <meta name="description" content="Conheça o recurso de palavra de segurança da LIA, pensado para ajudar mulheres a ativar um alerta por voz em situações de risco.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#51377a">
+  <meta name="author" content="Marcely Castro Rodrigues e Mikaela Castro Bonfim">
+  <meta name="description" content="Configure e teste a palavra de segurança da LIA e conheça seus limites de funcionamento.">
   <meta name="robots" content="index, follow">
-  <meta name="author" content="Projeto LIA">
-  <meta name="theme-color" content="#7651a8">
-
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Palavra de Segurança | LIA">
-  <meta property="og:description" content="Configure uma palavra de segurança e conheça os limites do recurso de alerta por voz da LIA.">
   <meta property="og:locale" content="pt_BR">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Palavra de Segurança | LIA">
-  <meta name="twitter:description" content="Recurso de segurança por voz do projeto LIA.">
-
+  <meta property="og:title" content="Palavra de segurança | LIA">
+  <meta property="og:description" content="Informações sobre a palavra de segurança e os recursos de voz da LIA.">
+  <title>Palavra de segurança | LIA</title>
   <link rel="stylesheet" href="lia.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <script src="lia.js" defer></script>
 </head>
-
 <body>
   <div class="top-bar">
-    <span>LIA — Local • Informação • Apoio</span>
-    <button type="button" id="accessibilityToggle" aria-expanded="false"
-      aria-controls="accessibilityPanel">Acessibilidade</button>
+    <div class="container top-bar-content">
+      <span>LIA — Local • Informação • Apoio</span>
+      <button class="btn btn-discreet" id="openAccessibility" type="button" aria-controls="accessibilityPanel" aria-expanded="false">
+        <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Acessibilidade
+      </button>
+    </div>
   </div>
 
-  <header class="site-header">
-    <a class="logo" href="index.html" aria-label="LIA — página inicial">LIA</a>
+  <header class="header">
+    <div class="container nav-container">
+      <a class="logo" href="index.html" aria-label="LIA — página inicial">
+        <span class="logo-icon">LIA</span>
+        <span class="logo-name">
+          <strong>LIA</strong>
+          <span>Local • Informação • Apoio</span>
+        </span>
+      </a>
 
-    <nav class="main-nav" aria-label="Navegação principal">
-      <a href="index.html">Início</a>
-      <a href="projeto.html">O projeto</a>
-      <a href="violencias.html">Tipos de violência</a>
-      <a href="apoio.html">Preciso de apoio</a>
-      <a href="emergencia.html">Emergência</a>
-      <a href="discreto.html">Modo discreto</a>
-      <a href="cadastro.html">Conta</a>
-    </nav>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navigation">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <nav class="navigation" id="navigation" aria-label="Menu principal">
+        <a href="index.html">Início</a>
+        <a href="projeto.html">Projeto</a>
+        <a href="violencias.html">Violências</a>
+        <a href="apoio.html">Rede de apoio</a>
+        <a href="localizacao.html">Localização</a>
+        <a href="cadastro.html">Conta</a>
+        <a href="discreto.html">Modo discreto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-main" href="emergencia.html">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> Preciso de apoio
+        </a>
+      </div>
+    </div>
   </header>
 
+  <div id="accessibilityOverlay" aria-hidden="true"></div>
+  <aside id="accessibilityPanel" aria-hidden="true" aria-label="Painel de acessibilidade">
+    <button id="closeAccessibility" class="btn btn-outline" type="button">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i> Fechar
+    </button>
+    <h2>Acessibilidade</h2>
+    <p>Personalize a leitura e a aparência da página.</p>
+    <div class="action-list">
+      <button id="fontDecrease" type="button">A− Diminuir texto</button>
+      <button id="fontReset" type="button">A Restaurar texto</button>
+      <button id="fontIncrease" type="button">A+ Aumentar texto</button>
+      <button id="contrastToggle" type="button">Alternar alto contraste</button>
+      <button id="themeToggleAccessibility" type="button">Alternar tema claro/escuro</button>
+      <button id="readPage" type="button">Ler página em voz alta</button>
+      <button id="stopReading" type="button">Parar leitura</button>
+    </div>
+    <label for="languageSelect">Idioma</label>
+    <select id="languageSelect">
+      <option value="pt-BR">Português</option>
+      <option value="en">English</option>
+      <option value="es">Español</option>
+    </select>
+  </aside>
+
   <main>
-    <section class="hero">
-      <div class="hero-content">
-        <span class="eyebrow">Segurança e prevenção</span>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i> SEGURANÇA E CUIDADO</span>
         <h1>Palavra de segurança</h1>
-        <p>
-          Configure uma palavra que você reconheça facilmente e conheça
-          como funciona o recurso de alerta por voz da LIA.
-        </p>
+        <p>Configure uma palavra que seja significativa para você e conheça os limites do reconhecimento de voz no navegador.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-heading">
-        <span class="eyebrow">Seu recurso de segurança</span>
-        <h2>Configure sua palavra</h2>
-        <p>
-          Escolha uma palavra ou frase curta que não seja usada normalmente
-          nas suas conversas. O reconhecimento depende do navegador e da
-          permissão para usar o microfone.
-        </p>
-      </div>
+    <section class="page-content">
+      <div class="container">
+        <div class="alert">
+          <strong>Leia antes de ativar:</strong> o reconhecimento de voz pode falhar, exigir internet ou não estar disponível no seu dispositivo. Esta página não monitora o microfone continuamente em segundo plano e não garante que uma chamada de emergência será realizada.
+        </div>
 
-      <div class="card">
-        <form id="securityWordForm">
-          <div class="form-group">
-            <label for="securityWord">Sua palavra ou frase de segurança</label>
-            <input
-              type="text"
-              id="securityWord"
-              name="securityWord"
-              maxlength="60"
-              autocomplete="off"
-              placeholder="Digite sua palavra de segurança"
-              required
-            >
+        <section class="content-card">
+          <h2>1. Escolha sua palavra</h2>
+          <p>Escolha uma palavra ou expressão discreta, fácil de lembrar e que não apareça frequentemente em conversas comuns.</p>
+
+          <form id="securityWordForm">
+            <div class="form-group">
+              <label for="securityWordInput">Sua palavra de segurança</label>
+              <input id="securityWordInput" name="securityWord" type="password" maxlength="60" autocomplete="off" placeholder="Digite sua palavra" required>
+            </div>
+
+            <div class="form-group">
+              <label for="securityWordConfirm">Confirme a palavra</label>
+              <input id="securityWordConfirm" name="securityWordConfirm" type="password" maxlength="60" autocomplete="off" placeholder="Digite novamente" required>
+            </div>
+
+            <label class="checkbox-label">
+              <input id="showSecurityWord" type="checkbox">
+              Mostrar palavra enquanto digito
+            </label>
+
+            <button class="btn btn-main" type="submit">
+              <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Salvar neste dispositivo
+            </button>
+            <button class="btn btn-outline" id="deleteSecurityWord" type="button">
+              Excluir palavra salva
+            </button>
+          </form>
+
+          <p id="securityStatus" class="privacy-notice" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="content-card" style="margin-top:24px">
+          <h2>2. Teste o reconhecimento de voz</h2>
+          <p>O teste só começa quando você clicar no botão e autorizar o microfone. A palavra é comparada neste navegador com a que você salvou.</p>
+
+          <div class="action-list">
+            <button id="startVoiceTest" type="button">
+              <span><i class="fa-solid fa-microphone" aria-hidden="true"></i> Iniciar teste de voz</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </button>
+            <button id="stopVoiceTest" type="button">
+              <span><i class="fa-solid fa-stop" aria-hidden="true"></i> Parar teste</span>
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
           </div>
 
-          <div class="form-actions">
-            <button type="submit" class="btn btn-primary">
-              Salvar palavra
-            </button>
-            <button type="button" id="showSavedWord" class="btn btn-secondary">
-              Ver palavra salva
-            </button>
+          <p id="voiceStatus" class="privacy-notice" role="status" aria-live="polite">Teste desligado.</p>
+          <p id="voiceTranscript" class="content-card" aria-live="polite">O texto reconhecido aparecerá aqui durante o teste.</p>
+
+          <div class="alert">
+            Para sua segurança, este protótipo não inicia automaticamente uma ligação quando reconhece a palavra. O acionamento de emergência precisa de uma implementação testada, com comportamento previsível e confirmação adequada.
           </div>
-        </form>
+        </section>
 
-        <p id="wordStatus" class="status-message" role="status" aria-live="polite"></p>
-      </div>
-    </section>
+        <section class="content-card" style="margin-top:24px">
+          <h2>3. Recursos de apoio</h2>
+          <div class="action-list">
+            <a href="emergencia.html">
+              <span><i class="fa-solid fa-phone" aria-hidden="true"></i> Ver opções de emergência</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="pessoas-confiaveis.html">
+              <span><i class="fa-solid fa-user-group" aria-hidden="true"></i> Pessoas de confiança</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="localizacao.html">
+              <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Informações de localização</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </section>
 
-    <section class="section">
-      <div class="section-heading">
-        <span class="eyebrow">Reconhecimento de voz</span>
-        <h2>Ative quando precisar</h2>
-        <p>
-          Abra o reconhecimento apenas quando puder fazer isso com segurança.
-          Mantenha a página aberta e o microfone autorizado enquanto o recurso
-          estiver ativo.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="notice notice-warning">
-          <strong>Importante:</strong> este recurso não funciona como uma escuta
-          permanente em segundo plano. O navegador pode não oferecer suporte
-          ao reconhecimento de voz, e o microfone pode exigir autorização.
-          Não dependa dele como único meio de pedir ajuda.
-        </div>
-
-        <div class="form-actions">
-          <button type="button" id="startListening" class="btn btn-primary">
-            <span aria-hidden="true">🎙️</span> Ativar reconhecimento
-          </button>
-
-          <button type="button" id="stopListening" class="btn btn-secondary" disabled>
-            Parar reconhecimento
-          </button>
-        </div>
-
-        <p id="listeningStatus" class="status-message" role="status" aria-live="polite">
-          Reconhecimento desativado.
-        </p>
-
-        <div class="card card-soft">
-          <h3>Teste do reconhecimento</h3>
-          <p>
-            Para testar sem iniciar uma ligação, ative o modo de teste abaixo.
-            Quando a palavra for reconhecida, a página mostrará uma mensagem,
-            sem abrir o telefone.
-          </p>
-
-          <label class="checkbox-label" for="testMode">
-            <input type="checkbox" id="testMode" checked>
-            Modo de teste (não abrir ligação)
-          </label>
-
-          <p class="small-text">
-            Para uma situação real de emergência no Brasil, ligue para 190.
-            A página não envia alertas automaticamente à polícia.
-          </p>
-        </div>
-
-        <button type="button" id="emergencyLink" class="btn btn-danger">
-          Abrir opção de ligação para 190
-        </button>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading">
-        <h2>Como funciona</h2>
-      </div>
-
-      <div class="card-grid">
-        <article class="card">
-          <h3>1. Configure</h3>
-          <p>Salve uma palavra curta e fácil de lembrar.</p>
-        </article>
-
-        <article class="card">
-          <h3>2. Ative</h3>
-          <p>Quando estiver em segurança para isso, permita o microfone e ative o reconhecimento.</p>
-        </article>
-
-        <article class="card">
-          <h3>3. Receba o aviso</h3>
-          <p>Se o navegador reconhecer a palavra configurada, a página exibirá um alerta.</p>
-        </article>
-      </div>
-
-      <div class="notice notice-info">
-        <strong>Privacidade:</strong> a palavra é salva neste navegador usando
-        armazenamento local. Evite salvar informações que possam colocar você
-        em risco caso outra pessoa tenha acesso ao dispositivo. Os dados podem
-        ser apagados ao limpar os dados do navegador.
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="card">
-        <h2>Precisa de ajuda agora?</h2>
-        <p>
-          Se houver perigo imediato, procure um local seguro e, quando puder,
-          ligue para a Polícia Militar pelo número 190.
-        </p>
-        <p>
-          Para orientação e denúncias de violência contra a mulher, o Ligue 180
-          oferece atendimento no Brasil.
-        </p>
-        <div class="form-actions">
-          <a class="btn btn-primary" href="emergencia.html">Ver opções de emergência</a>
-          <a class="btn btn-secondary" href="apoio.html">Encontrar apoio</a>
-        </div>
+        <p class="privacy-notice">A palavra salva nesta versão fica no armazenamento local do navegador, sem criptografia específica. Não a use como única forma de pedir ajuda. Em risco imediato, procure um meio seguro de acionar o serviço de emergência.</p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p><strong>LIA — Local de Informação e Apoio</strong></p>
-    <p>Projeto desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
-    <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
-    <p>Projeto acadêmico de informação, prevenção e apoio.</p>
+  <footer>
+    <div class="container">
+      <h3>LIA — Local • Informação • Apoio</h3>
+      <p>Projeto de informação, acolhimento e orientação para mulheres.</p>
+      <p>Desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
+      <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
+    </div>
   </footer>
 
-  <aside id="accessibilityPanel" class="accessibility-panel" hidden aria-label="Opções de acessibilidade">
-    <div class="panel-header">
-      <h2>Acessibilidade</h2>
-      <button type="button" id="closeAccessibility" aria-label="Fechar acessibilidade">×</button>
-    </div>
+  <script>
+    (() => {
+      "use strict";
 
-    <div class="panel-content">
-      <button type="button" id="fontDecrease">Diminuir fonte</button>
-      <button type="button" id="fontIncrease">Aumentar fonte</button>
-      <button type="button" id="contrastToggle">Alto contraste</button>
-      <button type="button" id="themeToggle">Alternar tema</button>
+      const STORAGE_KEY = "lia_security_word";
+      const form = document.getElementById("securityWordForm");
+      const wordInput = document.getElementById("securityWordInput");
+      const confirmInput = document.getElementById("securityWordConfirm");
+      const showCheckbox = document.getElementById("showSecurityWord");
+      const deleteButton = document.getElementById("deleteSecurityWord");
+      const securityStatus = document.getElementById("securityStatus");
+      const startButton = document.getElementById("startVoiceTest");
+      const stopButton = document.getElementById("stopVoiceTest");
+      const voiceStatus = document.getElementById("voiceStatus");
+      const transcript = document.getElementById("voiceTranscript");
 
-      <label for="languageSelect">Idioma</label>
-      <select id="languageSelect">
-        <option value="pt-BR">Português</option>
-        <option value="en">English</option>
-        <option value="es">Español</option>
-      </select>
+      let recognition = null;
 
-      <button type="button" id="readPage">Ouvir página</button>
-      <button type="button" id="stopReading">Parar leitura</button>
-      <button type="button" id="loadVlibras">Ativar VLibras</button>
-      <div id="vlibrasContainer"></div>
-    </div>
-  </aside>
-</body>
-
-<script>
-(() => {
-  "use strict";
-
-  const wordForm = document.getElementById("securityWordForm");
-  const wordInput = document.getElementById("securityWord");
-  const wordStatus = document.getElementById("wordStatus");
-  const showSavedWord = document.getElementById("showSavedWord");
-  const startButton = document.getElementById("startListening");
-  const stopButton = document.getElementById("stopListening");
-  const listeningStatus = document.getElementById("listeningStatus");
-  const testMode = document.getElementById("testMode");
-  const emergencyLink = document.getElementById("emergencyLink");
-
-  const STORAGE_KEY = "lia_security_word";
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  let recognition = null;
-  let listening = false;
-  let lastTrigger = 0;
-
-  function getSavedWord() {
-    try {
-      return (localStorage.getItem(STORAGE_KEY) || "").trim();
-    } catch {
-      return "";
-    }
-  }
-
-  function normalize(text) {
-    return String(text || "")
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLocaleLowerCase("pt-BR")
-      .replace(/[^\p{L}\p{N}\s]/gu, " ")
-      .replace(/\s+/g, " ")
-      .trim();
-  }
-
-  wordForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const word = wordInput.value.trim();
-
-    if (word.length < 2) {
-      wordStatus.textContent = "Digite uma palavra ou frase com pelo menos dois caracteres.";
-      return;
-    }
-
-    try {
-      localStorage.setItem(STORAGE_KEY, word);
-      wordStatus.textContent = "Palavra salva neste navegador.";
-    } catch {
-      wordStatus.textContent = "Não foi possível salvar. Verifique as configurações do navegador.";
-    }
-  });
-
-  showSavedWord.addEventListener("click", () => {
-    const savedWord = getSavedWord();
-
-    if (!savedWord) {
-      wordStatus.textContent = "Nenhuma palavra foi salva neste navegador.";
-      return;
-    }
-
-    wordInput.value = savedWord;
-    wordStatus.textContent = "Palavra carregada no campo.";
-  });
-
-  function stopRecognition(message = "Reconhecimento desativado.") {
-    listening = false;
-
-    if (recognition) {
-      try {
-        recognition.stop();
-      } catch {
-        // O reconhecimento pode já estar parado.
+      function getSavedWord() {
+        try {
+          return localStorage.getItem(STORAGE_KEY) || "";
+        } catch {
+          return "";
+        }
       }
-    }
 
-    startButton.disabled = false;
-    stopButton.disabled = true;
-    listeningStatus.textContent = message;
-  }
+      function normalize(value) {
+        return value
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLocaleLowerCase("pt-BR")
+          .trim();
+      }
 
-  function handleTrigger() {
-    const now = Date.now();
+      showCheckbox.addEventListener("change", () => {
+        const type = showCheckbox.checked ? "text" : "password";
+        wordInput.type = type;
+        confirmInput.type = type;
+      });
 
-    // Evita múltiplos acionamentos em sequência.
-    if (now - lastTrigger < 10000) return;
-    lastTrigger = now;
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
 
-    stopRecognition("Palavra de segurança reconhecida.");
+        const word = wordInput.value.trim();
+        const confirmation = confirmInput.value.trim();
 
-    if (testMode.checked) {
-      listeningStatus.textContent =
-        "Teste concluído: palavra reconhecida. Nenhuma ligação foi iniciada.";
-      return;
-    }
+        if (word.length < 2) {
+          securityStatus.textContent = "Escolha uma palavra com pelo menos dois caracteres.";
+          return;
+        }
 
-    const proceed = window.confirm(
-      "A palavra de segurança foi reconhecida. Deseja abrir o telefone para ligar para 190?"
-    );
+        if (normalize(word) !== normalize(confirmation)) {
+          securityStatus.textContent = "As palavras não correspondem. Confira e tente novamente.";
+          return;
+        }
 
-    if (proceed) {
-      window.location.href = "tel:190";
-    } else {
-      listeningStatus.textContent = "Ligação cancelada. O reconhecimento foi interrompido.";
-    }
-  }
+        try {
+          localStorage.setItem(STORAGE_KEY, word);
+          wordInput.value = "";
+          confirmInput.value = "";
+          securityStatus.textContent = "Palavra salva neste navegador. Ela não está sincronizada com sua conta.";
+        } catch {
+          securityStatus.textContent = "Não foi possível salvar a palavra neste dispositivo.";
+        }
+      });
 
-  startButton.addEventListener("click", () => {
-    const savedWord = getSavedWord();
+      deleteButton.addEventListener("click", () => {
+        stopRecognition();
 
-    if (!savedWord) {
-      listeningStatus.textContent = "Salve sua palavra de segurança antes de ativar.";
-      return;
-    }
+        try {
+          localStorage.removeItem(STORAGE_KEY);
+          securityStatus.textContent = "Palavra excluída deste navegador.";
+          voiceStatus.textContent = "Teste desligado.";
+          transcript.textContent = "O texto reconhecido aparecerá aqui durante o teste.";
+        } catch {
+          securityStatus.textContent = "Não foi possível excluir a palavra salva.";
+        }
+      });
 
-    if (!SpeechRecognition) {
-      listeningStatus.textContent =
-        "Este navegador não oferece reconhecimento de voz compatível. Tente outro navegador ou use a opção de ligação.";
-      return;
-    }
-
-    try {
-      recognition = new SpeechRecognition();
-      recognition.lang = "pt-BR";
-      recognition.continuous = true;
-      recognition.interimResults = true;
-      recognition.maxAlternatives = 3;
-
-      recognition.onstart = () => {
-        listening = true;
-        startButton.disabled = true;
-        stopButton.disabled = false;
-        listeningStatus.textContent =
-          "Reconhecimento ativo. Mantenha esta página aberta e o microfone autorizado.";
-      };
-
-      recognition.onresult = (event) => {
-        const target = normalize(savedWord);
-
-        for (let i = event.resultIndex; i < event.results.length; i++) {
-          const result = event.results[i];
-
-          for (let j = 0; j < result.length; j++) {
-            const spoken = normalize(result[j].transcript);
-
-            if (spoken && spoken.includes(target)) {
-              handleTrigger();
-              return;
-            }
+      function stopRecognition() {
+        if (recognition) {
+          try {
+            recognition.stop();
+          } catch {
+            // O reconhecimento pode já estar parado.
           }
+          recognition = null;
         }
-      };
-
-      recognition.onerror = (event) => {
-        listeningStatus.textContent =
-          "O reconhecimento apresentou um erro (" + event.error + "). Verifique a permissão do microfone.";
-        stopRecognition(listeningStatus.textContent);
-      };
-
-      recognition.onend = () => {
-        if (listening) {
-          listening = false;
-          startButton.disabled = false;
-          stopButton.disabled = true;
-          listeningStatus.textContent = "Reconhecimento encerrado. Ative novamente se desejar.";
-        }
-      };
-
-      recognition.start();
-    } catch {
-      stopRecognition("Não foi possível iniciar o reconhecimento de voz.");
-    }
-  });
-
-  stopButton.addEventListener("click", () => {
-    stopRecognition();
-  });
-
-  emergencyLink.addEventListener("click", () => {
-    window.location.href = "tel:190";
-  });
-
-  window.addEventListener("pagehide", () => {
-    if (recognition) {
-      try {
-        recognition.stop();
-      } catch {
-        // Não há ação adicional necessária.
       }
-    }
-  });
-})();
-</script>
-</html> 
+
+      startButton.addEventListener("click", () => {
+        const savedWord = getSavedWord();
+
+        if (!savedWord) {
+          voiceStatus.textContent = "Salve uma palavra de segurança antes de iniciar o teste.";
+          return;
+        }
+
+        const SpeechRecognitionAPI =
+          window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        if (!SpeechRecognitionAPI) {
+          voiceStatus.textContent = "Este navegador não oferece reconhecimento de voz compatível. Tente outro navegador ou dispositivo.";
+          return;
+        }
+
+        if (!window.isSecureContext) {
+          voiceStatus.textContent = "O reconhecimento de voz exige HTTPS ou localhost.";
+          return;
+        }
+
+        stopRecognition();
+
+        try {
+          recognition = new SpeechRecognitionAPI();
+          recognition.lang = "pt-BR";
+          recognition.continuous = true;
+          recognition.interimResults = true;
+
+          recognition.onstart = () => {
+            voiceStatus.textContent = "Teste ativo. Fale normalmente e clique em parar quando terminar.";
+          };
+
+          recognition.onresult = (event) => {
+            let recognizedText = "";
+
+            for (let i = event.resultIndex; i < event.results.length; i++) {
+              recognizedText += event.results[i][0].transcript + " ";
+            }
+
+            transcript.textContent = recognizedText.trim() || "Nenhuma fala reconhecida ainda.";
+
+            const recognized = normalize(recognizedText);
+            const target = normalize(savedWord);
+
+            if (target && recognized.includes(target)) {
+              voiceStatus.textContent = "Palavra identificada no teste. Nenhuma chamada foi realizada. Se precisar de ajuda, use um canal seguro.";
+            }
+          };
+
+          recognition.onerror = (event) => {
+            voiceStatus.textContent = "O reconhecimento foi interrompido: " + event.error + ". Verifique a permissão do microfone.";
+          };
+
+          recognition.onend = () => {
+            if (recognition) {
+              voiceStatus.textContent = "Teste finalizado. Clique em iniciar para testar novamente.";
+              recognition = null;
+            }
+          };
+
+          recognition.start();
+        } catch {
+          recognition = null;
+          voiceStatus.textContent = "Não foi possível iniciar o teste. Verifique o microfone e as permissões do navegador.";
+        }
+      });
+
+      stopButton.addEventListener("click", () => {
+        stopRecognition();
+        voiceStatus.textContent = "Teste desligado.";
+      });
+    })();
+  </script>
+</body>
+</html>
