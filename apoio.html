@@ -1,492 +1,159 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Rede de Apoio à Mulher | Apoio Psicológico, Jurídico e Social — LIA</title>
-    <meta name="description" content="Conheça caminhos para buscar apoio psicológico, jurídico e social em situações de violência contra a mulher. Encontre orientações e canais oficiais na LIA.">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Marcely Castro Rodrigues e Mikaela Castro Bonfim">
-    <meta name="theme-color" content="#7656A3">
-
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="LIA — Local de Informação e Apoio">
-    <meta property="og:title" content="Rede de Apoio à Mulher | LIA">
-    <meta property="og:description" content="Informação sobre apoio psicológico, jurídico e social para mulheres.">
-    <meta property="og:locale" content="pt_BR">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Rede de Apoio à Mulher | LIA">
-    <meta name="twitter:description" content="Conheça os caminhos para encontrar orientação e apoio.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="lia.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7950b8">
+  <meta name="author" content="Equipe LIA">
+  <meta name="description" content="Encontre orientações para buscar apoio psicológico, jurídico e social pelo LIA.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Preciso de Apoio | LIA">
+  <meta property="og:description" content="Conheça caminhos de atendimento e canais oficiais de ajuda.">
+  <meta property="og:locale" content="pt_BR">
+  <title>Preciso de Apoio | LIA</title>
+  <link rel="stylesheet" href="lia.css">
+  <script src="lia.js" defer></script>
 </head>
-
 <body>
-
-<div class="top-bar">
-    <div class="container top-bar-inner">
-        <span>LIA — Local • Informação • Apoio</span>
-        <button id="openAccessibility" class="accessibility-button" type="button">
-            <i class="fa-solid fa-universal-access"></i>
-            Acessibilidade
-        </button>
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <span>LIA — Local • Informação • Apoio</span>
+      <button class="btn btn-outline" id="openAccessibility" type="button">Acessibilidade</button>
     </div>
-</div>
+  </div>
 
-<header class="site-header">
-    <div class="container header-inner">
-
-        <a href="index.html" class="main-logo" aria-label="Página inicial da LIA">
-            <span class="logo-icon">L</span>
-            <span class="logo-name">LIA</span>
-        </a>
-
-        <nav class="main-navigation" id="mainNavigation" aria-label="Navegação principal">
-            <a href="index.html">Início</a>
-            <a href="projeto.html">Conheça a LIA</a>
-            <a href="violencias.html">Violências</a>
-            <a href="apoio.html" class="active" aria-current="page">Rede de apoio</a>
-            <a href="localizacao.html">Localização</a>
-            <a href="cadastro.html">Meu cadastro</a>
-            <a href="discreto.html" class="discreet-nav-button">
-                <i class="fa-solid fa-eye-slash"></i>
-                Modo discreto
-            </a>
-        </nav>
-
-        <div class="header-actions">
-            <button id="themeToggle" class="theme-button" type="button" aria-label="Alternar tema">
-                <i class="fa-solid fa-moon"></i>
-            </button>
-
-            <button id="mobileMenuButton" class="mobile-menu-button" type="button" aria-label="Abrir menu" aria-expanded="false">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-
+  <header class="header">
+    <div class="container nav-container">
+      <a class="logo" href="index.html" aria-label="Página inicial LIA">
+        <span class="logo-icon">L</span>
+        <span class="logo-name">LIA</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <nav class="navigation" id="navigation">
+        <a href="index.html">Início</a>
+        <a href="projeto.html">O projeto</a>
+        <a href="violencias.html">Tipos de violência</a>
+        <a href="apoio.html" aria-current="page">Preciso de apoio</a>
+        <a href="conta.html">Conta</a>
+        <a href="discreto.html">Modo discreto</a>
+      </nav>
     </div>
-</header>
+  </header>
 
-<main>
-
+  <main>
     <section class="page-hero">
-        <div class="container">
-            <span class="eyebrow">ACOLHIMENTO E ORIENTAÇÃO</span>
-            <h1>Você não precisa enfrentar tudo sozinha.</h1>
-            <p>
-                Buscar apoio pode ser um passo importante para recuperar
-                a segurança, compreender seus direitos e encontrar pessoas
-                preparadas para acolher você.
-            </p>
-
-            <a href="#canais-oficiais" class="btn btn-main">
-                Encontrar caminhos de apoio
-                <i class="fa-solid fa-arrow-down"></i>
-            </a>
-        </div>
+      <div class="container">
+        <span class="eyebrow">Você não precisa resolver tudo sozinha</span>
+        <h1>Que tipo de apoio você procura?</h1>
+        <p>Explore as opções abaixo no seu tempo. Você pode escolher o caminho que fizer mais sentido para sua situação.</p>
+      </div>
     </section>
 
-
-    <section class="section">
-        <div class="container">
-
-            <div class="section-title centered">
-                <span class="eyebrow">COMO PODEMOS AJUDAR</span>
-                <h2>Escolha o tipo de orientação que procura</h2>
-                <p>
-                    Cada situação é diferente. Conheça possibilidades de
-                    acolhimento e veja qual caminho faz sentido para você.
-                </p>
-            </div>
-
-            <div class="violence-grid">
-
-                <a href="psicologo.html" class="violence-card">
-                    <div class="violence-icon">
-                        <i class="fa-solid fa-heart"></i>
-                    </div>
-                    <h3>Apoio psicológico</h3>
-                    <p>
-                        Conheça caminhos para procurar escuta profissional,
-                        acolhimento emocional e acompanhamento psicológico.
-                    </p>
-                    <span>
-                        Conhecer opções
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </span>
-                </a>
-
-                <a href="advogados.html" class="violence-card">
-                    <div class="violence-icon">
-                        <i class="fa-solid fa-scale-balanced"></i>
-                    </div>
-                    <h3>Apoio jurídico</h3>
-                    <p>
-                        Saiba onde procurar orientação sobre direitos,
-                        medidas protetivas e assistência jurídica.
-                    </p>
-                    <span>
-                        Conhecer opções
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </span>
-                </a>
-
-                <a href="servicos.html" class="violence-card">
-                    <div class="violence-icon">
-                        <i class="fa-solid fa-hands-holding-circle"></i>
-                    </div>
-                    <h3>Serviços sociais</h3>
-                    <p>
-                        Conheça possibilidades de acolhimento, assistência
-                        social e encaminhamento para serviços públicos.
-                    </p>
-                    <span>
-                        Conhecer opções
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </span>
-                </a>
-
-                <a href="pessoas-confiaveis.html" class="violence-card">
-                    <div class="violence-icon">
-                        <i class="fa-solid fa-people-group"></i>
-                    </div>
-                    <h3>Pessoas confiáveis</h3>
-                    <p>
-                        Organize contatos de pessoas escolhidas por você
-                        que possam oferecer ajuda quando necessário.
-                    </p>
-                    <span>
-                        Organizar contatos
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </span>
-                </a>
-
-            </div>
-
+    <section class="page-content container">
+      <div class="alert">
+        <strong>Se você estiver em perigo imediato:</strong>
+        <p>Se for seguro fazer isso, procure um local protegido e ligue para a Polícia Militar pelo <strong>190</strong>. Para orientação e denúncias de violência contra a mulher, o Ligue 180 funciona gratuitamente, 24 horas por dia.</p>
+        <div class="action-list">
+          <a class="btn btn-main" href="emergencia.html">Ver opções de emergência</a>
+          <a class="btn btn-outline" href="tel:180">Ligar 180</a>
         </div>
+      </div>
+
+      <div class="content-grid">
+        <article class="service-card">
+          <div class="feature-icon">💜</div>
+          <h2>Apoio psicológico</h2>
+          <p>Conheça caminhos para buscar escuta, acolhimento e atendimento em saúde mental.</p>
+          <a class="btn btn-main" href="psicologo.html">Conhecer apoio psicológico</a>
+        </article>
+
+        <article class="service-card">
+          <div class="feature-icon">⚖️</div>
+          <h2>Apoio jurídico</h2>
+          <p>Encontre informações sobre direitos, orientação jurídica e serviços de assistência.</p>
+          <a class="btn btn-main" href="advogados.html">Conhecer apoio jurídico</a>
+        </article>
+
+        <article class="service-card">
+          <div class="feature-icon">🏠</div>
+          <h2>Serviços sociais</h2>
+          <p>Veja caminhos para procurar serviços públicos e orientação socioassistencial.</p>
+          <a class="btn btn-main" href="serviços.html">Ver serviços sociais</a>
+        </article>
+
+        <article class="service-card">
+          <div class="feature-icon">🤝</div>
+          <h2>Pessoas confiáveis</h2>
+          <p>Organize os contatos de pessoas com quem você se sente segura para conversar ou pedir ajuda.</p>
+          <a class="btn btn-main" href="pessoas-confiaveis.html">Acessar contatos</a>
+        </article>
+
+        <article class="service-card">
+          <div class="feature-icon">📍</div>
+          <h2>Encontrar serviços</h2>
+          <p>Consulte opções para procurar serviços de atendimento na sua região.</p>
+          <a class="btn btn-main" href="localizacao.html">Consultar localização</a>
+        </article>
+
+        <article class="service-card">
+          <div class="feature-icon">📖</div>
+          <h2>Entender a violência</h2>
+          <p>Conheça os tipos de violência e informações que podem ajudar a reconhecer situações abusivas.</p>
+          <a class="btn btn-main" href="violencias.html">Conhecer os tipos</a>
+        </article>
+      </div>
+
+      <section class="content-card">
+        <h2>Canais importantes</h2>
+        <div class="action-list">
+          <p><strong>190 — Polícia Militar:</strong> para situações de emergência e perigo imediato.</p>
+          <p><strong>180 — Central de Atendimento à Mulher:</strong> orientação, acolhimento e informações sobre serviços especializados.</p>
+          <p><strong>192 — SAMU:</strong> atendimento de urgência em saúde.</p>
+        </div>
+        <div class="action-list">
+          <a class="btn btn-outline" href="tel:190">Ligar 190</a>
+          <a class="btn btn-outline" href="tel:180">Ligar 180</a>
+          <a class="btn btn-outline" href="tel:192">Ligar 192</a>
+        </div>
+        <p class="privacy-notice">Os links de ligação abrem o aplicativo de chamadas do dispositivo; você precisa confirmar a ligação. Use-os somente se for seguro. O LIA é um projeto informativo e não substitui serviços oficiais de emergência.</p>
+      </section>
+
+      <section class="content-card">
+        <h2>Você decide o próximo passo</h2>
+        <p>Buscar apoio pode acontecer aos poucos. Se não for seguro usar este dispositivo ou guardar informações nele, priorize sua segurança e procure ajuda por um canal confiável quando puder.</p>
+        <a href="discreto.html" class="btn btn-outline">Abrir modo discreto</a>
+      </section>
     </section>
+  </main>
 
-
-    <section class="section" id="canais-oficiais">
-        <div class="container">
-
-            <div class="section-title">
-                <span class="eyebrow">CANAIS OFICIAIS</span>
-                <h2>Onde procurar ajuda no Brasil</h2>
-                <p>
-                    Você pode procurar orientação mesmo que ainda não saiba
-                    qual providência deseja tomar.
-                </p>
-            </div>
-
-            <div class="features-grid">
-
-                <article class="feature-card">
-                    <div class="feature-icon purple">
-                        <i class="fa-solid fa-phone"></i>
-                    </div>
-                    <h3>Ligue 180</h3>
-                    <p>
-                        Central de Atendimento à Mulher. Oferece informações
-                        sobre direitos e serviços, além de receber e encaminhar
-                        denúncias. O atendimento é gratuito e funciona 24 horas.
-                    </p>
-                    <p><strong>Telefone:</strong> 180</p>
-                    <p><strong>WhatsApp:</strong> (61) 9610-0180</p>
-                    <a href="https://www.gov.br/mulheres/pt-br/ligue180"
-                       target="_blank" rel="noopener noreferrer"
-                       class="feature-link">
-                        Acessar canal oficial
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                </article>
-
-                <article class="feature-card">
-                    <div class="feature-icon pink">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <h3>Emergência — 190</h3>
-                    <p>
-                        Em situação de perigo imediato, violência em andamento
-                        ou risco à integridade física, acione a Polícia Militar.
-                    </p>
-                    <a href="tel:190" class="feature-link">
-                        Ligar para 190
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                    <p class="small-note">
-                        O dispositivo pode solicitar confirmação antes de iniciar a ligação.
-                    </p>
-                </article>
-
-                <article class="feature-card">
-                    <div class="feature-icon blue">
-                        <i class="fa-solid fa-scale-balanced"></i>
-                    </div>
-                    <h3>Defensoria Pública</h3>
-                    <p>
-                        Pode oferecer orientação e assistência jurídica gratuita
-                        a quem atende aos critérios do serviço. Consulte a unidade
-                        responsável pelo seu estado.
-                    </p>
-                    <a href="https://www.cnj.jus.br/"
-                       target="_blank" rel="noopener noreferrer"
-                       class="feature-link">
-                        Consultar informações institucionais
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                </article>
-
-                <article class="feature-card">
-                    <div class="feature-icon green">
-                        <i class="fa-solid fa-house-medical"></i>
-                    </div>
-                    <h3>Saúde e acolhimento</h3>
-                    <p>
-                        Unidades de saúde e serviços especializados podem
-                        oferecer atendimento e orientar sobre os próximos passos.
-                        Em caso de urgência médica, procure atendimento de emergência.
-                    </p>
-                    <a href="localizacao.html" class="feature-link">
-                        Ver recursos de localização
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </article>
-
-            </div>
-
-        </div>
-    </section>
-
-
-    <section class="section">
-        <div class="container">
-
-            <div class="mission-box">
-                <div>
-                    <span class="eyebrow">PARA QUEM QUER AJUDAR</span>
-                    <h2>Escute sem julgar. Respeite as decisões dela.</h2>
-                </div>
-
-                <p>
-                    Se uma mulher confiar em você para contar o que está vivendo,
-                    escute com respeito, não minimize o relato e pergunte como
-                    você pode ajudar. Evite tomar decisões por ela ou confrontar
-                    a pessoa agressora de maneira que aumente o risco.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-
-    <section class="section">
-        <div class="container">
-
-            <div class="section-title centered">
-                <span class="eyebrow">RECURSOS DA LIA</span>
-                <h2>Prepare seus caminhos de segurança</h2>
-                <p>
-                    A LIA reúne páginas para ajudar você a organizar informações
-                    e conhecer recursos disponíveis no projeto.
-                </p>
-            </div>
-
-            <div class="features-grid">
-
-                <article class="feature-card">
-                    <div class="feature-icon purple">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </div>
-                    <h3>Localização</h3>
-                    <p>
-                        Consulte a página de localização para acessar recursos
-                        de mapa e procurar serviços próximos.
-                    </p>
-                    <a href="localizacao.html" class="feature-link">
-                        Abrir localização
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </article>
-
-                <article class="feature-card">
-                    <div class="feature-icon pink">
-                        <i class="fa-solid fa-key"></i>
-                    </div>
-                    <h3>Palavra de segurança</h3>
-                    <p>
-                        Conheça a proposta de recurso de segurança por palavra
-                        previamente configurada.
-                    </p>
-                    <a href="palavra-seguranca.html" class="feature-link">
-                        Conhecer recurso
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </article>
-
-                <article class="feature-card">
-                    <div class="feature-icon blue">
-                        <i class="fa-solid fa-book"></i>
-                    </div>
-                    <h3>Diário pessoal</h3>
-                    <p>
-                        Conheça a área destinada a anotações pessoais.
-                        Avalie sua segurança antes de registrar informações
-                        que outra pessoa possa encontrar.
-                    </p>
-                    <a href="diario.html" class="feature-link">
-                        Abrir diário
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </article>
-
-            </div>
-
-            <p class="small-note">
-                Os recursos do site não substituem atendimento profissional
-                nem garantem, por si só, proteção ou contato automático com
-                os serviços de emergência.
-            </p>
-
-        </div>
-    </section>
-
-
-    <section class="section support-section">
-        <div class="container">
-
-            <div class="support-banner">
-                <div>
-                    <span class="eyebrow">PRECISA DE AJUDA AGORA?</span>
-                    <h2>Seu bem-estar e sua segurança importam.</h2>
-                    <p>
-                        Em risco imediato, procure um local seguro, se possível,
-                        e acione o serviço de emergência.
-                    </p>
-                </div>
-
-                <a href="emergencia.html" class="btn btn-light">
-                    Recursos de emergência
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-</main>
-
-
-<footer class="site-footer">
-    <div class="container footer-content">
-
-        <div class="footer-brand">
-            <a href="index.html" class="main-logo">
-                <span class="logo-icon">L</span>
-                <span class="logo-name">LIA</span>
-            </a>
-            <p>Local de Informação e Apoio.</p>
-            <p>Informação • Proteção • Apoio</p>
-        </div>
-
-        <div class="footer-links">
-            <h3>Navegação</h3>
-            <a href="index.html">Início</a>
-            <a href="projeto.html">Conheça a LIA</a>
-            <a href="violencias.html">Violências</a>
-            <a href="apoio.html">Rede de apoio</a>
-            <a href="localizacao.html">Localização</a>
-        </div>
-
-        <div class="footer-links">
-            <h3>Segurança</h3>
-            <a href="emergencia.html">Emergência</a>
-            <a href="palavra-seguranca.html">Palavra de segurança</a>
-            <a href="pessoas-confiaveis.html">Pessoas confiáveis</a>
-            <a href="biometria.html">Biometria</a>
-            <a href="diario.html">Diário</a>
-        </div>
-
-        <div class="footer-info">
-            <h3>Desenvolvimento</h3>
-            <p><strong>Marcely Castro Rodrigues</strong> — Desenvolvedora</p>
-            <p><strong>Mikaela Castro Bonfim</strong> — Desenvolvedora</p>
-            <p><strong>Hellen Goulart Orlandi</strong> — Assistente Social — CRESS 58321</p>
-        </div>
-
+  <footer class="footer">
+    <div class="container">
+      <p><strong>LIA — Local de Informação e Apoio</strong></p>
+      <p>Informação, acolhimento e orientação.</p>
+      <p><a href="projeto.html">Sobre o projeto</a> · <a href="apoio.html">Apoio</a> · <a href="configurações.html">Configurações</a></p>
     </div>
+  </footer>
 
-    <div class="footer-bottom">
-        <div class="container">
-            <span>© 2026 LIA — Local de Informação e Apoio.</span>
-            <span>Informação • Proteção • Apoio</span>
-        </div>
+  <div class="accessibility-overlay" id="accessibilityOverlay"></div>
+  <aside class="accessibility-panel" id="accessibilityPanel" aria-label="Painel de acessibilidade" aria-hidden="true">
+    <button class="btn btn-outline" id="closeAccessibility" type="button">Fechar ×</button>
+    <h2>Acessibilidade</h2>
+    <div class="action-list">
+      <button class="btn btn-outline" id="fontDecrease" type="button">Diminuir fonte A−</button>
+      <button class="btn btn-outline" id="fontReset" type="button">Fonte normal</button>
+      <button class="btn btn-outline" id="fontIncrease" type="button">Aumentar fonte A+</button>
+      <button class="btn btn-outline" id="contrastToggle" type="button">Alternar alto contraste</button>
+      <button class="btn btn-outline" id="themeToggleAccessibility" type="button">Alternar tema</button>
+      <label for="languageSelect">Idioma</label>
+      <select id="languageSelect">
+        <option value="pt">Português</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+      </select>
+      <button class="btn btn-outline" id="readPage" type="button">Ler página</button>
+      <button class="btn btn-outline" id="stopReading" type="button">Parar leitura</button>
     </div>
-</footer>
-
-
-<div id="accessibilityOverlay" class="accessibility-overlay"></div>
-
-<aside id="accessibilityPanel" class="accessibility-panel" aria-hidden="true">
-    <div class="accessibility-panel-header">
-        <div>
-            <span class="panel-eyebrow">LIA</span>
-            <h2>Acessibilidade</h2>
-        </div>
-        <button id="closeAccessibility" class="panel-close" type="button" aria-label="Fechar acessibilidade">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-    </div>
-
-    <div class="accessibility-group">
-        <strong>Tamanho do texto</strong>
-        <div class="accessibility-controls">
-            <button id="fontDecrease" type="button">A−</button>
-            <button id="fontNormal" type="button">A</button>
-            <button id="fontIncrease" type="button">A+</button>
-        </div>
-    </div>
-
-    <div class="accessibility-group">
-        <strong>Leitura</strong>
-        <div class="accessibility-controls">
-            <button id="readPage" type="button">🔊 Ler página</button>
-            <button id="stopReading" type="button">■ Parar</button>
-        </div>
-    </div>
-
-    <div class="accessibility-group">
-        <strong>Idioma</strong>
-        <div class="language-buttons">
-            <button class="language-button" data-language="pt-BR" type="button">Português</button>
-            <button class="language-button" data-language="en" type="button">English</button>
-            <button class="language-button" data-language="es" type="button">Español</button>
-        </div>
-    </div>
-
-    <div class="accessibility-group">
-        <strong>Visual</strong>
-        <div class="accessibility-controls">
-            <button id="contrastToggle" type="button">Contraste</button>
-            <button id="themeToggleAccessibility" type="button">Modo noturno</button>
-        </div>
-    </div>
-
-    <div class="accessibility-group">
-        <strong>VLibras</strong>
-        <button id="activateVlibras" class="accessibility-main-button" type="button">
-            Ativar VLibras
-        </button>
-    </div>
-</aside>
-
-<script src="lia.js"></script>
-
+  </aside>
 </body>
 </html>

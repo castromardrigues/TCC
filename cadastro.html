@@ -3,100 +3,127 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#51377a">
-  <meta name="description" content="Área de cadastro e acesso ao projeto LIA.">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Conta | LIA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7950b8">
+  <meta name="description" content="Cadastro para a área pessoal do LIA.">
+  <meta name="robots" content="index, follow">
+  <title>Criar Cadastro | LIA</title>
   <link rel="stylesheet" href="lia.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <script src="lia.js" defer></script>
 </head>
 <body>
-  <div class="top-bar"><div class="container top-bar-content">
-    <span>LIA — Local • Informação • Apoio</span>
-    <button class="btn btn-discreet" id="openAccessibility" type="button" aria-controls="accessibilityPanel" aria-expanded="false">Acessibilidade</button>
-  </div></div>
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <span>LIA — Local • Informação • Apoio</span>
+      <button class="btn btn-outline" id="openAccessibility" type="button">Acessibilidade</button>
+    </div>
+  </div>
 
-  <header class="header"><div class="container nav-container">
-    <a class="logo" href="index.html"><span class="logo-icon">LIA</span><span class="logo-name"><strong>LIA</strong><span>Local • Informação • Apoio</span></span></a>
-    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navigation"><i class="fa-solid fa-bars"></i></button>
-    <nav class="navigation" id="navigation"><a href="index.html">Início</a><a href="projeto.html">Projeto</a><a href="violencias.html">Violências</a><a href="apoio.html">Rede de apoio</a><a href="localizacao.html">Localização</a><a href="cadastro.html" aria-current="page">Conta</a><a href="discreto.html">Modo discreto</a></nav>
-    <div class="nav-actions"><a class="btn btn-main" href="emergencia.html">Preciso de apoio</a></div>
-  </div></header>
+  <header class="header">
+    <div class="container nav-container">
+      <a class="logo" href="index.html"><span class="logo-icon">L</span><span class="logo-name">LIA</span></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <nav class="navigation" id="navigation">
+        <a href="index.html">Início</a>
+        <a href="projeto.html">O projeto</a>
+        <a href="violencias.html">Tipos de violência</a>
+        <a href="apoio.html">Preciso de apoio</a>
+        <a href="conta.html">Conta</a>
+        <a href="discreto.html">Modo discreto</a>
+      </nav>
+    </div>
+  </header>
 
-  <div id="accessibilityOverlay" aria-hidden="true"></div>
-  <aside id="accessibilityPanel" aria-hidden="true" aria-label="Painel de acessibilidade">
-    <button id="closeAccessibility" class="btn btn-outline" type="button">Fechar</button><h2>Acessibilidade</h2>
-    <div class="action-list"><button id="fontDecrease" type="button">A− Diminuir texto</button><button id="fontReset" type="button">Restaurar texto</button><button id="fontIncrease" type="button">A+ Aumentar texto</button><button id="contrastToggle" type="button">Alto contraste</button><button id="themeToggleAccessibility" type="button">Tema claro/escuro</button><button id="readPage" type="button">Ler página</button><button id="stopReading" type="button">Parar leitura</button></div>
-    <label for="languageSelect">Idioma</label><select id="languageSelect"><option value="pt-BR">Português</option><option value="en">English</option><option value="es">Español</option></select>
-  </aside>
+  <main class="page-content container">
+    <section class="page-hero">
+      <span class="eyebrow">Área pessoal</span>
+      <h1>Crie seu cadastro</h1>
+      <p>Preencha os dados abaixo para preparar sua conta no LIA.</p>
+    </section>
 
-  <main>
-    <section class="page-hero"><div class="container"><span class="eyebrow">ÁREA PESSOAL</span><h1>Sua conta LIA</h1><p>Uma área para organizar suas informações e acessar os recursos do projeto.</p></div></section>
-    <section class="page-content"><div class="container">
-      <div class="alert"><strong>Versão de demonstração:</strong> este formulário não cria uma conta segura nem envia os dados a um servidor. Não informe senhas reais, endereço residencial ou informações sensíveis.</div>
+    <section class="content-card">
+      <form id="registerForm">
+        <div class="content-grid">
+          <div>
+            <label for="fullName">Nome completo</label>
+            <input id="fullName" name="fullName" type="text" autocomplete="name" required placeholder="Seu nome">
+          </div>
+          <div>
+            <label for="birthDate">Data de nascimento</label>
+            <input id="birthDate" name="birthDate" type="date" autocomplete="bday">
+          </div>
+          <div>
+            <label for="registerEmail">E-mail</label>
+            <input id="registerEmail" name="email" type="email" autocomplete="email" required placeholder="seuemail@exemplo.com">
+          </div>
+          <div>
+            <label for="registerPassword">Criar senha</label>
+            <input id="registerPassword" name="password" type="password" autocomplete="new-password" minlength="8" required placeholder="Mínimo de 8 caracteres">
+          </div>
+          <div>
+            <label for="confirmPassword">Confirmar senha</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="Digite a senha novamente">
+          </div>
+          <div>
+            <label for="phone">Telefone (opcional)</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="DDD + telefone">
+          </div>
+        </div>
 
-      <div class="content-grid">
-        <article class="content-card">
-          <h2>Criar conta de demonstração</h2>
-          <form id="demoRegister">
-            <label for="regName">Nome</label><input id="regName" required maxlength="100" autocomplete="name">
-            <label for="regEmail">E-mail</label><input id="regEmail" type="email" required maxlength="200" autocomplete="email">
-            <label for="regPassword">Senha de demonstração</label><input id="regPassword" type="password" required minlength="8" autocomplete="new-password">
-            <button class="btn btn-main" type="submit">Criar demonstração</button>
-          </form>
-          <p id="registerMessage" role="status"></p>
-        </article>
+        <div class="privacy-notice">
+          <strong>Importante:</strong> este formulário ainda não cria uma conta real nem envia os dados para um banco. Não informe dados pessoais reais até a autenticação segura estar configurada.
+        </div>
 
-        <article class="content-card">
-          <h2>Entrar</h2>
-          <form id="demoLogin">
-            <label for="loginEmail">E-mail</label><input id="loginEmail" type="email" required autocomplete="email">
-            <label for="loginPassword">Senha de demonstração</label><input id="loginPassword" type="password" required autocomplete="current-password">
-            <button class="btn btn-main" type="submit">Entrar na demonstração</button>
-          </form>
-          <p id="loginMessage" role="status"></p>
-        </article>
-      </div>
+        <label class="action-list">
+          <span><input id="privacyAgreement" type="checkbox" required> Entendi que o cadastro só será ativado após a configuração segura do sistema.</span>
+        </label>
 
-      <article class="content-card" style="margin-top:24px">
-        <h2>Estado da demonstração</h2>
-        <p id="demoStatus">Nenhuma sessão de demonstração iniciada.</p>
-        <button class="btn btn-outline" id="demoLogout" type="button">Encerrar demonstração</button>
-        <p class="privacy-notice">Esta demonstração não armazena credenciais. Ao atualizar a página, a sessão de demonstração é encerrada.</p>
-      </article>
-    </div></section>
+        <button class="btn btn-main" type="submit">Validar formulário</button>
+        <p id="registerStatus" role="status" aria-live="polite"></p>
+        <p>Já tem uma conta? <a href="conta.html">Voltar para a página de conta</a>.</p>
+      </form>
+    </section>
   </main>
 
-  <footer><div class="container"><h3>LIA — Local • Informação • Apoio</h3><p>Desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p><p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p></div></footer>
+  <footer class="footer">
+    <div class="container">
+      <p><strong>LIA — Local de Informação e Apoio</strong></p>
+      <p><a href="projeto.html">Sobre o projeto</a> · <a href="apoio.html">Apoio</a> · <a href="configurações.html">Configurações</a></p>
+    </div>
+  </footer>
+
+  <div class="accessibility-overlay" id="accessibilityOverlay"></div>
+  <aside class="accessibility-panel" id="accessibilityPanel" aria-label="Painel de acessibilidade" aria-hidden="true">
+    <button class="btn btn-outline" id="closeAccessibility" type="button">Fechar ×</button>
+    <h2>Acessibilidade</h2>
+    <div class="action-list">
+      <button class="btn btn-outline" id="fontDecrease" type="button">Diminuir fonte A−</button>
+      <button class="btn btn-outline" id="fontReset" type="button">Fonte normal</button>
+      <button class="btn btn-outline" id="fontIncrease" type="button">Aumentar fonte A+</button>
+      <button class="btn btn-outline" id="contrastToggle" type="button">Alto contraste</button>
+      <button class="btn btn-outline" id="themeToggleAccessibility" type="button">Alternar tema</button>
+      <label for="languageSelect">Idioma</label>
+      <select id="languageSelect"><option value="pt">Português</option><option value="en">English</option><option value="es">Español</option></select>
+      <button class="btn btn-outline" id="readPage" type="button">Ler página</button>
+      <button class="btn btn-outline" id="stopReading" type="button">Parar leitura</button>
+    </div>
+  </aside>
 
   <script>
-    (() => {
-      const register = document.getElementById("demoRegister");
-      const login = document.getElementById("demoLogin");
-      const status = document.getElementById("demoStatus");
+    document.getElementById('registerForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const password = document.getElementById('registerPassword').value;
+      const confirmation = document.getElementById('confirmPassword').value;
+      const status = document.getElementById('registerStatus');
 
-      register.addEventListener("submit", event => {
-        event.preventDefault();
-        document.getElementById("registerMessage").textContent =
-          "Demonstração visual concluída. Nenhuma conta foi criada. Configure o Supabase para cadastrar usuários de verdade.";
-        register.reset();
-      });
+      if (password !== confirmation) {
+        status.textContent = 'As senhas não coincidem. Confira e tente novamente.';
+        document.getElementById('confirmPassword').focus();
+        return;
+      }
 
-      login.addEventListener("submit", event => {
-        event.preventDefault();
-        document.getElementById("loginMessage").textContent =
-          "O login real ainda não está conectado. Configure o Supabase Auth antes de utilizar esta função.";
-        login.reset();
-      });
-
-      document.getElementById("demoLogout").addEventListener("click", () => {
-        status.textContent = "Nenhuma sessão de demonstração iniciada.";
-        document.getElementById("registerMessage").textContent = "";
-        document.getElementById("loginMessage").textContent = "";
-      });
-    })();
+      status.textContent = 'Formulário validado. O cadastro real ainda precisa ser conectado ao Supabase para salvar a conta com segurança.';
+    });
   </script>
 </body>
 </html>
