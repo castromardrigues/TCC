@@ -3,44 +3,181 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#51377a">
-  <meta name="description" content="Reconheça sinais de violência psicológica contra a mulher e conheça caminhos de apoio.">
-  <meta name="robots" content="index, follow">
-  <title>Violência psicológica | LIA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#795b91">
+  <meta name="description" content="Conheça os sinais da violência psicológica contra a mulher e caminhos para buscar apoio.">
+  <title>Violência Psicológica | LIA</title>
   <link rel="stylesheet" href="lia.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <script src="lia.js" defer></script>
+  <style>
+    .topic-hero{padding:60px 0;background:linear-gradient(135deg,#eee5f5,#faf6fc 70%,#f3e3ef)}
+    .topic-hero .container,.topic-copy{max-width:900px}
+    .topic-hero h1{margin:12px 0 18px}
+    .topic-hero p{max-width:760px;font-size:1.05rem}
+    .topic-section{padding:45px 0}
+    .topic-section.alt{background:#f0e9f5}
+    .topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:25px}
+    .topic-card{padding:24px;border:1px solid #e7ddec;border-radius:17px;background:#fff;box-shadow:0 10px 28px #48305210}
+    .topic-card h3{margin-bottom:12px}
+    .topic-alert{margin:25px 0;padding:22px;border-left:4px solid #795b91;border-radius:0 14px 14px 0;background:#eee5f5}
+    .topic-nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
+    .topic-nav a{padding:9px 14px;border:1px solid #e7ddec;border-radius:10px;background:#fff}
+    @media(max-width:650px){.topic-grid{grid-template-columns:1fr}.topic-hero{padding:42px 0}}
+  </style>
 </head>
 <body>
-  <div class="top-bar"><div class="container top-bar-content"><span>LIA — Local • Informação • Apoio</span><button class="btn btn-discreet" id="openAccessibility" type="button" aria-controls="accessibilityPanel" aria-expanded="false">Acessibilidade</button></div></div>
-  <header class="header"><div class="container nav-container">
-    <a class="logo" href="index.html"><span class="logo-icon">LIA</span><span class="logo-name"><strong>LIA</strong><span>Local • Informação • Apoio</span></span></a>
-    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navigation"><i class="fa-solid fa-bars"></i></button>
-    <nav class="navigation" id="navigation" aria-label="Menu principal"><a href="index.html">Início</a><a href="projeto.html">Projeto</a><a href="violencias.html">Violências</a><a href="apoio.html">Rede de apoio</a><a href="localizacao.html">Localização</a><a href="cadastro.html">Conta</a><a href="discreto.html">Modo discreto</a></nav>
-    <div class="nav-actions"><a class="btn btn-main" href="emergencia.html">Preciso de apoio</a></div>
-  </div></header>
-  <div id="accessibilityOverlay" aria-hidden="true"></div>
-  <aside id="accessibilityPanel" aria-hidden="true" aria-label="Painel de acessibilidade">
-    <button id="closeAccessibility" class="btn btn-outline" type="button">Fechar</button><h2>Acessibilidade</h2>
-    <div class="action-list"><button id="fontDecrease" type="button">A− Diminuir texto</button><button id="fontReset" type="button">Restaurar texto</button><button id="fontIncrease" type="button">A+ Aumentar texto</button><button id="contrastToggle" type="button">Alto contraste</button><button id="themeToggleAccessibility" type="button">Tema claro/escuro</button><button id="readPage" type="button">Ler página</button><button id="stopReading" type="button">Parar leitura</button></div>
-    <label for="languageSelect">Idioma</label><select id="languageSelect"><option value="pt-BR">Português</option><option value="en">English</option><option value="es">Español</option></select>
-  </aside>
-  <main>
-    <section class="page-hero"><div class="container"><span class="eyebrow">INFORMAÇÃO E ACOLHIMENTO</span><h1>Violência psicológica</h1><p>Controlar, ameaçar, humilhar ou diminuir uma mulher também é violência. O sofrimento emocional merece ser levado a sério.</p><a class="btn btn-main" href="emergencia.html">Preciso de apoio</a></div></section>
-    <section class="page-content"><div class="container">
-      <div class="alert"><strong>Você não é culpada pela violência que sofre.</strong> Se houver perigo imediato, ligue para o 190 se for seguro. O Ligue 180 oferece orientação e recebe denúncias de violência contra a mulher.</div>
-      <article class="content-card"><h2>O que é?</h2><p>É uma conduta que causa dano emocional, prejudica a autoestima ou busca controlar as ações, comportamentos, crenças e decisões da mulher. A Lei Maria da Penha reconhece a violência psicológica como uma forma de violência doméstica e familiar.</p></article>
-      <div class="content-grid" style="margin-top:24px">
-        <article class="content-card"><div class="feature-icon"><i class="fa-solid fa-comments"></i></div><h2>Exemplos</h2><ul><li>Humilhar, ridicularizar ou insultar repetidamente.</li><li>Controlar roupas, amizades, estudos ou trabalho.</li><li>Ameaçar machucar a mulher, familiares ou animais.</li><li>Isolar a mulher das pessoas de confiança.</li><li>Vigiar o celular ou exigir senhas para controlar a vida dela.</li><li>Fazer a mulher duvidar constantemente da própria percepção.</li></ul></article>
-        <article class="content-card"><div class="feature-icon pink"><i class="fa-solid fa-triangle-exclamation"></i></div><h2>Sinais de alerta</h2><ul><li>Você sente medo de discordar.</li><li>Pede desculpas o tempo todo para evitar conflitos.</li><li>Deixa de ver amigos ou familiares por pressão.</li><li>Sente que precisa pedir autorização para tudo.</li><li>Escuta que tudo é culpa sua ou que está exagerando.</li></ul></article>
-        <article class="content-card"><div class="feature-icon blue"><i class="fa-solid fa-heart"></i></div><h2>Como buscar apoio</h2><ul><li>Converse com alguém confiável, se isso for seguro.</li><li>Procure apoio psicológico ou um serviço especializado.</li><li>Considere orientação jurídica sobre seus direitos.</li><li>Se for seguro, registre episódios e datas em local protegido.</li><li>Não precisa tomar todas as decisões de uma vez.</li></ul></article>
-        <article class="content-card"><div class="feature-icon green"><i class="fa-solid fa-hand-holding-heart"></i></div><h2>Como acolher</h2><p>Escute sem julgar, respeite as escolhas da mulher e pergunte como você pode ajudar. Evite pressioná-la a confrontar a pessoa agressora ou a sair de uma situação sem um plano seguro.</p></article>
+<header>
+  <div class="topbar">
+    <a class="logo" href="index.html">LIA</a>
+    <nav aria-label="Menu principal">
+      <a href="index.html">Início</a>
+      <a href="projeto.html">O projeto</a>
+      <a href="violencias.html" aria-current="page">Tipos de violência</a>
+      <a href="apoio.html">Preciso de apoio</a>
+      <a href="conta.html">Conta</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="topic-hero">
+    <div class="container">
+      <span class="eyebrow">Tipos de violência</span>
+      <h1>Violência psicológica</h1>
+      <p>A violência psicológica envolve atitudes que causam dano emocional, prejudicam a autoestima ou procuram controlar as decisões, os comportamentos e a liberdade de uma mulher. Ela pode acontecer mesmo sem agressões físicas.</p>
+      <div class="topic-nav" aria-label="Outras categorias">
+        <a href="violencias.html">Todas as categorias</a>
+        <a href="violencia-fisica.html">Física</a>
+        <a href="violencia-psicologica.html" aria-current="page">Psicológica</a>
+        <a href="violencia-sexual.html">Sexual</a>
+        <a href="violencia-patrimonial.html">Patrimonial</a>
+        <a href="violencia-moral.html">Moral</a>
+        <a href="violencia-digital.html">Digital</a>
+        <a href="violencia-vicaria.html">Vicária</a>
       </div>
-      <article class="content-card" style="margin-top:24px"><h2>Conheça outras formas de violência</h2><div class="action-list"><a href="violencia-fisica.html">Violência física <i class="fa-solid fa-arrow-right"></i></a><a href="violencia-sexual.html">Violência sexual <i class="fa-solid fa-arrow-right"></i></a><a href="violencia-patrimonial.html">Violência patrimonial <i class="fa-solid fa-arrow-right"></i></a><a href="violencia-moral.html">Violência moral <i class="fa-solid fa-arrow-right"></i></a><a href="violencia-digital.html">Violência digital <i class="fa-solid fa-arrow-right"></i></a><a href="violencia-vicaria.html">Violência vicária <i class="fa-solid fa-arrow-right"></i></a></div></article>
-      <article class="content-card" style="margin-top:24px"><h2>Fonte oficial</h2><p>Consulte a Lei Maria da Penha para conhecer as formas de violência doméstica e familiar previstas na legislação.</p><a class="btn btn-outline" href="https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11340.htm" target="_blank" rel="noopener noreferrer">Consultar Lei nº 11.340/2006</a></article>
-    </div></section>
-  </main>
-  <footer><div class="container"><h3>LIA — Local • Informação • Apoio</h3><p>Desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p><p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p></div></footer>
+    </div>
+  </section>
+
+  <section class="topic-section">
+    <div class="container topic-copy">
+      <span class="eyebrow">Entenda o conceito</span>
+      <h2>O que é violência psicológica?</h2>
+      <p>É uma forma de violência que afeta a saúde emocional, a autonomia e a sensação de segurança da mulher. Pode envolver ameaças, constrangimento, humilhação, manipulação, isolamento, vigilância constante ou tentativas de controlar sua vida.</p>
+      <p>Algumas atitudes podem ser apresentadas como demonstrações de amor, ciúme ou preocupação. Porém, controlar com quem alguém conversa, impedir que mantenha vínculos ou provocar medo para conseguir obediência são sinais que merecem atenção.</p>
+      <div class="topic-alert"><strong>Importante:</strong> você não precisa identificar sozinha o nome da violência para procurar orientação. Se uma relação causa medo ou sofrimento, conversar com um serviço especializado pode ajudar.</div>
+    </div>
+  </section>
+
+  <section class="topic-section alt">
+    <div class="container">
+      <span class="eyebrow">Sinais de alerta</span>
+      <h2>Como ela pode se manifestar?</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <h3>Humilhação e desvalorização</h3>
+          <ul>
+            <li>Insultos e comentários constantes para diminuir a autoestima.</li>
+            <li>Ridicularizar a mulher em público ou em particular.</li>
+            <li>Fazer com que ela se sinta incapaz ou sem valor.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <h3>Controle e isolamento</h3>
+          <ul>
+            <li>Impedir ou dificultar contato com amigos e familiares.</li>
+            <li>Controlar roupas, rotina, estudos, trabalho ou saídas.</li>
+            <li>Exigir senhas ou monitorar comunicações de forma coercitiva.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <h3>Ameaças e intimidação</h3>
+          <ul>
+            <li>Ameaçar machucar a mulher, filhos, familiares ou animais.</li>
+            <li>Usar o medo para impor decisões.</li>
+            <li>Ameaçar expor informações íntimas para obter obediência.</li>
+          </ul>
+        </article>
+        <article class="topic-card">
+          <h3>Manipulação emocional</h3>
+          <ul>
+            <li>Culpar a mulher por todas as atitudes agressivas do parceiro.</li>
+            <li>Negar fatos repetidamente para fazê-la duvidar de si.</li>
+            <li>Alternar intimidação e pedidos de desculpas para manter o controle.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-section">
+    <div class="container topic-copy">
+      <span class="eyebrow">Impactos</span>
+      <h2>Quais podem ser as consequências?</h2>
+      <p>Os efeitos variam de pessoa para pessoa. Algumas mulheres podem sentir ansiedade, medo, culpa, tristeza, insegurança, dificuldade para dormir ou perda de confiança nas próprias decisões.</p>
+      <p>O isolamento também pode dificultar a procura por ajuda. Esses efeitos não são prova de fraqueza e não significam que a mulher seja responsável pela violência sofrida.</p>
+    </div>
+  </section>
+
+  <section class="topic-section alt">
+    <div class="container topic-copy">
+      <span class="eyebrow">Seus direitos</span>
+      <h2>O que diz a Lei Maria da Penha?</h2>
+      <p>A Lei nº 11.340/2006 reconhece a violência psicológica entre as formas de violência doméstica e familiar contra a mulher. A definição legal inclui condutas que causem dano emocional, diminuam a autoestima ou prejudiquem o pleno desenvolvimento da mulher, entre outras situações previstas na lei.</p>
+      <p>A legislação também prevê mecanismos de proteção. A aplicação de medidas específicas depende das circunstâncias e da avaliação das autoridades competentes.</p>
+      <p>Consulte o texto oficial: <a href="https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11340.htm" target="_blank" rel="noopener noreferrer">Lei Maria da Penha — Lei nº 11.340/2006</a>.</p>
+    </div>
+  </section>
+
+  <section class="topic-section">
+    <div class="container">
+      <span class="eyebrow">Busque orientação</span>
+      <h2>Onde encontrar apoio?</h2>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <h3>Ligue 180</h3>
+          <p>O serviço oferece orientação sobre direitos e recebe denúncias de violência contra a mulher no Brasil.</p>
+        </article>
+        <article class="topic-card">
+          <h3>Emergência policial</h3>
+          <p>Se houver perigo imediato, ligue 190 quando for seguro fazê-lo.</p>
+        </article>
+        <article class="topic-card">
+          <h3>Apoio psicológico</h3>
+          <p>Um profissional pode ajudar a lidar com o sofrimento emocional e avaliar possibilidades de cuidado.</p>
+        </article>
+        <article class="topic-card">
+          <h3>Pessoas de confiança</h3>
+          <p>Se for seguro, procure alguém que respeite suas decisões e possa ajudar sem julgamentos.</p>
+        </article>
+      </div>
+      <div class="topic-alert"><strong>Cuide da sua segurança digital:</strong> se seu dispositivo for monitorado, procure orientação usando um aparelho seguro, se possível. Não faça mudanças que possam aumentar o risco sem um plano de segurança.</div>
+      <a class="btn" href="apoio.html">Ver opções de apoio na LIA</a>
+    </div>
+  </section>
+
+  <section class="topic-section alt">
+    <div class="container topic-copy">
+      <h2>Você merece respeito</h2>
+      <p>Você tem direito a relações sem intimidação, humilhação ou controle. Buscar ajuda pode ser um processo difícil, e cada pessoa tem seu tempo. O importante é que você possa receber informação e apoio com respeito.</p>
+      <p>A LIA é um projeto informativo e não substitui atendimento psicológico, jurídico ou serviços de emergência.</p>
+      <div class="topic-nav">
+        <a href="violencias.html">← Todas as categorias</a>
+        <a href="violencia-sexual.html">Próxima: violência sexual →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a class="logo" href="index.html">LIA</a>
+  <p>Local de Informação e Apoio</p>
+  <div class="footer-links">
+    <a href="index.html">Início</a>
+    <a href="projeto.html">O projeto</a>
+    <a href="violencias.html">Tipos de violência</a>
+    <a href="apoio.html">Preciso de apoio</a>
+  </div>
+  <p>Projeto acadêmico dedicado à informação, ao acolhimento e à orientação de mulheres.</p>
+  <p>© 2026 LIA — Todos os direitos reservados.</p>
+</footer>
 </body>
 </html>
