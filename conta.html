@@ -4,95 +4,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#7950b8">
-  <meta name="description" content="Acesse sua conta LIA.">
-  <meta name="robots" content="index, follow">
-  <title>Minha Conta | LIA</title>
+  <meta name="description" content="Entre na sua conta LIA, Local de Informação e Apoio.">
+  <meta name="theme-color" content="#7653a6">
+  <title>Entrar na conta | LIA</title>
   <link rel="stylesheet" href="lia.css">
-  <script src="lia.js" defer></script>
 </head>
 <body>
-  <div class="top-bar">
-    <div class="container top-bar-content">
-      <span>LIA — Local • Informação • Apoio</span>
-      <button class="btn btn-outline" id="openAccessibility" type="button">Acessibilidade</button>
-    </div>
-  </div>
-
   <header class="header">
     <div class="container nav-container">
-      <a class="logo" href="index.html"><span class="logo-icon">L</span><span class="logo-name">LIA</span></a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <a class="logo" href="index.html" aria-label="LIA - página inicial">
+        <span class="logo-icon">L</span>
+        <span class="logo-name">LIA</span>
+      </a>
       <nav class="navigation" id="navigation">
         <a href="index.html">Início</a>
-        <a href="projeto.html">O projeto</a>
-        <a href="violencias.html">Tipos de violência</a>
-        <a href="apoio.html">Preciso de apoio</a>
-        <a href="conta.html" aria-current="page">Conta</a>
-        <a href="discreto.html">Modo discreto</a>
+        <a href="projeto.html">Conheça o projeto</a>
+        <a href="cadastro.html">Criar conta</a>
       </nav>
     </div>
   </header>
 
-  <main class="page-content container">
+  <main class="page-content">
     <section class="page-hero">
-      <span class="eyebrow">Área pessoal</span>
-      <h1>Bem-vinda à sua conta</h1>
-      <p>Entre para acessar sua área pessoal ou crie seu cadastro.</p>
+      <div class="container">
+        <p class="eyebrow">Bem-vinda ao LIA</p>
+        <h1>Entre na sua conta</h1>
+        <p>Acesse sua conta para continuar.</p>
+      </div>
     </section>
 
-    <section class="content-grid">
-      <article class="content-card">
-        <div class="feature-icon">🔐</div>
-        <h2>Já tenho cadastro</h2>
-        <p>Use seu e-mail e sua senha para entrar.</p>
-        <form id="loginForm" data-confirm-submit>
-          <label for="loginEmail">E-mail</label>
-          <input id="loginEmail" name="email" type="email" autocomplete="email" required placeholder="seuemail@exemplo.com">
-          <label for="loginPassword">Senha</label>
-          <input id="loginPassword" name="password" type="password" autocomplete="current-password" required placeholder="Digite sua senha">
-          <button class="btn btn-main" type="submit">Entrar</button>
-          <p id="loginStatus" role="status" aria-live="polite"></p>
+    <section class="container" style="max-width:620px;margin:32px auto;">
+      <div class="content-card">
+        <form id="loginForm">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email"
+            autocomplete="email" required>
+
+          <label for="password">Senha</label>
+          <input id="password" name="password" type="password"
+            autocomplete="current-password" required>
+
+          <button class="btn btn-main" id="loginButton"
+            type="submit" style="margin-top:20px;width:100%;">
+            Entrar
+          </button>
+
+          <p id="loginMessage" role="status"
+            aria-live="polite" style="margin-top:16px;"></p>
         </form>
-      </article>
 
-      <article class="content-card">
-        <div class="feature-icon">🌷</div>
-        <h2>Quero criar uma conta</h2>
-        <p>Crie seu cadastro para preparar sua área pessoal.</p>
-        <a class="btn btn-main" href="cadastro.html">Criar cadastro</a>
-      </article>
-    </section>
+        <p style="margin-top:20px;">
+          Ainda não tem conta?
+          <a href="cadastro.html">Criar conta</a>
+        </p>
 
-    <section class="content-card">
-      <h2>Sua privacidade importa</h2>
-      <p>Não use este formulário para enviar informações sensíveis enquanto a autenticação segura não estiver configurada. Esta página ainda não valida contas nem autentica usuários por conta própria.</p>
-      <p>Para ativar o login, é necessário conectar o Supabase Auth e configurar as regras de segurança do banco de dados.</p>
+        <p style="margin-top:12px;">
+          <a href="index.html">Voltar à página inicial</a>
+        </p>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <p><strong>LIA — Local de Informação e Apoio</strong></p>
-      <p><a href="projeto.html">Sobre o projeto</a> · <a href="apoio.html">Apoio</a> · <a href="configurações.html">Configurações</a></p>
+      <p>LIA — Local de Informação e Apoio</p>
     </div>
   </footer>
 
-  <div class="accessibility-overlay" id="accessibilityOverlay"></div>
-  <aside class="accessibility-panel" id="accessibilityPanel" aria-label="Painel de acessibilidade" aria-hidden="true">
-    <button class="btn btn-outline" id="closeAccessibility" type="button">Fechar ×</button>
-    <h2>Acessibilidade</h2>
-    <div class="action-list">
-      <button class="btn btn-outline" id="fontDecrease" type="button">Diminuir fonte A−</button>
-      <button class="btn btn-outline" id="fontReset" type="button">Fonte normal</button>
-      <button class="btn btn-outline" id="fontIncrease" type="button">Aumentar fonte A+</button>
-      <button class="btn btn-outline" id="contrastToggle" type="button">Alto contraste</button>
-      <button class="btn btn-outline" id="themeToggleAccessibility" type="button">Alternar tema</button>
-      <label for="languageSelect">Idioma</label>
-      <select id="languageSelect"><option value="pt">Português</option><option value="en">English</option><option value="es">Español</option></select>
-      <button class="btn btn-outline" id="readPage" type="button">Ler página</button>
-      <button class="btn btn-outline" id="stopReading" type="button">Parar leitura</button>
-    </div>
-  </aside>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="lia-supabase.js"></script>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    const message = document.getElementById("loginMessage");
+    const button = document.getElementById("loginButton");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      message.textContent = "";
+
+      if (
+        !window.supabase ||
+        !window.LIA_SUPABASE_URL ||
+        !window.LIA_SUPABASE_PUBLISHABLE_KEY ||
+        window.LIA_SUPABASE_PUBLISHABLE_KEY.includes("COLE_AQUI")
+      ) {
+        message.textContent =
+          "A conexão não está configurada. Confira o arquivo lia-supabase.js.";
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = "Entrando...";
+
+      try {
+        const client = window.supabase.createClient(
+          window.LIA_SUPABASE_URL,
+          window.LIA_SUPABASE_PUBLISHABLE_KEY
+        );
+
+        const { error } = await client.auth.signInWithPassword({
+          email: document.getElementById("email").value.trim(),
+          password: document.getElementById("password").value
+        });
+
+        if (error) throw error;
+
+        message.textContent = "Login realizado! Abrindo o LIA...";
+        window.location.href = "index.html";
+      } catch (error) {
+        console.error("Erro no login:", error);
+        message.textContent =
+          "Não foi possível entrar. Confira o e-mail, a senha e a confirmação do e-mail.";
+      } finally {
+        button.disabled = false;
+        button.textContent = "Entrar";
+      }
+    });
+  </script>
 </body>
 </html>
