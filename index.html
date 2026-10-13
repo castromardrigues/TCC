@@ -1,1516 +1,1229 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LIA — Local de Informação e Apoio. Informação, segurança e caminhos de apoio para mulheres em situação de violência ou vulnerabilidade.">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="Marcely Castro Rodrigues e Mikaela Cardoso Bonfim">
+  <meta name="theme-color" content="#7656a3">
+  <meta property="og:title" content="LIA | Local de Informação e Apoio">
+  <meta property="og:description" content="Um espaço de informação, segurança e apoio.">
+  <meta property="og:locale" content="pt_BR">
+  <title>LIA | Local de Informação e Apoio</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <meta name="description"
-        content="LIA — Local de Informação e Apoio. Informação, segurança, prevenção e caminhos de apoio para mulheres em situação de violência ou vulnerabilidade.">
+  <style>
+    :root {
+      --purple: #7656a3;
+      --purple-dark: #513773;
+      --purple-light: #eee7f8;
+      --pink: #f4e4ed;
+      --ink: #30283a;
+      --muted: #756d7d;
+      --white: #fff;
+      --surface: #fff;
+      --background: #faf8fc;
+      --border: #eee7f3;
+      --shadow: 0 18px 55px rgba(71, 47, 98, .09);
+      --radius: 24px;
+    }
 
-    <meta name="robots"
-        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    * { box-sizing: border-box; }
 
-    <meta name="author"
-        content="Marcely Castro Rodrigues e Mikaela Castro Bonfim">
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
 
-    <meta name="theme-color" content="#7656A3">
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--background);
+      font-family: "DM Sans", Arial, sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
 
-    <meta name="application-name" content="LIA">
+    body.modal-open { overflow: hidden; }
 
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="LIA | Local de Informação e Apoio">
-    <meta property="og:title" content="LIA | Local de Informação e Apoio">
-    <meta property="og:description"
-        content="Informação, segurança, prevenção e caminhos de apoio em um espaço discreto e acolhedor.">
-    <meta property="og:locale" content="pt_BR">
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { cursor: pointer; }
+    img { max-width: 100%; }
 
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="LIA | Local de Informação e Apoio">
-    <meta name="twitter:description"
-        content="Informação, segurança, prevenção e caminhos de apoio.">
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
 
-    <title>LIA | Local de Informação e Apoio</title>
+    .topbar {
+      background: var(--purple-dark);
+      color: white;
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
 
-    <!-- FONTES -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    .topbar-inner {
+      min-height: 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
 
-    <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
+    .topbar button {
+      border: 0;
+      background: transparent;
+      color: white;
+      padding: 6px 0;
+      font-size: 12px;
+    }
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-        rel="stylesheet">
+    .header {
+      position: sticky;
+      z-index: 50;
+      top: 0;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(118,86,163,.12);
+    }
 
-    <!-- ÍCONES -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
 
-    <!-- CSS CORRETO DA LIA -->
-    <link rel="stylesheet" href="lia.css">
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .logo-symbol {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font: 700 27px "Playfair Display", serif;
+      background: linear-gradient(145deg, #9c7ac6, #65448f);
+      box-shadow: 0 7px 18px rgba(118,86,163,.24);
+    }
+
+    .logo strong {
+      display: block;
+      font: 700 25px "Playfair Display", serif;
+      letter-spacing: .04em;
+      line-height: 1.15;
+    }
+
+    .logo small {
+      display: block;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: .015em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: #62576d;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover { color: var(--purple); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .icon-button {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--purple-dark);
+      border-radius: 14px;
+      transition: transform .2s, background .2s;
+    }
+
+    .icon-button:hover { transform: translateY(-2px); background: var(--purple-light); }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid transparent;
+      border-radius: 14px;
+      padding: 12px 19px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: transform .22s, box-shadow .22s, background .22s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(71,47,98,.14);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #8867b5, #67478f);
+      color: white;
+      box-shadow: 0 7px 18px rgba(118,86,163,.18);
+    }
+
+    .btn-light {
+      background: white;
+      border-color: #e8dff1;
+      color: var(--purple-dark);
+    }
+
+    .btn-support {
+      background: #fff;
+      color: #674078;
+      border: 1px solid rgba(255,255,255,.65);
+    }
+
+    .mobile-toggle { display: none; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 78px 0 84px;
+      background:
+        radial-gradient(ellipse at 82% 25%, rgba(217,197,241,.7), transparent 35%),
+        radial-gradient(ellipse at 8% 90%, rgba(248,220,235,.7), transparent 30%),
+        linear-gradient(135deg, #f8f4fc, #f0e9f8 58%, #f9f2f8);
+    }
+
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(118,86,163,.12);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::before { width: 420px; height: 420px; right: -120px; top: -170px; }
+    .hero::after { width: 260px; height: 260px; right: -40px; top: -90px; }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--purple);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow i { font-size: 13px; }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    .hero h1 {
+      max-width: 680px;
+      margin: 20px 0;
+      font: 600 clamp(42px, 5.2vw, 68px)/1.09 "Playfair Display", Georgia, serif;
+      letter-spacing: -.035em;
+    }
+
+    .hero h1 span { color: var(--purple); }
+
+    .hero-copy {
+      max-width: 550px;
+      color: #71667c;
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 27px;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 28px;
+      color: #756b7e;
+      font-size: 12px;
+    }
+
+    .hero-points span { display: inline-flex; align-items: center; gap: 7px; }
+    .hero-points i { color: #8d6bb8; }
+
+    .hero-art {
+      min-height: 420px;
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .art-circle {
+      position: absolute;
+      width: min(370px, 90%);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: linear-gradient(145deg, rgba(255,255,255,.88), rgba(222,206,242,.85));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.9), 0 30px 80px rgba(91,65,124,.13);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .art-center {
+      position: relative;
+      width: 225px;
+      height: 275px;
+      border-radius: 34px;
+      border: 8px solid #fff;
+      background: linear-gradient(160deg, #8e70b8, #5b3d80);
+      box-shadow: 0 25px 55px rgba(73,47,99,.23);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 24px;
+      transform: rotate(-3deg);
+      animation: float 5s ease-in-out infinite reverse;
+    }
+
+    .art-center .heart {
+      width: 76px;
+      height: 76px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.16);
+      font-size: 33px;
+    }
+
+    .art-center strong { font: 600 30px "Playfair Display", serif; }
+    .art-center small { color: #eee5fa; font-size: 11px; margin-top: 5px; }
+
+    .floating-card {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 17px;
+      background: rgba(255,255,255,.94);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .floating-card i {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #f0e7fa;
+      color: var(--purple);
+      font-size: 17px;
+    }
+
+    .floating-card strong { display: block; font-size: 12px; }
+    .floating-card small { display: block; color: var(--muted); font-size: 10px; }
+    .floating-one { top: 35px; right: 0; animation-delay: -.8s; }
+    .floating-two { bottom: 40px; left: -4px; animation-delay: -2s; }
+
+    .section { padding: 82px 0; }
+    .section-heading { max-width: 690px; margin: 0 auto 38px; text-align: center; }
+    .section-heading h2 {
+      margin: 12px 0;
+      font: 600 clamp(30px, 3.5vw, 43px)/1.2 "Playfair Display", Georgia, serif;
+      letter-spacing: -.02em;
+    }
+
+    .section-heading p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .story-card, .resource-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 35px rgba(71,47,98,.045);
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+
+    .story-card:hover, .resource-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+      border-color: #d8c5ed;
+    }
+
+    .story-card { padding: 28px; }
+
+    .tile-icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 21px;
+      margin-bottom: 20px;
+    }
+
+    .tile-purple { color: #7754a5; background: #eee6f8; }
+    .tile-pink { color: #b35d88; background: #f9e8f0; }
+    .tile-green { color: #3c8b74; background: #e3f4ed; }
+    .tile-blue { color: #4e79b0; background: #e6effa; }
+    .tile-gold { color: #9b7b35; background: #f8f0d9; }
+    .tile-peach { color: #b66b4f; background: #fae9e0; }
+
+    .story-card h3, .resource-card h3 { font: 600 21px "Playfair Display", Georgia, serif; margin-bottom: 10px; }
+    .story-card p, .resource-card p { color: var(--muted); font-size: 13px; line-height: 1.85; margin-bottom: 0; }
+
+    .resources { background: #f2edf8; }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .resource-card { padding: 25px; display: flex; flex-direction: column; align-items: flex-start; }
+    .resource-card p { flex: 1; margin-bottom: 19px; }
+    .resource-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--purple);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .resource-card a:hover { gap: 12px; }
+
+    .safety-band {
+      color: white;
+      background: linear-gradient(125deg, #67478f, #8c6ab6);
+      border-radius: 30px;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 25px;
+      align-items: center;
+      box-shadow: 0 20px 50px rgba(91,61,128,.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .safety-band::after {
+      content: "";
+      width: 240px;
+      height: 240px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 50%;
+      position: absolute;
+      right: 16%;
+      top: -150px;
+    }
+
+    .safety-band .eyebrow { color: #e6d9f7; }
+    .safety-band h2 { font: 600 clamp(28px, 3vw, 39px)/1.2 "Playfair Display", Georgia, serif; margin: 12px 0; }
+    .safety-band p { color: #f0e8f8; font-size: 13px; max-width: 600px; margin: 0; }
+
+    .footer { background: #2f243e; color: #f7f0ff; padding: 50px 0 20px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; padding-bottom: 35px; }
+    .footer .logo small { color: #c7b8d8; }
+    .footer p, .footer a { color: #d1c5dd; font-size: 12px; }
+    .footer h3 { font: 600 18px "Playfair Display", serif; }
+    .footer-links { display: grid; gap: 10px; }
+    .footer a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding-top: 18px; display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    .footer-bottom small { color: #c7b8d8; font-size: 10px; }
+
+    /* Janela inicial de conta */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(32,20,45,.62);
+      backdrop-filter: blur(9px);
+    }
+
+    .modal-backdrop.open { display: flex; animation: fadeIn .25s ease both; }
+
+    .account-modal {
+      width: min(940px, 100%);
+      max-height: min(92vh, 850px);
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 30px 100px rgba(25,15,40,.35);
+      animation: modalIn .35s cubic-bezier(.2,.8,.2,1) both;
+    }
+
+    .modal-aside {
+      padding: 38px 30px;
+      color: white;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(255,255,255,.2), transparent 32%),
+        linear-gradient(155deg, #8d6bb6, #50356f);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 510px;
+    }
+
+    .modal-aside .logo-symbol { background: rgba(255,255,255,.18); box-shadow: none; }
+    .modal-aside .logo small { color: #eee3fa; }
+    .modal-aside h2 { font: 600 34px/1.2 "Playfair Display", Georgia, serif; margin: 40px 0 15px; }
+    .modal-aside p { color: #eee5f6; font-size: 13px; line-height: 1.85; }
+    .modal-aside .aside-note { font-size: 11px; color: #e0d2ef; margin-top: 35px; }
+
+    .modal-main { padding: 32px clamp(22px, 4vw, 44px); position: relative; }
+    .modal-close {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--muted);
+    }
+    .modal-close:hover { background: var(--purple-light); color: var(--purple-dark); }
+    .modal-main h2 { font: 600 28px "Playfair Display", Georgia, serif; margin: 20px 0 5px; }
+    .modal-subtitle { font-size: 12px; color: var(--muted); margin-bottom: 23px; padding-right: 20px; }
+
+    .auth-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; padding: 5px; border-radius: 14px; background: #f5f0f9; margin-bottom: 20px; }
+    .auth-tab { border: 0; border-radius: 10px; padding: 10px; background: transparent; color: var(--muted); font-size: 12px; font-weight: 700; }
+    .auth-tab.active { background: white; color: var(--purple-dark); box-shadow: 0 3px 10px rgba(50,30,70,.07); }
+
+    .auth-form { display: none; }
+    .auth-form.active { display: block; animation: fadeIn .22s ease both; }
+    .field { display: block; margin-bottom: 13px; }
+    .field span { display: block; color: #574b64; font-size: 11px; font-weight: 700; margin-bottom: 6px; }
+    .field input {
+      width: 100%;
+      min-height: 45px;
+      border: 1px solid #e6ddec;
+      border-radius: 12px;
+      padding: 11px 13px;
+      outline: none;
+      color: var(--ink);
+      background: #fff;
+      font-size: 13px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .field input:focus { border-color: #9b7bc0; box-shadow: 0 0 0 3px rgba(118,86,163,.12); }
+    .auth-submit { width: 100%; min-height: 47px; margin-top: 5px; }
+    .auth-message { font-size: 12px; line-height: 1.6; margin: 12px 0 0; min-height: 18px; }
+    .auth-message.error { color: #a83d53; }
+    .auth-message.success { color: #287a5d; }
+    .auth-skip { display: block; width: 100%; border: 0; background: transparent; color: var(--muted); font-size: 11px; padding: 16px 5px 0; text-decoration: underline; text-underline-offset: 3px; }
+    .auth-skip:hover { color: var(--purple); }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .08s; }
+    .delay-2 { transition-delay: .16s; }
+    .delay-3 { transition-delay: .24s; }
+
+    .high-contrast { --background: #fff; --ink: #000; --muted: #333; --border: #777; }
+    .high-contrast .hero, .high-contrast .resources { background: #fff; }
+    .high-contrast .story-card, .high-contrast .resource-card { border: 2px solid #333; }
+
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 1000px) {
+      .nav-links { gap: 13px; font-size: 12px; }
+      .nav-actions .btn { padding: 10px 12px; }
+      .hero-grid { gap: 30px; }
+      .hero-art { min-height: 360px; }
+      .art-circle { width: 310px; }
+      .art-center { transform: scale(.9); }
+    }
+
+    @media (max-width: 800px) {
+      .nav { min-height: 72px; }
+      .mobile-toggle { display: inline-grid; place-items: center; }
+      .nav-links {
+        position: absolute;
+        top: calc(100% - 1px);
+        left: 0;
+        right: 0;
+        padding: 18px 24px 22px;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 15px 25px rgba(50,30,70,.08);
+        display: none;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+      }
+      .nav-links.open { display: flex; animation: fadeIn .2s ease both; }
+      .nav-links a { padding: 12px 0; border-bottom: 1px solid #f3edf7; }
+      .nav-actions .desktop-account { display: none; }
+      .hero { padding: 55px 0 60px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-art { min-height: 340px; }
+      .floating-one { right: 4%; }
+      .floating-two { left: 4%; }
+      .story-grid { grid-template-columns: 1fr; }
+      .resource-grid { grid-template-columns: repeat(2, 1fr); }
+      .safety-band { grid-template-columns: 1fr; padding: 30px; }
+      .safety-band .btn { justify-self: start; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(100% - 28px, 1160px); }
+      .topbar-inner { min-height: 34px; font-size: 10px; }
+      .nav { gap: 10px; }
+      .logo { gap: 8px; }
+      .logo-symbol { width: 40px; height: 40px; border-radius: 13px; }
+      .logo strong { font-size: 22px; }
+      .logo small { max-width: 145px; font-size: 9px; }
+      .nav-actions { gap: 5px; }
+      .hero h1 { font-size: clamp(39px, 12vw, 54px); }
+      .hero-copy { font-size: 14px; }
+      .hero-buttons { flex-direction: column; align-items: stretch; }
+      .hero-buttons .btn { width: 100%; }
+      .hero-art { min-height: 310px; }
+      .art-circle { width: 270px; }
+      .art-center { width: 190px; height: 235px; border-radius: 28px; }
+      .art-center .heart { width: 62px; height: 62px; }
+      .floating-card { padding: 10px 12px; }
+      .floating-card i { width: 35px; height: 35px; }
+      .floating-one { top: 10px; }
+      .floating-two { bottom: 5px; }
+      .section { padding: 58px 0; }
+      .resource-grid { grid-template-columns: 1fr; }
+      .safety-band { padding: 25px 21px; border-radius: 23px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 25px 18px; }
+      .footer-bottom { flex-direction: column; }
+      .account-modal { grid-template-columns: 1fr; border-radius: 22px; max-height: 94vh; }
+      .modal-aside { min-height: auto; padding: 22px 22px 18px; }
+      .modal-aside h2 { font-size: 25px; margin: 22px 0 8px; }
+      .modal-aside p { margin-bottom: 0; font-size: 11px; }
+      .modal-aside .aside-note { display: none; }
+      .modal-main { padding: 22px; }
+      .modal-main h2 { font-size: 25px; margin-top: 10px; }
+      .modal-close { top: 14px; right: 14px; }
+    }
+  </style>
 </head>
 
-
 <body>
-
-    <!-- =========================================
-         BARRA SUPERIOR
-    ========================================== -->
-
-    <div class="top-bar">
-
-        <div class="container top-bar-content">
-
-            <span>
-                <i class="fa-solid fa-sparkles"></i>
-                LIA — Local • Informação • Apoio
-            </span>
-
-            <div class="accessibility">
-
-                <button id="fontDecrease" type="button">
-                    A−
-                </button>
-
-                <button id="fontReset" type="button">
-                    A
-                </button>
-
-                <button id="fontIncrease" type="button">
-                    A+
-                </button>
-
-                <button id="contrastToggle" type="button">
-                    <i class="fa-solid fa-circle-half-stroke"></i>
-                    Contraste
-                </button>
-
-            </div>
-
-        </div>
-
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span><i class="fa-solid fa-heart"></i> LIA — Local • Informação • Apoio</span>
+      <button type="button" id="accessibilityButton" aria-label="Alternar contraste">
+        <i class="fa-solid fa-circle-half-stroke"></i> Acessibilidade
+      </button>
     </div>
+  </div>
 
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="#inicio" aria-label="LIA - início">
+        <span class="logo-symbol">L</span>
+        <span>
+          <strong>LIA</strong>
+          <small>Local de Informação e Apoio</small>
+        </span>
+      </a>
 
-    <!-- =========================================
-         HEADER
-    ========================================== -->
+      <nav class="nav-links" id="mainNav" aria-label="Menu principal">
+        <a href="#inicio">Início</a>
+        <a href="projeto.html">Conheça a LIA</a>
+        <a href="violencias.html">Violências</a>
+        <a href="apoio.html">Rede de apoio</a>
+        <a href="localizacao.html">Localização</a>
+        <a href="discreto.html"><i class="fa-solid fa-eye-slash"></i> Modo discreto</a>
+      </nav>
 
-    <header class="header">
+      <div class="nav-actions">
+        <button class="icon-button" id="themeButton" type="button" aria-label="Alternar contraste" title="Alternar contraste">
+          <i class="fa-solid fa-circle-half-stroke"></i>
+        </button>
+        <button class="btn btn-primary desktop-account" type="button" data-open-account>
+          Minha conta <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button class="icon-button mobile-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
 
-        <div class="container nav-container">
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <span class="eyebrow"><i class="fa-solid fa-sparkles"></i> Um espaço feito para você</span>
+          <h1>Você merece <span>se sentir segura.</span></h1>
+          <p class="hero-copy">
+            A LIA reúne informação, recursos de segurança e caminhos de apoio
+            em um espaço acolhedor, pensado para ajudar mulheres em situações
+            de violência ou vulnerabilidade.
+          </p>
 
-            <a href="#inicio" class="logo">
-
-                <div class="logo-icon">
-                    L
-                </div>
-
-                <div class="logo-name">
-
-                    <strong>
-                        LIA
-                    </strong>
-
-                    <span>
-                        Local de Informação e Apoio
-                    </span>
-
-                </div>
-
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#recursos">
+              Conhecer a LIA <i class="fa-solid fa-arrow-right"></i>
             </a>
+            <a class="btn btn-light" href="apoio.html">
+              <i class="fa-solid fa-hand-holding-heart"></i> Preciso de apoio
+            </a>
+          </div>
 
-
-            <nav class="navigation" id="navigation">
-
-                <a href="#inicio">
-                    Início
-                </a>
-
-                <a href="#historia">
-                    História da LIA
-                </a>
-
-                <a href="#recursos">
-                    Recursos
-                </a>
-
-                <a href="#seguranca">
-                    Segurança
-                </a>
-
-                <a href="#apoio">
-                    Apoio
-                </a>
-
-                <a href="cadastro.html">
-                    Conta
-                </a>
-
-                <a href="discreto.html" class="discreet-nav-button">
-                    <i class="fa-solid fa-moon"></i>
-                    Modo discreto
-                </a>
-
-            </nav>
-
-
-            <div class="nav-actions">
-
-                <button
-                    class="btn btn-discreet"
-                    id="discreetMode"
-                    type="button">
-
-                    <i class="fa-solid fa-eye-slash"></i>
-
-                    Modo discreto
-
-                </button>
-
-
-                <a
-                    href="#recursos"
-                    class="btn btn-main">
-
-                    Conhecer a LIA
-
-                    <i class="fa-solid fa-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                type="button"
-                aria-label="Abrir menu">
-
-                <i class="fa-solid fa-bars"></i>
-
-            </button>
-
+          <div class="hero-points">
+            <span><i class="fa-solid fa-shield-heart"></i> Informação</span>
+            <span><i class="fa-solid fa-lock"></i> Privacidade</span>
+            <span><i class="fa-solid fa-heart"></i> Acolhimento</span>
+          </div>
         </div>
 
-    </header>
-
-
-    <main>
-
-
-        <!-- =========================================
-             HERO
-        ========================================== -->
-
-        <section
-            class="hero"
-            id="inicio">
-
-            <div class="hero-decoration decoration-one"></div>
-
-            <div class="hero-decoration decoration-two"></div>
-
-            <div class="container hero-content">
-
-
-                <div class="hero-text">
-
-                    <span class="eyebrow">
-
-                        <i class="fa-solid fa-heart"></i>
-
-                        LOCAL • INFORMAÇÃO • APOIO
-
-                    </span>
-
-
-                    <h1>
-
-                        Você merece
-
-                        <span>
-                            se sentir segura.
-                        </span>
-
-                    </h1>
-
-
-                    <p>
-
-                        A LIA reúne informação, apoio e recursos
-                        de segurança em um espaço pensado para
-                        ser simples, discreto e acolhedor.
-
-                    </p>
-
-
-                    <div class="hero-buttons">
-
-                        <a
-                            href="#recursos"
-                            class="btn btn-main btn-large">
-
-                            Conhecer a LIA
-
-                            <i class="fa-solid fa-arrow-right"></i>
-
-                        </a>
-
-
-                        <a
-                            href="emergencia.html"
-                            class="btn btn-outline btn-large">
-
-                            Preciso de apoio
-
-                            <i class="fa-solid fa-shield-heart"></i>
-
-                        </a>
-
-                    </div>
-
-
-                    <div class="hero-mini-info">
-
-                        <span>
-                            <i class="fa-solid fa-lock"></i>
-                            Privacidade
-                        </span>
-
-                        <span>
-                            <i class="fa-solid fa-location-dot"></i>
-                            Localização
-                        </span>
-
-                        <span>
-                            <i class="fa-solid fa-fingerprint"></i>
-                            Biometria
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- =================================
-                     CELULAR
-                ================================== -->
-
-                <div class="phone-area">
-
-                    <div class="phone-glow"></div>
-
-
-                    <div class="phone">
-
-                        <div class="phone-notch"></div>
-
-
-                        <div class="phone-screen">
-
-                            <div class="phone-status">
-
-                                <span>
-                                    09:41
-                                </span>
-
-                                <div>
-
-                                    <i class="fa-solid fa-signal"></i>
-
-                                    <i class="fa-solid fa-wifi"></i>
-
-                                    <i class="fa-solid fa-battery-three-quarters"></i>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="phone-content">
-
-                                <div class="phone-welcome">
-
-                                    <small>
-                                        BOM DIA
-                                    </small>
-
-                                    <h3>
-                                        Como você está hoje?
-                                    </h3>
-
-                                </div>
-
-
-                                <div class="phone-help">
-
-                                    <div class="phone-help-icon">
-
-                                        <i class="fa-solid fa-heart"></i>
-
-                                    </div>
-
-                                    <div>
-
-                                        <strong>
-                                            Preciso de apoio
-                                        </strong>
-
-                                        <small>
-                                            Encontre caminhos seguros
-                                        </small>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="phone-menu">
-
-                                    <div>
-
-                                        <i class="fa-solid fa-location-dot"></i>
-
-                                        <span>
-                                            Localização
-                                        </span>
-
-                                    </div>
-
-
-                                    <div>
-
-                                        <i class="fa-solid fa-book"></i>
-
-                                        <span>
-                                            Diário
-                                        </span>
-
-                                    </div>
-
-
-                                    <div>
-
-                                        <i class="fa-solid fa-users"></i>
-
-                                        <span>
-                                            Pessoas
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="phone-floating-card">
-
-                        <i class="fa-solid fa-shield-heart"></i>
-
-                        <div>
-
-                            <strong>
-                                Você não precisa enfrentar tudo sozinha.
-                            </strong>
-
-                            <span>
-                                Informação também é proteção.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             HISTÓRIA
-        ========================================== -->
-
-        <section
-            class="section history-section"
-            id="historia">
-
-            <div class="container">
-
-                <div class="section-title">
-
-                    <span>
-                        SOBRE A LIA
-                    </span>
-
-                    <h2>
-                        Um projeto criado para
-                        <span>informar, acolher e proteger.</span>
-                    </h2>
-
-                    <p>
-                        A LIA nasceu da necessidade de reunir,
-                        em um único espaço, informações e recursos
-                        que podem ajudar mulheres em situações
-                        de violência ou vulnerabilidade.
-                    </p>
-
-                </div>
-
-
-                <div class="about-grid">
-
-                    <article class="about-card">
-
-                        <div class="card-icon">
-
-                            <i class="fa-solid fa-location-dot"></i>
-
-                        </div>
-
-                        <h3>
-                            Local
-                        </h3>
-
-                        <p>
-                            Um espaço acessível para encontrar
-                            informações e caminhos de apoio.
-                        </p>
-
-                    </article>
-
-
-                    <article class="about-card">
-
-                        <div class="card-icon">
-
-                            <i class="fa-solid fa-circle-info"></i>
-
-                        </div>
-
-                        <h3>
-                            Informação
-                        </h3>
-
-                        <p>
-                            Conteúdos para reconhecer diferentes
-                            formas de violência e entender direitos.
-                        </p>
-
-                    </article>
-
-
-                    <article class="about-card">
-
-                        <div class="card-icon">
-
-                            <i class="fa-solid fa-hand-holding-heart"></i>
-
-                        </div>
-
-                        <h3>
-                            Apoio
-                        </h3>
-
-                        <p>
-                            Recursos para buscar ajuda, orientação
-                            e proteção de forma mais segura.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             RECURSOS
-        ========================================== -->
-
-        <section
-            class="section features-section"
-            id="recursos">
-
-            <div class="container">
-
-                <div class="section-title centered">
-
-                    <span>
-                        RECURSOS
-                    </span>
-
-                    <h2>
-                        Tudo em um só lugar.
-                    </h2>
-
-                    <p>
-                        A LIA foi organizada para que cada recurso
-                        tenha seu próprio espaço.
-                    </p>
-
-                </div>
-
-
-                <div class="features-grid">
-
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon purple">
-
-                            <i class="fa-solid fa-book-open"></i>
-
-                        </div>
-
-                        <h3>
-                            Conheça as violências
-                        </h3>
-
-                        <p>
-                            Entenda as principais formas de violência
-                            e saiba reconhecer sinais.
-                        </p>
-
-                        <a href="violencias.html">
-                            Acessar informações
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </article>
-
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon pink">
-
-                            <i class="fa-solid fa-location-dot"></i>
-
-                        </div>
-
-                        <h3>
-                            Localização
-                        </h3>
-
-                        <p>
-                            Use a localização do dispositivo para
-                            visualizar sua posição e acessar mapas.
-                        </p>
-
-                        <a href="localizacao.html">
-                            Abrir localização
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </article>
-
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon green">
-
-                            <i class="fa-solid fa-users"></i>
-
-                        </div>
-
-                        <h3>
-                            Pessoas confiáveis
-                        </h3>
-
-                        <p>
-                            Cadastre pessoas de confiança para
-                            facilitar o acesso aos contatos.
-                        </p>
-
-                        <a href="pessoas-confiaveis.html">
-                            Gerenciar contatos
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </article>
-
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon blue">
-
-                            <i class="fa-solid fa-fingerprint"></i>
-
-                        </div>
-
-                        <h3>
-                            Biometria
-                        </h3>
-
-                        <p>
-                            Configure recursos de autenticação
-                            utilizando as tecnologias disponíveis.
-                        </p>
-
-                        <a href="biometria.html">
-                            Configurar
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </article>
-
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon gold">
-
-                            <i class="fa-solid fa-key"></i>
-
-                        </div>
-
-                        <h3>
-                            Palavra de segurança
-                        </h3>
-
-                        <p>
-                            Configure uma palavra para acionar
-                            rapidamente seu recurso de segurança.
-                        </p>
-
-                        <a href="palavra-seguranca.html">
-                            Configurar palavra
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </article>
-
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon red">
-
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-
-                        </div>
-
-                        <h3>
-                            Emergência
-                        </h3>
-
-                        <p>
-                            Acesse rapidamente informações e recursos
-                            para situações de emergência.
-                        </p>
-
-                        <a href="emergencia.html">
-                            Abrir emergência
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </article>
-
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon purple">
-
-                            <i class="fa-solid fa-book"></i>
-
-                        </div>
-
-                        <h3>
-                            Diário
-                        </h3>
-
-                        <p>
-                            Registre informações importantes de forma
-                            privada no dispositivo.
-                        </p>
-
-                        <a href="diario.html">
-                            Abrir diário
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </article>
-
-
-                    <article class="feature-card">
-
-                        <div class="feature-icon pink">
-
-                            <i class="fa-solid fa-user"></i>
-
-                        </div>
-
-                        <h3>
-                            Minha conta
-                        </h3>
-
-                        <p>
-                            Organize seus dados e informações pessoais
-                            importantes.
-                        </p>
-
-                        <a href="cadastro.html">
-                            Abrir conta
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             SEGURANÇA
-        ========================================== -->
-
-        <section
-            class="section security-section"
-            id="seguranca">
-
-            <div class="container">
-
-                <div class="security-content">
-
-                    <div>
-
-                        <span class="section-label">
-                            SEGURANÇA E PRIVACIDADE
-                        </span>
-
-                        <h2>
-                            Sua segurança começa
-                            com informação.
-                        </h2>
-
-                        <p>
-                            A LIA possui recursos pensados para
-                            aumentar sua autonomia e facilitar o
-                            acesso a informações importantes.
-                        </p>
-
-                    </div>
-
-
-                    <div class="security-cards">
-
-
-                        <article>
-
-                            <i class="fa-solid fa-eye-slash"></i>
-
-                            <h3>
-                                Modo discreto
-                            </h3>
-
-                            <p>
-                                Um espaço com aparência neutra para
-                                situações em que você precisa de discrição.
-                            </p>
-
-                            <a href="discreto.html">
-                                Conhecer o modo discreto
-                            </a>
-
-                        </article>
-
-
-                        <article>
-
-                            <i class="fa-solid fa-lock"></i>
-
-                            <h3>
-                                Privacidade
-                            </h3>
-
-                            <p>
-                                Os recursos locais utilizam o armazenamento
-                                do navegador quando aplicável.
-                            </p>
-
-                            <a href="configuracoes.html">
-                                Configurações
-                            </a>
-
-                        </article>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             APOIO
-        ========================================== -->
-
-        <section
-            class="section support-section"
-            id="apoio">
-
-            <div class="container">
-
-                <div class="support-banner">
-
-                    <div class="support-icon">
-
-                        <i class="fa-solid fa-hand-holding-heart"></i>
-
-                    </div>
-
-
-                    <div class="support-text">
-
-                        <span>
-                            VOCÊ NÃO ESTÁ SOZINHA
-                        </span>
-
-                        <h2>
-                            Encontre caminhos de apoio.
-                        </h2>
-
-                        <p>
-                            Acesse informações sobre atendimento
-                            psicológico, orientação jurídica e serviços.
-                        </p>
-
-                    </div>
-
-
-                    <a
-                        href="apoio.html"
-                        class="btn btn-white">
-
-                        Ver rede de apoio
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             O QUE É A LIA
-        ========================================== -->
-
-        <section
-            class="section about-lia-section">
-
-            <div class="container">
-
-                <div class="section-title centered">
-
-                    <span>
-                        CONHECER A LIA
-                    </span>
-
-                    <h2>
-                        Informação também é proteção.
-                    </h2>
-
-                    <p>
-                        A LIA é um projeto desenvolvido para
-                        aproximar informação, tecnologia e apoio.
-                    </p>
-
-                </div>
-
-
-                <div class="about-lia-grid">
-
-                    <div class="about-lia-text">
-
-                        <h3>
-                            Por que a LIA existe?
-                        </h3>
-
-                        <p>
-                            Muitas situações de violência começam
-                            com sinais que podem ser difíceis de
-                            reconhecer. Ter informação acessível
-                            pode ajudar uma pessoa a identificar
-                            situações de risco e procurar apoio.
-                        </p>
-
-                        <p>
-                            Por isso, a LIA reúne conteúdos educativos,
-                            recursos de segurança e caminhos de apoio
-                            em um ambiente simples e acolhedor.
-                        </p>
-
-                        <a
-                            href="projeto.html"
-                            class="btn btn-main">
-
-                            Conhecer o projeto
-
-                            <i class="fa-solid fa-arrow-right"></i>
-
-                        </a>
-
-                    </div>
-
-
-                    <div class="about-lia-highlight">
-
-                        <div>
-
-                            <i class="fa-solid fa-heart"></i>
-
-                            <strong>
-                                Local
-                            </strong>
-
-                            <span>
-                                Informação
-                            </span>
-
-                            <span>
-                                Apoio
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             PRIVACIDADE
-        ========================================== -->
-
-        <section class="privacy-section">
-
-            <div class="container">
-
-                <div class="privacy-box">
-
-                    <i class="fa-solid fa-shield-halved"></i>
-
-                    <div>
-
-                        <h3>
-                            Privacidade e transparência
-                        </h3>
-
-                        <p>
-                            A LIA foi pensada para respeitar a privacidade.
-                            Recursos que utilizam dados do dispositivo
-                            informam sua finalidade e dependem das
-                            permissões do navegador.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================================
-         FOOTER
-    ========================================== -->
-
-    <footer class="footer">
-
-        <div class="container footer-content">
-
-
-            <div class="footer-brand">
-
-                <div class="footer-logo">
-
-                    <div class="logo-icon">
-                        L
-                    </div>
-
-                    <strong>
-                        LIA
-                    </strong>
-
-                </div>
-
-                <p>
-                    Local de Informação e Apoio.
-                </p>
-
-                <span>
-                    Informação também é proteção.
-                </span>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>
-                    LIA
-                </h4>
-
-                <a href="#historia">
-                    História
-                </a>
-
-                <a href="projeto.html">
-                    O projeto
-                </a>
-
-                <a href="violencias.html">
-                    Violências
-                </a>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>
-                    Recursos
-                </h4>
-
-                <a href="apoio.html">
-                    Apoio
-                </a>
-
-                <a href="localizacao.html">
-                    Localização
-                </a>
-
-                <a href="emergencia.html">
-                    Emergência
-                </a>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>
-                    Segurança
-                </h4>
-
-                <a href="palavra-seguranca.html">
-                    Palavra de segurança
-                </a>
-
-                <a href="pessoas-confiaveis.html">
-                    Pessoas confiáveis
-                </a>
-
-                <a href="biometria.html">
-                    Biometria
-                </a>
-
-            </div>
-
+        <div class="hero-art reveal delay-2" aria-label="Ilustração da LIA">
+          <div class="art-circle"></div>
+          <div class="art-center">
+            <div class="heart"><i class="fa-solid fa-heart"></i></div>
+            <strong>LIA</strong>
+            <small>Você não está sozinha.</small>
+          </div>
+          <div class="floating-card floating-one">
+            <i class="fa-solid fa-shield-heart"></i>
+            <span><strong>Seu bem-estar importa</strong><small>Informação também é proteção</small></span>
+          </div>
+          <div class="floating-card floating-two">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+            <span><strong>Encontre apoio</strong><small>Conheça os caminhos disponíveis</small></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="historia">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Sobre a LIA</span>
+          <h2>Informar, acolher e <span style="color:var(--purple)">fortalecer.</span></h2>
+          <p>A LIA foi pensada para reunir informações e recursos úteis em um só lugar, respeitando a autonomia de cada pessoa.</p>
         </div>
 
+        <div class="story-grid">
+          <article class="story-card reveal">
+            <div class="tile-icon tile-purple"><i class="fa-solid fa-location-dot"></i></div>
+            <h3>Local</h3>
+            <p>Um ponto de acesso para encontrar informações, recursos e caminhos de ajuda.</p>
+          </article>
+          <article class="story-card reveal delay-1">
+            <div class="tile-icon tile-pink"><i class="fa-solid fa-book-open"></i></div>
+            <h3>Informação</h3>
+            <p>Conteúdos para reconhecer diferentes formas de violência e conhecer direitos.</p>
+          </article>
+          <article class="story-card reveal delay-2">
+            <div class="tile-icon tile-green"><i class="fa-solid fa-hand-holding-heart"></i></div>
+            <h3>Apoio</h3>
+            <p>Orientações para conhecer serviços e buscar apoio psicológico, jurídico e social.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <div class="footer-bottom">
-
-            <div class="container">
-
-                <span>
-                    © 2026 LIA — Local de Informação e Apoio
-                </span>
-
-                <span>
-                    Desenvolvido por Marcely Castro Rodrigues
-                    e Mikaela Castro Bonfim.
-                </span>
-
-            </div>
-
+    <section class="section resources" id="recursos">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Explore os recursos</span>
+          <h2>O que você precisa, em um só lugar.</h2>
+          <p>Escolha uma área para conhecer informações e funcionalidades da LIA.</p>
         </div>
 
-    </footer>
+        <div class="resource-grid">
+          <article class="resource-card reveal">
+            <div class="tile-icon tile-purple"><i class="fa-solid fa-book-open"></i></div>
+            <h3>Tipos de violência</h3>
+            <p>Conheça as diferentes formas de violência, seus sinais e informações importantes.</p>
+            <a href="violencias.html">Conhecer as violências <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
 
+          <article class="resource-card reveal delay-1">
+            <div class="tile-icon tile-pink"><i class="fa-solid fa-heart"></i></div>
+            <h3>Preciso de apoio</h3>
+            <p>Encontre caminhos para buscar orientação, acolhimento e serviços de atendimento.</p>
+            <a href="apoio.html">Encontrar apoio <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
 
-    <!-- =========================================
-         ACESSIBILIDADE
-    ========================================== -->
+          <article class="resource-card reveal delay-2">
+            <div class="tile-icon tile-blue"><i class="fa-solid fa-location-dot"></i></div>
+            <h3>Localização</h3>
+            <p>Consulte a localização do dispositivo, mediante autorização, e abra o mapa.</p>
+            <a href="localizacao.html">Abrir localização <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
 
-    <div
-        class="accessibility-panel"
-        id="accessibilityPanel"
-        aria-hidden="true">
+          <article class="resource-card reveal">
+            <div class="tile-icon tile-green"><i class="fa-solid fa-users"></i></div>
+            <h3>Pessoas confiáveis</h3>
+            <p>Organize os contatos de pessoas em quem você confia.</p>
+            <a href="pessoas-confiaveis.html">Ver contatos <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
 
-        <div class="accessibility-header">
+          <article class="resource-card reveal delay-1">
+            <div class="tile-icon tile-gold"><i class="fa-solid fa-key"></i></div>
+            <h3>Palavra de segurança</h3>
+            <p>Conheça as opções de configuração de uma palavra de segurança no dispositivo.</p>
+            <a href="palavra-seguranca.html">Conhecer recurso <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
 
-            <div>
+          <article class="resource-card reveal delay-2">
+            <div class="tile-icon tile-peach"><i class="fa-solid fa-book"></i></div>
+            <h3>Diário pessoal</h3>
+            <p>Registre notas importantes no espaço pessoal disponível no dispositivo.</p>
+            <a href="diario.html">Abrir diário <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
 
-                <span>
-                    ACESSIBILIDADE
-                </span>
+          <article class="resource-card reveal">
+            <div class="tile-icon tile-purple"><i class="fa-solid fa-fingerprint"></i></div>
+            <h3>Biometria</h3>
+            <p>Veja informações sobre recursos de autenticação compatíveis com o dispositivo.</p>
+            <a href="biometria.html">Ver opções <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
 
-                <h2>
-                    Recursos de acessibilidade
-                </h2>
+          <article class="resource-card reveal delay-1">
+            <div class="tile-icon tile-blue"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Emergência</h3>
+            <p>Acesse informações úteis para situações de urgência e procure os serviços adequados.</p>
+            <a href="emergencia.html">Acessar emergência <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
 
-            </div>
-
-            <button
-                id="closeAccessibility"
-                type="button">
-
-                <i class="fa-solid fa-xmark"></i>
-
-            </button>
-
+          <article class="resource-card reveal delay-2">
+            <div class="tile-icon tile-pink"><i class="fa-solid fa-user"></i></div>
+            <h3>Minha conta</h3>
+            <p>Crie sua conta ou entre para acessar os recursos que exigem autenticação.</p>
+            <a href="#" data-open-account>Entrar ou cadastrar <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
         </div>
+      </div>
+    </section>
 
-
-        <div class="accessibility-content">
-
-
-            <div class="accessibility-group">
-
-                <h3>
-                    Tamanho do texto
-                </h3>
-
-                <div class="accessibility-buttons">
-
-                    <button id="fontDecreasePanel">
-                        A−
-                    </button>
-
-                    <button id="fontNormal">
-                        A
-                    </button>
-
-                    <button id="fontIncreasePanel">
-                        A+
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="accessibility-group">
-
-                <h3>
-                    Contraste
-                </h3>
-
-                <button
-                    id="contrastTogglePanel"
-                    class="accessibility-action"
-                    type="button">
-
-                    <i class="fa-solid fa-circle-half-stroke"></i>
-
-                    Ativar contraste
-
-                </button>
-
-            </div>
-
-
-            <div class="accessibility-group">
-
-                <h3>
-                    Leitura
-                </h3>
-
-                <div class="accessibility-buttons">
-
-                    <button id="readPage">
-                        <i class="fa-solid fa-volume-high"></i>
-                        Ler página
-                    </button>
-
-                    <button id="stopReading">
-                        <i class="fa-solid fa-stop"></i>
-                        Parar
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="accessibility-group">
-
-                <h3>
-                    Idioma
-                </h3>
-
-                <div class="language-buttons">
-
-                    <button
-                        class="language-button"
-                        data-language="pt-BR">
-
-                        Português
-
-                    </button>
-
-                    <button
-                        class="language-button"
-                        data-language="en">
-
-                        English
-
-                    </button>
-
-                    <button
-                        class="language-button"
-                        data-language="es">
-
-                        Español
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="accessibility-group">
-
-                <h3>
-                    VLibras
-                </h3>
-
-                <button
-                    id="activateVlibras"
-                    class="accessibility-action"
-                    type="button">
-
-                    <i class="fa-solid fa-hands"></i>
-
-                    Ativar VLibras
-
-                </button>
-
-            </div>
-
-
-            <div class="accessibility-group">
-
-                <h3>
-                    Tema
-                </h3>
-
-                <button
-                    id="themeToggleAccessibility"
-                    class="accessibility-action"
-                    type="button">
-
-                    <i class="fa-solid fa-moon"></i>
-
-                    Alternar tema
-
-                </button>
-
-            </div>
-
+    <section class="section" id="seguranca">
+      <div class="container">
+        <div class="safety-band reveal">
+          <div>
+            <span class="eyebrow"><i class="fa-solid fa-heart"></i> Você não está sozinha</span>
+            <h2>Buscar apoio pode começar com informação.</h2>
+            <p>Conheça os caminhos de atendimento psicológico, orientação jurídica e serviços sociais disponíveis na rede de apoio.</p>
+          </div>
+          <a class="btn btn-support" href="apoio.html">
+            Preciso de apoio <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
+      </div>
+    </section>
 
+    <section class="section" id="projeto">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Conheça o projeto</span>
+          <h2>Uma iniciativa que une tecnologia e acolhimento.</h2>
+          <p>A LIA é um projeto educativo que reúne conteúdo informativo e recursos digitais. As ferramentas disponíveis dependem das permissões do navegador e das funcionalidades realmente implementadas.</p>
+          <a href="projeto.html" class="btn btn-primary" style="margin-top:22px">
+            Conhecer a história da LIA <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="story-card reveal" style="display:flex;gap:20px;align-items:flex-start">
+          <div class="tile-icon tile-purple" style="flex-shrink:0"><i class="fa-solid fa-lock"></i></div>
+          <div>
+            <h3>Privacidade e cuidado</h3>
+            <p>A LIA deve ser utilizada em um dispositivo e ambiente que você considere seguros. A criação de conta não substitui atendimento profissional, serviços de emergência ou uma avaliação individual de segurança. Não use o site se isso puder aumentar o risco para você.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="logo" href="#inicio">
+            <span class="logo-symbol">L</span>
+            <span><strong>LIA</strong><small>Local de Informação e Apoio</small></span>
+          </a>
+          <p>Informação também é proteção.</p>
+        </div>
+        <div>
+          <h3>Conheça a LIA</h3>
+          <div class="footer-links">
+            <a href="projeto.html">História do projeto</a>
+            <a href="violencias.html">Tipos de violência</a>
+            <a href="apoio.html">Rede de apoio</a>
+          </div>
+        </div>
+        <div>
+          <h3>Recursos</h3>
+          <div class="footer-links">
+            <a href="localizacao.html">Localização</a>
+            <a href="emergencia.html">Emergência</a>
+            <a href="discreto.html">Modo discreto</a>
+            <a href="#" data-open-account>Minha conta</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <small>© 2026 LIA — Local de Informação e Apoio</small>
+        <small>Desenvolvido por Marcely Castro Rodrigues e Mikaela Cardoso Bonfim.</small>
+      </div>
     </div>
+  </footer>
 
+  <!-- Janela de cadastro e login -->
+  <div class="modal-backdrop" id="accountBackdrop" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
+    <div class="account-modal">
+      <aside class="modal-aside">
+        <a class="logo" href="#inicio">
+          <span class="logo-symbol">L</span>
+          <span><strong>LIA</strong><small>Local de Informação e Apoio</small></span>
+        </a>
+        <div>
+          <h2>Um espaço para você.</h2>
+          <p>Crie sua conta para começar a organizar seu acesso aos recursos da LIA.</p>
+          <p class="aside-note"><i class="fa-solid fa-shield-heart"></i> Você também pode fechar esta janela e continuar sem cadastro.</p>
+        </div>
+      </aside>
 
-    <div
-        class="accessibility-overlay"
-        id="accessibilityOverlay">
-    </div>
+      <div class="modal-main">
+        <button class="modal-close" id="closeAccount" type="button" aria-label="Fechar janela de conta">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
 
+        <span class="eyebrow">Bem-vinda à LIA</span>
+        <h2 id="accountTitle">Vamos começar?</h2>
+        <p class="modal-subtitle">Entre na sua conta ou crie um cadastro gratuito.</p>
 
-    <!-- VLibras -->
-    <div
-        vw
-        class="enabled">
-
-        <div
-            vw-access-button
-            class="active">
+        <div class="auth-tabs" role="tablist">
+          <button class="auth-tab active" id="tabRegister" type="button" role="tab" aria-selected="true">Criar conta</button>
+          <button class="auth-tab" id="tabLogin" type="button" role="tab" aria-selected="false">Entrar</button>
         </div>
 
-        <div
-            vw-plugin-wrapper>
+        <form class="auth-form active" id="registerForm">
+          <label class="field">
+            <span>Nome completo</span>
+            <input type="text" id="registerName" autocomplete="name" placeholder="Como podemos chamar você?" required>
+          </label>
+          <label class="field">
+            <span>Telefone (opcional)</span>
+            <input type="tel" id="registerPhone" autocomplete="tel" placeholder="Seu telefone">
+          </label>
+          <label class="field">
+            <span>E-mail</span>
+            <input type="email" id="registerEmail" autocomplete="email" placeholder="voce@email.com" required>
+          </label>
+          <label class="field">
+            <span>Senha (mínimo de 8 caracteres)</span>
+            <input type="password" id="registerPassword" autocomplete="new-password" minlength="8" placeholder="Crie uma senha segura" required>
+          </label>
+          <button class="btn btn-primary auth-submit" type="submit" id="registerSubmit">
+            Criar minha conta <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <p class="auth-message" id="registerMessage" aria-live="polite"></p>
+        </form>
 
-            <div class="vw-plugin-top-wrapper"></div>
+        <form class="auth-form" id="loginForm">
+          <label class="field">
+            <span>E-mail</span>
+            <input type="email" id="loginEmail" autocomplete="email" placeholder="voce@email.com" required>
+          </label>
+          <label class="field">
+            <span>Senha</span>
+            <input type="password" id="loginPassword" autocomplete="current-password" placeholder="Sua senha" required>
+          </label>
+          <button class="btn btn-primary auth-submit" type="submit" id="loginSubmit">
+            Entrar na minha conta <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <p class="auth-message" id="loginMessage" aria-live="polite"></p>
+        </form>
 
-        </div>
-
+        <button class="auth-skip" id="skipAccount" type="button">Continuar navegando sem cadastro</button>
+      </div>
     </div>
+  </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="lia-supabase.js"></script>
 
-    <script
-        src="https://vlibras.gov.br/app/vlibras-plugin.js">
-    </script>
+  <script>
+    (() => {
+      const backdrop = document.getElementById("accountBackdrop");
+      const closeButton = document.getElementById("closeAccount");
+      const skipButton = document.getElementById("skipAccount");
+      const registerForm = document.getElementById("registerForm");
+      const loginForm = document.getElementById("loginForm");
+      const registerTab = document.getElementById("tabRegister");
+      const loginTab = document.getElementById("tabLogin");
+      const modalTitle = document.getElementById("accountTitle");
+      const nav = document.getElementById("mainNav");
+      const menuToggle = document.getElementById("menuToggle");
 
+      function openAccount() {
+        backdrop.classList.add("open");
+        document.body.classList.add("modal-open");
+        setTimeout(() => document.getElementById("registerName").focus(), 100);
+      }
 
-    <script>
-        if (typeof window.VLibras !== "undefined") {
-            new window.VLibras.Widget(
-                "https://vlibras.gov.br/app"
-            );
+      function closeAccount() {
+        backdrop.classList.remove("open");
+        document.body.classList.remove("modal-open");
+      }
+
+      function setTab(which) {
+        const registering = which === "register";
+        registerForm.classList.toggle("active", registering);
+        loginForm.classList.toggle("active", !registering);
+        registerTab.classList.toggle("active", registering);
+        loginTab.classList.toggle("active", !registering);
+        registerTab.setAttribute("aria-selected", String(registering));
+        loginTab.setAttribute("aria-selected", String(!registering));
+        modalTitle.textContent = registering ? "Vamos começar?" : "Que bom ter você de volta.";
+        clearMessage("registerMessage");
+        clearMessage("loginMessage");
+      }
+
+      function showMessage(id, message, type) {
+        const el = document.getElementById(id);
+        el.textContent = message;
+        el.className = "auth-message" + (type ? " " + type : "");
+      }
+
+      function clearMessage(id) {
+        showMessage(id, "", "");
+      }
+
+      function getSupabase() {
+        if (!window.supabase || !window.LIA_SUPABASE_URL ||
+            !window.LIA_SUPABASE_PUBLISHABLE_KEY ||
+            window.LIA_SUPABASE_PUBLISHABLE_KEY === "COLE_AQUI_SUA_PUBLISHABLE_KEY") {
+          return null;
         }
-    </script>
+        if (!window.liaSupabaseClient) {
+          window.liaSupabaseClient = window.supabase.createClient(
+            window.LIA_SUPABASE_URL,
+            window.LIA_SUPABASE_PUBLISHABLE_KEY
+          );
+        }
+        return window.liaSupabaseClient;
+      }
 
-
-    <!-- JAVASCRIPT DA LIA -->
-    <script src="lia.js"></script>
-
-
-    <!-- MENU MOBILE / BOTÃO DISCRETO -->
-    <script>
-
-        document.addEventListener("DOMContentLoaded", function () {
-
-            const menuToggle =
-                document.getElementById("menuToggle");
-
-            const navigation =
-                document.getElementById("navigation");
-
-            if (menuToggle && navigation) {
-
-                menuToggle.addEventListener(
-                    "click",
-                    function () {
-
-                        navigation.classList.toggle("active");
-
-                    }
-                );
-
-            }
-
-
-            const discreetMode =
-                document.getElementById("discreetMode");
-
-            if (discreetMode) {
-
-                discreetMode.addEventListener(
-                    "click",
-                    function () {
-
-                        window.location.href =
-                            "discreto.html";
-
-                    }
-                );
-
-            }
-
-
-            const fontDecrease =
-                document.getElementById("fontDecrease");
-
-            const fontIncrease =
-                document.getElementById("fontIncrease");
-
-            const fontReset =
-                document.getElementById("fontReset");
-
-
-            if (fontDecrease) {
-
-                fontDecrease.addEventListener(
-                    "click",
-                    function () {
-
-                        document.body.classList.add(
-                            "font-small"
-                        );
-
-                    }
-                );
-
-            }
-
-
-            if (fontIncrease) {
-
-                fontIncrease.addEventListener(
-                    "click",
-                    function () {
-
-                        document.body.classList.add(
-                            "font-large"
-                        );
-
-                    }
-                );
-
-            }
-
-
-            if (fontReset) {
-
-                fontReset.addEventListener(
-                    "click",
-                    function () {
-
-                        document.body.classList.remove(
-                            "font-small",
-                            "font-large"
-                        );
-
-                    }
-                );
-
-            }
-
-
-            const contrast =
-                document.getElementById("contrastToggle");
-
-            if (contrast) {
-
-                contrast.addEventListener(
-                    "click",
-                    function () {
-
-                        document.body.classList.toggle(
-                            "high-contrast"
-                        );
-
-                    }
-                );
-
-            }
-
+      document.querySelectorAll("[data-open-account]").forEach(el => {
+        el.addEventListener("click", event => {
+          event.preventDefault();
+          openAccount();
         });
+      });
 
-    </script>
-<script src="lia.js" defer></script>
+      closeButton.addEventListener("click", closeAccount);
+      skipButton.addEventListener("click", closeAccount);
+      backdrop.addEventListener("click", event => {
+        if (event.target === backdrop) closeAccount();
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && backdrop.classList.contains("open")) closeAccount();
+      });
+
+      registerTab.addEventListener("click", () => setTab("register"));
+      loginTab.addEventListener("click", () => setTab("login"));
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.innerHTML = isOpen
+          ? '<i class="fa-solid fa-xmark"></i>'
+          : '<i class="fa-solid fa-bars"></i>';
+      });
+
+      nav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        });
+      });
+
+      function toggleContrast() {
+        document.body.classList.toggle("high-contrast");
+      }
+      document.getElementById("themeButton").addEventListener("click", toggleContrast);
+      document.getElementById("accessibilityButton").addEventListener("click", toggleContrast);
+
+      // Animações de entrada ao rolar a página.
+      const revealItems = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        revealItems.forEach(item => observer.observe(item));
+      } else {
+        revealItems.forEach(item => item.classList.add("visible"));
+      }
+
+      // Cadastro real no Supabase.
+      registerForm.addEventListener("submit", async event => {
+        event.preventDefault();
+        const client = getSupabase();
+        if (!client) {
+          showMessage("registerMessage", "A configuração do Supabase não foi carregada. Confira o arquivo lia-supabase.js.", "error");
+          return;
+        }
+
+        const name = document.getElementById("registerName").value.trim();
+        const phone = document.getElementById("registerPhone").value.trim();
+        const email = document.getElementById("registerEmail").value.trim();
+        const password = document.getElementById("registerPassword").value;
+        const submit = document.getElementById("registerSubmit");
+
+        if (password.length < 8) {
+          showMessage("registerMessage", "A senha precisa ter pelo menos 8 caracteres.", "error");
+          return;
+        }
+
+        submit.disabled = true;
+        submit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Criando conta...';
+        showMessage("registerMessage", "Estamos enviando seus dados com segurança...", "");
+
+        try {
+          const { data, error } = await client.auth.signUp({
+            email,
+            password,
+            options: {
+              data: { full_name: name, phone },
+              emailRedirectTo: window.location.origin + window.location.pathname
+            }
+          });
+
+          if (error) throw error;
+
+          if (data.session) {
+            showMessage("registerMessage", "Conta criada! Você já pode continuar navegando.", "success");
+            setTimeout(closeAccount, 1300);
+          } else {
+            showMessage("registerMessage", "Cadastro enviado. Confira seu e-mail para confirmar a conta antes de entrar.", "success");
+            setTab("login");
+            document.getElementById("loginEmail").value = email;
+          }
+        } catch (error) {
+          showMessage("registerMessage", error.message || "Não foi possível criar sua conta. Tente novamente.", "error");
+        } finally {
+          submit.disabled = false;
+          submit.innerHTML = 'Criar minha conta <i class="fa-solid fa-arrow-right"></i>';
+        }
+      });
+
+      // Login real no Supabase.
+      loginForm.addEventListener("submit", async event => {
+        event.preventDefault();
+        const client = getSupabase();
+        if (!client) {
+          showMessage("loginMessage", "A configuração do Supabase não foi carregada. Confira o arquivo lia-supabase.js.", "error");
+          return;
+        }
+
+        const email = document.getElementById("loginEmail").value.trim();
+        const password = document.getElementById("loginPassword").value;
+        const submit = document.getElementById("loginSubmit");
+
+        submit.disabled = true;
+        submit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Entrando...';
+        showMessage("loginMessage", "Verificando seus dados...", "");
+
+        try {
+          const { error } = await client.auth.signInWithPassword({ email, password });
+          if (error) throw error;
+
+          showMessage("loginMessage", "Login realizado. Você já pode continuar.", "success");
+          setTimeout(() => {
+            closeAccount();
+            window.location.href = "conta.html";
+          }, 900);
+        } catch (error) {
+          showMessage("loginMessage", error.message || "Não foi possível entrar. Confira seu e-mail e senha.", "error");
+        } finally {
+          submit.disabled = false;
+          submit.innerHTML = 'Entrar na minha conta <i class="fa-solid fa-arrow-right"></i>';
+        }
+      });
+
+      // Abre a janela na primeira visita desta sessão.
+      // O botão "Preciso de apoio" continua disponível sem login.
+      if (!sessionStorage.getItem("liaAccountPromptShown")) {
+        sessionStorage.setItem("liaAccountPromptShown", "1");
+        window.setTimeout(openAccount, 700);
+      }
+    })();
+  </script>
 </body>
-
 </html>
