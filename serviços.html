@@ -1,292 +1,194 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Serviços Sociais e Rede de Apoio | LIA</title>
-  <meta name="description" content="Conheça serviços sociais, assistência social e canais oficiais de acolhimento para mulheres em situação de vulnerabilidade ou violência.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#51377a">
+  <meta name="author" content="Marcely Castro Rodrigues e Mikaela Castro Bonfim">
+  <meta name="description" content="Conheça serviços públicos e redes de apoio que podem orientar mulheres em situação de violência ou vulnerabilidade.">
   <meta name="robots" content="index, follow">
-  <meta name="author" content="Projeto LIA">
-  <meta name="theme-color" content="#7651a8">
-
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Serviços Sociais e Rede de Apoio | LIA">
-  <meta property="og:description" content="Informações sobre assistência social, acolhimento e serviços públicos de apoio às mulheres.">
   <meta property="og:locale" content="pt_BR">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Serviços Sociais e Rede de Apoio | LIA">
-  <meta name="twitter:description" content="Conheça serviços sociais e canais de atendimento.">
-
+  <meta property="og:title" content="Serviços de apoio | LIA">
+  <meta property="og:description" content="Informações sobre serviços sociais, saúde e proteção às mulheres.">
+  <title>Serviços de apoio | LIA</title>
   <link rel="stylesheet" href="lia.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <script src="lia.js" defer></script>
 </head>
-
 <body>
   <div class="top-bar">
-    <span>LIA — Local • Informação • Apoio</span>
-    <button
-      type="button"
-      id="accessibilityToggle"
-      aria-expanded="false"
-      aria-controls="accessibilityPanel">
-      Acessibilidade
-    </button>
+    <div class="container top-bar-content">
+      <span>LIA — Local • Informação • Apoio</span>
+      <button class="btn btn-discreet" id="openAccessibility" type="button" aria-controls="accessibilityPanel" aria-expanded="false">
+        <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Acessibilidade
+      </button>
+    </div>
   </div>
 
-  <header class="site-header">
-    <a class="logo" href="index.html" aria-label="LIA — página inicial">LIA</a>
+  <header class="header">
+    <div class="container nav-container">
+      <a class="logo" href="index.html" aria-label="LIA — página inicial">
+        <span class="logo-icon">LIA</span>
+        <span class="logo-name">
+          <strong>LIA</strong>
+          <span>Local • Informação • Apoio</span>
+        </span>
+      </a>
 
-    <nav class="main-nav" aria-label="Navegação principal">
-      <a href="index.html">Início</a>
-      <a href="projeto.html">O projeto</a>
-      <a href="violencias.html">Tipos de violência</a>
-      <a href="apoio.html">Preciso de apoio</a>
-      <a href="emergencia.html">Emergência</a>
-      <a href="discreto.html">Modo discreto</a>
-      <a href="cadastro.html">Conta</a>
-    </nav>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navigation">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <nav class="navigation" id="navigation" aria-label="Menu principal">
+        <a href="index.html">Início</a>
+        <a href="projeto.html">Projeto</a>
+        <a href="violencias.html">Violências</a>
+        <a href="apoio.html">Rede de apoio</a>
+        <a href="localizacao.html">Localização</a>
+        <a href="cadastro.html">Conta</a>
+        <a href="discreto.html">Modo discreto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-main" href="emergencia.html">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> Preciso de apoio
+        </a>
+      </div>
+    </div>
   </header>
 
+  <div id="accessibilityOverlay" aria-hidden="true"></div>
+  <aside id="accessibilityPanel" aria-hidden="true" aria-label="Painel de acessibilidade">
+    <button id="closeAccessibility" class="btn btn-outline" type="button">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i> Fechar
+    </button>
+    <h2>Acessibilidade</h2>
+    <p>Personalize a leitura e a aparência da página.</p>
+    <div class="action-list">
+      <button id="fontDecrease" type="button">A− Diminuir texto</button>
+      <button id="fontReset" type="button">A Restaurar texto</button>
+      <button id="fontIncrease" type="button">A+ Aumentar texto</button>
+      <button id="contrastToggle" type="button">Alternar alto contraste</button>
+      <button id="themeToggleAccessibility" type="button">Alternar tema claro/escuro</button>
+      <button id="readPage" type="button">Ler página em voz alta</button>
+      <button id="stopReading" type="button">Parar leitura</button>
+    </div>
+    <label for="languageSelect">Idioma</label>
+    <select id="languageSelect">
+      <option value="pt-BR">Português</option>
+      <option value="en">English</option>
+      <option value="es">Español</option>
+    </select>
+  </aside>
+
   <main>
-    <section class="hero">
-      <div class="hero-content">
-        <span class="eyebrow">Acolhimento e cidadania</span>
-        <h1>Serviços sociais e rede de apoio</h1>
-        <p>
-          Você não precisa enfrentar uma situação de vulnerabilidade sozinha.
-          Conheça serviços públicos que podem oferecer acolhimento,
-          orientação e encaminhamento conforme suas necessidades.
-        </p>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow"><i class="fa-solid fa-hands-holding-circle" aria-hidden="true"></i> REDE DE PROTEÇÃO</span>
+        <h1>Serviços de apoio</h1>
+        <p>Conheça serviços públicos que podem oferecer orientação, acolhimento e encaminhamento conforme suas necessidades e a disponibilidade da sua região.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-heading">
-        <span class="eyebrow">Onde procurar atendimento</span>
-        <h2>Conheça os serviços disponíveis</h2>
-        <p>
-          O atendimento pode variar conforme o município e as características
-          de cada situação. Consulte os canais oficiais para encontrar
-          a unidade adequada.
-        </p>
-      </div>
+    <section class="page-content">
+      <div class="container">
+        <div class="alert">
+          <strong>Se houver perigo imediato:</strong> ligue para o 190, se for seguro. O Ligue 180 oferece informações e recebe denúncias de violência contra a mulher, gratuitamente, 24 horas por dia.
+        </div>
 
-      <div class="card-grid">
-        <article class="card">
-          <h3>CRAS</h3>
-          <p>
-            O Centro de Referência de Assistência Social é uma unidade
-            pública que atua na proteção social básica, orientando famílias
-            e facilitando o acesso a serviços, programas e benefícios sociais.
-          </p>
-          <a
-            class="btn btn-primary"
-            href="https://www.gov.br/mds/pt-br"
-            target="_blank"
-            rel="noopener noreferrer">
-            Portal do Ministério do Desenvolvimento Social
-          </a>
+        <div class="content-grid">
+          <article class="service-card">
+            <div class="feature-icon">
+              <i class="fa-solid fa-house-medical" aria-hidden="true"></i>
+            </div>
+            <h2>UBS — Unidade Básica de Saúde</h2>
+            <p>Pode ser uma porta de entrada para atendimento de saúde, acolhimento inicial e encaminhamento para outros serviços da rede.</p>
+            <a class="btn btn-outline" href="https://www.gov.br/saude/pt-br" target="_blank" rel="noopener noreferrer">Ministério da Saúde</a>
+          </article>
+
+          <article class="service-card">
+            <div class="feature-icon pink">
+              <i class="fa-solid fa-people-roof" aria-hidden="true"></i>
+            </div>
+            <h2>CRAS</h2>
+            <p>O Centro de Referência de Assistência Social oferece serviços de proteção social básica e pode orientar sobre benefícios e programas sociais.</p>
+            <a class="btn btn-outline" href="https://www.gov.br/mds/pt-br" target="_blank" rel="noopener noreferrer">Ministério do Desenvolvimento Social</a>
+          </article>
+
+          <article class="service-card">
+            <div class="feature-icon green">
+              <i class="fa-solid fa-shield-heart" aria-hidden="true"></i>
+            </div>
+            <h2>CREAS</h2>
+            <p>O Centro de Referência Especializado de Assistência Social atende pessoas e famílias que vivenciam situações de risco social ou violação de direitos.</p>
+            <a class="btn btn-outline" href="https://www.gov.br/mds/pt-br" target="_blank" rel="noopener noreferrer">Consultar informações oficiais</a>
+          </article>
+
+          <article class="service-card">
+            <div class="feature-icon blue">
+              <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+            </div>
+            <h2>Defensoria Pública</h2>
+            <p>Pode prestar orientação jurídica e assistência gratuita a quem atende aos critérios do serviço.</p>
+            <a class="btn btn-outline" href="https://www.defensoria.sp.def.br/" target="_blank" rel="noopener noreferrer">Defensoria Pública de SP</a>
+          </article>
+
+          <article class="service-card">
+            <div class="feature-icon gold">
+              <i class="fa-solid fa-building-shield" aria-hidden="true"></i>
+            </div>
+            <h2>Delegacia de Defesa da Mulher</h2>
+            <p>As unidades especializadas atendem ocorrências de violência contra a mulher. Verifique os endereços, horários e canais disponíveis na sua região.</p>
+            <a class="btn btn-outline" href="https://www.ssp.sp.gov.br/" target="_blank" rel="noopener noreferrer">Secretaria da Segurança Pública de SP</a>
+          </article>
+
+          <article class="service-card">
+            <div class="feature-icon pink">
+              <i class="fa-solid fa-heart" aria-hidden="true"></i>
+            </div>
+            <h2>Centros de atendimento à mulher</h2>
+            <p>Conforme o município, podem oferecer acolhimento e encaminhamento para serviços psicológicos, sociais e jurídicos.</p>
+            <a class="btn btn-outline" href="https://www.gov.br/mulheres/pt-br" target="_blank" rel="noopener noreferrer">Ministério das Mulheres</a>
+          </article>
+        </div>
+
+        <article class="content-card" style="margin-top:24px">
+          <h2>Como encontrar um serviço perto de você</h2>
+          <p>A disponibilidade varia por município. Consulte os canais oficiais ou procure a assistência social e a unidade de saúde da sua região para saber onde receber atendimento.</p>
+          <div class="action-list">
+            <a href="localizacao.html">
+              <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Consultar a página de localização</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="advogados.html">
+              <span><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Orientação jurídica</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="psicologo.html">
+              <span><i class="fa-solid fa-comments" aria-hidden="true"></i> Apoio psicológico</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="emergencia.html">
+              <span><i class="fa-solid fa-phone" aria-hidden="true"></i> Telefones de emergência e apoio</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
         </article>
 
-        <article class="card">
-          <h3>CREAS</h3>
-          <p>
-            O Centro de Referência Especializado de Assistência Social atende
-            pessoas e famílias que vivenciam situações de violência ou outras
-            violações de direitos, conforme a organização da rede local.
-          </p>
-          <a
-            class="btn btn-primary"
-            href="https://www.gov.br/mds/pt-br"
-            target="_blank"
-            rel="noopener noreferrer">
-            Consultar informações oficiais
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>Casa da Mulher Brasileira</h3>
-          <p>
-            Nas localidades onde existe, reúne serviços especializados
-            para mulheres em situação de violência, podendo facilitar o acesso
-            a atendimento psicossocial, orientação jurídica e outros serviços.
-          </p>
-          <a
-            class="btn btn-primary"
-            href="https://www.gov.br/mulheres/pt-br"
-            target="_blank"
-            rel="noopener noreferrer">
-            Ministério das Mulheres
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>Unidade Básica de Saúde</h3>
-          <p>
-            A UBS pode ser uma porta de entrada para cuidados de saúde,
-            escuta e encaminhamento para outros serviços da rede de atendimento.
-          </p>
-          <a
-            class="btn btn-primary"
-            href="https://www.gov.br/saude/pt-br"
-            target="_blank"
-            rel="noopener noreferrer">
-            Ministério da Saúde
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>Centros de atendimento à mulher</h3>
-          <p>
-            Os centros especializados existentes em alguns municípios
-            podem oferecer acolhimento e orientação, além de encaminhamentos
-            para serviços sociais, psicológicos e jurídicos.
-          </p>
-          <a
-            class="btn btn-primary"
-            href="https://www.gov.br/mulheres/pt-br"
-            target="_blank"
-            rel="noopener noreferrer">
-            Consultar a rede de atendimento
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>Conselhos e órgãos de proteção</h3>
-          <p>
-            Órgãos públicos de proteção podem orientar sobre violações
-            de direitos e encaminhar demandas aos serviços responsáveis,
-            conforme suas atribuições.
-          </p>
-          <a
-            class="btn btn-primary"
-            href="https://www.gov.br/"
-            target="_blank"
-            rel="noopener noreferrer">
-            Portal oficial do Governo Federal
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading">
-        <h2>Como encontrar atendimento na sua região</h2>
-        <p>
-          Você pode começar pelos canais municipais de assistência social
-          ou pelos serviços oficiais de orientação.
-        </p>
-      </div>
-
-      <div class="card-grid">
-        <article class="card">
-          <h3>1. Identifique sua necessidade</h3>
-          <p>
-            Pense no tipo de apoio de que precisa: acolhimento, assistência
-            social, atendimento de saúde, orientação jurídica ou proteção
-            diante de uma situação de violência.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>2. Procure um canal oficial</h3>
-          <p>
-            Consulte a prefeitura, a Secretaria Municipal de Assistência
-            Social ou os portais oficiais para localizar os serviços
-            disponíveis no seu município.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>3. Pergunte sobre o atendimento</h3>
-          <p>
-            Confirme endereço, horário, necessidade de agendamento,
-            documentos exigidos e possibilidade de atendimento sigiloso.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="notice notice-info">
-        <h2>Você também pode buscar orientação pelo Ligue 180</h2>
-        <p>
-          A Central de Atendimento à Mulher oferece informações sobre
-          direitos e serviços da rede de atendimento à violência contra
-          as mulheres.
-        </p>
-        <a class="btn btn-primary" href="tel:180">
-          Ligar para 180
-        </a>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="notice notice-warning">
-        <strong>Em uma emergência:</strong>
-        se houver perigo imediato, procure um local seguro e ligue para
-        190, se for possível fazê-lo com segurança. Para orientação sobre
-        violência contra a mulher, utilize o Ligue 180.
-      </div>
-
-      <div class="form-actions">
-        <a class="btn btn-primary" href="apoio.html">
-          Conhecer opções de apoio
-        </a>
-        <a class="btn btn-secondary" href="advogados.html">
-          Apoio jurídico
-        </a>
-        <a class="btn btn-secondary" href="psicologo.html">
-          Apoio psicológico
-        </a>
-        <a class="btn btn-secondary" href="localizacao.html">
-          Localização e serviços
-        </a>
+        <p class="privacy-notice">A LIA é um projeto informativo e não substitui os serviços oficiais. Confirme diretamente com cada instituição os critérios de atendimento e a disponibilidade local.</p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p><strong>LIA — Local de Informação e Apoio</strong></p>
-    <p>Desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
-    <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
-    <p>Projeto acadêmico de informação, prevenção e apoio.</p>
+  <footer>
+    <div class="container">
+      <h3>LIA — Local • Informação • Apoio</h3>
+      <p>Projeto de informação, acolhimento e orientação para mulheres.</p>
+      <p>Desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
+      <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
+    </div>
   </footer>
-
-  <aside
-    id="accessibilityPanel"
-    class="accessibility-panel"
-    hidden
-    aria-label="Opções de acessibilidade">
-
-    <div class="panel-header">
-      <h2>Acessibilidade</h2>
-      <button
-        type="button"
-        id="closeAccessibility"
-        aria-label="Fechar acessibilidade">×</button>
-    </div>
-
-    <div class="panel-content">
-      <button type="button" id="fontDecrease">Diminuir fonte</button>
-      <button type="button" id="fontIncrease">Aumentar fonte</button>
-      <button type="button" id="contrastToggle">Alto contraste</button>
-      <button type="button" id="themeToggle">Alternar tema</button>
-
-      <label for="languageSelect">Idioma</label>
-      <select id="languageSelect">
-        <option value="pt-BR">Português</option>
-        <option value="en">English</option>
-        <option value="es">Español</option>
-      </select>
-
-      <button type="button" id="readPage">Ouvir página</button>
-      <button type="button" id="stopReading">Parar leitura</button>
-      <button type="button" id="loadVlibras">Ativar VLibras</button>
-      <div id="vlibrasContainer"></div>
-    </div>
-  </aside>
 </body>
 </html>

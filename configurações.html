@@ -1,383 +1,276 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Configurações e Acessibilidade | LIA</title>
-  <meta name="description" content="Configure suas preferências de acessibilidade, aparência e conta no projeto LIA — Local de Informação e Apoio.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#51377a">
+  <meta name="author" content="Marcely Castro Rodrigues e Mikaela Castro Bonfim">
+  <meta name="description" content="Configure suas preferências de acessibilidade, aparência e privacidade no projeto LIA.">
   <meta name="robots" content="index, follow">
-  <meta name="author" content="Projeto LIA">
-  <meta name="theme-color" content="#7651a8">
-
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Configurações e Acessibilidade | LIA">
-  <meta property="og:description" content="Ajuste as preferências de aparência e acessibilidade da plataforma LIA.">
   <meta property="og:locale" content="pt_BR">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Configurações e Acessibilidade | LIA">
-  <meta name="twitter:description" content="Personalize sua experiência na plataforma LIA.">
-
+  <meta property="og:title" content="Configurações | LIA">
+  <meta property="og:description" content="Personalize sua experiência no LIA.">
+  <title>Configurações | LIA</title>
   <link rel="stylesheet" href="lia.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <script src="lia.js" defer></script>
 </head>
-
 <body>
   <div class="top-bar">
-    <span>LIA — Local • Informação • Apoio</span>
-    <button
-      type="button"
-      id="accessibilityToggle"
-      aria-expanded="false"
-      aria-controls="accessibilityPanel">
-      Acessibilidade
-    </button>
+    <div class="container top-bar-content">
+      <span>LIA — Local • Informação • Apoio</span>
+      <button class="btn btn-discreet" id="openAccessibility" type="button" aria-controls="accessibilityPanel" aria-expanded="false">
+        <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Acessibilidade
+      </button>
+    </div>
   </div>
 
-  <header class="site-header">
-    <a class="logo" href="index.html" aria-label="LIA — página inicial">LIA</a>
+  <header class="header">
+    <div class="container nav-container">
+      <a class="logo" href="index.html" aria-label="LIA — página inicial">
+        <span class="logo-icon">LIA</span>
+        <span class="logo-name">
+          <strong>LIA</strong>
+          <span>Local • Informação • Apoio</span>
+        </span>
+      </a>
 
-    <nav class="main-nav" aria-label="Navegação principal">
-      <a href="index.html">Início</a>
-      <a href="projeto.html">O projeto</a>
-      <a href="violencias.html">Tipos de violência</a>
-      <a href="apoio.html">Preciso de apoio</a>
-      <a href="emergencia.html">Emergência</a>
-      <a href="discreto.html">Modo discreto</a>
-      <a href="cadastro.html">Conta</a>
-    </nav>
-  </header>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navigation">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <span class="eyebrow">Sua experiência</span>
-        <h1>Configurações</h1>
-        <p>
-          Personalize a aparência e as preferências de acessibilidade
-          para navegar pela LIA de uma forma mais confortável.
-        </p>
-      </div>
-    </section>
+      <nav class="navigation" id="navigation" aria-label="Menu principal">
+        <a href="index.html">Início</a>
+        <a href="projeto.html">Projeto</a>
+        <a href="violencias.html">Violências</a>
+        <a href="apoio.html">Rede de apoio</a>
+        <a href="localizacao.html">Localização</a>
+        <a href="cadastro.html">Conta</a>
+        <a href="discreto.html">Modo discreto</a>
+      </nav>
 
-    <section class="section">
-      <div class="section-heading">
-        <h2>Aparência do site</h2>
-        <p>Escolha as opções que tornam a leitura mais confortável.</p>
-      </div>
-
-      <div class="card-grid">
-        <article class="card">
-          <h3>Tema visual</h3>
-          <p>Alterne entre o tema claro e o tema escuro.</p>
-          <button class="btn btn-primary" type="button" id="settingsTheme">
-            Alternar tema
-          </button>
-          <p id="themeStatus" role="status" aria-live="polite"></p>
-        </article>
-
-        <article class="card">
-          <h3>Tamanho do texto</h3>
-          <p>Ajuste o tamanho da fonte sem precisar ampliar toda a página.</p>
-          <div class="form-actions">
-            <button class="btn btn-secondary" type="button" id="settingsFontDown">
-              A− Diminuir
-            </button>
-            <button class="btn btn-secondary" type="button" id="settingsFontUp">
-              A+ Aumentar
-            </button>
-          </div>
-          <p id="fontStatus" role="status" aria-live="polite"></p>
-        </article>
-
-        <article class="card">
-          <h3>Contraste</h3>
-          <p>Ative o alto contraste para facilitar a visualização dos elementos.</p>
-          <button class="btn btn-primary" type="button" id="settingsContrast">
-            Alternar contraste
-          </button>
-          <p id="contrastStatus" role="status" aria-live="polite"></p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading">
-        <h2>Acessibilidade e leitura</h2>
-        <p>Use os recursos disponíveis para facilitar a navegação.</p>
-      </div>
-
-      <div class="card-grid">
-        <article class="card">
-          <h3>Idioma</h3>
-          <p>Selecione o idioma de sua preferência.</p>
-          <label for="settingsLanguage">Idioma do site</label>
-          <select id="settingsLanguage">
-            <option value="pt-BR">Português</option>
-            <option value="en">English</option>
-            <option value="es">Español</option>
-          </select>
-          <p id="languageStatus" role="status" aria-live="polite"></p>
-        </article>
-
-        <article class="card">
-          <h3>Leitura em voz alta</h3>
-          <p>Ouça o texto desta página usando a síntese de voz do navegador.</p>
-          <div class="form-actions">
-            <button class="btn btn-primary" type="button" id="settingsRead">
-              Ouvir página
-            </button>
-            <button class="btn btn-secondary" type="button" id="settingsStop">
-              Parar leitura
-            </button>
-          </div>
-          <p id="speechStatus" role="status" aria-live="polite"></p>
-        </article>
-
-        <article class="card">
-          <h3>VLibras</h3>
-          <p>
-            O VLibras pode auxiliar na tradução de conteúdos digitais
-            para a Língua Brasileira de Sinais.
-          </p>
-          <button class="btn btn-primary" type="button" id="settingsVlibras">
-            Ativar VLibras
-          </button>
-          <div id="settingsVlibrasContainer"></div>
-          <p id="vlibrasStatus" role="status" aria-live="polite"></p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading">
-        <h2>Sua conta</h2>
-        <p>Consulte o cadastro e as informações salvas neste dispositivo.</p>
-      </div>
-
-      <div class="card">
-        <h3>Dados do perfil</h3>
-        <p>
-          A página de cadastro permite preencher e consultar os dados
-          do perfil da LIA.
-        </p>
-        <a class="btn btn-primary" href="cadastro.html">
-          Abrir minha conta
+      <div class="nav-actions">
+        <a class="btn btn-main" href="emergencia.html">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> Preciso de apoio
         </a>
       </div>
+    </div>
+  </header>
 
-      <div class="card">
-        <h3>Privacidade dos dados</h3>
-        <p>
-          Algumas funções do projeto armazenam informações no navegador
-          deste dispositivo. Isso não equivale a um armazenamento seguro
-          ou a uma conta protegida por servidor.
-        </p>
-        <p>
-          Evite cadastrar informações sensíveis em dispositivos
-          compartilhados ou monitorados. Limpar os dados do navegador
-          pode apagar informações salvas localmente.
-        </p>
+  <div id="accessibilityOverlay" aria-hidden="true"></div>
+  <aside id="accessibilityPanel" aria-hidden="true" aria-label="Painel de acessibilidade">
+    <button id="closeAccessibility" class="btn btn-outline" type="button">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i> Fechar
+    </button>
+    <h2>Acessibilidade</h2>
+    <p>Personalize a leitura e a aparência da página.</p>
+
+    <div class="action-list">
+      <button id="fontDecrease" type="button">A− Diminuir texto</button>
+      <button id="fontReset" type="button">A Restaurar texto</button>
+      <button id="fontIncrease" type="button">A+ Aumentar texto</button>
+      <button id="contrastToggle" type="button">Alternar alto contraste</button>
+      <button id="themeToggleAccessibility" type="button">Alternar tema claro/escuro</button>
+      <button id="readPage" type="button">Ler página em voz alta</button>
+      <button id="stopReading" type="button">Parar leitura</button>
+    </div>
+
+    <label for="languageSelect">Idioma</label>
+    <select id="languageSelect">
+      <option value="pt-BR">Português</option>
+      <option value="en">English</option>
+      <option value="es">Español</option>
+    </select>
+  </aside>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">
+          <i class="fa-solid fa-sliders" aria-hidden="true"></i> SUA EXPERIÊNCIA
+        </span>
+        <h1>Configurações</h1>
+        <p>Personalize a aparência e as preferências do LIA para navegar com mais conforto e acessibilidade.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="notice notice-info">
-        <h2>Precisa de ajuda?</h2>
-        <p>
-          Se estiver em perigo imediato, procure um local seguro e ligue
-          para 190, se puder fazer isso com segurança. Para orientação
-          sobre violência contra a mulher, ligue para 180.
-        </p>
-        <div class="form-actions">
-          <a class="btn btn-primary" href="apoio.html">Opções de apoio</a>
-          <a class="btn btn-secondary" href="emergencia.html">Emergência</a>
+    <section class="page-content">
+      <div class="container">
+        <div class="content-grid">
+          <article class="content-card">
+            <div class="feature-icon">
+              <i class="fa-solid fa-palette" aria-hidden="true"></i>
+            </div>
+            <h2>Aparência</h2>
+            <p>Escolha como prefere visualizar o site.</p>
+
+            <div class="action-list">
+              <button id="themeToggle" type="button">
+                <span><i class="fa-solid fa-moon" aria-hidden="true"></i> Alternar tema claro/escuro</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </button>
+              <button id="contrastToggleSettings" type="button">
+                <span><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i> Alternar alto contraste</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </article>
+
+          <article class="content-card">
+            <div class="feature-icon blue">
+              <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
+            </div>
+            <h2>Acessibilidade</h2>
+            <p>Ajuste o tamanho do texto, escolha o idioma e utilize a leitura em voz alta.</p>
+
+            <div class="action-list">
+              <button id="settingsFontDecrease" type="button">
+                <span><i class="fa-solid fa-minus" aria-hidden="true"></i> Diminuir texto</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </button>
+              <button id="settingsFontReset" type="button">
+                <span><i class="fa-solid fa-font" aria-hidden="true"></i> Restaurar tamanho do texto</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </button>
+              <button id="settingsFontIncrease" type="button">
+                <span><i class="fa-solid fa-plus" aria-hidden="true"></i> Aumentar texto</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </button>
+              <button id="settingsReadPage" type="button">
+                <span><i class="fa-solid fa-volume-high" aria-hidden="true"></i> Ler esta página</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </button>
+              <button id="settingsStopReading" type="button">
+                <span><i class="fa-solid fa-volume-xmark" aria-hidden="true"></i> Parar leitura</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <label for="settingsLanguage">Idioma</label>
+            <select id="settingsLanguage">
+              <option value="pt-BR">Português</option>
+              <option value="en">English</option>
+              <option value="es">Español</option>
+            </select>
+          </article>
+
+          <article class="content-card">
+            <div class="feature-icon green">
+              <i class="fa-solid fa-user-shield" aria-hidden="true"></i>
+            </div>
+            <h2>Conta e segurança</h2>
+            <p>Gerencie as informações da sua conta e conheça os recursos de segurança disponíveis no projeto.</p>
+
+            <div class="action-list">
+              <a href="cadastro.html">
+                <span><i class="fa-solid fa-user" aria-hidden="true"></i> Cadastro e conta</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+              <a href="biometria.html">
+                <span><i class="fa-solid fa-fingerprint" aria-hidden="true"></i> Segurança de acesso</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+              <a href="pessoas-confiaveis.html">
+                <span><i class="fa-solid fa-users" aria-hidden="true"></i> Pessoas de confiança</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="content-card">
+            <div class="feature-icon pink">
+              <i class="fa-solid fa-lock" aria-hidden="true"></i>
+            </div>
+            <h2>Privacidade e modo discreto</h2>
+            <p>Antes de registrar informações pessoais, verifique como os dados são armazenados e quem pode acessá-los.</p>
+
+            <div class="action-list">
+              <a href="discreto.html">
+                <span><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Abrir modo discreto</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+              <a href="diario.html">
+                <span><i class="fa-solid fa-book" aria-hidden="true"></i> Diário pessoal</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+              <a href="palavra-segurança.html">
+                <span><i class="fa-solid fa-key" aria-hidden="true"></i> Palavra de segurança</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+
+            <p class="privacy-notice">Importante: recursos que ainda usam armazenamento local não oferecem, por si só, conta sincronizada, criptografia ou proteção completa dos dados.</p>
+          </article>
         </div>
+
+        <article class="content-card" style="margin-top:24px">
+          <h2>Precisa de ajuda?</h2>
+          <p>Você pode acessar a rede de apoio ou consultar informações sobre serviços disponíveis.</p>
+          <div class="action-list">
+            <a href="apoio.html">
+              <span><i class="fa-solid fa-hands-holding-circle" aria-hidden="true"></i> Conhecer a rede de apoio</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="serviços.html">
+              <span><i class="fa-solid fa-building" aria-hidden="true"></i> Serviços públicos</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="emergencia.html">
+              <span><i class="fa-solid fa-phone" aria-hidden="true"></i> Preciso de apoio agora</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </article>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p><strong>LIA — Local de Informação e Apoio</strong></p>
-    <p>Desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
-    <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
-    <p>Projeto acadêmico de informação, prevenção e apoio.</p>
+  <footer>
+    <div class="container">
+      <h3>LIA — Local • Informação • Apoio</h3>
+      <p>Projeto de informação, acolhimento e orientação para mulheres.</p>
+      <p>Desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
+      <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
+    </div>
   </footer>
 
-  <aside
-    id="accessibilityPanel"
-    class="accessibility-panel"
-    hidden
-    aria-label="Opções de acessibilidade">
-
-    <div class="panel-header">
-      <h2>Acessibilidade</h2>
-      <button type="button" id="closeAccessibility" aria-label="Fechar acessibilidade">×</button>
-    </div>
-
-    <div class="panel-content">
-      <button type="button" id="fontDecrease">Diminuir fonte</button>
-      <button type="button" id="fontIncrease">Aumentar fonte</button>
-      <button type="button" id="contrastToggle">Alto contraste</button>
-      <button type="button" id="themeToggle">Alternar tema</button>
-
-      <label for="languageSelect">Idioma</label>
-      <select id="languageSelect">
-        <option value="pt-BR">Português</option>
-        <option value="en">English</option>
-        <option value="es">Español</option>
-      </select>
-
-      <button type="button" id="readPage">Ouvir página</button>
-      <button type="button" id="stopReading">Parar leitura</button>
-      <button type="button" id="loadVlibras">Ativar VLibras</button>
-      <div id="vlibrasContainer"></div>
-    </div>
-  </aside>
-
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const root = document.documentElement;
+    (() => {
+      const get = id => document.getElementById(id);
 
-      function announce(id, message) {
-        const element = document.getElementById(id);
-        if (element) element.textContent = message;
+      function clickIfExists(id, targetId) {
+        const button = get(id);
+        const target = get(targetId);
+        if (button && target) {
+          button.addEventListener("click", () => target.click());
+        }
       }
 
-      function currentFontSize() {
-        const saved = Number(localStorage.getItem("lia_font_size"));
-        return Number.isFinite(saved) && saved >= 12 && saved <= 24
-          ? saved
-          : 16;
-      }
+      clickIfExists("contrastToggleSettings", "contrastToggle");
+      clickIfExists("settingsFontDecrease", "fontDecrease");
+      clickIfExists("settingsFontReset", "fontReset");
+      clickIfExists("settingsFontIncrease", "fontIncrease");
+      clickIfExists("settingsReadPage", "readPage");
+      clickIfExists("settingsStopReading", "stopReading");
 
-      function setFontSize(size) {
-        const bounded = Math.max(12, Math.min(24, size));
-        root.style.fontSize = bounded + "px";
-        localStorage.setItem("lia_font_size", String(bounded));
-        announce("fontStatus", "Tamanho atual: " + bounded + " px.");
-      }
+      const mainLanguage = get("languageSelect");
+      const settingsLanguage = get("settingsLanguage");
 
-      const savedFont = currentFontSize();
-      root.style.fontSize = savedFont + "px";
+      if (mainLanguage && settingsLanguage) {
+        settingsLanguage.value = mainLanguage.value;
 
-      document.getElementById("settingsFontDown")
-        ?.addEventListener("click", () => setFontSize(currentFontSize() - 1));
-
-      document.getElementById("settingsFontUp")
-        ?.addEventListener("click", () => setFontSize(currentFontSize() + 1));
-
-      function applyTheme(theme) {
-        root.classList.toggle("dark-mode", theme === "dark");
-        root.dataset.theme = theme;
-        localStorage.setItem("lia_theme", theme);
-        announce(
-          "themeStatus",
-          theme === "dark" ? "Tema escuro ativado." : "Tema claro ativado."
-        );
-      }
-
-      const savedTheme = localStorage.getItem("lia_theme");
-      if (savedTheme === "dark" || savedTheme === "light") {
-        applyTheme(savedTheme);
-      }
-
-      document.getElementById("settingsTheme")
-        ?.addEventListener("click", () => {
-          const isDark =
-            root.classList.contains("dark-mode") ||
-            root.dataset.theme === "dark";
-          applyTheme(isDark ? "light" : "dark");
-        });
-
-      function applyContrast(enabled) {
-        root.classList.toggle("high-contrast", enabled);
-        localStorage.setItem("lia_contrast", enabled ? "on" : "off");
-        announce(
-          "contrastStatus",
-          enabled ? "Alto contraste ativado." : "Alto contraste desativado."
-        );
-      }
-
-      applyContrast(localStorage.getItem("lia_contrast") === "on");
-
-      document.getElementById("settingsContrast")
-        ?.addEventListener("click", () => {
-          applyContrast(!root.classList.contains("high-contrast"));
-        });
-
-      const settingsLanguage = document.getElementById("settingsLanguage");
-      const mainLanguage = document.getElementById("languageSelect");
-
-      const savedLanguage = localStorage.getItem("lia_language") || "pt-BR";
-      settingsLanguage.value = savedLanguage;
-      if (mainLanguage) mainLanguage.value = savedLanguage;
-
-      settingsLanguage.addEventListener("change", () => {
-        localStorage.setItem("lia_language", settingsLanguage.value);
-        if (mainLanguage) {
+        settingsLanguage.addEventListener("change", () => {
           mainLanguage.value = settingsLanguage.value;
           mainLanguage.dispatchEvent(new Event("change", { bubbles: true }));
-        }
-        announce(
-          "languageStatus",
-          "Preferência salva. A tradução depende do suporte implementado no site."
-        );
-      });
-
-      document.getElementById("settingsRead")
-        ?.addEventListener("click", () => {
-          if (!("speechSynthesis" in window)) {
-            announce("speechStatus", "A leitura em voz alta não está disponível neste navegador.");
-            return;
-          }
-
-          window.speechSynthesis.cancel();
-          const textToRead = document.querySelector("main")?.innerText || "";
-          const utterance = new SpeechSynthesisUtterance(textToRead);
-          utterance.lang = document.documentElement.lang || "pt-BR";
-          window.speechSynthesis.speak(utterance);
-          announce("speechStatus", "Leitura iniciada.");
         });
 
-      document.getElementById("settingsStop")
-        ?.addEventListener("click", () => {
-          if ("speechSynthesis" in window) window.speechSynthesis.cancel();
-          announce("speechStatus", "Leitura interrompida.");
+        mainLanguage.addEventListener("change", () => {
+          settingsLanguage.value = mainLanguage.value;
         });
-
-      document.getElementById("settingsVlibras")
-        ?.addEventListener("click", () => {
-          const container = document.getElementById("settingsVlibrasContainer");
-          if (container.querySelector("[vw]")) {
-            announce("vlibrasStatus", "O VLibras já foi solicitado nesta página.");
-            return;
-          }
-
-          const widget = document.createElement("div");
-          widget.setAttribute("vw", "");
-          widget.className = "enabled";
-          widget.innerHTML =
-            '<div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>';
-          container.appendChild(widget);
-
-          const script = document.createElement("script");
-          script.src = "https://vlibras.gov.br/app/vlibras-plugin.js";
-          script.onload = () => {
-            if (window.VLibras?.Widget) {
-              new window.VLibras.Widget("https://vlibras.gov.br/app");
-              announce("vlibrasStatus", "VLibras carregado.");
-            } else {
-              announce("vlibrasStatus", "Não foi possível iniciar o VLibras.");
-            }
-          };
-          script.onerror = () => {
-            announce("vlibrasStatus", "Não foi possível carregar o VLibras. Verifique sua conexão.");
-          };
-          document.body.appendChild(script);
-        });
-    });
+      }
+    })();
   </script>
 </body>
 </html>

@@ -1,217 +1,176 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Apoio Psicológico | LIA — Local de Informação e Apoio</title>
-  <meta name="description" content="Conheça opções de apoio psicológico e acolhimento emocional para mulheres em situação de vulnerabilidade ou violência.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#51377a">
+  <meta name="author" content="Marcely Castro Rodrigues e Mikaela Castro Bonfim">
+  <meta name="description" content="Encontre informações sobre apoio psicológico e caminhos para buscar acolhimento emocional e atendimento profissional.">
   <meta name="robots" content="index, follow">
-  <meta name="author" content="Projeto LIA">
-  <meta name="theme-color" content="#7651a8">
-
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Apoio Psicológico | LIA">
-  <meta property="og:description" content="Informações para encontrar acolhimento emocional e apoio psicológico com segurança.">
   <meta property="og:locale" content="pt_BR">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Apoio Psicológico | LIA">
-  <meta name="twitter:description" content="Acolhimento e caminhos para buscar apoio psicológico.">
-
+  <meta property="og:title" content="Apoio psicológico | LIA">
+  <meta property="og:description" content="Informações e caminhos para encontrar acolhimento psicológico.">
+  <title>Apoio psicológico | LIA</title>
   <link rel="stylesheet" href="lia.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <script src="lia.js" defer></script>
 </head>
-
 <body>
   <div class="top-bar">
-    <span>LIA — Local • Informação • Apoio</span>
-    <button type="button" id="accessibilityToggle"
-      aria-expanded="false" aria-controls="accessibilityPanel">
-      Acessibilidade
-    </button>
+    <div class="container top-bar-content">
+      <span>LIA — Local • Informação • Apoio</span>
+      <button class="btn btn-discreet" id="openAccessibility" type="button" aria-controls="accessibilityPanel" aria-expanded="false">
+        <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Acessibilidade
+      </button>
+    </div>
   </div>
 
-  <header class="site-header">
-    <a class="logo" href="index.html" aria-label="LIA — página inicial">LIA</a>
+  <header class="header">
+    <div class="container nav-container">
+      <a class="logo" href="index.html" aria-label="LIA — página inicial">
+        <span class="logo-icon">LIA</span>
+        <span class="logo-name">
+          <strong>LIA</strong>
+          <span>Local • Informação • Apoio</span>
+        </span>
+      </a>
 
-    <nav class="main-nav" aria-label="Navegação principal">
-      <a href="index.html">Início</a>
-      <a href="projeto.html">O projeto</a>
-      <a href="violencias.html">Tipos de violência</a>
-      <a href="apoio.html">Preciso de apoio</a>
-      <a href="emergencia.html">Emergência</a>
-      <a href="discreto.html">Modo discreto</a>
-      <a href="cadastro.html">Conta</a>
-    </nav>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navigation">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <nav class="navigation" id="navigation" aria-label="Menu principal">
+        <a href="index.html">Início</a>
+        <a href="projeto.html">Projeto</a>
+        <a href="violencias.html">Violências</a>
+        <a href="apoio.html">Rede de apoio</a>
+        <a href="localizacao.html">Localização</a>
+        <a href="cadastro.html">Conta</a>
+        <a href="discreto.html">Modo discreto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-main" href="emergencia.html">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> Preciso de apoio
+        </a>
+      </div>
+    </div>
   </header>
 
+  <div id="accessibilityOverlay" aria-hidden="true"></div>
+  <aside id="accessibilityPanel" aria-hidden="true" aria-label="Painel de acessibilidade">
+    <button id="closeAccessibility" class="btn btn-outline" type="button">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i> Fechar
+    </button>
+    <h2>Acessibilidade</h2>
+    <p>Personalize a leitura e a aparência da página.</p>
+    <div class="action-list">
+      <button id="fontDecrease" type="button">A− Diminuir texto</button>
+      <button id="fontReset" type="button">A Restaurar texto</button>
+      <button id="fontIncrease" type="button">A+ Aumentar texto</button>
+      <button id="contrastToggle" type="button">Alternar alto contraste</button>
+      <button id="themeToggleAccessibility" type="button">Alternar tema claro/escuro</button>
+      <button id="readPage" type="button">Ler página em voz alta</button>
+      <button id="stopReading" type="button">Parar leitura</button>
+    </div>
+    <label for="languageSelect">Idioma</label>
+    <select id="languageSelect">
+      <option value="pt-BR">Português</option>
+      <option value="en">English</option>
+      <option value="es">Español</option>
+    </select>
+  </aside>
+
   <main>
-    <section class="hero">
-      <div class="hero-content">
-        <span class="eyebrow">Cuidado emocional</span>
-        <h1>Apoio psicológico</h1>
-        <p>
-          Você merece ser ouvida, acolhida e respeitada. Buscar apoio
-          psicológico pode ajudar a compreender sentimentos e recuperar
-          a confiança, no seu próprio tempo.
-        </p>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow"><i class="fa-solid fa-heart" aria-hidden="true"></i> ACOLHIMENTO EMOCIONAL</span>
+        <h1>Você merece acolhimento</h1>
+        <p>Buscar apoio psicológico pode ajudar você a compreender seus sentimentos, fortalecer sua autonomia e encontrar caminhos para cuidar de si.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-heading">
-        <span class="eyebrow">Você não está sozinha</span>
-        <h2>Encontrar acolhimento</h2>
-        <p>
-          Você não precisa contar tudo de uma vez. Procure um profissional
-          ou serviço com o qual se sinta segura para conversar.
-        </p>
-      </div>
-
-      <div class="card-grid">
-        <article class="card">
-          <h3>Unidade Básica de Saúde (UBS)</h3>
-          <p>
-            A UBS pode orientar sobre os serviços de saúde disponíveis
-            na sua região e os caminhos para obter atendimento psicológico.
-          </p>
-          <a class="btn btn-primary"
-             href="https://www.gov.br/saude/pt-br"
-             target="_blank" rel="noopener noreferrer">
-            Portal do Ministério da Saúde
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>Rede de Atenção Psicossocial</h3>
-          <p>
-            Os serviços da rede pública de saúde mental podem oferecer
-            acolhimento e acompanhamento conforme a necessidade de cada pessoa.
-          </p>
-          <a class="btn btn-primary"
-             href="https://www.gov.br/saude/pt-br"
-             target="_blank" rel="noopener noreferrer">
-            Consultar informações oficiais
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>Atendimento psicológico particular</h3>
-          <p>
-            Se essa opção estiver ao seu alcance, você pode procurar um
-            profissional de Psicologia com registro ativo no Conselho Regional
-            de Psicologia.
-          </p>
-          <a class="btn btn-primary"
-             href="https://site.cfp.org.br/"
-             target="_blank" rel="noopener noreferrer">
-            Conselho Federal de Psicologia
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading">
-        <h2>O que você pode sentir</h2>
-        <p>
-          Cada pessoa reage de uma forma às experiências difíceis.
-          Não existe uma única maneira correta de sentir.
-        </p>
-      </div>
-
-      <div class="card-grid">
-        <article class="card">
-          <h3>Medo e insegurança</h3>
-          <p>
-            Sentir medo ou ficar em alerta pode acontecer depois de
-            experiências ameaçadoras. Você merece receber apoio sem julgamentos.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Confusão e culpa</h3>
-          <p>
-            Pode ser difícil compreender o que aconteceu. A responsabilidade
-            pela violência é de quem a pratica, não de quem a sofre.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Tristeza e esgotamento</h3>
-          <p>
-            Se as emoções estiverem difíceis de enfrentar, conversar com
-            um profissional pode ajudar a identificar formas de cuidado.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="card">
-        <span class="eyebrow">Orientação e direitos</span>
-        <h2>Você também pode buscar apoio especializado</h2>
-        <p>
-          O Ligue 180 oferece orientação e informações sobre serviços
-          disponíveis para mulheres em situação de violência no Brasil.
-        </p>
-
-        <div class="form-actions">
-          <a class="btn btn-primary" href="tel:180">
-            Ligar para 180
-          </a>
-          <a class="btn btn-secondary" href="servicos.html">
-            Conhecer serviços sociais
-          </a>
-          <a class="btn btn-secondary" href="pessoas-confiaveis.html">
-            Pessoas de confiança
-          </a>
+    <section class="page-content">
+      <div class="container">
+        <div class="alert">
+          <strong>Você não tem culpa pela violência que sofreu.</strong> Você merece ser ouvida e respeitada. Não é necessário contar tudo de uma vez: procure um serviço ou profissional com quem se sinta segura.
         </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="notice notice-warning">
-        <strong>Se houver perigo imediato:</strong> procure um lugar seguro,
-        se possível, e ligue para 190. Se precisar de atendimento médico
-        urgente, ligue para 192.
+        <div class="content-grid">
+          <article class="service-card">
+            <div class="feature-icon pink">
+              <i class="fa-solid fa-comments" aria-hidden="true"></i>
+            </div>
+            <h2>Atendimento psicológico</h2>
+            <p>Um profissional de Psicologia pode oferecer um espaço de escuta, acolhimento e acompanhamento respeitando sua história, seu tempo e suas escolhas.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="feature-icon">
+              <i class="fa-solid fa-hospital" aria-hidden="true"></i>
+            </div>
+            <h2>Rede pública de saúde</h2>
+            <p>Uma Unidade Básica de Saúde (UBS) pode orientar sobre as opções de atendimento disponíveis na sua região e os encaminhamentos necessários.</p>
+            <a class="btn btn-outline" href="https://www.gov.br/saude/pt-br" target="_blank" rel="noopener noreferrer">Portal do Ministério da Saúde</a>
+          </article>
+
+          <article class="service-card">
+            <div class="feature-icon green">
+              <i class="fa-solid fa-people-group" aria-hidden="true"></i>
+            </div>
+            <h2>CAPS</h2>
+            <p>Os Centros de Atenção Psicossocial integram a rede pública de saúde mental. Consulte a rede local para entender os serviços disponíveis e como buscar atendimento.</p>
+            <a class="btn btn-outline" href="https://www.gov.br/saude/pt-br" target="_blank" rel="noopener noreferrer">Consultar informações oficiais</a>
+          </article>
+        </div>
+
+        <article class="content-card" style="margin-top:24px">
+          <h2>Como dar o primeiro passo</h2>
+          <ul>
+            <li>Escolha um local e um momento em que se sinta segura para pedir orientação.</li>
+            <li>Se preferir, peça a uma pessoa de confiança para acompanhar você.</li>
+            <li>Você pode perguntar sobre sigilo, horários, acessibilidade e formas de atendimento.</li>
+            <li>Respeite seu próprio ritmo. Você não precisa compartilhar mais do que deseja naquele momento.</li>
+          </ul>
+        </article>
+
+        <article class="content-card" style="margin-top:24px">
+          <h2>Precisa de ajuda agora?</h2>
+          <p>Se houver perigo imediato, ligue para o 190, se for seguro. Para orientação e denúncias de violência contra a mulher, o Ligue 180 funciona gratuitamente, 24 horas por dia, no Brasil.</p>
+          <div class="action-list">
+            <a href="emergencia.html">
+              <span><i class="fa-solid fa-phone" aria-hidden="true"></i> Consultar opções de emergência</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="advogados.html">
+              <span><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Orientação jurídica</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="servicos.html">
+              <span><i class="fa-solid fa-building" aria-hidden="true"></i> Serviços sociais e públicos</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="pessoas-confiaveis.html">
+              <span><i class="fa-solid fa-user-group" aria-hidden="true"></i> Pessoas de confiança</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </article>
+
+        <p class="privacy-notice">Esta página oferece informações gerais e não substitui atendimento psicológico ou médico. A disponibilidade dos serviços pode variar conforme a região.</p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p><strong>LIA — Local de Informação e Apoio</strong></p>
-    <p>Projeto desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
-    <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
-    <p>Projeto acadêmico de informação, prevenção e apoio.</p>
+  <footer>
+    <div class="container">
+      <h3>LIA — Local • Informação • Apoio</h3>
+      <p>Projeto de informação, acolhimento e orientação para mulheres.</p>
+      <p>Desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
+      <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
+    </div>
   </footer>
-
-  <aside id="accessibilityPanel" class="accessibility-panel"
-    hidden aria-label="Opções de acessibilidade">
-    <div class="panel-header">
-      <h2>Acessibilidade</h2>
-      <button type="button" id="closeAccessibility" aria-label="Fechar acessibilidade">×</button>
-    </div>
-
-    <div class="panel-content">
-      <button type="button" id="fontDecrease">Diminuir fonte</button>
-      <button type="button" id="fontIncrease">Aumentar fonte</button>
-      <button type="button" id="contrastToggle">Alto contraste</button>
-      <button type="button" id="themeToggle">Alternar tema</button>
-
-      <label for="languageSelect">Idioma</label>
-      <select id="languageSelect">
-        <option value="pt-BR">Português</option>
-        <option value="en">English</option>
-        <option value="es">Español</option>
-      </select>
-
-      <button type="button" id="readPage">Ouvir página</button>
-      <button type="button" id="stopReading">Parar leitura</button>
-      <button type="button" id="loadVlibras">Ativar VLibras</button>
-      <div id="vlibrasContainer"></div>
-    </div>
-  </aside>
 </body>
 </html>
