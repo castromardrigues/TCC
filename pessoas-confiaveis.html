@@ -1,461 +1,369 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Pessoas de Confiança | LIA — Local de Informação e Apoio</title>
-  <meta name="description" content="Organize seus contatos de confiança no projeto LIA e consulte informações de pessoas que podem oferecer apoio em momentos difíceis.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#51377a">
+  <meta name="author" content="Marcely Castro Rodrigues e Mikaela Castro Bonfim">
+  <meta name="description" content="Organize contatos de pessoas de confiança para consultar quando precisar de apoio.">
   <meta name="robots" content="index, follow">
-  <meta name="author" content="Projeto LIA">
-  <meta name="theme-color" content="#7651a8">
-
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Pessoas de Confiança | LIA">
-  <meta property="og:description" content="Uma área para organizar contatos de confiança e planejar como pedir apoio com segurança.">
   <meta property="og:locale" content="pt_BR">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Pessoas de Confiança | LIA">
-  <meta name="twitter:description" content="Organize seus contatos de confiança no projeto LIA.">
-
+  <meta property="og:title" content="Pessoas de confiança | LIA">
+  <meta property="og:description" content="Organize seus contatos de apoio pessoal.">
+  <title>Pessoas de confiança | LIA</title>
   <link rel="stylesheet" href="lia.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <script src="lia.js" defer></script>
 </head>
-
 <body>
   <div class="top-bar">
-    <span>LIA — Local • Informação • Apoio</span>
-    <button type="button" id="accessibilityToggle"
-      aria-expanded="false" aria-controls="accessibilityPanel">
-      Acessibilidade
-    </button>
+    <div class="container top-bar-content">
+      <span>LIA — Local • Informação • Apoio</span>
+      <button class="btn btn-discreet" id="openAccessibility" type="button" aria-controls="accessibilityPanel" aria-expanded="false">
+        <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Acessibilidade
+      </button>
+    </div>
   </div>
 
-  <header class="site-header">
-    <a class="logo" href="index.html" aria-label="LIA — página inicial">LIA</a>
+  <header class="header">
+    <div class="container nav-container">
+      <a class="logo" href="index.html" aria-label="LIA — página inicial">
+        <span class="logo-icon">LIA</span>
+        <span class="logo-name">
+          <strong>LIA</strong>
+          <span>Local • Informação • Apoio</span>
+        </span>
+      </a>
 
-    <nav class="main-nav" aria-label="Navegação principal">
-      <a href="index.html">Início</a>
-      <a href="projeto.html">O projeto</a>
-      <a href="violencias.html">Tipos de violência</a>
-      <a href="apoio.html">Preciso de apoio</a>
-      <a href="emergencia.html">Emergência</a>
-      <a href="discreto.html">Modo discreto</a>
-      <a href="cadastro.html">Conta</a>
-    </nav>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navigation">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <nav class="navigation" id="navigation" aria-label="Menu principal">
+        <a href="index.html">Início</a>
+        <a href="projeto.html">Projeto</a>
+        <a href="violencias.html">Violências</a>
+        <a href="apoio.html">Rede de apoio</a>
+        <a href="localizacao.html">Localização</a>
+        <a href="cadastro.html">Conta</a>
+        <a href="discreto.html">Modo discreto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-main" href="emergencia.html">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> Preciso de apoio
+        </a>
+      </div>
+    </div>
   </header>
 
+  <div id="accessibilityOverlay" aria-hidden="true"></div>
+  <aside id="accessibilityPanel" aria-hidden="true" aria-label="Painel de acessibilidade">
+    <button id="closeAccessibility" class="btn btn-outline" type="button">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i> Fechar
+    </button>
+    <h2>Acessibilidade</h2>
+    <p>Personalize a leitura e a aparência da página.</p>
+    <div class="action-list">
+      <button id="fontDecrease" type="button">A− Diminuir texto</button>
+      <button id="fontReset" type="button">A Restaurar texto</button>
+      <button id="fontIncrease" type="button">A+ Aumentar texto</button>
+      <button id="contrastToggle" type="button">Alternar alto contraste</button>
+      <button id="themeToggleAccessibility" type="button">Alternar tema claro/escuro</button>
+      <button id="readPage" type="button">Ler página em voz alta</button>
+      <button id="stopReading" type="button">Parar leitura</button>
+    </div>
+    <label for="languageSelect">Idioma</label>
+    <select id="languageSelect">
+      <option value="pt-BR">Português</option>
+      <option value="en">English</option>
+      <option value="es">Español</option>
+    </select>
+  </aside>
+
   <main>
-    <section class="hero">
-      <div class="hero-content">
-        <span class="eyebrow">Rede de apoio</span>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow"><i class="fa-solid fa-user-group" aria-hidden="true"></i> REDE PESSOAL DE APOIO</span>
         <h1>Pessoas de confiança</h1>
-        <p>
-          Organize os contatos de pessoas com quem você se sente segura
-          para conversar, pedir ajuda ou combinar uma forma de apoio.
-        </p>
+        <p>Organize os contatos de pessoas com quem você se sente segura para conversar ou pedir ajuda.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-heading">
-        <span class="eyebrow">Sua rede de apoio</span>
-        <h2>Adicionar uma pessoa</h2>
-        <p>
-          Cadastre somente pessoas em quem você confia e que possam ajudar
-          sem aumentar seu risco.
-        </p>
-      </div>
-
-      <div class="card">
-        <form id="trustedContactForm">
-          <input type="hidden" id="contactId">
-
-          <div class="form-group">
-            <label for="contactName">Nome</label>
-            <input
-              type="text"
-              id="contactName"
-              maxlength="100"
-              autocomplete="name"
-              placeholder="Nome da pessoa"
-              required
-            >
-          </div>
-
-          <div class="form-group">
-            <label for="contactRelationship">Relação com você</label>
-            <select id="contactRelationship" required>
-              <option value="">Selecione</option>
-              <option value="Familiar">Familiar</option>
-              <option value="Amiga">Amiga</option>
-              <option value="Amigo">Amigo</option>
-              <option value="Vizinha">Vizinha</option>
-              <option value="Vizinho">Vizinho</option>
-              <option value="Profissional de apoio">Profissional de apoio</option>
-              <option value="Outra pessoa">Outra pessoa</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="contactPhone">Telefone</label>
-            <input
-              type="tel"
-              id="contactPhone"
-              maxlength="30"
-              autocomplete="tel"
-              placeholder="DDD + número"
-              required
-            >
-          </div>
-
-          <div class="form-group">
-            <label for="contactEmail">E-mail (opcional)</label>
-            <input
-              type="email"
-              id="contactEmail"
-              maxlength="150"
-              autocomplete="email"
-              placeholder="email@exemplo.com"
-            >
-          </div>
-
-          <div class="form-group">
-            <label for="contactNotes">Observações (opcional)</label>
-            <textarea
-              id="contactNotes"
-              rows="3"
-              maxlength="500"
-              placeholder="Por exemplo: melhor horário para contato"
-            ></textarea>
-          </div>
-
-          <div class="form-actions">
-            <button type="submit" class="btn btn-primary" id="saveContactButton">
-              Salvar contato
-            </button>
-            <button type="button" class="btn btn-secondary" id="cancelEditButton" hidden>
-              Cancelar edição
-            </button>
-          </div>
-
-          <p id="formStatus" class="status-message" role="status" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading">
-        <span class="eyebrow">Seus contatos</span>
-        <h2>Minha rede de confiança</h2>
-        <p>
-          Os contatos cadastrados aparecerão aqui para você consultar,
-          editar ou remover.
-        </p>
-      </div>
-
-      <div id="contactsList" class="card-grid" aria-live="polite">
-        <div class="card">
-          <p>Carregando seus contatos...</p>
-        </div>
-      </div>
-
-      <p id="listStatus" class="status-message" role="status" aria-live="polite"></p>
-    </section>
-
-    <section class="section">
-      <div class="card">
-        <h2>Planeje como pedir ajuda</h2>
-        <p>
-          Converse previamente com alguém de confiança sobre como agir
-          se você precisar de apoio. Combine uma mensagem ou palavra
-          que tenha significado claro para vocês.
-        </p>
-
-        <div class="notice notice-warning">
-          <strong>Cuide da sua privacidade:</strong> se alguém monitora seu
-          celular ou computador, salvar contatos pode representar um risco.
-          Use este recurso somente se for seguro para você.
+    <section class="page-content">
+      <div class="container">
+        <div class="alert">
+          <strong>Cuide da sua privacidade:</strong> cadastre somente pessoas em quem você realmente confia. Se alguém pode acessar seu dispositivo, também pode conseguir ver os contatos salvos nesta versão.
         </div>
 
-        <div class="form-actions">
-          <a href="palavra-seguranca.html" class="btn btn-primary">
-            Palavra de segurança
+        <section class="content-card">
+          <h2 id="formTitle">Adicionar pessoa de confiança</h2>
+
+          <form id="trustedContactForm">
+            <input type="hidden" id="contactId">
+
+            <div class="form-group">
+              <label for="contactName">Nome</label>
+              <input id="contactName" type="text" maxlength="100" autocomplete="name" placeholder="Nome da pessoa" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactRelationship">Relação com você</label>
+              <select id="contactRelationship" required>
+                <option value="">Selecione</option>
+                <option>Amiga</option>
+                <option>Familiar</option>
+                <option>Vizinha</option>
+                <option>Profissional de confiança</option>
+                <option>Outra pessoa</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contactPhone">Telefone</label>
+              <input id="contactPhone" type="tel" maxlength="25" autocomplete="tel" placeholder="DDD + telefone" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactNotes">Observações (opcional)</label>
+              <textarea id="contactNotes" rows="3" maxlength="500" placeholder="Ex.: melhor horário para entrar em contato"></textarea>
+            </div>
+
+            <button class="btn btn-main" type="submit">
+              <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i>
+              <span id="saveButtonText">Salvar contato</span>
+            </button>
+            <button class="btn btn-outline" id="cancelEdit" type="button" hidden>Cancelar edição</button>
+          </form>
+
+          <p id="contactStatus" class="privacy-notice" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="content-card" style="margin-top:24px">
+          <h2>Meus contatos</h2>
+          <p>Você pode editar os dados, excluir contatos ou abrir o aplicativo de telefone do dispositivo.</p>
+          <div id="trustedContactsList" class="content-grid">
+            <p>Nenhum contato cadastrado.</p>
+          </div>
+        </section>
+
+        <div class="action-list" style="margin-top:24px">
+          <a href="emergencia.html">
+            <span><i class="fa-solid fa-phone" aria-hidden="true"></i> Opções de emergência</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>
-          <a href="emergencia.html" class="btn btn-secondary">
-            Opções de emergência
+          <a href="palavra-segurança.html">
+            <span><i class="fa-solid fa-shield-heart" aria-hidden="true"></i> Palavra de segurança</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+          <a href="localizacao.html">
+            <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Localização e serviços</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p><strong>LIA — Local de Informação e Apoio</strong></p>
-    <p>Projeto desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
-    <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
-    <p>Projeto acadêmico de informação, prevenção e apoio.</p>
+  <footer>
+    <div class="container">
+      <h3>LIA — Local • Informação • Apoio</h3>
+      <p>Projeto de informação, acolhimento e orientação para mulheres.</p>
+      <p>Desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
+      <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
+    </div>
   </footer>
-
-  <aside id="accessibilityPanel" class="accessibility-panel"
-    hidden aria-label="Opções de acessibilidade">
-    <div class="panel-header">
-      <h2>Acessibilidade</h2>
-      <button type="button" id="closeAccessibility" aria-label="Fechar acessibilidade">×</button>
-    </div>
-
-    <div class="panel-content">
-      <button type="button" id="fontDecrease">Diminuir fonte</button>
-      <button type="button" id="fontIncrease">Aumentar fonte</button>
-      <button type="button" id="contrastToggle">Alto contraste</button>
-      <button type="button" id="themeToggle">Alternar tema</button>
-
-      <label for="languageSelect">Idioma</label>
-      <select id="languageSelect">
-        <option value="pt-BR">Português</option>
-        <option value="en">English</option>
-        <option value="es">Español</option>
-      </select>
-
-      <button type="button" id="readPage">Ouvir página</button>
-      <button type="button" id="stopReading">Parar leitura</button>
-      <button type="button" id="loadVlibras">Ativar VLibras</button>
-      <div id="vlibrasContainer"></div>
-    </div>
-  </aside>
 
   <script>
     (() => {
       "use strict";
 
       const STORAGE_KEY = "lia_trusted_contacts_v1";
-
       const form = document.getElementById("trustedContactForm");
       const idInput = document.getElementById("contactId");
       const nameInput = document.getElementById("contactName");
       const relationshipInput = document.getElementById("contactRelationship");
       const phoneInput = document.getElementById("contactPhone");
-      const emailInput = document.getElementById("contactEmail");
       const notesInput = document.getElementById("contactNotes");
-      const saveButton = document.getElementById("saveContactButton");
-      const cancelButton = document.getElementById("cancelEditButton");
-      const formStatus = document.getElementById("formStatus");
-      const contactsList = document.getElementById("contactsList");
-      const listStatus = document.getElementById("listStatus");
-
-      let contacts = [];
-
-      function createId() {
-        if (window.crypto && typeof window.crypto.randomUUID === "function") {
-          return window.crypto.randomUUID();
-        }
-
-        return Date.now().toString(36) + Math.random().toString(36).slice(2);
-      }
+      const list = document.getElementById("trustedContactsList");
+      const status = document.getElementById("contactStatus");
+      const formTitle = document.getElementById("formTitle");
+      const saveButtonText = document.getElementById("saveButtonText");
+      const cancelEditButton = document.getElementById("cancelEdit");
 
       function loadContacts() {
         try {
-          const saved = localStorage.getItem(STORAGE_KEY);
-          const parsed = saved ? JSON.parse(saved) : [];
-          contacts = Array.isArray(parsed) ? parsed : [];
+          const value = localStorage.getItem(STORAGE_KEY);
+          if (!value) return [];
+          const data = JSON.parse(value);
+          return Array.isArray(data) ? data : [];
         } catch {
-          contacts = [];
-          listStatus.textContent =
-            "Não foi possível ler os contatos salvos neste navegador.";
+          return null;
         }
-
-        renderContacts();
       }
 
-      function persistContacts() {
+      function saveContacts(contacts) {
         try {
           localStorage.setItem(STORAGE_KEY, JSON.stringify(contacts));
           return true;
         } catch {
-          formStatus.textContent =
-            "Não foi possível salvar. Verifique o espaço disponível no navegador.";
+          status.textContent = "Não foi possível salvar. Verifique o armazenamento do navegador.";
           return false;
         }
       }
 
-      function createElement(tag, className, text) {
+      function makeText(tag, value, className) {
         const element = document.createElement(tag);
-
-        if (className) {
-          element.className = className;
-        }
-
-        if (text !== undefined) {
-          element.textContent = text;
-        }
-
+        element.textContent = value || "";
+        if (className) element.className = className;
         return element;
       }
 
+      function resetForm() {
+        form.reset();
+        idInput.value = "";
+        formTitle.textContent = "Adicionar pessoa de confiança";
+        saveButtonText.textContent = "Salvar contato";
+        cancelEditButton.hidden = true;
+      }
+
+      function editContact(contact) {
+        idInput.value = contact.id;
+        nameInput.value = contact.name || "";
+        relationshipInput.value = contact.relationship || "";
+        phoneInput.value = contact.phone || "";
+        notesInput.value = contact.notes || "";
+        formTitle.textContent = "Editar pessoa de confiança";
+        saveButtonText.textContent = "Salvar alterações";
+        cancelEditButton.hidden = false;
+        formTitle.scrollIntoView({ behavior: "smooth", block: "start" });
+        nameInput.focus();
+      }
+
       function renderContacts() {
-        contactsList.replaceChildren();
+        const contacts = loadContacts();
+        list.replaceChildren();
+
+        if (contacts === null) {
+          list.append(makeText("p", "Não foi possível ler os contatos salvos."));
+          return;
+        }
 
         if (contacts.length === 0) {
-          const emptyCard = createElement("div", "card");
-          emptyCard.append(
-            createElement("h3", "", "Sua rede começa aqui"),
-            createElement(
-              "p",
-              "",
-              "Você ainda não cadastrou contatos. Adicione uma pessoa de confiança pelo formulário acima."
-            )
-          );
-          contactsList.appendChild(emptyCard);
+          list.append(makeText("p", "Nenhum contato cadastrado."));
           return;
         }
 
         contacts.forEach((contact) => {
-          const card = createElement("article", "card");
-          const title = createElement("h3", "", contact.name);
-          const relationship = createElement(
-            "p",
-            "",
-            "Relação: " + contact.relationship
+          const card = document.createElement("article");
+          card.className = "service-card";
+
+          card.append(
+            makeText("h3", contact.name),
+            makeText("p", "Relação: " + (contact.relationship || "Não informada")),
+            makeText("p", "Telefone: " + contact.phone),
+            makeText("p", contact.notes ? "Observações: " + contact.notes : "")
           );
-          const phone = createElement("p", "", "Telefone: " + contact.phone);
 
-          card.append(title, relationship, phone);
+          const actions = document.createElement("div");
+          actions.className = "action-list";
 
-          if (contact.email) {
-            card.appendChild(createElement("p", "", "E-mail: " + contact.email));
-          }
-
-          if (contact.notes) {
-            card.appendChild(createElement("p", "", "Observações: " + contact.notes));
-          }
-
-          const actions = createElement("div", "form-actions");
-
-          const callLink = createElement("a", "btn btn-primary", "Ligar");
+          const callLink = document.createElement("a");
+          callLink.className = "btn btn-main";
           callLink.href = "tel:" + contact.phone.replace(/[^\d+]/g, "");
+          callLink.textContent = "Ligar";
           callLink.setAttribute("aria-label", "Ligar para " + contact.name);
 
-          const editButton = createElement("button", "btn btn-secondary", "Editar");
+          const editButton = document.createElement("button");
           editButton.type = "button";
-          editButton.addEventListener("click", () => startEdit(contact.id));
+          editButton.className = "btn btn-outline";
+          editButton.textContent = "Editar";
+          editButton.addEventListener("click", () => editContact(contact));
 
-          const deleteButton = createElement("button", "btn btn-secondary", "Excluir");
+          const deleteButton = document.createElement("button");
           deleteButton.type = "button";
-          deleteButton.addEventListener("click", () => deleteContact(contact.id));
+          deleteButton.className = "btn btn-outline";
+          deleteButton.textContent = "Excluir";
+          deleteButton.addEventListener("click", () => {
+            if (!window.confirm("Deseja excluir este contato deste navegador?")) return;
+
+            const current = loadContacts();
+            if (current === null) {
+              status.textContent = "Não foi possível acessar os contatos.";
+              return;
+            }
+
+            const updated = current.filter((item) => item.id !== contact.id);
+            if (saveContacts(updated)) {
+              status.textContent = "Contato excluído.";
+              if (idInput.value === contact.id) resetForm();
+              renderContacts();
+            }
+          });
 
           actions.append(callLink, editButton, deleteButton);
-          card.appendChild(actions);
-          contactsList.appendChild(card);
+          card.append(actions);
+          list.append(card);
         });
       }
 
       form.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        const name = nameInput.value.trim();
-        const relationship = relationshipInput.value;
-        const phone = phoneInput.value.trim();
-        const email = emailInput.value.trim();
-        const notes = notesInput.value.trim();
-
-        if (!name || !relationship || !phone) {
-          formStatus.textContent = "Preencha nome, relação e telefone.";
+        const contacts = loadContacts();
+        if (contacts === null) {
+          status.textContent = "Não foi possível acessar os contatos salvos.";
           return;
         }
 
-        const editingId = idInput.value;
-        const previousContacts = [...contacts];
+        const name = nameInput.value.trim();
+        const phone = phoneInput.value.trim();
 
-        if (editingId) {
-          contacts = contacts.map((contact) =>
-            contact.id === editingId
-              ? { ...contact, name, relationship, phone, email, notes }
-              : contact
+        if (!name || !phone) {
+          status.textContent = "Preencha o nome e o telefone.";
+          return;
+        }
+
+        const existingId = idInput.value;
+        let updated;
+
+        if (existingId) {
+          updated = contacts.map((contact) => contact.id === existingId
+            ? {
+                ...contact,
+                name,
+                relationship: relationshipInput.value,
+                phone,
+                notes: notesInput.value.trim()
+              }
+            : contact
           );
         } else {
-          contacts.push({
-            id: createId(),
+          const id = (window.crypto && crypto.randomUUID)
+            ? crypto.randomUUID()
+            : String(Date.now()) + "-" + Math.random().toString(16).slice(2);
+
+          updated = [{
+            id,
             name,
-            relationship,
+            relationship: relationshipInput.value,
             phone,
-            email,
-            notes
-          });
+            notes: notesInput.value.trim()
+          }, ...contacts];
         }
 
-        if (!persistContacts()) {
-          contacts = previousContacts;
+        if (saveContacts(updated)) {
+          resetForm();
+          status.textContent = existingId ? "Contato atualizado neste navegador." : "Contato salvo neste navegador.";
           renderContacts();
-          return;
         }
-
-        form.reset();
-        idInput.value = "";
-        saveButton.textContent = "Salvar contato";
-        cancelButton.hidden = true;
-        formStatus.textContent = editingId
-          ? "Contato atualizado."
-          : "Contato adicionado à sua rede.";
-        renderContacts();
       });
 
-      function startEdit(id) {
-        const contact = contacts.find((item) => item.id === id);
-        if (!contact) return;
+      cancelEditButton.addEventListener("click", resetForm);
 
-        idInput.value = contact.id;
-        nameInput.value = contact.name;
-        relationshipInput.value = contact.relationship;
-        phoneInput.value = contact.phone;
-        emailInput.value = contact.email || "";
-        notesInput.value = contact.notes || "";
-
-        saveButton.textContent = "Salvar alterações";
-        cancelButton.hidden = false;
-        formStatus.textContent = "Editando contato. Faça as alterações e salve.";
-        form.scrollIntoView({ behavior: "smooth", block: "start" });
-        nameInput.focus();
-      }
-
-      function deleteContact(id) {
-        const contact = contacts.find((item) => item.id === id);
-        if (!contact) return;
-
-        const confirmed = window.confirm(
-          "Deseja excluir " + contact.name + " da sua rede de confiança?"
-        );
-
-        if (!confirmed) return;
-
-        const previousContacts = [...contacts];
-        contacts = contacts.filter((item) => item.id !== id);
-
-        if (!persistContacts()) {
-          contacts = previousContacts;
-          renderContacts();
-          return;
-        }
-
-        listStatus.textContent = "Contato excluído.";
-        renderContacts();
-
-        if (idInput.value === id) {
-          resetForm();
-        }
-      }
-
-      function resetForm() {
-        form.reset();
-        idInput.value = "";
-        saveButton.textContent = "Salvar contato";
-        cancelButton.hidden = true;
-        formStatus.textContent = "";
-      }
-
-      cancelButton.addEventListener("click", resetForm);
-
-      loadContacts();
+      renderContacts();
     })();
   </script>
 </body>
