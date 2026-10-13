@@ -2630,3 +2630,545 @@ body.font-large .hero h1 {
     }
 
 }
+
+/* =====================================================
+   LIA — COMPATIBILIDADE VISUAL DE TODAS AS PÁGINAS
+===================================================== */
+
+:root {
+  --lia-roxo: #7656A3;
+  --lia-roxo-escuro: #51377A;
+  --lia-roxo-profundo: #38264F;
+  --lia-lilas: #F0EAF7;
+  --lia-fundo: #FCFAFD;
+  --lia-borda: #E7DFEC;
+  --lia-texto: #514957;
+}
+
+html {
+  min-height: 100%;
+  background: var(--lia-fundo);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--lia-fundo);
+  color: #211E25;
+  font-family: "DM Sans", sans-serif;
+}
+
+main {
+  min-height: 55vh;
+}
+
+h1, h2, h3, h4 {
+  color: var(--lia-roxo-profundo);
+  line-height: 1.2;
+}
+
+p, li, label, small {
+  line-height: 1.7;
+}
+
+p {
+  color: var(--lia-texto);
+}
+
+a {
+  color: var(--lia-roxo-escuro);
+}
+
+a:hover {
+  color: var(--lia-roxo);
+}
+
+/* Barra superior e cabeçalho das páginas novas */
+
+.top-bar {
+  background: var(--lia-roxo-profundo);
+  color: #fff;
+}
+
+.top-bar-inner,
+.header-inner {
+  width: min(1180px, calc(100% - 40px));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.top-bar-inner {
+  min-height: 40px;
+}
+
+.top-bar-inner span {
+  color: #fff;
+  font-size: 13px;
+}
+
+.accessibility-button,
+.theme-button,
+.mobile-menu-button {
+  border: 0;
+  border-radius: 11px;
+  cursor: pointer;
+}
+
+.accessibility-button {
+  padding: 9px 13px;
+  background: rgba(255,255,255,.13);
+  color: #fff;
+  font-weight: 700;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,.97);
+  border-bottom: 1px solid var(--lia-borda);
+  box-shadow: 0 5px 20px rgba(56,38,79,.05);
+}
+
+.header-inner {
+  min-height: 78px;
+}
+
+.main-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.main-logo .logo-icon,
+.logo-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #7656A3, #9874BA);
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.main-logo .logo-name {
+  color: var(--lia-roxo-escuro);
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.main-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.main-navigation a {
+  padding: 8px 0;
+  color: #625B68;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.main-navigation a:hover,
+.main-navigation a.active {
+  color: var(--lia-roxo);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-button,
+.mobile-menu-button {
+  min-width: 40px;
+  min-height: 40px;
+  background: var(--lia-lilas);
+  color: var(--lia-roxo-escuro);
+}
+
+.mobile-menu-button {
+  display: none;
+}
+
+/* Faixa de título das páginas internas */
+
+.page-hero {
+  padding: 65px 0 58px;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(217,168,194,.2), transparent 30%),
+    linear-gradient(135deg, #FBF8FD, #F0EAF7);
+  border-bottom: 1px solid #EEE5F3;
+}
+
+.page-hero .container {
+  width: min(1100px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.page-hero h1 {
+  max-width: 850px;
+  margin: 14px 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(32px, 4.5vw, 54px);
+  color: var(--lia-roxo-profundo);
+}
+
+.page-hero p {
+  max-width: 780px;
+  color: #6E6874;
+  font-size: 16px;
+}
+
+.eyebrow,
+.section-label {
+  color: var(--lia-roxo);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--lia-roxo-escuro);
+  font-weight: 700;
+}
+
+/* Conteúdo e seções */
+
+.information-section,
+.page-content,
+.content-section {
+  padding: 65px 0;
+  background: var(--lia-fundo);
+}
+
+.information-section > .container,
+.page-content > .container,
+.content-section > .container {
+  width: min(1100px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.section-title {
+  margin-bottom: 32px;
+}
+
+.section-title h2 {
+  color: var(--lia-roxo-profundo);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+}
+
+.section-title p {
+  max-width: 760px;
+  margin-inline: auto;
+  color: #6E6874;
+}
+
+.centered {
+  text-align: center;
+}
+
+/* Cartões: formulários, informações e conteúdo */
+
+.content-card,
+.mission-box,
+.information-card,
+.form-card,
+.support-card,
+.service-card,
+.violence-card,
+.resource-card,
+.profile-card,
+.settings-card,
+.diary-card {
+  min-width: 0;
+  padding: clamp(22px, 4vw, 36px);
+  border: 1px solid var(--lia-borda);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(56,38,79,.07);
+}
+
+.content-card h2,
+.content-card h3,
+.mission-box h2,
+.mission-box h3,
+.information-card h3,
+.form-card h2,
+.support-card h3,
+.service-card h3,
+.violence-card h3,
+.resource-card h3 {
+  color: var(--lia-roxo-escuro);
+}
+
+.content-card + .content-card,
+.information-card + .information-card,
+.support-card + .support-card {
+  margin-top: 22px;
+}
+
+/* Campos e formulários */
+
+form {
+  width: 100%;
+}
+
+form label {
+  display: block;
+  margin: 15px 0 7px;
+  color: var(--lia-roxo-escuro);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 14px;
+  border: 1px solid #DCD2E5;
+  border-radius: 12px;
+  background: #fff;
+  color: #211E25;
+  font: inherit;
+  outline: none;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--lia-roxo);
+  box-shadow: 0 0 0 3px rgba(118,86,163,.13);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  min-height: auto;
+  accent-color: var(--lia-roxo);
+}
+
+button,
+.btn,
+.btn-main,
+.btn-secondary,
+.btn-outline {
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.btn,
+.btn-main,
+.btn-secondary,
+.btn-outline,
+form button,
+.content-card button,
+.mission-box button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 11px 18px;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-main,
+form button[type="submit"],
+.content-card button[type="submit"],
+.mission-box button {
+  border: 0;
+  background: linear-gradient(135deg, #7656A3, #9270B5);
+  color: #fff;
+  box-shadow: 0 7px 18px rgba(118,86,163,.18);
+}
+
+.btn-main:hover,
+form button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(118,86,163,.25);
+}
+
+.btn-secondary,
+.btn-outline {
+  border: 1px solid #DCD2E5;
+  background: #fff;
+  color: var(--lia-roxo-escuro);
+}
+
+/* Listas, avisos e mensagens */
+
+ul,
+ol {
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 7px;
+}
+
+.notice,
+.alert,
+.message,
+.status-message {
+  padding: 14px 16px;
+  border-radius: 13px;
+  background: var(--lia-lilas);
+  color: var(--lia-roxo-escuro);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--lia-borda);
+  margin: 25px 0;
+}
+
+/* Rodapé das páginas novas */
+
+.site-footer,
+footer {
+  color: #fff;
+}
+
+.site-footer {
+  margin-top: 35px;
+  padding: 40px 0;
+  background: var(--lia-roxo-profundo);
+}
+
+.site-footer p,
+.site-footer a,
+.site-footer span,
+.site-footer small {
+  color: #F7F1FA;
+}
+
+.footer-content {
+  width: min(1100px, calc(100% - 40px));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-info p {
+  margin-bottom: 9px;
+  font-size: 13px;
+}
+
+/* Ajustes para celular e tablet */
+
+@media (max-width: 900px) {
+  .header-inner {
+    min-height: 70px;
+    flex-wrap: wrap;
+  }
+
+  .mobile-menu-button {
+    display: inline-grid;
+    place-items: center;
+  }
+
+  .main-navigation {
+    display: none;
+    width: 100%;
+    padding: 15px 0 20px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+  }
+
+  .main-navigation.open,
+  .main-navigation.active,
+  .main-navigation.show {
+    display: flex;
+  }
+
+  .main-navigation a {
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+
+  .main-navigation a:hover,
+  .main-navigation a.active {
+    background: var(--lia-lilas);
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-bar-inner,
+  .header-inner,
+  .page-hero .container,
+  .information-section > .container,
+  .page-content > .container,
+  .content-section > .container,
+  .footer-content {
+    width: calc(100% - 28px);
+  }
+
+  .page-hero {
+    padding: 42px 0;
+  }
+
+  .information-section,
+  .page-content,
+  .content-section {
+    padding: 38px 0;
+  }
+
+  .content-card,
+  .mission-box,
+  .information-card,
+  .form-card,
+  .support-card,
+  .service-card,
+  .violence-card,
+  .resource-card,
+  .profile-card,
+  .settings-card,
+  .diary-card {
+    padding: 21px;
+    border-radius: 17px;
+  }
+
+  .accessibility-button {
+    font-size: 12px;
+  }
+}
