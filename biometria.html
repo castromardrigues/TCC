@@ -1,476 +1,194 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Segurança Biométrica | LIA — Local de Informação e Apoio</title>
-  <meta name="description" content="Conheça as opções de autenticação biométrica e credenciais de segurança disponíveis no projeto LIA para dispositivos compatíveis.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#51377a">
+  <meta name="author" content="Marcely Castro Rodrigues e Mikaela Castro Bonfim">
+  <meta name="description" content="Conheça as opções de autenticação do dispositivo para proteger o acesso à sua conta LIA.">
   <meta name="robots" content="index, follow">
-  <meta name="author" content="Projeto LIA">
-  <meta name="theme-color" content="#7651a8">
-
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Segurança Biométrica | LIA">
-  <meta property="og:description" content="Veja como funciona a autenticação segura por credenciais no projeto LIA.">
   <meta property="og:locale" content="pt_BR">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Segurança Biométrica | LIA">
-  <meta name="twitter:description" content="Autenticação por credenciais em dispositivos compatíveis.">
-
+  <meta property="og:title" content="Segurança de acesso | LIA">
+  <meta property="og:description" content="Informações sobre autenticação segura e passkeys na LIA.">
+  <title>Segurança de acesso | LIA</title>
   <link rel="stylesheet" href="lia.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <script src="lia.js" defer></script>
 </head>
-
 <body>
   <div class="top-bar">
-    <span>LIA — Local • Informação • Apoio</span>
-    <button type="button" id="accessibilityToggle"
-      aria-expanded="false" aria-controls="accessibilityPanel">
-      Acessibilidade
-    </button>
+    <div class="container top-bar-content">
+      <span>LIA — Local • Informação • Apoio</span>
+      <button class="btn btn-discreet" id="openAccessibility" type="button" aria-controls="accessibilityPanel" aria-expanded="false">
+        <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Acessibilidade
+      </button>
+    </div>
   </div>
 
-  <header class="site-header">
-    <a class="logo" href="index.html" aria-label="LIA — página inicial">LIA</a>
+  <header class="header">
+    <div class="container nav-container">
+      <a class="logo" href="index.html" aria-label="LIA — página inicial">
+        <span class="logo-icon">LIA</span>
+        <span class="logo-name">
+          <strong>LIA</strong>
+          <span>Local • Informação • Apoio</span>
+        </span>
+      </a>
 
-    <nav class="main-nav" aria-label="Navegação principal">
-      <a href="index.html">Início</a>
-      <a href="projeto.html">O projeto</a>
-      <a href="violencias.html">Tipos de violência</a>
-      <a href="apoio.html">Preciso de apoio</a>
-      <a href="emergencia.html">Emergência</a>
-      <a href="discreto.html">Modo discreto</a>
-      <a href="cadastro.html">Conta</a>
-    </nav>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navigation">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <nav class="navigation" id="navigation" aria-label="Menu principal">
+        <a href="index.html">Início</a>
+        <a href="projeto.html">Projeto</a>
+        <a href="violencias.html">Violências</a>
+        <a href="apoio.html">Rede de apoio</a>
+        <a href="localizacao.html">Localização</a>
+        <a href="cadastro.html">Conta</a>
+        <a href="discreto.html">Modo discreto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-main" href="emergencia.html">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> Preciso de apoio
+        </a>
+      </div>
+    </div>
   </header>
 
+  <div id="accessibilityOverlay" aria-hidden="true"></div>
+  <aside id="accessibilityPanel" aria-hidden="true" aria-label="Painel de acessibilidade">
+    <button id="closeAccessibility" class="btn btn-outline" type="button">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i> Fechar
+    </button>
+    <h2>Acessibilidade</h2>
+    <p>Personalize a leitura e a aparência da página.</p>
+
+    <div class="action-list">
+      <button id="fontDecrease" type="button">A− Diminuir texto</button>
+      <button id="fontReset" type="button">A Restaurar texto</button>
+      <button id="fontIncrease" type="button">A+ Aumentar texto</button>
+      <button id="contrastToggle" type="button">Alternar alto contraste</button>
+      <button id="themeToggleAccessibility" type="button">Alternar tema claro/escuro</button>
+      <button id="readPage" type="button">Ler página em voz alta</button>
+      <button id="stopReading" type="button">Parar leitura</button>
+    </div>
+
+    <label for="languageSelect">Idioma</label>
+    <select id="languageSelect">
+      <option value="pt-BR">Português</option>
+      <option value="en">English</option>
+      <option value="es">Español</option>
+    </select>
+  </aside>
+
   <main>
-    <section class="hero">
-      <div class="hero-content">
-        <span class="eyebrow">Privacidade e proteção</span>
-        <h1>Segurança biométrica</h1>
-        <p>
-          Conheça uma forma de autenticação que pode usar os recursos de
-          segurança do seu celular ou computador, conforme a compatibilidade
-          do dispositivo.
-        </p>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> PRIVACIDADE E SEGURANÇA</span>
+        <h1>Segurança de acesso</h1>
+        <p>Conheça as opções de autenticação disponíveis no seu dispositivo e entenda como elas podem ajudar a proteger o acesso à sua conta.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-heading">
-        <span class="eyebrow">Autenticação segura</span>
-        <h2>Configure uma credencial</h2>
-        <p>
-          Em dispositivos compatíveis, o WebAuthn permite criar uma credencial
-          que pode ser protegida por biometria, PIN ou outro método oferecido
-          pelo sistema operacional.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="notice notice-info">
-          <strong>Antes de começar:</strong> use esta página em uma conexão
-          segura HTTPS ou em localhost. A autenticação pode depender das
-          configurações do navegador, do dispositivo e do autenticador.
+    <section class="page-content">
+      <div class="container">
+        <div class="alert">
+          <strong>Importante:</strong> esta página é uma demonstração de integração com passkeys. O cadastro e a validação de uma credencial real exigem configuração no servidor e integração com a autenticação da LIA.
         </div>
 
-        <div class="form-group">
-          <label for="credentialName">Nome para identificar esta credencial</label>
-          <input
-            type="text"
-            id="credentialName"
-            maxlength="60"
-            placeholder="Ex.: Meu celular"
-            autocomplete="off"
-          >
+        <div class="content-grid">
+          <article class="service-card">
+            <div class="feature-icon"><i class="fa-solid fa-fingerprint" aria-hidden="true"></i></div>
+            <h2>Biometria do dispositivo</h2>
+            <p>Alguns celulares e computadores permitem confirmar a identidade usando impressão digital, reconhecimento facial ou PIN. O dispositivo controla esse processo.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="feature-icon pink"><i class="fa-solid fa-key" aria-hidden="true"></i></div>
+            <h2>Chaves de acesso</h2>
+            <p>Passkeys são credenciais digitais que podem permitir entrar em uma conta sem digitar uma senha tradicional, quando o site e o servidor estão configurados para isso.</p>
+          </article>
         </div>
 
-        <div class="form-actions">
-          <button type="button" id="registerCredential" class="btn btn-primary">
-            Cadastrar credencial
+        <article class="content-card" style="margin-top:24px">
+          <h2>Verificar compatibilidade</h2>
+          <p>Você pode verificar se o navegador oferece suporte à API de credenciais. Isso, por si só, não significa que a autenticação da LIA esteja configurada.</p>
+
+          <div id="passkeyStatus" class="alert" role="status" aria-live="polite">
+            Clique no botão para verificar o suporte do navegador.
+          </div>
+
+          <button class="btn btn-main" id="checkPasskey" type="button">
+            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+            Verificar meu dispositivo
           </button>
-          <button type="button" id="checkCredential" class="btn btn-secondary">
-            Verificar credencial
-          </button>
-        </div>
-
-        <p id="credentialStatus" class="status-message" role="status" aria-live="polite">
-          Nenhuma operação realizada.
-        </p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading">
-        <h2>Credenciais registradas neste navegador</h2>
-        <p>
-          Esta demonstração mantém uma lista local dos identificadores criados
-          por ela. Essa lista não substitui um sistema de autenticação com
-          servidor.
-        </p>
-      </div>
-
-      <div id="credentialList" class="card-grid" aria-live="polite">
-        <div class="card">
-          <p>Nenhuma credencial cadastrada por esta página.</p>
-        </div>
-      </div>
-
-      <div class="notice notice-warning">
-        <strong>Limitação importante:</strong> para confirmar de forma segura
-        que uma credencial pertence a uma conta, um sistema real precisa de
-        um servidor para emitir desafios, verificar assinaturas e validar a
-        credencial. Esta versão é uma demonstração local, não um sistema
-        completo de login.
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading">
-        <h2>Como funciona</h2>
-      </div>
-
-      <div class="card-grid">
-        <article class="card">
-          <h3>1. Solicitação</h3>
-          <p>O navegador solicita a criação ou utilização de uma credencial.</p>
         </article>
 
-        <article class="card">
-          <h3>2. Verificação no dispositivo</h3>
-          <p>O sistema pode solicitar biometria, PIN ou outro método configurado.</p>
+        <article class="content-card" style="margin-top:24px">
+          <h2>Como proteger sua conta</h2>
+          <ul>
+            <li>Use uma senha exclusiva e difícil de adivinhar.</li>
+            <li>Não compartilhe senhas ou códigos de acesso.</li>
+            <li>Ative o bloqueio de tela do seu celular ou computador.</li>
+            <li>Evite acessar informações pessoais em dispositivos públicos.</li>
+            <li>Se suspeitar que alguém acessou sua conta, altere suas credenciais assim que for seguro.</li>
+          </ul>
         </article>
 
-        <article class="card">
-          <h3>3. Proteção da credencial</h3>
-          <p>O site recebe dados criptográficos, não uma cópia da sua impressão digital ou do seu rosto.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="card">
-        <h2>Outras opções de segurança</h2>
-        <p>
-          A autenticação biométrica não substitui um plano de segurança nem
-          garante proteção se outra pessoa tiver acesso ao seu dispositivo.
-        </p>
-        <div class="form-actions">
-          <a href="pessoas-confiaveis.html" class="btn btn-primary">
-            Pessoas de confiança
+        <div class="action-list" style="margin-top:24px">
+          <a href="cadastro.html">
+            <span><i class="fa-solid fa-user" aria-hidden="true"></i> Ir para a conta</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>
-          <a href="palavra-seguranca.html" class="btn btn-secondary">
-            Palavra de segurança
-          </a>
-          <a href="emergencia.html" class="btn btn-secondary">
-            Opções de emergência
+          <a href="configurações.html">
+            <span><i class="fa-solid fa-sliders" aria-hidden="true"></i> Configurações e privacidade</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p><strong>LIA — Local de Informação e Apoio</strong></p>
-    <p>Projeto desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
-    <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
-    <p>Projeto acadêmico de informação, prevenção e apoio.</p>
+  <footer>
+    <div class="container">
+      <h3>LIA — Local • Informação • Apoio</h3>
+      <p>Projeto de informação, acolhimento e orientação para mulheres.</p>
+      <p>Desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
+      <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
+    </div>
   </footer>
 
-  <aside id="accessibilityPanel" class="accessibility-panel"
-    hidden aria-label="Opções de acessibilidade">
-    <div class="panel-header">
-      <h2>Acessibilidade</h2>
-      <button type="button" id="closeAccessibility" aria-label="Fechar acessibilidade">×</button>
-    </div>
-
-    <div class="panel-content">
-      <button type="button" id="fontDecrease">Diminuir fonte</button>
-      <button type="button" id="fontIncrease">Aumentar fonte</button>
-      <button type="button" id="contrastToggle">Alto contraste</button>
-      <button type="button" id="themeToggle">Alternar tema</button>
-
-      <label for="languageSelect">Idioma</label>
-      <select id="languageSelect">
-        <option value="pt-BR">Português</option>
-        <option value="en">English</option>
-        <option value="es">Español</option>
-      </select>
-
-      <button type="button" id="readPage">Ouvir página</button>
-      <button type="button" id="stopReading">Parar leitura</button>
-      <button type="button" id="loadVlibras">Ativar VLibras</button>
-      <div id="vlibrasContainer"></div>
-    </div>
-  </aside>
-
   <script>
-    (() => {
-      "use strict";
+    document.addEventListener("DOMContentLoaded", function () {
+      const button = document.getElementById("checkPasskey");
+      const status = document.getElementById("passkeyStatus");
 
-      const STORAGE_KEY = "lia_webauthn_demo_v1";
-      const nameInput = document.getElementById("credentialName");
-      const status = document.getElementById("credentialStatus");
-      const list = document.getElementById("credentialList");
-      const registerButton = document.getElementById("registerCredential");
-      const checkButton = document.getElementById("checkCredential");
+      if (!button || !status) return;
 
-      function getCredentials() {
-        try {
-          const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-          return Array.isArray(value) ? value : [];
-        } catch {
-          return [];
-        }
-      }
-
-      function saveCredentials(credentials) {
-        try {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(credentials));
-          return true;
-        } catch {
-          status.textContent = "Não foi possível salvar a lista local.";
-          return false;
-        }
-      }
-
-      function base64url(bytes) {
-        let binary = "";
-        for (const byte of new Uint8Array(bytes)) {
-          binary += String.fromCharCode(byte);
-        }
-
-        return btoa(binary)
-          .replace(/\+/g, "-")
-          .replace(/\//g, "_")
-          .replace(/=+$/g, "");
-      }
-
-      function fromBase64url(value) {
-        const normalized = value.replace(/-/g, "+").replace(/_/g, "/");
-        const padded = normalized + "=".repeat((4 - normalized.length % 4) % 4);
-        const binary = atob(padded);
-        const bytes = new Uint8Array(binary.length);
-
-        for (let i = 0; i < binary.length; i++) {
-          bytes[i] = binary.charCodeAt(i);
-        }
-
-        return bytes;
-      }
-
-      function randomBytes(length) {
-        const bytes = new Uint8Array(length);
-        crypto.getRandomValues(bytes);
-        return bytes;
-      }
-
-      function renderCredentials() {
-        const credentials = getCredentials();
-        list.replaceChildren();
-
-        if (credentials.length === 0) {
-          const card = document.createElement("div");
-          card.className = "card";
-
-          const message = document.createElement("p");
-          message.textContent = "Nenhuma credencial cadastrada por esta página.";
-
-          card.appendChild(message);
-          list.appendChild(card);
-          return;
-        }
-
-        credentials.forEach((credential) => {
-          const card = document.createElement("article");
-          card.className = "card";
-
-          const title = document.createElement("h3");
-          title.textContent = credential.name;
-
-          const date = document.createElement("p");
-          date.textContent = "Cadastrada em: " + credential.createdAt;
-
-          const id = document.createElement("p");
-          id.textContent = "Identificador: " + credential.id.slice(0, 18) + "…";
-
-          card.append(title, date, id);
-
-          const removeButton = document.createElement("button");
-          removeButton.type = "button";
-          removeButton.className = "btn btn-secondary";
-          removeButton.textContent = "Remover da lista local";
-
-          removeButton.addEventListener("click", () => {
-            const confirmed = window.confirm(
-              "Remover esta credencial apenas da lista local desta demonstração?"
-            );
-
-            if (!confirmed) return;
-
-            const remaining = getCredentials().filter(
-              (item) => item.id !== credential.id
-            );
-
-            if (saveCredentials(remaining)) {
-              status.textContent =
-                "Credencial removida da lista local. Isso não apaga a credencial do dispositivo.";
-              renderCredentials();
-            }
-          });
-
-          card.appendChild(removeButton);
-          list.appendChild(card);
-        });
-      }
-
-      function checkSupport() {
+      button.addEventListener("click", function () {
         if (!window.isSecureContext) {
           status.textContent =
-            "Abra a página em HTTPS ou localhost para testar WebAuthn.";
-          return false;
-        }
-
-        if (!window.PublicKeyCredential || !navigator.credentials) {
-          status.textContent =
-            "Este navegador ou dispositivo não oferece suporte ao WebAuthn.";
-          return false;
-        }
-
-        return true;
-      }
-
-      registerButton.addEventListener("click", async () => {
-        if (!checkSupport()) return;
-
-        const name = nameInput.value.trim();
-
-        if (!name) {
-          status.textContent = "Digite um nome para identificar a credencial.";
-          nameInput.focus();
+            "Este recurso exige uma conexão segura HTTPS ou localhost.";
           return;
         }
 
-        registerButton.disabled = true;
-        checkButton.disabled = true;
-        status.textContent = "Solicitando criação de credencial ao dispositivo…";
-
-        try {
-          const userId = randomBytes(16);
-          const challenge = randomBytes(32);
-
-          const credential = await navigator.credentials.create({
-            publicKey: {
-              challenge,
-              rp: {
-                name: "LIA — Local de Informação e Apoio",
-                id: location.hostname
-              },
-              user: {
-                id: userId,
-                name: "usuario-lia",
-                displayName: name
-              },
-              pubKeyCredParams: [
-                { type: "public-key", alg: -7 },
-                { type: "public-key", alg: -257 }
-              ],
-              authenticatorSelection: {
-                userVerification: "preferred"
-              },
-              timeout: 60000,
-              attestation: "none"
-            }
-          });
-
-          if (!credential) {
-            status.textContent = "A criação da credencial foi cancelada.";
-            return;
-          }
-
-          const credentials = getCredentials();
-          const id = base64url(credential.rawId);
-
-          if (credentials.some((item) => item.id === id)) {
-            status.textContent = "Esta credencial já consta na lista local.";
-            return;
-          }
-
-          credentials.push({
-            id,
-            name,
-            createdAt: new Date().toLocaleString("pt-BR")
-          });
-
-          if (saveCredentials(credentials)) {
-            status.textContent =
-              "Credencial criada e identificador salvo localmente. Esta demonstração ainda não valida login com um servidor.";
-            nameInput.value = "";
-            renderCredentials();
-          }
-        } catch (error) {
-          if (error && error.name === "NotAllowedError") {
-            status.textContent =
-              "A operação foi cancelada ou não foi autorizada pelo dispositivo.";
-          } else {
-            status.textContent =
-              "Não foi possível criar a credencial. Confira o suporte do navegador, a conexão segura e as configurações do dispositivo.";
-          }
-        } finally {
-          registerButton.disabled = false;
-          checkButton.disabled = false;
+        if (
+          window.PublicKeyCredential &&
+          navigator.credentials &&
+          typeof navigator.credentials.create === "function"
+        ) {
+          status.textContent =
+            "Seu navegador oferece suporte básico a passkeys. A autenticação real ainda precisa ser configurada no servidor da LIA.";
+        } else {
+          status.textContent =
+            "Não foi possível confirmar o suporte a passkeys neste navegador ou dispositivo.";
         }
       });
-
-      checkButton.addEventListener("click", async () => {
-        if (!checkSupport()) return;
-
-        const credentials = getCredentials();
-
-        if (credentials.length === 0) {
-          status.textContent =
-            "Cadastre uma credencial nesta demonstração antes de fazer o teste.";
-          return;
-        }
-
-        registerButton.disabled = true;
-        checkButton.disabled = true;
-        status.textContent = "Solicitando verificação ao dispositivo…";
-
-        try {
-          const allowCredentials = credentials.map((item) => ({
-            type: "public-key",
-            id: fromBase64url(item.id)
-          }));
-
-          const assertion = await navigator.credentials.get({
-            publicKey: {
-              challenge: randomBytes(32),
-              allowCredentials,
-              userVerification: "preferred",
-              timeout: 60000
-            }
-          });
-
-          status.textContent = assertion
-            ? "O dispositivo retornou uma credencial. Sem um servidor, esta demonstração não consegue validar a assinatura nem confirmar a identidade."
-            : "Nenhuma credencial foi retornada.";
-        } catch (error) {
-          status.textContent =
-            error && error.name === "NotAllowedError"
-              ? "Verificação cancelada ou não autorizada."
-              : "Não foi possível verificar a credencial neste dispositivo.";
-        } finally {
-          registerButton.disabled = false;
-          checkButton.disabled = false;
-        }
-      });
-
-      renderCredentials();
-    })();
+    });
   </script>
 </body>
-</html> 
+</html>
