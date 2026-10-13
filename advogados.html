@@ -3,157 +3,24 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#51377a">
-  <meta name="author" content="Marcely Castro Rodrigues e Mikaela Castro Bonfim">
-  <meta name="description" content="Conheça caminhos para buscar orientação jurídica gratuita, Defensoria Pública e serviços de proteção às mulheres.">
-  <meta name="robots" content="index, follow">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:title" content="Orientação jurídica | LIA">
-  <meta property="og:description" content="Informações sobre orientação jurídica e direitos das mulheres.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orientação jurídica | LIA</title>
   <link rel="stylesheet" href="lia.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <script src="lia.js" defer></script>
 </head>
 <body>
-  <div class="top-bar">
-    <div class="container top-bar-content">
-      <span>LIA — Local • Informação • Apoio</span>
-      <button class="btn btn-discreet" id="openAccessibility" type="button" aria-controls="accessibilityPanel" aria-expanded="false">
-        <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Acessibilidade
-      </button>
-    </div>
-  </div>
-
-  <header class="header">
-    <div class="container nav-container">
-      <a class="logo" href="index.html" aria-label="LIA — página inicial">
-        <span class="logo-icon">LIA</span>
-        <span class="logo-name">
-          <strong>LIA</strong>
-          <span>Local • Informação • Apoio</span>
-        </span>
-      </a>
-
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navigation">
-        <i class="fa-solid fa-bars" aria-hidden="true"></i>
-      </button>
-
-      <nav class="navigation" id="navigation" aria-label="Menu principal">
-        <a href="index.html">Início</a>
-        <a href="projeto.html">Projeto</a>
-        <a href="violencias.html">Violências</a>
-        <a href="apoio.html">Rede de apoio</a>
-        <a href="localizacao.html">Localização</a>
-        <a href="cadastro.html">Conta</a>
-        <a href="discreto.html">Modo discreto</a>
-      </nav>
-
-      <div class="nav-actions">
-        <a class="btn btn-main" href="emergencia.html">
-          <i class="fa-solid fa-phone" aria-hidden="true"></i> Preciso de apoio
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <div id="accessibilityOverlay" aria-hidden="true"></div>
-  <aside id="accessibilityPanel" aria-hidden="true" aria-label="Painel de acessibilidade">
-    <button id="closeAccessibility" class="btn btn-outline" type="button">
-      <i class="fa-solid fa-xmark" aria-hidden="true"></i> Fechar
-    </button>
-    <h2>Acessibilidade</h2>
-    <p>Personalize a leitura e a aparência da página.</p>
-
-    <div class="action-list">
-      <button id="fontDecrease" type="button">A− Diminuir texto</button>
-      <button id="fontReset" type="button">A Restaurar texto</button>
-      <button id="fontIncrease" type="button">A+ Aumentar texto</button>
-      <button id="contrastToggle" type="button">Alternar alto contraste</button>
-      <button id="themeToggleAccessibility" type="button">Alternar tema claro/escuro</button>
-      <button id="readPage" type="button">Ler página em voz alta</button>
-      <button id="stopReading" type="button">Parar leitura</button>
-    </div>
-
-    <label for="languageSelect">Idioma</label>
-    <select id="languageSelect">
-      <option value="pt-BR">Português</option>
-      <option value="en">English</option>
-      <option value="es">Español</option>
-    </select>
-
-    <p class="privacy-notice">O idioma só traduz os textos que estiverem preparados para tradução. O painel não substitui tecnologias assistivas do dispositivo.</p>
-  </aside>
-
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <span class="eyebrow"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> DIREITOS E PROTEÇÃO</span>
-        <h1>Orientação jurídica</h1>
-        <p>Informações para conhecer seus direitos e encontrar serviços que podem orientar você. Você não precisa resolver tudo sozinha nem tomar uma decisão antes de estar pronta.</p>
-      </div>
-    </section>
-
-    <section class="page-content">
-      <div class="container">
-        <div class="alert">
-          <strong>Se você estiver em perigo imediato:</strong> ligue para o 190, se for seguro fazer isso. O Ligue 180 oferece orientação e recebe denúncias de violência contra a mulher.
-        </div>
-
-        <div class="content-grid">
-          <article class="service-card">
-            <div class="feature-icon"><i class="fa-solid fa-landmark" aria-hidden="true"></i></div>
-            <h3>Defensoria Pública</h3>
-            <p>Pode oferecer orientação e assistência jurídica gratuita a pessoas que atendam aos critérios do serviço, inclusive em questões familiares e medidas protetivas.</p>
-            <a class="btn btn-outline" href="https://www.defensoria.sp.def.br/" target="_blank" rel="noopener noreferrer">Acessar Defensoria Pública de SP</a>
-          </article>
-
-          <article class="service-card">
-            <div class="feature-icon pink"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></div>
-            <h3>Ministério Público</h3>
-            <p>O Ministério Público atua na defesa dos direitos e pode orientar sobre os canais oficiais adequados para encaminhar uma situação.</p>
-            <a class="btn btn-outline" href="https://www.mpsp.mp.br/" target="_blank" rel="noopener noreferrer">Acessar MPSP</a>
-          </article>
-
-          <article class="service-card">
-            <div class="feature-icon green"><i class="fa-solid fa-handshake-angle" aria-hidden="true"></i></div>
-            <h3>OAB São Paulo</h3>
-            <p>Consulte os canais oficiais da Ordem dos Advogados do Brasil para localizar informações sobre serviços e orientação jurídica.</p>
-            <a class="btn btn-outline" href="https://www.oabsp.org.br/" target="_blank" rel="noopener noreferrer">Acessar OAB-SP</a>
-          </article>
-        </div>
-
-        <article class="content-card" style="margin-top:24px">
-          <h2>Lei Maria da Penha</h2>
-          <p>A Lei nº 11.340/2006 estabelece mecanismos de prevenção e enfrentamento da violência doméstica e familiar contra a mulher. A orientação de um serviço jurídico pode ajudar a compreender os direitos e as opções disponíveis para cada situação.</p>
-          <a class="btn btn-main" href="https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11340.htm" target="_blank" rel="noopener noreferrer">Consultar o texto da lei</a>
-        </article>
-
-        <article class="content-card" style="margin-top:24px">
-          <h2>Você também pode procurar</h2>
-          <div class="action-list">
-            <a href="emergencia.html"><span><i class="fa-solid fa-phone" aria-hidden="true"></i> Telefones e orientações de emergência</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            <a href="servicos.html"><span><i class="fa-solid fa-building" aria-hidden="true"></i> Serviços sociais e públicos</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            <a href="psicologo.html"><span><i class="fa-solid fa-heart" aria-hidden="true"></i> Apoio psicológico</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            <a href="pessoas-confiaveis.html"><span><i class="fa-solid fa-user-group" aria-hidden="true"></i> Pessoas de confiança</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-        </article>
-
-        <p class="privacy-notice">Esta página oferece informação geral e não substitui a orientação individual de um profissional. Os serviços, critérios de atendimento e horários podem variar.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <h3>LIA — Local • Informação • Apoio</h3>
-      <p>Projeto de informação, acolhimento e orientação para mulheres.</p>
-      <p>Desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p>
-      <p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p>
-      <p>Em emergência, ligue 190. Para orientação e denúncias de violência contra a mulher, Ligue 180.</p>
-    </div>
-  </footer>
+<header class="topic-header"><a class="topic-logo" href="index.html">LIA</a><nav><a href="index.html">Início</a><a href="projeto.html">Projeto</a><a href="violencias.html">Tipos de violência</a><a href="apoio.html">Preciso de apoio</a><a href="conta.html">Conta</a></nav></header>
+<main>
+  <section class="topic-hero"><p>INFORMAÇÃO SOBRE DIREITOS</p><h1>Orientação jurídica</h1><p>Conhecer seus direitos pode ajudar você a avaliar opções e decidir os próximos passos com segurança.</p></section>
+  <section class="topic-section"><h2>Onde buscar orientação?</h2><div class="topic-grid">
+    <article class="topic-card"><h3>Defensoria Pública</h3><p>Pode oferecer assistência jurídica gratuita a pessoas que atendam aos critérios do serviço. Consulte a unidade do seu estado.</p></article>
+    <article class="topic-card"><h3>Delegacia da Mulher</h3><p>As unidades especializadas podem receber ocorrências e orientar sobre os procedimentos disponíveis na região.</p></article>
+    <article class="topic-card"><h3>Ministério Público</h3><p>Pode orientar sobre canais institucionais e medidas relacionadas à proteção de direitos.</p></article>
+    <article class="topic-card"><h3>Central 180</h3><p>Oferece orientação e encaminhamento para serviços de atendimento à mulher.</p></article>
+  </div></section>
+  <section class="topic-section"><h2>Sobre medidas protetivas</h2><p>A Lei Maria da Penha prevê mecanismos de proteção para mulheres em situação de violência doméstica e familiar. A avaliação e a aplicação das medidas dependem dos procedimentos legais e das circunstâncias de cada caso. Um serviço jurídico pode explicar as opções disponíveis.</p><p><a href="https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11340.htm" target="_blank" rel="noopener">Ler a Lei Maria da Penha no site oficial</a></p></section>
+  <section class="topic-section"><h2>Antes de procurar atendimento</h2><ul><li>Se for seguro, organize datas, mensagens e informações relevantes.</li><li>Não se arrisque para conseguir provas ou documentos.</li><li>Você pode pedir orientação mesmo sem ter certeza sobre como registrar uma ocorrência.</li><li>Se estiver em perigo imediato, ligue para 190.</li></ul></section>
+  <section class="topic-section"><h2>Mais opções</h2><div class="topic-nav"><a href="apoio.html">Todas as opções de apoio</a><a href="psicologo.html">Apoio psicológico</a><a href="serviços.html">Serviços sociais</a><a href="emergencia.html">Orientações de emergência</a></div></section>
+</main>
+<footer class="topic-footer"><p>LIA — informação, acolhimento e proteção.</p><a href="index.html">Voltar ao início</a></footer>
 </body>
 </html>
