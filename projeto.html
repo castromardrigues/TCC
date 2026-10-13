@@ -4,143 +4,414 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#7950b8">
-  <meta name="author" content="Equipe LIA">
-  <meta name="description" content="Conheça o projeto LIA, uma iniciativa de informação, acolhimento e orientação para mulheres em situação de vulnerabilidade.">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="O Projeto | LIA">
-  <meta property="og:description" content="Conheça os objetivos, a história e as funcionalidades do projeto LIA.">
-  <meta property="og:locale" content="pt_BR">
-  <title>O Projeto | LIA — Local de Informação e Apoio</title>
+  <meta name="theme-color" content="#795b91">
+  <meta name="description" content="Conheça o projeto LIA, uma iniciativa de informação, acolhimento e apoio para mulheres.">
+  <title>O Projeto | LIA</title>
   <link rel="stylesheet" href="lia.css">
-  <script src="lia.js" defer></script>
-</head>
-<body>
-  <div class="top-bar">
-    <div class="container top-bar-content">
-      <span>LIA — Local • Informação • Apoio</span>
-      <button class="btn btn-outline" id="openAccessibility" type="button">Acessibilidade</button>
-    </div>
-  </div>
 
-  <header class="header">
-    <div class="container nav-container">
-      <a class="logo" href="index.html" aria-label="Página inicial LIA">
-        <span class="logo-icon">L</span>
-        <span class="logo-name">LIA</span>
-      </a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
-      <nav class="navigation" id="navigation">
+  <style>
+    .project-hero {
+      padding: 75px 0;
+      background: linear-gradient(135deg, #eee5f5, #faf6fc 65%, #f3e3ef);
+    }
+
+    .project-hero .container {
+      max-width: 950px;
+      text-align: center;
+    }
+
+    .project-hero h1 {
+      margin: 12px 0 20px;
+    }
+
+    .project-hero p {
+      max-width: 740px;
+      margin: 0 auto;
+      font-size: 1.08rem;
+    }
+
+    .project-section {
+      padding: 55px 0;
+    }
+
+    .project-section.alt {
+      background: #f0e9f5;
+    }
+
+    .project-section h2 {
+      margin-bottom: 20px;
+    }
+
+    .project-copy {
+      max-width: 850px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .project-card {
+      padding: 25px;
+      border: 1px solid #e7ddec;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 12px 35px rgba(72, 48, 82, .07);
+    }
+
+    .project-card .project-icon {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      margin-bottom: 16px;
+      border-radius: 14px;
+      background: #eee5f5;
+      font-size: 1.45rem;
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      margin-bottom: 0;
+    }
+
+    .project-quote {
+      margin: 28px 0 0;
+      padding: 25px;
+      border-left: 4px solid #795b91;
+      border-radius: 0 14px 14px 0;
+      background: #fff;
+      color: #5c416f;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.3rem;
+    }
+
+    .collaborators {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .collaborator {
+      padding: 25px;
+      border: 1px solid #e7ddec;
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .collaborator h3 {
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
+
+    .collaborator .role {
+      color: #795b91;
+      font-weight: bold;
+      font-size: .9rem;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    @media (max-width: 760px) {
+      .project-grid,
+      .collaborators {
+        grid-template-columns: 1fr;
+      }
+
+      .project-hero {
+        padding: 50px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="topbar">
+      <a class="logo" href="index.html" aria-label="LIA - página inicial">LIA</a>
+
+      <nav aria-label="Menu principal">
         <a href="index.html">Início</a>
         <a href="projeto.html" aria-current="page">O projeto</a>
         <a href="violencias.html">Tipos de violência</a>
         <a href="apoio.html">Preciso de apoio</a>
-        <a href="cadastro.html">Conta</a>
-        <a href="discreto.html">Modo discreto</a>
+        <a href="conta.html">Conta</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="project-hero">
       <div class="container">
-        <span class="eyebrow">Conheça a iniciativa</span>
-        <h1>Informação também é uma forma de proteção.</h1>
-        <p>O LIA foi pensado para aproximar mulheres de informações confiáveis, orientações e caminhos de apoio.</p>
-        <a class="btn btn-main" href="apoio.html">Conhecer as opções de apoio</a>
+        <span class="eyebrow">Conheça a LIA</span>
+        <h1>Informação, acolhimento e apoio</h1>
+        <p>
+          A LIA é um projeto desenvolvido para facilitar o acesso à informação
+          sobre violência contra a mulher e reunir orientações e caminhos de
+          apoio em um ambiente acolhedor, acessível e organizado.
+        </p>
+
+        <div class="project-actions" style="justify-content:center">
+          <a class="btn" href="violencias.html">Conhecer os tipos de violência</a>
+          <a class="btn btn-secondary" href="apoio.html">Encontrar formas de apoio</a>
+        </div>
       </div>
     </section>
 
-    <section class="page-content container">
-      <div class="content-card">
-        <h2>O que é o LIA?</h2>
-        <p>O LIA — Local de Informação e Apoio — é um projeto digital voltado à informação, ao acolhimento e à orientação de mulheres que estejam passando por situações de vulnerabilidade ou violência.</p>
-        <p>A proposta é reunir conteúdos claros e caminhos para encontrar serviços de apoio, respeitando a autonomia, a privacidade e o tempo de cada pessoa.</p>
-      </div>
+    <section class="project-section">
+      <div class="container project-copy">
+        <span class="eyebrow">Nossa história</span>
+        <h2>Como surgiu a LIA?</h2>
 
-      <div class="content-grid">
-        <article class="content-card">
-          <div class="feature-icon">📚</div>
-          <h2>Informação</h2>
-          <p>Apresentar os diferentes tipos de violência, seus sinais e informações para ajudar a reconhecer situações de risco.</p>
-        </article>
-        <article class="content-card">
-          <div class="feature-icon">🤝</div>
-          <h2>Acolhimento</h2>
-          <p>Facilitar o acesso a orientações e serviços psicológicos, jurídicos e sociais.</p>
-        </article>
-        <article class="content-card">
-          <div class="feature-icon">🛡️</div>
-          <h2>Autonomia e proteção</h2>
-          <p>Reunir recursos digitais que possam ajudar a pessoa a organizar informações e buscar apoio com mais segurança.</p>
-        </article>
-      </div>
+        <p>
+          A LIA surgiu da percepção de que muitas mulheres precisam de
+          informação clara para reconhecer situações de violência e compreender
+          quais caminhos podem buscar para receber orientação e apoio.
+        </p>
 
-      <div class="content-card">
-        <h2>O que o site oferece?</h2>
-        <ul class="action-list">
-          <li>Conteúdos separados por tipo de violência.</li>
-          <li>Orientações para buscar apoio psicológico, jurídico e social.</li>
-          <li>Informações sobre serviços e canais oficiais.</li>
-          <li>Cadastro e área de conta, após configuração do serviço de autenticação.</li>
-          <li>Diário pessoal, lista de pessoas confiáveis e recursos de localização.</li>
-          <li>Modo discreto com aparência de agenda.</li>
-          <li>Recursos de acessibilidade para facilitar a navegação.</li>
-        </ul>
-        <p class="privacy-notice">Alguns recursos ainda dependem de integração com serviços externos e de configuração de segurança. O site não substitui atendimento profissional nem serviços de emergência.</p>
-      </div>
+        <p>
+          A proposta é reunir conteúdos educativos e recursos de apoio em um
+          único ambiente digital, com uma linguagem acessível e uma apresentação
+          que incentive a busca por informação sem julgamentos.
+        </p>
 
-      <div class="content-card">
-        <h2>Por que esse projeto é importante?</h2>
-        <p>Nem sempre é fácil identificar uma situação de violência ou saber a quem recorrer. Ao reunir informações e caminhos de atendimento em um único ambiente, o LIA busca tornar essas informações mais acessíveis e compreensíveis.</p>
-        <p>O projeto também destaca a importância de uma rede de apoio, do acesso a serviços públicos e do respeito às decisões de cada mulher.</p>
-      </div>
+        <p>
+          O nome LIA representa a identidade do projeto e sua proposta de
+          oferecer um espaço digital dedicado à informação, ao acolhimento e
+          à valorização da autonomia das mulheres.
+        </p>
 
-      <div class="content-card">
-        <h2>Equipe e agradecimentos</h2>
-        <p><strong>Marcely Castro Rodrigues</strong> — Desenvolvimento do projeto.</p>
-        <p><strong>Mikaela Cardoso Bonfim</strong> — Desenvolvimento do projeto.</p>
-        <p><strong>Hellen Goulart Orlandi</strong> — Assistente Social, CRESS 58321. Contribuiu com a ideia inicial e com orientações para o desenvolvimento do trabalho.</p>
+        <blockquote class="project-quote">
+          Conhecer os próprios direitos e reconhecer situações de violência
+          são passos importantes para buscar apoio com mais informação.
+        </blockquote>
       </div>
+    </section>
 
-      <div class="content-card">
-        <h2>Explore o LIA</h2>
-        <div class="action-list">
-          <p><a href="violencias.html">Conhecer os tipos de violência →</a></p>
-          <p><a href="apoio.html">Encontrar informações de apoio →</a></p>
-          <p><a href="cadastro.html">Acessar a área de conta →</a></p>
+    <section class="project-section alt">
+      <div class="container">
+        <span class="eyebrow">Propósito</span>
+        <h2>Objetivos do projeto</h2>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">📚</div>
+            <h3>Informar</h3>
+            <p>
+              Apresentar conteúdos educativos sobre diferentes formas de
+              violência, seus sinais e seus possíveis impactos.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">🤝</div>
+            <h3>Orientar</h3>
+            <p>
+              Reunir caminhos para buscar apoio psicológico, jurídico,
+              social e de pessoas de confiança.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">🌷</div>
+            <h3>Promover autonomia</h3>
+            <p>
+              Incentivar o acesso à informação, o conhecimento de direitos
+              e a tomada de decisões com mais segurança.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <div class="container">
+        <span class="eyebrow">O que você encontra</span>
+        <h2>Funcionalidades da LIA</h2>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">🔎</div>
+            <h3>Informações sobre violência</h3>
+            <p>
+              Conteúdos organizados por categoria para facilitar a compreensão
+              das diferentes formas de violência contra a mulher.
+            </p>
+            <p><a class="text-link" href="violencias.html">Explorar conteúdos →</a></p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">💜</div>
+            <h3>Rede de apoio</h3>
+            <p>
+              Orientações para conhecer possibilidades de atendimento
+              psicológico, jurídico e social, além de apoio de pessoas confiáveis.
+            </p>
+            <p><a class="text-link" href="apoio.html">Conhecer opções →</a></p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">🗓️</div>
+            <h3>Ambiente discreto</h3>
+            <p>
+              Proposta de interface alternativa com aparência de agenda,
+              pensada para oferecer uma navegação mais discreta.
+            </p>
+            <p><a class="text-link" href="discreto.html">Acessar ambiente →</a></p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">♿</div>
+            <h3>Acessibilidade</h3>
+            <p>
+              Recursos de apresentação e navegação que buscam tornar os
+              conteúdos mais acessíveis a diferentes pessoas.
+            </p>
+            <p><a class="text-link" href="index.html#acessibilidade">Ir para o início →</a></p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">👤</div>
+            <h3>Conta pessoal</h3>
+            <p>
+              Área destinada ao cadastro e ao acesso da usuária, conforme
+              os recursos disponíveis na versão do sistema.
+            </p>
+            <p><a class="text-link" href="conta.html">Acessar conta →</a></p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">🛡️</div>
+            <h3>Privacidade e cuidado</h3>
+            <p>
+              A proposta considera a importância da discrição e do cuidado
+              ao tratar de assuntos pessoais e situações de vulnerabilidade.
+            </p>
+          </article>
+        </div>
+
+        <div class="callout">
+          <strong>Importante:</strong> a LIA é um projeto informativo e não
+          substitui serviços de emergência, atendimento profissional,
+          aconselhamento jurídico individual ou os serviços públicos de proteção.
+          A disponibilidade de cada funcionalidade depende de sua implementação.
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section alt">
+      <div class="container project-copy">
+        <span class="eyebrow">Compromisso</span>
+        <h2>Princípios que orientam a LIA</h2>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <h3>Acolhimento sem julgamentos</h3>
+            <p>
+              Tratar o tema com respeito, sem culpabilizar mulheres pelas
+              situações de violência que vivenciam.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <h3>Informação acessível</h3>
+            <p>
+              Organizar os conteúdos de forma clara, para facilitar a
+              navegação e a compreensão das informações.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <h3>Respeito à autonomia</h3>
+            <p>
+              Oferecer informação para apoiar escolhas, respeitando a
+              individualidade e o tempo de cada pessoa.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <div class="container">
+        <span class="eyebrow">Quem participa</span>
+        <h2>Colaboradoras do projeto</h2>
+
+        <p class="project-copy">
+          O desenvolvimento da LIA reúne trabalho técnico e contribuição
+          relacionada à proposta de acolhimento e orientação.
+        </p>
+
+        <div class="collaborators">
+          <article class="collaborator">
+            <h3>Marcely Castro Rodrigues</h3>
+            <p class="role">Desenvolvimento do projeto</p>
+            <p>
+              Responsável pelo desenvolvimento e pela organização das
+              funcionalidades e dos conteúdos do site.
+            </p>
+          </article>
+
+          <article class="collaborator">
+            <h3>Mikaela Cardoso Bonfim</h3>
+            <p class="role">Desenvolvimento do projeto</p>
+            <p>
+              Colaboradora no desenvolvimento do projeto, em parceria
+              na construção da proposta e de seus recursos.
+            </p>
+          </article>
+
+          <article class="collaborator">
+            <h3>HELLEN GOULART ORLANDI</h3>
+            <p class="role">Assistente social · CRESS 58321</p>
+            <p>
+              Idealizadora da proposta que deu origem à LIA e colaboradora
+              na construção do projeto, contribuindo com sua perspectiva
+              profissional na área social.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section alt">
+      <div class="container" style="text-align:center">
+        <span class="eyebrow">Conheça a plataforma</span>
+        <h2>Você não precisa buscar informação sozinha.</h2>
+        <p>
+          Explore os conteúdos da LIA e conheça as possibilidades de apoio.
+        </p>
+
+        <div class="project-actions" style="justify-content:center">
+          <a class="btn" href="violencias.html">Ver tipos de violência</a>
+          <a class="btn btn-secondary" href="apoio.html">Preciso de apoio</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <p><strong>LIA — Local de Informação e Apoio</strong></p>
-      <p>Informação, acolhimento e orientação.</p>
-      <p><a href="projeto.html">Sobre o projeto</a> · <a href="apoio.html">Apoio</a> · <a href="configurações.html">Configurações</a></p>
+  <footer>
+    <a class="logo" href="index.html">LIA</a>
+    <p>Local de Informação e Apoio</p>
+    <div class="footer-links">
+      <a href="index.html">Início</a>
+      <a href="projeto.html">O projeto</a>
+      <a href="violencias.html">Tipos de violência</a>
+      <a href="apoio.html">Preciso de apoio</a>
     </div>
+    <p>Projeto acadêmico dedicado à informação, ao acolhimento e à orientação de mulheres.</p>
+    <p>© 2026 LIA — Todos os direitos reservados.</p>
   </footer>
-
-  <div class="accessibility-overlay" id="accessibilityOverlay"></div>
-  <aside class="accessibility-panel" id="accessibilityPanel" aria-label="Painel de acessibilidade" aria-hidden="true">
-    <button class="btn btn-outline" id="closeAccessibility" type="button">Fechar ×</button>
-    <h2>Acessibilidade</h2>
-    <div class="action-list">
-      <button class="btn btn-outline" id="fontDecrease" type="button">Diminuir fonte A−</button>
-      <button class="btn btn-outline" id="fontReset" type="button">Fonte normal</button>
-      <button class="btn btn-outline" id="fontIncrease" type="button">Aumentar fonte A+</button>
-      <button class="btn btn-outline" id="contrastToggle" type="button">Alternar alto contraste</button>
-      <button class="btn btn-outline" id="themeToggleAccessibility" type="button">Alternar tema</button>
-      <label for="languageSelect">Idioma</label>
-      <select id="languageSelect">
-        <option value="pt">Português</option>
-        <option value="en">English</option>
-        <option value="es">Español</option>
-      </select>
-      <button class="btn btn-outline" id="readPage" type="button">Ler página</button>
-      <button class="btn btn-outline" id="stopReading" type="button">Parar leitura</button>
-    </div>
-  </aside>
 </body>
 </html>
