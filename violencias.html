@@ -2,31 +2,295 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#51377a">
-  <meta name="description" content="Conheça diferentes formas de violência contra a mulher, reconheça sinais de alerta e encontre caminhos de apoio na LIA."><meta name="robots" content="index, follow">
-  <title>Tipos de violência | LIA</title><link rel="stylesheet" href="lia.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><script src="lia.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#795b91">
+  <meta name="description" content="Conheça os tipos de violência contra a mulher, seus sinais e caminhos para buscar orientação.">
+  <title>Tipos de Violência | LIA</title>
+  <link rel="stylesheet" href="lia.css">
+
+  <style>
+    .violence-hero {
+      padding: 65px 0;
+      background: linear-gradient(135deg, #eee5f5, #faf6fc 65%, #f3e3ef);
+    }
+
+    .violence-hero .container {
+      max-width: 900px;
+    }
+
+    .violence-hero h1 {
+      margin: 12px 0 18px;
+    }
+
+    .violence-hero p {
+      max-width: 740px;
+      font-size: 1.05rem;
+    }
+
+    .violence-section {
+      padding: 50px 0;
+    }
+
+    .violence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .violence-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 25px;
+      border: 1px solid #e7ddec;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 12px 35px rgba(72, 48, 82, .07);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .violence-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 35px rgba(72, 48, 82, .13);
+    }
+
+    .violence-icon {
+      display: grid;
+      width: 50px;
+      height: 50px;
+      place-items: center;
+      margin-bottom: 16px;
+      border-radius: 15px;
+      background: #eee5f5;
+      font-size: 1.5rem;
+    }
+
+    .violence-card h2 {
+      margin-bottom: 12px;
+      font-size: 1.45rem;
+    }
+
+    .violence-card p {
+      flex: 1;
+      color: #7c7184;
+    }
+
+    .violence-card a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 15px;
+      border-radius: 10px;
+      background: #795b91;
+      color: white;
+      font-weight: 600;
+    }
+
+    .violence-card a:hover {
+      background: #5c416f;
+    }
+
+    .violence-notice {
+      margin-top: 32px;
+      padding: 22px;
+      border-left: 4px solid #795b91;
+      border-radius: 0 14px 14px 0;
+      background: #eee5f5;
+    }
+
+    .help-banner {
+      padding: 35px;
+      border-radius: 20px;
+      background: #f0e9f5;
+    }
+
+    .help-banner h2 {
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 850px) {
+      .violence-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .violence-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .violence-hero {
+        padding: 45px 0;
+      }
+
+      .help-banner {
+        padding: 24px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="top-bar"><div class="container top-bar-content"><span>LIA — Local • Informação • Apoio</span><button class="btn btn-discreet" id="openAccessibility" type="button" aria-controls="accessibilityPanel" aria-expanded="false">Acessibilidade</button></div></div>
-  <header class="header"><div class="container nav-container"><a class="logo" href="index.html"><span class="logo-icon">LIA</span><span class="logo-name"><strong>LIA</strong><span>Local • Informação • Apoio</span></span></a><button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navigation"><i class="fa-solid fa-bars"></i></button><nav class="navigation" id="navigation" aria-label="Menu principal"><a href="index.html">Início</a><a href="projeto.html">Projeto</a><a href="violencias.html" aria-current="page">Violências</a><a href="apoio.html">Rede de apoio</a><a href="localizacao.html">Localização</a><a href="cadastro.html">Conta</a><a href="discreto.html">Modo discreto</a></nav><div class="nav-actions"><a class="btn btn-main" href="emergencia.html">Preciso de apoio</a></div></div></header>
-  <div id="accessibilityOverlay" aria-hidden="true"></div><aside id="accessibilityPanel" aria-hidden="true" aria-label="Painel de acessibilidade"><button id="closeAccessibility" class="btn btn-outline" type="button">Fechar</button><h2>Acessibilidade</h2><div class="action-list"><button id="fontDecrease" type="button">A− Diminuir texto</button><button id="fontReset" type="button">Restaurar texto</button><button id="fontIncrease" type="button">A+ Aumentar texto</button><button id="contrastToggle" type="button">Alto contraste</button><button id="themeToggleAccessibility" type="button">Tema claro/escuro</button><button id="readPage" type="button">Ler página</button><button id="stopReading" type="button">Parar leitura</button></div><label for="languageSelect">Idioma</label><select id="languageSelect"><option value="pt-BR">Português</option><option value="en">English</option><option value="es">Español</option></select></aside>
+  <header>
+    <div class="topbar">
+      <a class="logo" href="index.html" aria-label="LIA - página inicial">LIA</a>
+
+      <nav aria-label="Menu principal">
+        <a href="index.html">Início</a>
+        <a href="projeto.html">O projeto</a>
+        <a href="violencias.html" aria-current="page">Tipos de violência</a>
+        <a href="apoio.html">Preciso de apoio</a>
+        <a href="conta.html">Conta</a>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <section class="page-hero"><div class="container"><span class="eyebrow">INFORMAÇÃO É UMA FORMA DE PROTEÇÃO</span><h1>Conheça as formas de violência</h1><p>A violência contra a mulher pode ser física, emocional, sexual, moral, patrimonial ou acontecer por meios digitais. Reconhecer os sinais ajuda a buscar informação e apoio.</p><a class="btn btn-main" href="emergencia.html">Preciso de apoio</a></div></section>
-    <section class="page-content"><div class="container">
-      <div class="alert"><strong>Você merece respeito e segurança.</strong> A violência nunca é culpa de quem a sofre. Se houver perigo imediato, ligue para o 190 se for seguro. O Ligue 180 oferece informações e recebe denúncias de violência contra a mulher.</div>
-      <div class="content-grid">
-        <article class="service-card"><div class="feature-icon"><i class="fa-solid fa-hand-fist"></i></div><h2>Violência física</h2><p>Agressões que prejudicam ou colocam em risco a integridade corporal.</p><a class="btn btn-outline" href="violencia-fisica.html">Conhecer sinais</a></article>
-        <article class="service-card"><div class="feature-icon pink"><i class="fa-solid fa-brain"></i></div><h2>Violência psicológica</h2><p>Ameaças, humilhações, isolamento ou controle que causam dano emocional.</p><a class="btn btn-outline" href="violencia-psicologica.html">Conhecer sinais</a></article>
-        <article class="service-card"><div class="feature-icon blue"><i class="fa-solid fa-heart-pulse"></i></div><h2>Violência sexual</h2><p>Atos ou pressões de natureza sexual sem consentimento livre.</p><a class="btn btn-outline" href="violencia-sexual.html">Conhecer sinais</a></article>
-        <article class="service-card"><div class="feature-icon green"><i class="fa-solid fa-wallet"></i></div><h2>Violência patrimonial</h2><p>Retenção ou destruição de documentos, bens, dinheiro ou recursos econômicos.</p><a class="btn btn-outline" href="violencia-patrimonial.html">Conhecer sinais</a></article>
-        <article class="service-card"><div class="feature-icon gold"><i class="fa-solid fa-comment-slash"></i></div><h2>Violência moral</h2><p>Condutas como calúnia, difamação ou injúria, conforme as circunstâncias.</p><a class="btn btn-outline" href="violencia-moral.html">Conhecer sinais</a></article>
-        <article class="service-card"><div class="feature-icon pink"><i class="fa-solid fa-mobile-screen-button"></i></div><h2>Violência digital</h2><p>Vigilância, perseguição, ameaças ou exposição abusiva por tecnologias.</p><a class="btn btn-outline" href="violencia-digital.html">Conhecer sinais</a></article>
-        <article class="service-card"><div class="feature-icon blue"><i class="fa-solid fa-people-group"></i></div><h2>Violência vicária</h2><p>Uso de pessoas queridas para intimidar, controlar ou causar sofrimento à mulher.</p><a class="btn btn-outline" href="violencia-vicaria.html">Conhecer sinais</a></article>
+    <section class="violence-hero">
+      <div class="container">
+        <span class="eyebrow">Informação é proteção</span>
+        <h1>Conheça os tipos de violência contra a mulher</h1>
+
+        <p>
+          A violência contra a mulher pode acontecer de diferentes maneiras.
+          Nem sempre envolve agressões físicas: ameaças, humilhações,
+          controle financeiro, violência sexual e perseguição digital também
+          merecem atenção.
+        </p>
+
+        <p>
+          Conhecer os sinais pode ajudar a compreender uma situação e
+          identificar caminhos para procurar orientação.
+        </p>
+
+        <a class="btn" href="apoio.html">Conhecer formas de apoio</a>
       </div>
-      <article class="content-card" style="margin-top:24px"><h2>Onde encontrar apoio</h2><p>Você pode buscar atendimento mesmo quando não tem certeza de como nomear o que está acontecendo. Os serviços podem ajudar a avaliar as opções disponíveis para sua situação.</p><div class="action-list"><a href="apoio.html">Conhecer a rede de apoio <i class="fa-solid fa-arrow-right"></i></a><a href="psicologo.html">Apoio psicológico <i class="fa-solid fa-arrow-right"></i></a><a href="advogados.html">Orientação jurídica <i class="fa-solid fa-arrow-right"></i></a><a href="serviços.html">Serviços públicos <i class="fa-solid fa-arrow-right"></i></a><a href="localizacao.html">Localização de serviços <i class="fa-solid fa-arrow-right"></i></a></div></article>
-      <article class="content-card" style="margin-top:24px"><h2>Conheça a legislação</h2><p>A Lei nº 11.340/2006, conhecida como Lei Maria da Penha, estabelece mecanismos de prevenção e enfrentamento à violência doméstica e familiar contra a mulher e descreve formas de violência previstas na lei.</p><a class="btn btn-outline" href="https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11340.htm" target="_blank" rel="noopener noreferrer">Ler a Lei Maria da Penha</a></article>
-    </div></section>
+    </section>
+
+    <section class="violence-section">
+      <div class="container">
+        <span class="eyebrow">Explore as categorias</span>
+        <h2>Existem diferentes formas de violência</h2>
+
+        <p>
+          Selecione uma categoria para conhecer sua definição, exemplos,
+          sinais de alerta e informações de orientação.
+        </p>
+
+        <div class="violence-grid">
+          <article class="violence-card">
+            <div class="violence-icon" aria-hidden="true">🩹</div>
+            <h2>Violência física</h2>
+            <p>
+              Ações que atingem ou colocam em risco a integridade ou a saúde
+              corporal, como empurrões, tapas, socos e outras agressões.
+            </p>
+            <a href="violencia-fisica.html">Conhecer essa violência →</a>
+          </article>
+
+          <article class="violence-card">
+            <div class="violence-icon" aria-hidden="true">💔</div>
+            <h2>Violência psicológica</h2>
+            <p>
+              Condutas que causam dano emocional, prejudicam a autoestima
+              ou procuram controlar decisões, comportamentos e relações.
+            </p>
+            <a href="violencia-psicologica.html">Conhecer essa violência →</a>
+          </article>
+
+          <article class="violence-card">
+            <div class="violence-icon" aria-hidden="true">🛑</div>
+            <h2>Violência sexual</h2>
+            <p>
+              Atos que constrangem alguém a presenciar, manter ou participar
+              de práticas sexuais sem consentimento, além de outras formas
+              previstas na legislação.
+            </p>
+            <a href="violencia-sexual.html">Conhecer essa violência →</a>
+          </article>
+
+          <article class="violence-card">
+            <div class="violence-icon" aria-hidden="true">💳</div>
+            <h2>Violência patrimonial</h2>
+            <p>
+              Retenção, subtração ou destruição de objetos, documentos,
+              recursos financeiros e bens, incluindo os destinados às
+              necessidades da mulher.
+            </p>
+            <a href="violencia-patrimonial.html">Conhecer essa violência →</a>
+          </article>
+
+          <article class="violence-card">
+            <div class="violence-icon" aria-hidden="true">🗣️</div>
+            <h2>Violência moral</h2>
+            <p>
+              Condutas como calúnia, difamação e injúria que atingem a honra
+              ou a reputação da mulher.
+            </p>
+            <a href="violencia-moral.html">Conhecer essa violência →</a>
+          </article>
+
+          <article class="violence-card">
+            <div class="violence-icon" aria-hidden="true">📱</div>
+            <h2>Violência digital</h2>
+            <p>
+              Abusos praticados com recursos digitais, como perseguição
+              on-line, ameaças, divulgação não consentida de imagens íntimas
+              e invasões de privacidade.
+            </p>
+            <a href="violencia-digital.html">Conhecer essa violência →</a>
+          </article>
+
+          <article class="violence-card">
+            <div class="violence-icon" aria-hidden="true">🧩</div>
+            <h2>Violência vicária</h2>
+            <p>
+              Quando alguém procura causar sofrimento a uma mulher por meio
+              de pessoas importantes para ela, como filhos ou familiares.
+              A expressão é utilizada para descrever essa dinâmica de abuso.
+            </p>
+            <a href="violencia-vicaria.html">Conhecer essa violência →</a>
+          </article>
+        </div>
+
+        <div class="violence-notice">
+          <strong>Importante:</strong> uma situação pode envolver mais de
+          uma forma de violência ao mesmo tempo. Esta página é educativa;
+          a avaliação de um caso concreto depende de suas circunstâncias.
+        </div>
+      </div>
+    </section>
+
+    <section class="violence-section">
+      <div class="container">
+        <div class="help-banner">
+          <span class="eyebrow">Você merece ser respeitada</span>
+          <h2>Está passando por uma situação difícil?</h2>
+          <p>
+            Você pode buscar orientação mesmo que ainda tenha dúvidas sobre
+            o que está acontecendo. Se puder, converse com alguém de confiança
+            e procure um serviço especializado.
+          </p>
+          <a class="btn" href="apoio.html">Ver opções de apoio</a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer><div class="container"><h3>LIA — Local • Informação • Apoio</h3><p>Projeto de informação, acolhimento e orientação para mulheres.</p><p>Desenvolvido por Marcely Castro Rodrigues e Mikaela Castro Bonfim.</p><p>Contribuição e orientação: Hellen Goulart Orlandi — Assistente Social — CRESS 58321.</p></div></footer>
+
+  <footer>
+    <a class="logo" href="index.html">LIA</a>
+    <p>Local de Informação e Apoio</p>
+
+    <div class="footer-links">
+      <a href="index.html">Início</a>
+      <a href="projeto.html">O projeto</a>
+      <a href="violencias.html">Tipos de violência</a>
+      <a href="apoio.html">Preciso de apoio</a>
+    </div>
+
+    <p>Projeto acadêmico dedicado à informação, ao acolhimento e à orientação de mulheres.</p>
+    <p>© 2026 LIA — Todos os direitos reservados.</p>
+  </footer>
 </body>
 </html>
