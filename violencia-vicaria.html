@@ -4,11 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Entenda o que é violência vicária, como identificá-la e onde buscar ajuda.">
+  <meta name="description" content="Conheça a violência vicária, saiba identificar seus sinais e encontre caminhos para buscar ajuda.">
   <title>Violência Vicária | LIA</title>
-
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="lia.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,300 +13,641 @@
 
   <style>
     :root {
-      --vv-purple: #80558f;
-      --vv-dark: #49334f;
-      --vv-pink: #d78eaf;
-      --vv-light: #fbf5fa;
-      --vv-border: #f0dce9;
-      --vv-text: #65566b;
+      --purple: #80558f;
+      --purple-dark: #50365a;
+      --purple-soft: #eee2f2;
+      --pink: #d98eaf;
+      --pink-soft: #fff1f7;
+      --background: #fcf9fc;
+      --white: #ffffff;
+      --text: #6d6071;
+      --muted: #96879a;
+      --border: #eedfeb;
+      --shadow: 0 15px 45px rgba(89, 54, 96, 0.07);
     }
 
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      margin: 0;
-      background: #fcf8fc;
-      color: var(--vv-text);
-      font-family: "DM Sans", sans-serif;
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
     }
 
-    .vv-header {
+    body {
+      background: var(--background);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* CABEÇALHO */
+
+    .header {
       width: 100%;
-      min-height: 78px;
+      min-height: 82px;
       padding: 15px 7%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(255,255,255,.95);
-      border-bottom: 1px solid var(--vv-border);
+      gap: 20px;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
     }
 
-    .vv-logo {
-      color: var(--vv-dark);
+    .logo {
+      color: var(--purple-dark);
       font-family: "Playfair Display", serif;
-      font-size: 32px;
+      font-size: 34px;
       font-weight: 700;
       text-decoration: none;
+      letter-spacing: -1px;
     }
 
-    .vv-logo span {
-      color: var(--vv-pink);
+    .logo span {
+      color: var(--pink);
     }
 
-    .vv-header a.back {
-      padding: 11px 20px;
-      border: 1px solid var(--vv-border);
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 19px;
+      border: 1px solid var(--border);
       border-radius: 30px;
-      color: var(--vv-purple);
       text-decoration: none;
-      font-weight: 600;
-      transition: .2s;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--purple);
+      background: white;
+      transition: .25s;
     }
 
-    .vv-header a.back:hover {
-      background: var(--vv-purple);
+    .header-link:hover {
+      background: var(--purple-soft);
+      transform: translateY(-2px);
+    }
+
+    .header-link.primary {
+      background: var(--purple);
       color: white;
+      border-color: var(--purple);
     }
 
-    .vv-page {
-      width: min(1100px, 90%);
-      margin: 55px auto;
+    .header-link.primary:hover {
+      background: var(--purple-dark);
     }
 
-    .vv-hero {
+    /* CONTEÚDO PRINCIPAL */
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px;
+      margin: 30px 0 22px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .breadcrumb a {
+      color: var(--purple);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    /* HERO */
+
+    .hero {
       position: relative;
-      padding: 55px 50px;
-      border: 1px solid var(--vv-border);
-      border-radius: 28px;
-      background: linear-gradient(135deg, #f9eaf3, #f3eafa, #fff);
       overflow: hidden;
+      padding: 65px 65px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 90% 20%, rgba(222, 174, 213, .27), transparent 30%),
+        linear-gradient(120deg, #f9edf5 0%, #f2eafa 55%, #fff9fc 100%);
+      box-shadow: var(--shadow);
     }
 
-    .vv-tag {
-      display: inline-block;
+    .hero::after {
+      content: "✿";
+      position: absolute;
+      right: 65px;
+      bottom: 5px;
+      color: rgba(128, 85, 143, .10);
+      font-size: 190px;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 740px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
       padding: 9px 16px;
-      background: #fff2f8;
-      border: 1px solid #efd6e5;
+      border: 1px solid #efd8e6;
       border-radius: 30px;
-      color: #a6537c;
-      font-size: 12px;
+      background: rgba(255,255,255,.65);
+      color: #ad6386;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
     }
 
-    .vv-hero h1 {
-      max-width: 750px;
-      margin: 23px 0 15px;
-      color: var(--vv-dark);
+    .hero h1 {
+      margin: 25px 0 17px;
+      color: var(--purple-dark);
       font-family: "Playfair Display", serif;
-      font-size: clamp(36px, 5vw, 57px);
-      line-height: 1.13;
+      font-size: clamp(40px, 5.5vw, 64px);
+      font-weight: 700;
+      line-height: 1.12;
     }
 
-    .vv-hero h1 span {
-      color: var(--vv-purple);
+    .hero h1 span {
+      color: var(--purple);
       font-style: italic;
     }
 
-    .vv-hero p {
-      max-width: 760px;
-      font-size: 17px;
-      line-height: 1.9;
-    }
-
-    .vv-section {
-      margin-top: 35px;
-      padding: 35px;
-      background: white;
-      border: 1px solid var(--vv-border);
-      border-radius: 22px;
-      box-shadow: 0 8px 30px rgba(91, 55, 99, .045);
-    }
-
-    .vv-section h2 {
-      margin: 0 0 18px;
-      color: var(--vv-dark);
-      font-family: "Playfair Display", serif;
-      font-size: 29px;
-    }
-
-    .vv-section p {
+    .hero-description {
+      max-width: 680px;
+      color: #74647a;
       font-size: 16px;
       line-height: 1.9;
-      margin: 0 0 15px;
     }
 
-    .vv-examples {
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 29px;
+    }
+
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 49px;
+      padding: 13px 23px;
+      border: 1px solid var(--purple);
+      border-radius: 13px;
+      background: var(--purple);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: .25s;
+    }
+
+    .hero-button:hover {
+      background: var(--purple-dark);
+      transform: translateY(-2px);
+    }
+
+    .hero-button.secondary {
+      background: white;
+      color: var(--purple);
+      border-color: var(--border);
+    }
+
+    .hero-button.secondary:hover {
+      background: var(--pink-soft);
+    }
+
+    /* FRASE DE DESTAQUE */
+
+    .highlight {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 30px 0;
+      padding: 25px 30px;
+      border: 1px solid #f0dce9;
+      border-radius: 18px;
+      background: var(--pink-soft);
+    }
+
+    .highlight-icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: white;
+      color: var(--pink);
+      font-size: 23px;
+    }
+
+    .highlight p {
+      color: var(--purple-dark);
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      font-style: italic;
+    }
+
+    /* SEÇÕES */
+
+    .section {
+      margin: 30px 0;
+      padding: 38px;
+      border: 1px solid var(--border);
+      border-radius: 23px;
+      background: white;
+      box-shadow: 0 8px 30px rgba(89, 54, 96, .035);
+    }
+
+    .section-heading {
+      margin-bottom: 22px;
+    }
+
+    .section-label {
+      display: block;
+      margin-bottom: 8px;
+      color: #bd7b9e;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .section h2 {
+      color: var(--purple-dark);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(26px, 3vw, 34px);
+      line-height: 1.3;
+    }
+
+    .section p {
+      margin-bottom: 14px;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* CARDS */
+
+    .cards-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
-      margin-top: 24px;
+      margin-top: 25px;
     }
 
-    .vv-card {
-      padding: 23px;
-      background: #fdf7fb;
-      border: 1px solid var(--vv-border);
-      border-radius: 17px;
+    .info-card {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fdf9fc;
+      transition: .25s;
     }
 
-    .vv-card .vv-icon {
-      width: 43px;
-      height: 43px;
+    .info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: #dfbfd5;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
       display: grid;
       place-items: center;
-      margin-bottom: 13px;
-      border-radius: 14px;
-      background: #f5e5f0;
-      color: var(--vv-purple);
-      font-size: 21px;
+      margin-bottom: 16px;
+      border-radius: 15px;
+      background: var(--purple-soft);
+      color: var(--purple);
+      font-size: 22px;
     }
 
-    .vv-card h3 {
-      margin: 0 0 9px;
-      color: var(--vv-dark);
-      font-size: 17px;
+    .info-card h3 {
+      margin-bottom: 9px;
+      color: var(--purple-dark);
+      font-size: 16px;
     }
 
-    .vv-card p {
+    .info-card p {
       margin: 0;
+      color: var(--text);
       font-size: 14px;
       line-height: 1.8;
     }
 
-    .vv-alert {
-      margin-top: 28px;
-      padding: 25px;
-      border-left: 5px solid var(--vv-pink);
-      border-radius: 12px;
-      background: #fff4f8;
-    }
+    /* LISTA DE SINAIS */
 
-    .vv-alert h3 {
-      margin: 0 0 10px;
-      color: var(--vv-dark);
-      font-family: "Playfair Display", serif;
-      font-size: 21px;
-    }
-
-    .vv-alert p {
-      margin: 0;
-      line-height: 1.8;
-    }
-
-    .vv-law {
-      padding: 25px;
-      margin-top: 22px;
-      border: 1px solid #e9d9ef;
-      border-radius: 16px;
-      background: #f8f2fa;
-    }
-
-    .vv-law strong {
-      color: var(--vv-purple);
-    }
-
-    .vv-help {
+    .sign-list {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      gap: 13px;
       margin-top: 22px;
+      list-style: none;
     }
 
-    .vv-help-card {
-      padding: 25px;
-      border-radius: 18px;
-      background: #f9f1f8;
-      border: 1px solid var(--vv-border);
-    }
-
-    .vv-help-card h3 {
-      margin: 0 0 8px;
-      color: var(--vv-dark);
-    }
-
-    .vv-number {
-      display: block;
-      margin: 10px 0;
-      color: var(--vv-purple);
-      font-size: 30px;
-      font-weight: 700;
-    }
-
-    .vv-help-card p {
-      margin: 0;
+    .sign-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      padding: 16px 18px;
+      border: 1px solid #f0e4ed;
+      border-radius: 13px;
+      background: #fdfafd;
       font-size: 14px;
       line-height: 1.7;
     }
 
-    .vv-source {
-      margin-top: 28px;
-      padding-top: 20px;
-      border-top: 1px solid var(--vv-border);
+    .check-icon {
+      width: 25px;
+      height: 25px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #f5e6f0;
+      color: var(--purple);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* ALERTA */
+
+    .alert-box {
+      margin-top: 27px;
+      padding: 25px 27px;
+      border: 1px solid #efd7e5;
+      border-left: 5px solid var(--pink);
+      border-radius: 15px;
+      background: #fff5f9;
+    }
+
+    .alert-box h3 {
+      margin-bottom: 8px;
+      color: var(--purple-dark);
+      font-family: "Playfair Display", serif;
+      font-size: 21px;
+    }
+
+    .alert-box p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* LEGISLAÇÃO */
+
+    .law-box {
+      margin-top: 20px;
+      padding: 27px;
+      border: 1px solid #e9d9ef;
+      border-radius: 17px;
+      background: #f8f2fa;
+    }
+
+    .law-box .law-title {
+      margin-bottom: 12px;
+      color: var(--purple);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .law-box p {
+      color: #65536c;
+      font-size: 14px;
+    }
+
+    .law-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--purple);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .law-link:hover {
+      text-decoration: underline;
+    }
+
+    /* AJUDA */
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .help-card {
+      padding: 26px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(145deg, #fff8fc, #f7eff9);
+    }
+
+    .help-card h3 {
+      margin-bottom: 8px;
+      color: var(--purple-dark);
+      font-size: 16px;
+    }
+
+    .help-number {
+      display: block;
+      margin: 7px 0;
+      color: var(--purple);
+      font-family: "Playfair Display", serif;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .help-card p {
+      margin: 0;
       font-size: 13px;
       line-height: 1.8;
     }
 
-    .vv-source a {
-      color: var(--vv-purple);
-      overflow-wrap: anywhere;
-    }
+    /* RODAPÉ */
 
-    .vv-footer {
-      padding: 28px 15px;
+    .footer {
+      margin-top: 65px;
+      padding: 38px 20px;
+      border-top: 1px solid var(--border);
+      background: white;
       text-align: center;
-      color: #89768e;
+    }
+
+    .footer-logo {
+      margin-bottom: 8px;
+      color: var(--purple-dark);
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .footer-logo span {
+      color: var(--pink);
+    }
+
+    .footer p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 18px 0;
+    }
+
+    .footer-links a {
+      color: var(--purple);
       font-size: 13px;
-    }
-
-    .vv-footer a {
-      color: var(--vv-purple);
-      text-decoration: none;
       font-weight: 600;
+      text-decoration: none;
     }
 
-    @media (max-width: 700px) {
-      .vv-header {
-        padding: 14px 5%;
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVIDADE */
+
+    @media (max-width: 760px) {
+      .header {
+        padding: 13px 5%;
+        min-height: 72px;
       }
 
-      .vv-logo {
-        font-size: 27px;
+      .logo {
+        font-size: 29px;
       }
 
-      .vv-header a.back {
-        padding: 9px 13px;
-        font-size: 13px;
+      .header-actions {
+        gap: 7px;
       }
 
-      .vv-page {
+      .header-link {
+        padding: 9px 12px;
+        font-size: 11px;
+      }
+
+      .container {
         width: 92%;
-        margin: 25px auto;
       }
 
-      .vv-hero {
-        padding: 32px 24px;
-        border-radius: 22px;
+      .breadcrumb {
+        margin-top: 22px;
+        font-size: 11px;
       }
 
-      .vv-hero p {
+      .hero {
+        padding: 38px 25px;
+        border-radius: 23px;
+      }
+
+      .hero::after {
+        right: 12px;
+        bottom: 0;
+        font-size: 110px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-button {
+        width: 100%;
+      }
+
+      .highlight {
+        padding: 20px;
+      }
+
+      .highlight p {
         font-size: 15px;
       }
 
-      .vv-section {
-        padding: 25px 21px;
+      .section {
+        padding: 27px 22px;
       }
 
-      .vv-section h2 {
-        font-size: 25px;
-      }
-
-      .vv-examples,
-      .vv-help {
+      .cards-grid,
+      .help-grid {
         grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .header {
+        align-items: flex-start;
+      }
+
+      .header-actions {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .header-link {
+        min-width: 130px;
+      }
+
+      .hero h1 {
+        font-size: 39px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
       }
     }
   </style>
@@ -317,228 +655,420 @@
 
 <body>
 
-  <header class="vv-header">
-    <a href="index.html" class="vv-logo">LIA<span>.</span></a>
-    <a href="violencias.html" class="back">← Voltar às violências</a>
+  <!-- CABEÇALHO -->
+  <header class="header">
+    <a href="index.html" class="logo" aria-label="LIA - Página inicial">
+      LIA<span>.</span>
+    </a>
+
+    <nav class="header-actions" aria-label="Navegação da página">
+      <a href="violencias.html" class="header-link">
+        ← Violências
+      </a>
+
+      <a href="index.html" class="header-link primary">
+        ♡ Voltar para o início
+      </a>
+    </nav>
   </header>
 
-  <main class="vv-page">
+  <main class="container">
 
-    <section class="vv-hero">
-      <span class="vv-tag">Informação e proteção</span>
+    <!-- CAMINHO DE NAVEGAÇÃO -->
+    <div class="breadcrumb">
+      <a href="index.html">Início</a>
+      <span>›</span>
+      <a href="violencias.html">Violências</a>
+      <span>›</span>
+      <span>Violência Vicária</span>
+    </div>
 
-      <h1>
-        Violência <span>vicária</span>
-      </h1>
+    <!-- APRESENTAÇÃO -->
+    <section class="hero">
+      <div class="hero-content">
 
-      <p>
-        A violência nem sempre é praticada diretamente contra a mulher.
-        Em algumas situações, o agressor utiliza pessoas importantes para
-        ela como forma de provocar sofrimento, medo, intimidação e controle.
-        Conhecer essa forma de violência é um passo importante para
-        identificá-la e buscar proteção.
-      </p>
+        <span class="eyebrow">
+          ✿ Informação, conscientização e proteção
+        </span>
+
+        <h1>
+          Violência <span>vicária</span>
+        </h1>
+
+        <p class="hero-description">
+          A violência contra a mulher também pode atingir pessoas que
+          fazem parte de sua vida. Quando alguém utiliza filhos, familiares
+          ou pessoas próximas para provocar sofrimento, medo ou exercer
+          controle sobre uma mulher, essa situação pode caracterizar
+          violência vicária.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#entenda" class="hero-button">
+            Entenda esse tipo de violência ↓
+          </a>
+
+          <a href="index.html" class="hero-button secondary">
+            ♡ Página inicial
+          </a>
+        </div>
+
+      </div>
     </section>
 
-    <section class="vv-section">
-      <h2>O que é violência vicária?</h2>
+    <!-- FRASE -->
+    <div class="highlight">
+      <div class="highlight-icon">♡</div>
+      <p>
+        O carinho, os vínculos e a família nunca devem ser usados como
+        instrumentos de ameaça ou controle.
+      </p>
+    </div>
+
+    <!-- O QUE É -->
+    <section class="section" id="entenda">
+
+      <div class="section-heading">
+        <span class="section-label">01 — Conhecimento</span>
+        <h2>O que é violência vicária?</h2>
+      </div>
 
       <p>
-        A violência vicária acontece quando uma pessoa pratica violência
-        contra filhos, familiares, dependentes ou integrantes da rede de
-        apoio de uma mulher com a intenção de atingi-la emocionalmente,
+        A violência vicária é uma forma de violência praticada contra
+        pessoas que possuem vínculos com a mulher, com a intenção de
+        atingi-la. O agressor pode utilizar filhos, familiares, dependentes
+        ou integrantes de sua rede de apoio para provocar sofrimento,
         puni-la, intimidá-la ou exercer controle sobre sua vida.
       </p>
 
       <p>
-        Nesse tipo de violência, o agressor utiliza os vínculos afetivos
-        da mulher como instrumento para causar sofrimento. As crianças,
-        familiares e pessoas próximas podem ser colocadas em situações
-        de ameaça, manipulação ou agressão.
+        Nesse contexto, os vínculos afetivos são utilizados como
+        instrumentos de ameaça e manipulação. A violência pode causar
+        consequências emocionais profundas tanto à mulher quanto às
+        pessoas que são atingidas diretamente.
       </p>
 
       <p>
-        É importante compreender que a violência vicária não deve ser
-        minimizada. Ela pode causar consequências emocionais profundas
-        tanto à mulher quanto às pessoas utilizadas pelo agressor.
+        Reconhecer essa situação é importante para compreender que a
+        violência doméstica e familiar não acontece somente por meio de
+        agressões direcionadas diretamente à mulher.
       </p>
+
     </section>
 
-    <section class="vv-section">
-      <h2>Como ela pode acontecer?</h2>
+    <!-- COMO ACONTECE -->
+    <section class="section">
+
+      <div class="section-heading">
+        <span class="section-label">02 — Identificação</span>
+        <h2>Como essa violência pode acontecer?</h2>
+      </div>
 
       <p>
-        A violência vicária pode se manifestar de diferentes maneiras.
-        Algumas situações que merecem atenção são:
+        A violência vicária pode aparecer de diferentes maneiras.
+        Alguns exemplos de comportamentos que merecem atenção são:
       </p>
 
-      <div class="vv-examples">
+      <div class="cards-grid">
 
-        <article class="vv-card">
-          <div class="vv-icon">♡</div>
-          <h3>Uso dos filhos para causar sofrimento</h3>
+        <article class="info-card">
+          <div class="card-icon">♡</div>
+          <h3>Ameaças envolvendo os filhos</h3>
           <p>
             Utilizar os filhos para ameaçar, intimidar ou provocar
             sofrimento emocional à mãe.
           </p>
         </article>
 
-        <article class="vv-card">
-          <div class="vv-icon">⌂</div>
+        <article class="info-card">
+          <div class="card-icon">⌂</div>
           <h3>Ameaças contra familiares</h3>
           <p>
-            Ameaçar pessoas da família com o objetivo de assustar,
-            controlar ou punir a mulher.
+            Ameaçar pessoas da família com a intenção de assustar,
+            punir ou controlar a mulher.
           </p>
         </article>
 
-        <article class="vv-card">
-          <div class="vv-icon">✧</div>
-          <h3>Manipulação da rede de apoio</h3>
+        <article class="info-card">
+          <div class="card-icon">✧</div>
+          <h3>Manipulação de pessoas próximas</h3>
           <p>
-            Manipular amigos e familiares para provocar conflitos,
-            afastar pessoas próximas ou isolar a mulher.
+            Utilizar familiares ou pessoas da rede de apoio para
+            provocar conflitos, isolamento ou sofrimento.
           </p>
         </article>
 
-        <article class="vv-card">
-          <div class="vv-icon">♡</div>
+        <article class="info-card">
+          <div class="card-icon">♡</div>
           <h3>Ameaças contra animais de estimação</h3>
           <p>
-            Ameaçar ou ferir animais de estimação para provocar medo,
-            sofrimento e sensação de insegurança.
+            Ameaçar ou ferir animais importantes para a mulher como
+            forma de provocar medo e sofrimento.
           </p>
         </article>
 
       </div>
+
     </section>
 
-    <section class="vv-section">
-      <h2>Quais são os sinais de alerta?</h2>
+    <!-- SINAIS -->
+    <section class="section">
+
+      <div class="section-heading">
+        <span class="section-label">03 — Atenção aos sinais</span>
+        <h2>Quais são os sinais de alerta?</h2>
+      </div>
 
       <p>
         Algumas atitudes podem indicar que os vínculos afetivos estão
-        sendo utilizados como forma de violência. É importante observar
-        situações como:
+        sendo utilizados como forma de violência. É importante observar:
       </p>
 
-      <ul style="line-height: 2.1; padding-left: 23px;">
-        <li>Ameaças envolvendo filhos ou pessoas próximas.</li>
-        <li>Uso de crianças para transmitir ameaças ou mensagens intimidatórias.</li>
-        <li>Tentativas de afastar a mulher de familiares e amigos.</li>
-        <li>Manipulação de pessoas próximas para prejudicá-la.</li>
-        <li>Ameaças contra pessoas ou animais importantes para ela.</li>
-        <li>Utilização dos vínculos familiares como forma de chantagem e controle.</li>
+      <ul class="sign-list">
+
+        <li>
+          <span class="check-icon">✓</span>
+          <span>Ameaças envolvendo filhos, familiares ou pessoas próximas.</span>
+        </li>
+
+        <li>
+          <span class="check-icon">✓</span>
+          <span>Utilização de crianças para transmitir ameaças ou mensagens intimidatórias.</span>
+        </li>
+
+        <li>
+          <span class="check-icon">✓</span>
+          <span>Tentativas de afastar a mulher de pessoas importantes em sua vida.</span>
+        </li>
+
+        <li>
+          <span class="check-icon">✓</span>
+          <span>Manipulação de familiares ou pessoas próximas para prejudicá-la.</span>
+        </li>
+
+        <li>
+          <span class="check-icon">✓</span>
+          <span>Ameaças contra pessoas ou animais importantes para a mulher.</span>
+        </li>
+
+        <li>
+          <span class="check-icon">✓</span>
+          <span>Uso dos vínculos familiares como forma de chantagem, intimidação ou controle.</span>
+        </li>
+
       </ul>
 
-      <div class="vv-alert">
-        <h3>Você não precisa enfrentar isso sozinha.</h3>
+      <div class="alert-box">
+        <h3>Você merece ser protegida.</h3>
         <p>
-          Se você reconhece alguma dessas situações em sua vida,
-          saiba que merece ser acolhida e protegida. Procurar orientação
-          especializada pode ajudar a compreender seus direitos e encontrar
-          caminhos seguros para buscar apoio.
+          Se você reconhece alguma dessas situações, saiba que não precisa
+          enfrentar tudo sozinha. Buscar orientação e apoio especializado
+          pode ajudar a compreender seus direitos e encontrar caminhos
+          mais seguros.
         </p>
       </div>
+
     </section>
 
-    <section class="vv-section">
-      <h2>O que diz a legislação?</h2>
+    <!-- CONSEQUÊNCIAS -->
+    <section class="section">
+
+      <div class="section-heading">
+        <span class="section-label">04 — Consequências</span>
+        <h2>Quais impactos essa violência pode causar?</h2>
+      </div>
 
       <p>
-        A Lei nº 15.384, de 9 de abril de 2026, alterou a Lei Maria da Penha
-        (Lei nº 11.340/2006) e incluiu a violência vicária entre as formas
+        A violência vicária pode provocar sofrimento emocional e
+        psicológico, afetando a segurança, a tranquilidade e a autonomia
+        da mulher. As pessoas utilizadas pelo agressor também podem
+        sofrer consequências físicas e emocionais.
+      </p>
+
+      <p>
+        Entre os possíveis impactos estão o medo constante, a ansiedade,
+        a insegurança, o sofrimento emocional e o enfraquecimento dos
+        vínculos familiares e sociais.
+      </p>
+
+      <p>
+        Por isso, é fundamental que essas situações sejam reconhecidas
+        e tratadas com seriedade, considerando a proteção de todas as
+        pessoas envolvidas.
+      </p>
+
+    </section>
+
+    <!-- LEGISLAÇÃO -->
+    <section class="section">
+
+      <div class="section-heading">
+        <span class="section-label">05 — Seus direitos</span>
+        <h2>O que diz a legislação brasileira?</h2>
+      </div>
+
+      <p>
+        A Lei nº 15.384, de 9 de abril de 2026, alterou a Lei Maria da
+        Penha e incluiu expressamente a violência vicária entre as formas
         de violência doméstica e familiar contra a mulher.
       </p>
 
-      <div class="vv-law">
+      <div class="law-box">
+
+        <div class="law-title">Lei Maria da Penha — Art. 7º, inciso VI</div>
+
         <p>
-          <strong>Art. 7º, inciso VI:</strong> a violência vicária é
-          entendida como qualquer forma de violência praticada contra
-          descendente, ascendente, dependente, enteado, parente, pessoa
-          sob guarda ou responsabilidade direta da mulher ou pessoa de
-          sua rede de apoio, com vistas a atingi-la.
+          A legislação define a violência vicária como qualquer forma de
+          violência praticada contra descendente, ascendente, dependente,
+          enteado, parente, pessoa sob guarda ou responsabilidade direta
+          da mulher ou pessoa de sua rede de apoio, com vistas a atingi-la.
         </p>
+
+        <a
+          class="law-link"
+          href="https://www2.camara.leg.br/legin/fed/lei/2026/lei-15384-9-abril-2026-798939-norma-pl.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Consultar a Lei nº 15.384/2026 →
+        </a>
+
       </div>
 
       <p style="margin-top: 20px;">
-        A legislação também criou o crime de vicaricídio, previsto no
+        A mesma lei também criou o crime de vicaricídio, previsto no
         artigo 121-B do Código Penal, para situações específicas de
         homicídio praticado com a finalidade de causar sofrimento,
         punição ou controle à mulher no contexto de violência doméstica
         e familiar.
       </p>
+
     </section>
 
-    <section class="vv-section">
-      <h2>Onde buscar ajuda?</h2>
+    <!-- ONDE BUSCAR AJUDA -->
+    <section class="section">
+
+      <div class="section-heading">
+        <span class="section-label">06 — Rede de apoio</span>
+        <h2>Onde buscar ajuda?</h2>
+      </div>
 
       <p>
-        Se você ou alguém próximo estiver passando por uma situação de
-        violência, existem serviços que oferecem orientação, acolhimento
-        e atendimento.
+        Existem serviços preparados para acolher, orientar e encaminhar
+        mulheres que enfrentam situações de violência. Em caso de
+        necessidade, procure um serviço de atendimento ou uma pessoa
+        de confiança.
       </p>
 
-      <div class="vv-help">
+      <div class="help-grid">
 
-        <div class="vv-help-card">
+        <article class="help-card">
           <h3>Central de Atendimento à Mulher</h3>
-          <span class="vv-number">180</span>
+          <span class="help-number">180</span>
           <p>
-            Serviço gratuito, disponível 24 horas, para orientação,
-            acolhimento e registro de denúncias de violência contra a mulher.
+            Serviço gratuito, disponível 24 horas, que oferece orientação,
+            acolhimento e recebe denúncias de violência contra a mulher.
           </p>
-        </div>
+        </article>
 
-        <div class="vv-help-card">
+        <article class="help-card">
           <h3>Polícia Militar</h3>
-          <span class="vv-number">190</span>
+          <span class="help-number">190</span>
           <p>
-            Deve ser acionada em situações de emergência ou quando houver
-            risco imediato à segurança de alguém.
+            Ligue em situações de emergência ou quando houver risco
+            imediato à segurança de alguém.
           </p>
-        </div>
+        </article>
 
       </div>
 
-      <div class="vv-alert">
-        <h3>Uma mensagem da LIA</h3>
+      <div class="alert-box">
+        <h3>Uma mensagem da LIA para você</h3>
         <p>
-          Seus vínculos afetivos não devem ser utilizados para ameaçar,
-          controlar ou machucar você. Você merece viver com respeito,
-          tranquilidade e segurança. Buscar ajuda é um direito.
+          Você tem direito a viver sem ameaças, medo ou controle.
+          Seus vínculos afetivos devem ser respeitados. Sua história,
+          sua voz e sua segurança importam. Você não está sozinha.
         </p>
       </div>
+
     </section>
 
-    <section class="vv-section">
-      <h2>Fontes e informações</h2>
+    <!-- FONTES -->
+    <section class="section">
+
+      <div class="section-heading">
+        <span class="section-label">07 — Referências</span>
+        <h2>Fontes e informações</h2>
+      </div>
 
       <p>
-        Os conteúdos desta página têm finalidade informativa e não
-        substituem atendimento jurídico, psicológico ou especializado.
+        Esta página possui finalidade informativa e educativa.
+        Seu conteúdo não substitui atendimento jurídico, psicológico
+        ou especializado.
       </p>
 
-      <div class="vv-source">
-        <strong>Legislação:</strong><br>
-        Lei nº 15.384, de 9 de abril de 2026.<br>
-        <a href="https://www.planalto.gov.br/" target="_blank" rel="noopener noreferrer">
-          Portal da Legislação – Governo Federal
-        </a>
-        <br><br>
+      <ul class="sign-list">
 
-        <strong>Orientações:</strong><br>
-        <a href="https://www.gov.br/mulheres/pt-br" target="_blank" rel="noopener noreferrer">
-          Ministério das Mulheres
-        </a>
-      </div>
+        <li>
+          <span class="check-icon">↗</span>
+          <span>
+            <strong>Legislação Federal:</strong>
+            <a class="law-link"
+               href="https://www.planalto.gov.br/"
+               target="_blank"
+               rel="noopener noreferrer">
+              Portal da Legislação
+            </a>
+          </span>
+        </li>
+
+        <li>
+          <span class="check-icon">↗</span>
+          <span>
+            <strong>Ministério das Mulheres:</strong>
+            <a class="law-link"
+               href="https://www.gov.br/mulheres/pt-br"
+               target="_blank"
+               rel="noopener noreferrer">
+              Acessar portal oficial
+            </a>
+          </span>
+        </li>
+
+        <li>
+          <span class="check-icon">↗</span>
+          <span>
+            <strong>Lei nº 15.384/2026:</strong>
+            <a class="law-link"
+               href="https://www2.camara.leg.br/legin/fed/lei/2026/lei-15384-9-abril-2026-798939-norma-pl.html"
+               target="_blank"
+               rel="noopener noreferrer">
+              Consultar texto legal
+            </a>
+          </span>
+        </li>
+
+      </ul>
+
     </section>
 
   </main>
 
-  <footer class="vv-footer">
-    <p>© 2026 LIA — Acolhimento, cuidado e proteção.</p>
-    <a href="index.html">Voltar para a página inicial</a>
+  <!-- RODAPÉ -->
+  <footer class="footer">
+
+    <div class="footer-logo">LIA<span>.</span></div>
+
+    <p>Acolhimento · Cuidado · Proteção</p>
+
+    <div class="footer-links">
+      <a href="index.html">Página inicial</a>
+      <a href="violencias.html">Tipos de violência</a>
+      <a href="index.html#recursos">Recursos</a>
+    </div>
+
+    <p>© 2026 LIA — Informação, respeito e acolhimento.</p>
+
   </footer>
 
 </body>
