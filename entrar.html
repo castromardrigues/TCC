@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entrar | LIA</title><link rel="stylesheet" href="lia.css">
+<style>
+body{background:#fcf9fd;color:#44394b;font-family:Arial,sans-serif;margin:0}
+main{max-width:480px;margin:8vh auto;padding:30px;background:#fff;border:1px solid #e9dfee;border-radius:18px;box-shadow:0 12px 35px #53366814}
+h1{color:#60457c}label{display:block;font-weight:bold;margin-top:18px}
+input{width:100%;padding:12px;box-sizing:border-box;border:1px solid #cfc1d6;border-radius:8px;margin-top:6px}
+button{padding:11px 22px;background:#80619f;color:white;border:0;border-radius:9px;margin-top:20px;cursor:pointer}
+a{color:#60457c}#status{min-height:24px}
+</style>
+<script src="dados/usuarios-exemplo.js" defer></script><script src="auth-demo.js" defer></script>
+</head><body>
+<!-- ATUALIZAÇÃO 16/11 — Login fictício sem alterar o layout original da LIA. -->
+<main><a href="index.html">← Voltar ao início</a><h1>Entrar na LIA</h1>
+<p>Use somente dados e senhas fictícios. Esta é uma demonstração escolar.</p>
+<form id="loginDemo"><label for="emailDemo">E-mail</label><input id="emailDemo" type="email" required>
+<label for="senhaDemo">Senha</label><input id="senhaDemo" type="password" minlength="6" required>
+<button type="submit">Entrar</button><p id="status" role="status" aria-live="polite"></p></form>
+<p>Não tem conta? <a href="conta.html">Criar minha conta</a></p>
+</main>
+<script>
+document.getElementById("loginDemo").addEventListener("submit",async function(event){
+ event.preventDefault();const botao=this.querySelector('button[type="submit"]');botao.disabled=true;
+ const status=document.getElementById("status");status.textContent="Verificando...";
+ try{const usuario=await window.LIAAuthDemo.entrar(document.getElementById("emailDemo").value,document.getElementById("senhaDemo").value);
+ status.textContent="Bem-vinda, "+usuario.nome+"!";location.href="index.html";}
+ catch(erro){status.textContent=erro.message||"Não foi possível entrar."}
+ finally{botao.disabled=false}
+});
+</script></body></html>

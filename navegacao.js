@@ -313,6 +313,13 @@
     }
 
     adicionarEstilos();
+    // ATUALIZAÇÃO 16/11 - carrega Entrar/Perfil/Sair nas páginas internas.
+    if (!document.querySelector('script[data-lia-auth-carregado]')) {
+      const script = document.createElement("script");
+      script.src = "auth-demo.js";
+      script.dataset.liaAuthCarregado = "";
+      document.body.appendChild(script);
+    }
   }
 
   if (document.readyState === "loading") {

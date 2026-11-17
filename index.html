@@ -35,6 +35,8 @@
 
   <!-- O lia.js já controla o menu, o idioma e a acessibilidade -->
   <script src="lia.js" defer></script>
+  <!-- ATUALIZAÇÃO 16/11 - login e menu de usuário -->
+  <script src="auth-demo.js" defer></script>
 </head>
 <body>
 
@@ -70,6 +72,10 @@
         <p id="welcomePhrase">Você não precisa ter todas as respostas hoje.</p>
       </div>
 
+      <!-- ATUALIZAÇÃO 16/11 - entrar com conta existente -->
+      <a class="welcome-create" href="entrar.html" style="margin-bottom: 10px;">
+        Já tenho uma conta — Entrar <span aria-hidden="true">♡</span>
+      </a>
       <a class="welcome-create" href="conta.html">
         Criar minha conta <span aria-hidden="true">♡</span>
       </a>

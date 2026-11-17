@@ -725,6 +725,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Sem cadastro: mantém a tela de boas-vindas visível.
     // Com cadastro: libera a página inicial.
-    welcomeScreen.hidden = accountCreated;
+    // ATUALIZAÇÃO 16/11 - cadastro existente não significa sessão ativa.
+    welcomeScreen.hidden = Boolean(window.LIAAuthDemo && window.LIAAuthDemo.atual());
   }
 });

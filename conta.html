@@ -10,6 +10,9 @@
   <meta name="description" content="Crie seu espaço pessoal na plataforma LIA.">
 
   <link rel="stylesheet" href="lia.css">
+  <!-- ATUALIZAÇÃO 16/11 - conexão didática -->
+  <script src="dados/usuarios-exemplo.js" defer></script>
+  <script src="auth-demo.js"></script>
 
   <style>
     :root {
@@ -605,6 +608,12 @@
             >
           </div>
 
+          <!-- ATUALIZAÇÃO 16/11 - senha fictícia de demonstração -->
+          <div class="account-field">
+            <label for="senhaCadastroDemo">Senha de demonstração</label>
+            <input id="senhaCadastroDemo" type="password" minlength="6" autocomplete="new-password" placeholder="Senha fictícia (mínimo 6 caracteres)">
+            <p class="account-hint">Não use senhas reais neste exercício.</p>
+          </div>
           <div class="account-field">
             <label for="phone">Telefone (opcional)</label>
             <input
@@ -973,6 +982,8 @@
 
       try {
         const data = getFormData();
+        // ATUALIZAÇÃO 16/11 - registra login demonstrativo, preservando o perfil.
+        window.LIAAuthDemo.registrar(data.name, data.email, document.getElementById("senhaCadastroDemo").value);
 
         // Primeiro salva as informações.
         localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
@@ -994,6 +1005,8 @@
     // Carregar dados salvos.
     document.getElementById("loadButton").addEventListener("click", () => {
       try {
+        const sessaoAtual = window.LIAAuthDemo && window.LIAAuthDemo.atual();
+        if (!sessaoAtual) { showMessage("Entre antes de carregar o perfil.", true); return; }
         const savedData = localStorage.getItem(STORAGE_KEY);
 
         if (!savedData) {
@@ -1003,6 +1016,10 @@
 
         const data = JSON.parse(savedData);
 
+        if (data && String(data.email||"").toLowerCase() !== sessaoAtual.email) {
+          showMessage("Este perfil não pertence à conta demonstrativa conectada.", true);
+          return;
+        }
         if (!data || typeof data !== "object" || Array.isArray(data)) {
           showMessage("Os dados salvos não são válidos.", true);
           return;
@@ -1027,6 +1044,9 @@
       try {
         localStorage.removeItem(STORAGE_KEY);
         localStorage.removeItem(ACCOUNT_CREATED_KEY);
+        // ATUALIZAÇÃO 16/11 - limpar login didático.
+        localStorage.removeItem("lia_demo_resumo_senha_v1");
+        sessionStorage.removeItem("lia_demo_sessao_v1");
 
         form.reset();
         photoData = "";
@@ -1045,12 +1065,13 @@
 
     // Recuperar dados existentes ao abrir a página.
     try {
-      const savedData = localStorage.getItem(STORAGE_KEY);
+      const sessaoAtual = window.LIAAuthDemo && window.LIAAuthDemo.atual();
+      const savedData = sessaoAtual ? localStorage.getItem(STORAGE_KEY) : null;
 
       if (savedData) {
         const data = JSON.parse(savedData);
 
-        if (data && typeof data === "object" && !Array.isArray(data)) {
+        if (data && typeof data === "object" && !Array.isArray(data) && String(data.email||"").toLowerCase()===sessaoAtual.email) {
           fillForm(data);
         }
       }
@@ -1059,6 +1080,14 @@
     }
 
     updateProfilePreview();
+    // ATUALIZAÇÃO 16/11 — mostrar nome e e-mail do usuário de teste.
+    const usuarioConectado = window.LIAAuthDemo && window.LIAAuthDemo.atual();
+    if (usuarioConectado) {
+      document.getElementById("profileName").textContent = usuarioConectado.nome;
+      document.getElementById("profileEmail").textContent = usuarioConectado.email;
+      const titulo = document.querySelector(".account-hero h1");
+      if (titulo) titulo.textContent = "Meu perfil";
+    }
   </script>
 
 </body>
